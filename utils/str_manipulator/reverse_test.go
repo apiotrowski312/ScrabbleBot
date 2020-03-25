@@ -6,7 +6,7 @@ import (
 	"github.com/bmizerany/assert"
 )
 
-func Test_reverse(t *testing.T) {
+func TestReverse(t *testing.T) {
 	toReverse := Reverse("Hello")
 	pattern := "olleH"
 	assert.Equal(t, toReverse, pattern, "The two words should be the same.")

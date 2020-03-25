@@ -1,6 +1,12 @@
 package gaddag
 
-import "github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+import (
+	"bufio"
+	"log"
+	"os"
+
+	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+)
 
 func (n *node) addWord(word string) {
 	for idx := range word {
@@ -27,4 +33,29 @@ func (n *node) addWord(word string) {
 
 		}
 	}
+}
+
+func CreateGraph(filename string) (*node, error) {
+	root := &node{
+		children: map[rune]node{},
+	}
+
+	f, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
+	if err != nil {
+		log.Fatalf("open file error: %v", err)
+		return nil, err
+	}
+	defer f.Close()
+
+	sc := bufio.NewScanner(f)
+	for sc.Scan() {
+		word := sc.Text()
+		root.addWord(word)
+	}
+	if err := sc.Err(); err != nil {
+		log.Fatalf("scan file error: %v", err)
+		return nil, err
+	}
+
+	return root, nil
 }
