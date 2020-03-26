@@ -11,7 +11,6 @@ import (
 
 type letterValue map[rune]int
 type tileBag map[rune]int
-type rack []rune
 
 func LoadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 	csvFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
