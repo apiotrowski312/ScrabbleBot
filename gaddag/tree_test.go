@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestGraphGet(t *testing.T) {
+func Test_GraphGet(t *testing.T) {
 	g := &node{
 		children: map[rune]node{},
 	}
@@ -36,7 +36,7 @@ func TestGraphGet(t *testing.T) {
 	})
 }
 
-func TestGraphAdd(t *testing.T) {
+func Test_GraphAdd(t *testing.T) {
 	g := node{
 		children: map[rune]node{},
 	}

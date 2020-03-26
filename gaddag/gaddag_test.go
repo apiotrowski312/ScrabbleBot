@@ -7,7 +7,7 @@ import (
 	"github.com/bmizerany/assert"
 )
 
-func TestGaddagAddOneWord(t *testing.T) {
+func Test_GaddagAddWord_One(t *testing.T) {
 	gd := node{
 		children: map[rune]node{},
 	}
@@ -78,7 +78,7 @@ func TestGaddagAddOneWord(t *testing.T) {
 	})
 }
 
-func TestGaddagAddFiveWords(t *testing.T) {
+func Test_GaddagAddWords_Five(t *testing.T) {
 	gd := node{
 		children: map[rune]node{},
 	}
@@ -175,7 +175,7 @@ func TestGaddagAddFiveWords(t *testing.T) {
 	})
 }
 
-func TestCreateGraph(t *testing.T) {
+func Test_CreateGraph(t *testing.T) {
 	wNode := node{
 		isWord: false,
 		children: map[rune]node{
@@ -266,19 +266,19 @@ func TestCreateGraph(t *testing.T) {
 	})
 }
 
-func BenchmarkCreateGraph5Words(b *testing.B) {
+func Benchmark_CreateGraph_5Words(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		CreateGraph("../exampleData/tiny_english.txt")
 	}
 }
 
-func BenchmarkCreateGraph2kWords(b *testing.B) {
+func Benchmark_CreateGraph_2kWords(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		CreateGraph("../exampleData/2k_english.txt")
 	}
 }
 
-func BenchmarkCreateGraph20kWords(b *testing.B) {
+func Benchmark_CreateGraph_20kWords(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		CreateGraph("../exampleData/20k_english.txt")
 	}
