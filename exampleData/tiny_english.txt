@@ -3,3 +3,7 @@ words
 work
 worthless
 worthful
+book
+books
+boss
+sos

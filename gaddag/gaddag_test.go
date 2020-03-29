@@ -1,6 +1,7 @@
 package gaddag
 
 import (
+	"errors"
 	"reflect"
 	"testing"
 
@@ -8,25 +9,25 @@ import (
 )
 
 func Test_GaddagAddWord_One(t *testing.T) {
-	gd := node{
-		children: map[rune]node{},
+	gd := Node{
+		children: map[rune]Node{},
 	}
 
-	wNode := node{
+	wNode := Node{
 		isWord: false,
-		children: map[rune]node{
-			'.': node{
+		children: map[rune]Node{
+			'.': Node{
 				isWord: false,
-				children: map[rune]node{
-					'o': node{
+				children: map[rune]Node{
+					'o': Node{
 						isWord: false,
-						children: map[rune]node{
-							'r': node{
+						children: map[rune]Node{
+							'r': Node{
 								isWord: false,
-								children: map[rune]node{
-									'd': node{
+								children: map[rune]Node{
+									'd': Node{
 										isWord:   true,
-										children: map[rune]node{},
+										children: map[rune]Node{},
 									},
 								},
 							},
@@ -37,21 +38,21 @@ func Test_GaddagAddWord_One(t *testing.T) {
 		},
 	}
 
-	rNode := node{
+	rNode := Node{
 		isWord: false,
-		children: map[rune]node{
-			'o': node{
+		children: map[rune]Node{
+			'o': Node{
 				isWord: false,
-				children: map[rune]node{
-					'w': node{
+				children: map[rune]Node{
+					'w': Node{
 						isWord: false,
-						children: map[rune]node{
-							'.': node{
+						children: map[rune]Node{
+							'.': Node{
 								isWord: false,
-								children: map[rune]node{
-									'd': node{
+								children: map[rune]Node{
+									'd': Node{
 										isWord:   true,
-										children: map[rune]node{},
+										children: map[rune]Node{},
 									},
 								},
 							},
@@ -79,53 +80,53 @@ func Test_GaddagAddWord_One(t *testing.T) {
 }
 
 func Test_GaddagAddWords_Five(t *testing.T) {
-	gd := node{
-		children: map[rune]node{},
+	gd := Node{
+		children: map[rune]Node{},
 	}
 
-	wNode := node{
+	wNode := Node{
 		isWord: false,
-		children: map[rune]node{
-			'.': node{
+		children: map[rune]Node{
+			'.': Node{
 				isWord: false,
-				children: map[rune]node{
-					'o': node{
+				children: map[rune]Node{
+					'o': Node{
 						isWord: false,
-						children: map[rune]node{
-							'r': node{
+						children: map[rune]Node{
+							'r': Node{
 								isWord: false,
-								children: map[rune]node{
-									'k': node{
+								children: map[rune]Node{
+									'k': Node{
 										isWord:   true,
-										children: map[rune]node{},
+										children: map[rune]Node{},
 									},
-									'd': node{
+									'd': Node{
 										isWord: true,
-										children: map[rune]node{
-											's': node{
+										children: map[rune]Node{
+											's': Node{
 												isWord:   true,
-												children: map[rune]node{},
+												children: map[rune]Node{},
 											},
 										},
 									},
-									't': node{
+									't': Node{
 										isWord: false,
-										children: map[rune]node{
-											'h': node{
+										children: map[rune]Node{
+											'h': Node{
 												isWord: false,
-												children: map[rune]node{
-													'l': node{
+												children: map[rune]Node{
+													'l': Node{
 														isWord: false,
-														children: map[rune]node{
-															'e': node{
+														children: map[rune]Node{
+															'e': Node{
 																isWord: false,
-																children: map[rune]node{
-																	's': node{
+																children: map[rune]Node{
+																	's': Node{
 																		isWord: false,
-																		children: map[rune]node{
-																			's': node{
+																		children: map[rune]Node{
+																			's': Node{
 																				isWord:   true,
-																				children: map[rune]node{},
+																				children: map[rune]Node{},
 																			},
 																		},
 																	},
@@ -133,15 +134,15 @@ func Test_GaddagAddWords_Five(t *testing.T) {
 															},
 														},
 													},
-													'f': node{
+													'f': Node{
 														isWord: false,
-														children: map[rune]node{
-															'u': node{
+														children: map[rune]Node{
+															'u': Node{
 																isWord: false,
-																children: map[rune]node{
-																	'l': node{
+																children: map[rune]Node{
+																	'l': Node{
 																		isWord:   true,
-																		children: map[rune]node{},
+																		children: map[rune]Node{},
 																	},
 																},
 															},
@@ -160,7 +161,7 @@ func Test_GaddagAddWords_Five(t *testing.T) {
 		},
 	}
 
-	t.Run("Test adding one word", func(t *testing.T) {
+	t.Run("Test adding five word", func(t *testing.T) {
 		gd.addWord("word")
 		gd.addWord("words")
 		gd.addWord("work")
@@ -176,49 +177,49 @@ func Test_GaddagAddWords_Five(t *testing.T) {
 }
 
 func Test_CreateGraph(t *testing.T) {
-	wNode := node{
+	wNode := Node{
 		isWord: false,
-		children: map[rune]node{
-			'.': node{
+		children: map[rune]Node{
+			'.': Node{
 				isWord: false,
-				children: map[rune]node{
-					'o': node{
+				children: map[rune]Node{
+					'o': Node{
 						isWord: false,
-						children: map[rune]node{
-							'r': node{
+						children: map[rune]Node{
+							'r': Node{
 								isWord: false,
-								children: map[rune]node{
-									'k': node{
+								children: map[rune]Node{
+									'k': Node{
 										isWord:   true,
-										children: map[rune]node{},
+										children: map[rune]Node{},
 									},
-									'd': node{
+									'd': Node{
 										isWord: true,
-										children: map[rune]node{
-											's': node{
+										children: map[rune]Node{
+											's': Node{
 												isWord:   true,
-												children: map[rune]node{},
+												children: map[rune]Node{},
 											},
 										},
 									},
-									't': node{
+									't': Node{
 										isWord: false,
-										children: map[rune]node{
-											'h': node{
+										children: map[rune]Node{
+											'h': Node{
 												isWord: false,
-												children: map[rune]node{
-													'l': node{
+												children: map[rune]Node{
+													'l': Node{
 														isWord: false,
-														children: map[rune]node{
-															'e': node{
+														children: map[rune]Node{
+															'e': Node{
 																isWord: false,
-																children: map[rune]node{
-																	's': node{
+																children: map[rune]Node{
+																	's': Node{
 																		isWord: false,
-																		children: map[rune]node{
-																			's': node{
+																		children: map[rune]Node{
+																			's': Node{
 																				isWord:   true,
-																				children: map[rune]node{},
+																				children: map[rune]Node{},
 																			},
 																		},
 																	},
@@ -226,15 +227,15 @@ func Test_CreateGraph(t *testing.T) {
 															},
 														},
 													},
-													'f': node{
+													'f': Node{
 														isWord: false,
-														children: map[rune]node{
-															'u': node{
+														children: map[rune]Node{
+															'u': Node{
 																isWord: false,
-																children: map[rune]node{
-																	'l': node{
+																children: map[rune]Node{
+																	'l': Node{
 																		isWord:   true,
-																		children: map[rune]node{},
+																		children: map[rune]Node{},
 																	},
 																},
 															},
@@ -253,7 +254,7 @@ func Test_CreateGraph(t *testing.T) {
 		},
 	}
 
-	t.Run("Test adding one word", func(t *testing.T) {
+	t.Run("Test creating graph", func(t *testing.T) {
 		gaddagRoot, err := CreateGraph("../exampleData/tiny_english.txt")
 
 		assert.Equal(t, err, nil, "There should be no error.")
@@ -264,6 +265,26 @@ func Test_CreateGraph(t *testing.T) {
 		}
 
 	})
+}
+
+func Test_IsWordValid(t *testing.T) {
+	gaddagRoot, _ := CreateGraph("../exampleData/tiny_english.txt")
+
+	isOk, err := gaddagRoot.IsWordValid("w.ord")
+	assert.Equal(t, true, isOk)
+	assert.Equal(t, nil, err)
+	isOk, err = gaddagRoot.IsWordValid("w.ordlist")
+	assert.Equal(t, false, isOk)
+	assert.Equal(t, errors.New("Word w.ordlist is not in dictionary"), err)
+	isOk, err = gaddagRoot.IsWordValid("w.orthless")
+	assert.Equal(t, true, isOk)
+	assert.Equal(t, nil, err)
+	isOk, err = gaddagRoot.IsWordValid("w.orth")
+	assert.Equal(t, false, isOk)
+	assert.Equal(t, errors.New("Word w.orth is not in dictionary"), err)
+	isOk, err = gaddagRoot.IsWordValid("ob.ss")
+	assert.Equal(t, true, isOk)
+	assert.Equal(t, nil, err)
 }
 
 func Benchmark_CreateGraph_5Words(b *testing.B) {
@@ -281,5 +302,11 @@ func Benchmark_CreateGraph_2kWords(b *testing.B) {
 func Benchmark_CreateGraph_20kWords(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		CreateGraph("../exampleData/20k_english.txt")
+	}
+}
+
+func Benchmark_CreateGraph_280kWords(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
 	}
 }

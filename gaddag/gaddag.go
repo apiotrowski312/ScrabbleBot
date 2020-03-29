@@ -2,13 +2,15 @@ package gaddag
 
 import (
 	"bufio"
+	"errors"
+	"fmt"
 	"log"
 	"os"
 
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
 
-func (n *node) addWord(word string) {
+func (n *Node) addWord(word string) {
 	for idx := range word {
 
 		prefix := str_manipulator.Reverse(word[:len(word)-idx])
@@ -21,7 +23,7 @@ func (n *node) addWord(word string) {
 
 			if !isOk {
 				isEndOfWord := innerIndex == len(currentWord)-1
-				child = currentNode.add(character, node{
+				child = currentNode.add(character, Node{
 					isWord: isEndOfWord,
 				})
 
@@ -35,9 +37,27 @@ func (n *node) addWord(word string) {
 	}
 }
 
-func CreateGraph(filename string) (*node, error) {
-	root := &node{
-		children: map[rune]node{},
+func (n *Node) IsWordValid(word string) (bool, error) {
+	currentNode := n
+	var isOk bool
+	for _, letter := range word {
+		currentNode, isOk = currentNode.get(letter)
+
+		if !isOk {
+			return false, errors.New(fmt.Sprintf("Word %v is not in dictionary", word))
+		}
+	}
+
+	if currentNode.isWord {
+		return true, nil
+	} else {
+		return false, errors.New(fmt.Sprintf("Word %v is not in dictionary", word))
+	}
+}
+
+func CreateGraph(filename string) (*Node, error) {
+	root := &Node{
+		children: map[rune]Node{},
 	}
 
 	f, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)

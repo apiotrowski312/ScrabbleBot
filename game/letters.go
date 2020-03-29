@@ -12,7 +12,7 @@ import (
 type letterValue map[rune]int
 type tileBag map[rune]int
 
-func LoadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
+func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 	csvFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatalf("open file error: %v", err)
@@ -22,7 +22,6 @@ func LoadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 
 	r := csv.NewReader(csvFile)
 	r.Comment = '#'
-	r.TrimLeadingSpace = true
 
 	// This is created to omit first line of csv (headers)
 	if _, err = r.Read(); err != nil {

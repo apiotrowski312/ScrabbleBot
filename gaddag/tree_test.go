@@ -6,8 +6,8 @@ import (
 )
 
 func Test_GraphGet(t *testing.T) {
-	g := &node{
-		children: map[rune]node{},
+	g := &Node{
+		children: map[rune]Node{},
 	}
 
 	t.Run("Get children when nil", func(t *testing.T) {
@@ -19,9 +19,9 @@ func Test_GraphGet(t *testing.T) {
 		}
 	})
 
-	g = &node{
-		children: map[rune]node{
-			'w': node{
+	g = &Node{
+		children: map[rune]Node{
+			'w': Node{
 				isWord: false,
 			},
 		},
@@ -37,17 +37,17 @@ func Test_GraphGet(t *testing.T) {
 }
 
 func Test_GraphAdd(t *testing.T) {
-	g := node{
-		children: map[rune]node{},
+	g := Node{
+		children: map[rune]Node{},
 	}
 
-	exampleNode := node{
+	exampleNode := Node{
 		isWord:   false,
-		children: map[rune]node{},
+		children: map[rune]Node{},
 	}
 
 	t.Run("Add children when nil", func(t *testing.T) {
-		g.add('w', node{isWord: false})
+		g.add('w', Node{isWord: false})
 
 		if reflect.DeepEqual(g.children['w'], exampleNode) != true {
 			t.Errorf("Adding child to graph failed. Child: %v, example: %v", g.children['w'], exampleNode)
@@ -55,22 +55,22 @@ func Test_GraphAdd(t *testing.T) {
 		}
 	})
 
-	g = node{
-		children: map[rune]node{},
+	g = Node{
+		children: map[rune]Node{},
 	}
-	exampleNode = node{
+	exampleNode = Node{
 		isWord: false,
-		children: map[rune]node{
-			'w': node{
+		children: map[rune]Node{
+			'w': Node{
 				isWord:   true,
-				children: map[rune]node{},
+				children: map[rune]Node{},
 			},
 		},
 	}
 
 	t.Run("Add children to children", func(t *testing.T) {
-		child := g.add('w', node{})
-		child.add('w', node{isWord: true})
+		child := g.add('w', Node{})
+		child.add('w', Node{isWord: true})
 
 		if reflect.DeepEqual(g.children['w'], exampleNode) != true {
 			t.Errorf("Adding child to graph failed. Child: %v, example: %v", g.children['w'], exampleNode)
