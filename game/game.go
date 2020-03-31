@@ -12,13 +12,7 @@ type game struct {
 }
 
 func (g game) PlaceWord(word string, startCord [2]int, horizontal bool) (int, error) {
-	isOk, err := g.dictionary.IsWordValid(word[:1] + "." + word[1:])
-
-	if !isOk {
-		return 0, err
-	}
-
-	isOk, err = g.isWordPlacedCorectly(word, startCord, horizontal)
+	isOk, err := g.isWordPlacedCorectly(word, startCord, horizontal)
 
 	if !isOk {
 		return 0, err
@@ -26,18 +20,26 @@ func (g game) PlaceWord(word string, startCord [2]int, horizontal bool) (int, er
 
 	g.board.placeWord(word, startCord, horizontal)
 
-	return 0, nil
+	score := g.countScore(word, startCord, horizontal)
+
+	return score, nil
 }
 
 func (g game) isWordPlacedCorectly(word string, startCord [2]int, horizontal bool) (bool, error) {
-	isOk, err := g.board.isWordInProperPlace(word, startCord, horizontal)
+	isOk, err := g.dictionary.IsWordValid(word[:1] + "." + word[1:])
+
 	if !isOk {
 		return false, err
 	}
 
-	additionalWords := g.board.collectAllUsedWords(word, startCord, horizontal)
+	isOk, err = g.board.isWordInProperPlace(word, startCord, horizontal)
+	if !isOk {
+		return false, err
+	}
 
-	for _, newWord := range additionalWords {
+	words, _ := g.board.collectAllUsedWords(word, startCord, horizontal)
+
+	for _, newWord := range words[1:] {
 		isOk, err = g.dictionary.IsWordValid(newWord)
 		if !isOk {
 			return false, err
@@ -45,4 +47,12 @@ func (g game) isWordPlacedCorectly(word string, startCord [2]int, horizontal boo
 	}
 
 	return isOk, err
+}
+
+func (g game) countScore(word string, startCord [2]int, horizontal bool) int {
+	words, tiles := g.board.collectAllUsedWords(word, startCord, horizontal)
+
+	score := g.letterValues.countPoints(words, tiles)
+
+	return score
 }

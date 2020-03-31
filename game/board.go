@@ -86,12 +86,33 @@ func (b board) isWordInProperPlace(word string, startCord [2]int, horizontal boo
 	return false, errors.New("There is no hooks. Wrong place")
 }
 
-func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal bool) []string {
-	words := []string{}
+func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal bool) ([]string, []string) {
+	// TODO: refactor (remove ifology)
+	words := []string{word}
+	tileTypes := []string{}
+
+	currentTile := ""
+	for index, _ := range word {
+		if horizontal {
+			currentTile += string(b[startCord[0]][startCord[1]+index].tileType)
+		} else {
+			currentTile += string(b[startCord[0]+index][startCord[1]].tileType)
+		}
+	}
+
+	tileTypes = append(tileTypes, currentTile)
+
 	for index, letter := range word {
 		currentWord := string(letter)
+		if horizontal && b[startCord[0]][startCord[1]+index].letter == letter {
+			continue
+		} else if !horizontal && b[startCord[0]+index][startCord[1]].letter == letter {
+			continue
+		}
+
 		if horizontal {
 			innerIndex := 1
+			currentTile = string(b[startCord[0]][startCord[1]+index].tileType)
 			for {
 				if startCord[0]-innerIndex == -1 {
 					break
@@ -119,6 +140,7 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 			}
 		} else {
 			innerIndex := 0
+			currentTile = string(b[startCord[0]][startCord[1]+index].tileType)
 			for {
 				if startCord[0]-innerIndex == -1 {
 					break
@@ -146,10 +168,11 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 		}
 		if currentWord != string(letter)+"." {
 			words = append(words, currentWord)
+			tileTypes = append(tileTypes, currentTile)
 		}
 	}
 
-	return words
+	return words, tileTypes
 }
 
 func (b board) placeWord(word string, startCord [2]int, horizontal bool) {

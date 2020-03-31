@@ -54,3 +54,40 @@ func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 	}
 	return &tB, &lV, nil
 }
+
+func (l letterValue) countPoints(words []string, tileTypes []string) int { // TODO: remove ifology
+	points := 0
+	for index, word := range words {
+		wordPoints := 0
+		multiplayer := 1
+		for innerIndex, letter := range word {
+			if letter == '.' {
+				continue
+			}
+
+			currentTile := '0'
+			if len(tileTypes[index])-1 >= innerIndex {
+				currentTile = rune(tileTypes[index][innerIndex])
+			}
+
+			if currentTile == '0' {
+				wordPoints += l[letter]
+			} else if currentTile == 's' {
+				wordPoints += l[letter]
+			} else if currentTile == 'l' {
+				wordPoints += 2 * l[letter]
+			} else if currentTile == 'L' {
+				wordPoints += 3 * l[letter]
+			} else if currentTile == 'w' {
+				multiplayer *= 2
+				wordPoints += l[letter]
+			} else if currentTile == 'W' {
+				multiplayer *= 3
+				wordPoints += l[letter]
+			}
+		}
+
+		points += multiplayer * wordPoints
+	}
+	return points
+}

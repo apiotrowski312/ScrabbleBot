@@ -29,3 +29,31 @@ func Test_loadTiles(t *testing.T) {
 	assert.Equal(t, letterValue, lV, "All letters should have proper values assigned")
 	assert.Equal(t, tileBag, tB, "Tile bag should contain all the tiles")
 }
+
+func Test_countPoints(t *testing.T) {
+	lV := letterValue{
+		'_': 0, 'e': 1, 'a': 1, 'i': 1, 'o': 1, 'n': 1,
+		'r': 1, 't': 1, 'l': 1, 's': 1, 'u': 1, 'd': 2,
+		'g': 2, 'b': 3, 'c': 3, 'm': 3, 'p': 3, 'f': 4,
+		'h': 4, 'v': 4, 'w': 4, 'y': 4, 'k': 5, 'j': 8,
+		'x': 8,
+	}
+
+	words := []string{"socks"}
+	tiles := []string{"0L0L0"}
+
+	points := lV.countPoints(words, tiles)
+	assert.Equal(t, 23, points, "Not working")
+
+	words = []string{"socks", "sdog."}
+	tiles = []string{"0L0L0", "0"}
+
+	points = lV.countPoints(words, tiles)
+	assert.Equal(t, 29, points, "Not working")
+
+	words = []string{"socks"}
+	tiles = []string{"WLslw"}
+
+	points = lV.countPoints(words, tiles)
+	assert.Equal(t, 108, points, "Not working")
+}
