@@ -15,7 +15,7 @@ type tileBag map[rune]int
 func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 	csvFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
 	if err != nil {
-		log.Fatalf("open file error: %v", err)
+		log.Fatalf("Fatal error when opening file %v with letters number and value. Stacktrace: %v", filename, err)
 		return nil, nil, err
 	}
 	defer csvFile.Close()
@@ -25,6 +25,7 @@ func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 
 	// This is created to omit first line of csv (headers)
 	if _, err = r.Read(); err != nil {
+		log.Fatalf("Fatal error while reading file %v. Wrong headers. Stacktrace: %v", filename, err)
 		return nil, nil, err
 	}
 
@@ -44,11 +45,13 @@ func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 
 		lV[letter], err = strconv.Atoi(strings.TrimSpace(record[1]))
 		if err != nil {
+			log.Fatalf("Fatal error while reading file %v. Wrong line content: %v. Stacktrace: %v", filename, record, err)
 			return nil, nil, err
 		}
 
 		tB[letter], err = strconv.Atoi(strings.TrimSpace(record[2]))
 		if err != nil {
+			log.Fatalf("Fatal error while reading file %v. Wrong line content: %v. Stacktrace: %v", filename, record, err)
 			return nil, nil, err
 		}
 	}

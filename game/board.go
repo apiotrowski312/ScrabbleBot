@@ -24,7 +24,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 
 	boardFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
 	if err != nil {
-		log.Fatalf("open file error: %v", err)
+		log.Fatalf("Fatal error when opening file with board template: %v", err)
 		return nil, err
 	}
 	defer boardFile.Close()
@@ -33,14 +33,16 @@ func loadBoardFromFile(filename string) (*board, error) {
 
 	board := board{}
 
+	fileLine := 0
 	for sc.Scan() {
+		fileLine++
 		word := strings.TrimSpace(sc.Text())
 		if word == "" || word[0] == '#' {
 			continue
 		}
 
 		if matched, _ := regexp.MatchString(tileType, word); !matched {
-			log.Fatalf("Error in %v. Board scheme not allowed character, scheme %v", filename, word)
+			log.Fatalf("Fatal error while loading board to struct. Error in %v file. Board scheme with wrong character in scheme %v/ Line %v", filename, word, fileLine)
 			return nil, errors.New("Wrong board scheme")
 		}
 
@@ -53,7 +55,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 
 	}
 	if err := sc.Err(); err != nil {
-		log.Fatalf("scan file error: %v", err)
+		log.Fatalf("Fatal error with scanning file: %v", err)
 		return nil, err
 	}
 

@@ -62,7 +62,7 @@ func CreateGraph(filename string) (*Node, error) {
 
 	f, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
 	if err != nil {
-		log.Fatalf("open file error: %v", err)
+		log.Fatalf("Fatal error while opening file: %v. Stacktrace: %v", filename, err)
 		return nil, err
 	}
 	defer f.Close()
@@ -73,7 +73,7 @@ func CreateGraph(filename string) (*Node, error) {
 		root.addWord(word)
 	}
 	if err := sc.Err(); err != nil {
-		log.Fatalf("scan file error: %v", err)
+		log.Fatalf("Scan file error: %v", err)
 		return nil, err
 	}
 
