@@ -37,16 +37,15 @@ func Test_GraphGet(t *testing.T) {
 }
 
 func Test_GraphAdd(t *testing.T) {
-	g := Node{
-		children: map[rune]Node{},
-	}
-
-	exampleNode := Node{
-		isWord:   false,
-		children: map[rune]Node{},
-	}
-
 	t.Run("Add children when nil", func(t *testing.T) {
+		g := Node{
+			children: map[rune]Node{},
+		}
+
+		exampleNode := Node{
+			isWord:   false,
+			children: map[rune]Node{},
+		}
 		g.add('w', Node{isWord: false})
 
 		if reflect.DeepEqual(g.children['w'], exampleNode) != true {
@@ -55,20 +54,19 @@ func Test_GraphAdd(t *testing.T) {
 		}
 	})
 
-	g = Node{
-		children: map[rune]Node{},
-	}
-	exampleNode = Node{
-		isWord: false,
-		children: map[rune]Node{
-			'w': Node{
-				isWord:   true,
-				children: map[rune]Node{},
-			},
-		},
-	}
-
 	t.Run("Add children to children", func(t *testing.T) {
+		g := Node{
+			children: map[rune]Node{},
+		}
+		exampleNode := Node{
+			isWord: false,
+			children: map[rune]Node{
+				'w': Node{
+					isWord:   true,
+					children: map[rune]Node{},
+				},
+			},
+		}
 		child := g.add('w', Node{})
 		child.add('w', Node{isWord: true})
 

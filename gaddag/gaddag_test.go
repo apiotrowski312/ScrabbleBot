@@ -2,81 +2,24 @@ package gaddag
 
 import (
 	"errors"
-	"reflect"
+	"flag"
+	"fmt"
 	"testing"
 
+	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/bmizerany/assert"
 )
+
+var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_GaddagAddWord_One(t *testing.T) {
 	gd := Node{
 		children: map[rune]Node{},
 	}
+	gd.addWord("word")
 
-	wNode := Node{
-		isWord: false,
-		children: map[rune]Node{
-			'.': Node{
-				isWord: false,
-				children: map[rune]Node{
-					'o': Node{
-						isWord: false,
-						children: map[rune]Node{
-							'r': Node{
-								isWord: false,
-								children: map[rune]Node{
-									'd': Node{
-										isWord:   true,
-										children: map[rune]Node{},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-	}
-
-	rNode := Node{
-		isWord: false,
-		children: map[rune]Node{
-			'o': Node{
-				isWord: false,
-				children: map[rune]Node{
-					'w': Node{
-						isWord: false,
-						children: map[rune]Node{
-							'.': Node{
-								isWord: false,
-								children: map[rune]Node{
-									'd': Node{
-										isWord:   true,
-										children: map[rune]Node{},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-	}
-
-	t.Run("Test adding one word", func(t *testing.T) {
-		gd.addWord("word")
-
-		if reflect.DeepEqual(gd.children['w'], wNode) != true {
-			t.Errorf("Adding new word to graph has errors. Node: %v is different from example: %v", gd.children['w'], wNode)
-			return
-		}
-
-		if reflect.DeepEqual(gd.children['r'], rNode) != true {
-			t.Errorf("Adding new word to graph has errors. Node: %v is different from example: %v", gd.children['r'], rNode)
-			return
-		}
-
-	})
+	expect := test_utils.GetGoldenFileString(t, fmt.Sprint(gd), t.Name(), *update)
+	assert.Equal(t, expect, fmt.Sprint(gd))
 }
 
 func Test_GaddagAddWords_Five(t *testing.T) {
@@ -84,187 +27,22 @@ func Test_GaddagAddWords_Five(t *testing.T) {
 		children: map[rune]Node{},
 	}
 
-	wNode := Node{
-		isWord: false,
-		children: map[rune]Node{
-			'.': Node{
-				isWord: false,
-				children: map[rune]Node{
-					'o': Node{
-						isWord: false,
-						children: map[rune]Node{
-							'r': Node{
-								isWord: false,
-								children: map[rune]Node{
-									'k': Node{
-										isWord:   true,
-										children: map[rune]Node{},
-									},
-									'd': Node{
-										isWord: true,
-										children: map[rune]Node{
-											's': Node{
-												isWord:   true,
-												children: map[rune]Node{},
-											},
-										},
-									},
-									't': Node{
-										isWord: false,
-										children: map[rune]Node{
-											'h': Node{
-												isWord: false,
-												children: map[rune]Node{
-													'l': Node{
-														isWord: false,
-														children: map[rune]Node{
-															'e': Node{
-																isWord: false,
-																children: map[rune]Node{
-																	's': Node{
-																		isWord: false,
-																		children: map[rune]Node{
-																			's': Node{
-																				isWord:   true,
-																				children: map[rune]Node{},
-																			},
-																		},
-																	},
-																},
-															},
-														},
-													},
-													'f': Node{
-														isWord: false,
-														children: map[rune]Node{
-															'u': Node{
-																isWord: false,
-																children: map[rune]Node{
-																	'l': Node{
-																		isWord:   true,
-																		children: map[rune]Node{},
-																	},
-																},
-															},
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-	}
+	gd.addWord("word")
+	gd.addWord("words")
+	gd.addWord("work")
+	gd.addWord("worthless")
+	gd.addWord("worthful")
 
-	t.Run("Test adding five word", func(t *testing.T) {
-		gd.addWord("word")
-		gd.addWord("words")
-		gd.addWord("work")
-		gd.addWord("worthless")
-		gd.addWord("worthful")
-
-		if reflect.DeepEqual(gd.children['w'], wNode) != true {
-			t.Errorf("Adding 5 words to graph has errors. Node: \n%v\n is different from example: \n%v\n", gd.children['w'], wNode)
-			return
-		}
-
-	})
+	expect := test_utils.GetGoldenFileString(t, fmt.Sprint(gd), t.Name(), *update)
+	assert.Equal(t, expect, fmt.Sprint(gd))
 }
 
 func Test_CreateGraph(t *testing.T) {
-	wNode := Node{
-		isWord: false,
-		children: map[rune]Node{
-			'.': Node{
-				isWord: false,
-				children: map[rune]Node{
-					'o': Node{
-						isWord: false,
-						children: map[rune]Node{
-							'r': Node{
-								isWord: false,
-								children: map[rune]Node{
-									'k': Node{
-										isWord:   true,
-										children: map[rune]Node{},
-									},
-									'd': Node{
-										isWord: true,
-										children: map[rune]Node{
-											's': Node{
-												isWord:   true,
-												children: map[rune]Node{},
-											},
-										},
-									},
-									't': Node{
-										isWord: false,
-										children: map[rune]Node{
-											'h': Node{
-												isWord: false,
-												children: map[rune]Node{
-													'l': Node{
-														isWord: false,
-														children: map[rune]Node{
-															'e': Node{
-																isWord: false,
-																children: map[rune]Node{
-																	's': Node{
-																		isWord: false,
-																		children: map[rune]Node{
-																			's': Node{
-																				isWord:   true,
-																				children: map[rune]Node{},
-																			},
-																		},
-																	},
-																},
-															},
-														},
-													},
-													'f': Node{
-														isWord: false,
-														children: map[rune]Node{
-															'u': Node{
-																isWord: false,
-																children: map[rune]Node{
-																	'l': Node{
-																		isWord:   true,
-																		children: map[rune]Node{},
-																	},
-																},
-															},
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-	}
+	gaddagRoot, err := CreateGraph("../exampleData/tiny_english.txt")
+	expect := test_utils.GetGoldenFileString(t, fmt.Sprint(gaddagRoot), t.Name(), *update)
 
-	t.Run("Test creating graph", func(t *testing.T) {
-		gaddagRoot, err := CreateGraph("../exampleData/tiny_english.txt")
-
-		assert.Equal(t, err, nil, "There should be no error.")
-
-		if reflect.DeepEqual(gaddagRoot.children['w'], wNode) != true {
-			t.Errorf("Adding 5 words to graph has errors. Node: \n%v\n is different from example: \n%v\n", gaddagRoot.children['w'], wNode)
-			return
-		}
-
-	})
+	assert.Equal(t, err, nil, "There should be no error.")
+	assert.Equal(t, expect, fmt.Sprint(gaddagRoot))
 }
 
 func Test_IsWordValid(t *testing.T) {

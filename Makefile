@@ -16,6 +16,11 @@ unit: ## Run unit tests in Docker
 	@echo -e ${GREEN}UNIT TESTS${NC}
 	@${DOCKER_TEST_COMMAND} go test ./... -cover " | ${COLOR_TEST_OUTPUT}
 
+golden-update: ## update golden files
+	@echo -e ${GREEN}UNIT TESTS${NC}
+	@${DOCKER_TEST_COMMAND} go test ./... -update" | ${COLOR_TEST_OUTPUT}
+
+
 bench: ## Run benchmark tests in Docker
 	@${DOCKER_TEST_COMMAND} go test ./... -bench=. -run=^a"
 

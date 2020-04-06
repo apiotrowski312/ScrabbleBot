@@ -5,32 +5,23 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/bmizerany/assert"
 )
 
 func Test_loadBoardFromFile(t *testing.T) {
 	b, err := loadBoardFromFile("../exampleData/scrable.board")
 
-	expectedBoard := &board{
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-	}
+	var expectedBoard board
+	test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, b, t.Name(), *update), &expectedBoard)
 
 	assert.Equal(t, nil, err)
-	assert.Equal(t, expectedBoard, b, fmt.Sprintf("Expected board: \n%v, got: \n%v", expectedBoard, b))
+	assert.Equal(t, &expectedBoard, b, fmt.Sprintf("Expected board: \n%v, got: \n%v", expectedBoard, b))
 }
 
 func Test_isWordInProperPlace(t *testing.T) {
-	testBoard := board{
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-	}
+	var testBoard board
+	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &testBoard)
 
 	isOk, err := testBoard.isWordInProperPlace("book", [2]int{2, 0}, true)
 
@@ -44,35 +35,24 @@ func Test_isWordInProperPlace(t *testing.T) {
 }
 
 func Test_placeWord(t *testing.T) {
-
-	testBoard := board{
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-	}
-
-	expectedBoard := board{
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W', letter: 'b'}, tile{tileType: '0', letter: 'o'}, tile{tileType: 's', letter: 'o'}, tile{tileType: '0', letter: 'k'}, tile{tileType: 'W'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-	}
+	var testBoard board
+	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &testBoard)
 
 	testBoard.placeWord("book", [2]int{2, 0}, true)
+
+	var expectedBoard board
+	test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
+
 	assert.Equal(t, expectedBoard, testBoard, fmt.Sprintf("Expected board: \n%v, got: \n%v", expectedBoard, testBoard))
 }
 
 func Test_collectAllUsedWords(t *testing.T) {
-
 	testBoard := board{
-		[]tile{tile{tileType: 'W', letter: 'g'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W', letter: 'b'}},
-		[]tile{tile{tileType: '0', letter: 'o'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0', letter: 'o'}},
-		[]tile{tile{tileType: 'W', letter: 'd'}, tile{tileType: '0'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W', letter: 's'}},
-		[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0', letter: 's'}},
-		[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W', letter: 'x'}},
+		[]tile{tile{TileType: 'W', Letter: 'g'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W', Letter: 'b'}},
+		[]tile{tile{TileType: '0', Letter: 'o'}, tile{TileType: 'L'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0', Letter: 'o'}},
+		[]tile{tile{TileType: 'W', Letter: 'd'}, tile{TileType: '0'}, tile{TileType: 's'}, tile{TileType: '0'}, tile{TileType: 'W', Letter: 's'}},
+		[]tile{tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0', Letter: 's'}},
+		[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W', Letter: 'x'}},
 	}
 
 	expected := []string{"socks", "sdog."}

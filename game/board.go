@@ -10,14 +10,14 @@ import (
 )
 
 var (
-	tileType = `[0lLwWs]`
+	TileType = `[0lLwWs]`
 )
 
 type board [][]tile
 
 type tile struct {
-	letter   rune
-	tileType rune
+	Letter   rune
+	TileType rune
 }
 
 func loadBoardFromFile(filename string) (*board, error) {
@@ -41,7 +41,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 			continue
 		}
 
-		if matched, _ := regexp.MatchString(tileType, word); !matched {
+		if matched, _ := regexp.MatchString(TileType, word); !matched {
 			log.Fatalf("Fatal error while loading board to struct. Error in %v file. Board scheme with wrong character in scheme %v/ Line %v", filename, word, fileLine)
 			return nil, errors.New("Wrong board scheme")
 		}
@@ -49,7 +49,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 		row := []tile{}
 
 		for _, l := range word {
-			row = append(row, tile{tileType: l})
+			row = append(row, tile{TileType: l})
 		}
 		board = append(board, row)
 
@@ -73,12 +73,12 @@ func (b board) isWordInProperPlace(word string, startCord [2]int, horizontal boo
 		} else {
 			currentTile = b[startCord[0]+index][startCord[1]]
 		}
-		if currentTile.letter != rune(0) && currentTile.letter != letter {
+		if currentTile.Letter != rune(0) && currentTile.Letter != letter {
 			return false, errors.New("You can't overwrite letter")
 		}
-		if currentTile.letter == letter {
+		if currentTile.Letter == letter {
 			isAddedCorectly = true
-		} else if currentTile.tileType == 's' {
+		} else if currentTile.TileType == 's' {
 			return true, nil
 		}
 	}
@@ -96,9 +96,9 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 	currentTile := ""
 	for index, _ := range word {
 		if horizontal {
-			currentTile += string(b[startCord[0]][startCord[1]+index].tileType)
+			currentTile += string(b[startCord[0]][startCord[1]+index].TileType)
 		} else {
-			currentTile += string(b[startCord[0]+index][startCord[1]].tileType)
+			currentTile += string(b[startCord[0]+index][startCord[1]].TileType)
 		}
 	}
 
@@ -106,20 +106,20 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 
 	for index, letter := range word {
 		currentWord := string(letter)
-		if horizontal && b[startCord[0]][startCord[1]+index].letter == letter {
+		if horizontal && b[startCord[0]][startCord[1]+index].Letter == letter {
 			continue
-		} else if !horizontal && b[startCord[0]+index][startCord[1]].letter == letter {
+		} else if !horizontal && b[startCord[0]+index][startCord[1]].Letter == letter {
 			continue
 		}
 
 		if horizontal {
 			innerIndex := 1
-			currentTile = string(b[startCord[0]][startCord[1]+index].tileType)
+			currentTile = string(b[startCord[0]][startCord[1]+index].TileType)
 			for {
 				if startCord[0]-innerIndex == -1 {
 					break
 				}
-				currentLetter := b[startCord[0]-innerIndex][startCord[1]+index].letter
+				currentLetter := b[startCord[0]-innerIndex][startCord[1]+index].Letter
 				if currentLetter == rune(0) {
 					break
 				}
@@ -133,7 +133,7 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 					break
 				}
 
-				currentLetter := b[startCord[0]+innerIndex][startCord[1]+index].letter
+				currentLetter := b[startCord[0]+innerIndex][startCord[1]+index].Letter
 				if currentLetter == rune(0) {
 					break
 				}
@@ -142,12 +142,12 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 			}
 		} else {
 			innerIndex := 0
-			currentTile = string(b[startCord[0]][startCord[1]+index].tileType)
+			currentTile = string(b[startCord[0]][startCord[1]+index].TileType)
 			for {
 				if startCord[0]-innerIndex == -1 {
 					break
 				}
-				currentLetter := b[startCord[0]+index][startCord[1]-innerIndex].letter
+				currentLetter := b[startCord[0]+index][startCord[1]-innerIndex].Letter
 				if currentLetter != ' ' {
 					break
 				}
@@ -160,7 +160,7 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 					break
 				}
 
-				currentLetter := b[startCord[0]+index][startCord[1]+innerIndex].letter
+				currentLetter := b[startCord[0]+index][startCord[1]+innerIndex].Letter
 				if currentLetter == ' ' {
 					break
 				}
@@ -185,6 +185,6 @@ func (b board) placeWord(word string, startCord [2]int, horizontal bool) {
 		} else {
 			tile = &b[startCord[0]+index][startCord[1]]
 		}
-		tile.letter = letter
+		tile.Letter = letter
 	}
 }

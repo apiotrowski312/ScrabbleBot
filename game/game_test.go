@@ -1,46 +1,40 @@
 package game
 
 import (
+	"flag"
 	"fmt"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
+	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/bmizerany/assert"
 )
 
+var update = flag.Bool("update", false, "update the golden files of this test")
+
 func Test_PlaceWord(t *testing.T) {
 	root, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
-
-	lV := letterValue{
-		'_': 0, 'e': 1, 'a': 1, 'i': 1, 'o': 1, 'n': 1,
-		'r': 1, 't': 1, 'l': 1, 's': 1, 'u': 1, 'd': 2,
-		'g': 2, 'b': 3, 'c': 3, 'm': 3, 'p': 3, 'f': 4,
-		'h': 4, 'v': 4, 'w': 4, 'y': 4, 'k': 5, 'j': 8,
-		'x': 8,
-	}
+	var lv letterValue
+	test_utils.LoadJSONFixture(t, "testdata/letters_values.fixture", &lv)
+	var b board
+	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &b)
 
 	gameForTest := game{
-		board: board{
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		},
+		board:        b,
 		dictionary:   *root,
-		letterValues: lV,
+		letterValues: lv,
 	}
 
 	gameAfterPlaceWord := game{
 		board: board{
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W', letter: 'b'}, tile{tileType: '0', letter: 'o'}, tile{tileType: 's', letter: 'o'}, tile{tileType: '0', letter: 'k'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
+			[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W'}},
+			[]tile{tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}},
+			[]tile{tile{TileType: 'W', Letter: 'b'}, tile{TileType: '0', Letter: 'o'}, tile{TileType: 's', Letter: 'o'}, tile{TileType: '0', Letter: 'k'}, tile{TileType: 'W'}},
+			[]tile{tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}},
+			[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W'}},
 		},
 		dictionary:   *root,
-		letterValues: lV,
+		letterValues: lv,
 	}
 
 	score, err := gameForTest.PlaceWord("book", [2]int{2, 0}, true)
@@ -51,38 +45,40 @@ func Test_PlaceWord(t *testing.T) {
 }
 
 func Test_Game_isWordPlacedCorectly(t *testing.T) {
-
 	root, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+	var lv letterValue
+	test_utils.LoadJSONFixture(t, "testdata/letters_values.fixture", &lv)
+	var b board
+	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &b)
 
-	gameForTest := game{
-		board: board{
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		},
-		dictionary: *root,
-	}
+	t.Run("Test correctly placed word", func(t *testing.T) {
+		gameForTest := game{
+			board:        b,
+			dictionary:   *root,
+			letterValues: lv,
+		}
 
-	isOk, err := gameForTest.isWordPlacedCorectly("book", [2]int{2, 0}, true)
+		isOk, err := gameForTest.isWordPlacedCorectly("book", [2]int{2, 0}, true)
 
-	assert.Equal(t, nil, err)
-	assert.Equal(t, true, isOk, fmt.Sprintf("Expected score: \n%v, got: \n%v", true, isOk))
+		assert.Equal(t, nil, err)
+		assert.Equal(t, true, isOk, fmt.Sprintf("Expected score: \n%v, got: \n%v", true, isOk))
+	})
 
-	gameForTest = game{
-		board: board{
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W', letter: 's'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L', letter: 'b'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0', letter: 'o'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0', letter: 'o'}, tile{tileType: 's'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-			[]tile{tile{tileType: '0'}, tile{tileType: 'L', letter: 's'}, tile{tileType: '0'}, tile{tileType: 'L'}, tile{tileType: '0'}},
-			[]tile{tile{tileType: 'W'}, tile{tileType: '0', letter: 's'}, tile{tileType: 'w'}, tile{tileType: '0'}, tile{tileType: 'W'}},
-		},
-		dictionary: *root,
-	}
+	t.Run("Test correctly placed word", func(t *testing.T) {
+		gameForTest := game{
+			board: board{
+				[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W', Letter: 's'}},
+				[]tile{tile{TileType: '0'}, tile{TileType: 'L', Letter: 'b'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0', Letter: 'o'}},
+				[]tile{tile{TileType: 'W'}, tile{TileType: '0', Letter: 'o'}, tile{TileType: 's'}, tile{TileType: '0'}, tile{TileType: 'W'}},
+				[]tile{tile{TileType: '0'}, tile{TileType: 'L', Letter: 's'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}},
+				[]tile{tile{TileType: 'W'}, tile{TileType: '0', Letter: 's'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W'}},
+			},
+			dictionary: *root,
+		}
 
-	isOk, err = gameForTest.isWordPlacedCorectly("books", [2]int{2, 0}, true)
+		isOk, err := gameForTest.isWordPlacedCorectly("books", [2]int{2, 0}, true)
 
-	assert.Equal(t, nil, err)
-	assert.Equal(t, true, isOk, fmt.Sprintf("Expected score: \n%v, got: \n%v", true, isOk))
+		assert.Equal(t, nil, err)
+		assert.Equal(t, true, isOk, fmt.Sprintf("Expected score: \n%v, got: \n%v", true, isOk))
+	})
 }
