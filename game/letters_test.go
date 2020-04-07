@@ -33,17 +33,17 @@ func Test_countPoints(t *testing.T) {
 	tiles := []string{"0L0L0"}
 
 	points := lv.countPoints(words, tiles)
-	assert.Equal(t, 23, points, "Not working")
+	assert.Equal(t, 23, points)
 
 	words = []string{"socks", "sdog."}
 	tiles = []string{"0L0L0", "0"}
 
 	points = lv.countPoints(words, tiles)
-	assert.Equal(t, 29, points, "Not working")
+	assert.Equal(t, 29, points)
 
 	words = []string{"socks"}
 	tiles = []string{"WLslw"}
 
 	points = lv.countPoints(words, tiles)
-	assert.Equal(t, 108, points, "Not working")
+	assert.Equal(t, 108, points)
 }

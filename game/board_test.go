@@ -2,7 +2,6 @@ package game
 
 import (
 	"errors"
-	"fmt"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
@@ -16,7 +15,7 @@ func Test_loadBoardFromFile(t *testing.T) {
 	test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, b, t.Name(), *update), &expectedBoard)
 
 	assert.Equal(t, nil, err)
-	assert.Equal(t, &expectedBoard, b, fmt.Sprintf("Expected board: \n%v, got: \n%v", expectedBoard, b))
+	assert.Equal(t, &expectedBoard, b)
 }
 
 func Test_isWordInProperPlace(t *testing.T) {
@@ -26,12 +25,12 @@ func Test_isWordInProperPlace(t *testing.T) {
 	isOk, err := testBoard.isWordInProperPlace("book", [2]int{2, 0}, true)
 
 	assert.Equal(t, nil, err)
-	assert.Equal(t, true, isOk, fmt.Sprintf("Expected board: \n%v, got: \n%v", true, isOk))
+	assert.Equal(t, true, isOk)
 
 	isOk, err = testBoard.isWordInProperPlace("book", [2]int{1, 0}, true)
 
 	assert.Equal(t, errors.New("There is no hooks. Wrong place"), err)
-	assert.Equal(t, false, isOk, fmt.Sprintf("Expected board: \n%v, got: \n%v", false, isOk))
+	assert.Equal(t, false, isOk)
 }
 
 func Test_placeWord(t *testing.T) {
@@ -43,7 +42,7 @@ func Test_placeWord(t *testing.T) {
 	var expectedBoard board
 	test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
 
-	assert.Equal(t, expectedBoard, testBoard, fmt.Sprintf("Expected board: \n%v, got: \n%v", expectedBoard, testBoard))
+	assert.Equal(t, expectedBoard, testBoard)
 }
 
 func Test_collectAllUsedWords(t *testing.T) {
@@ -58,6 +57,6 @@ func Test_collectAllUsedWords(t *testing.T) {
 	expected := []string{"socks", "sdog."}
 	expectedTiles := []string{"0L0L0", "0"}
 	words, tiles := testBoard.collectAllUsedWords("socks", [2]int{3, 0}, true)
-	assert.Equal(t, expected, words, fmt.Sprintf("Expected board: \n%v, got: \n%v", expected, words))
-	assert.Equal(t, expectedTiles, tiles, fmt.Sprintf("Expected board: \n%v, got: \n%v", expectedTiles, tiles))
+	assert.Equal(t, expected, words)
+	assert.Equal(t, expectedTiles, tiles)
 }

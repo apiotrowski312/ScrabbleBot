@@ -1,16 +1,17 @@
 package gaddag
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/bmizerany/assert"
 )
 
 func Test_GraphGet(t *testing.T) {
-	g := &Node{
-		children: map[rune]Node{},
-	}
 
 	t.Run("Get children when nil", func(t *testing.T) {
+		g := &Node{
+			children: map[rune]Node{},
+		}
 		_, isOk := g.get('w')
 
 		if isOk {
@@ -19,15 +20,14 @@ func Test_GraphGet(t *testing.T) {
 		}
 	})
 
-	g = &Node{
-		children: map[rune]Node{
-			'w': Node{
-				isWord: false,
-			},
-		},
-	}
-
 	t.Run("Get children when nil", func(t *testing.T) {
+		g := &Node{
+			children: map[rune]Node{
+				'w': Node{
+					isWord: false,
+				},
+			},
+		}
 		_, isOk := g.get('w')
 		if !isOk {
 			t.Errorf("Getting root child has error. There should be a child")
@@ -48,10 +48,7 @@ func Test_GraphAdd(t *testing.T) {
 		}
 		g.add('w', Node{isWord: false})
 
-		if reflect.DeepEqual(g.children['w'], exampleNode) != true {
-			t.Errorf("Adding child to graph failed. Child: %v, example: %v", g.children['w'], exampleNode)
-			return
-		}
+		assert.Equal(t, g.children['w'], exampleNode)
 	})
 
 	t.Run("Add children to children", func(t *testing.T) {
@@ -70,9 +67,6 @@ func Test_GraphAdd(t *testing.T) {
 		child := g.add('w', Node{})
 		child.add('w', Node{isWord: true})
 
-		if reflect.DeepEqual(g.children['w'], exampleNode) != true {
-			t.Errorf("Adding child to graph failed. Child: %v, example: %v", g.children['w'], exampleNode)
-			return
-		}
+		assert.Equal(t, g.children['w'], exampleNode)
 	})
 }

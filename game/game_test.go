@@ -2,7 +2,6 @@ package game
 
 import (
 	"flag"
-	"fmt"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -40,8 +39,8 @@ func Test_PlaceWord(t *testing.T) {
 	score, err := gameForTest.PlaceWord("book", [2]int{2, 0}, true)
 
 	assert.Equal(t, nil, err)
-	assert.Equal(t, gameAfterPlaceWord, gameForTest, fmt.Sprintf("Expected board: \n%v, got: \n%v", gameAfterPlaceWord, gameForTest))
-	assert.Equal(t, 30, score, fmt.Sprintf("Expected score: \n%v, got: \n%v", 29, score))
+	assert.Equal(t, gameAfterPlaceWord, gameForTest)
+	assert.Equal(t, 30, score)
 }
 
 func Test_Game_isWordPlacedCorectly(t *testing.T) {
@@ -61,7 +60,7 @@ func Test_Game_isWordPlacedCorectly(t *testing.T) {
 		isOk, err := gameForTest.isWordPlacedCorectly("book", [2]int{2, 0}, true)
 
 		assert.Equal(t, nil, err)
-		assert.Equal(t, true, isOk, fmt.Sprintf("Expected score: \n%v, got: \n%v", true, isOk))
+		assert.Equal(t, true, isOk)
 	})
 
 	t.Run("Test correctly placed word", func(t *testing.T) {
@@ -79,6 +78,6 @@ func Test_Game_isWordPlacedCorectly(t *testing.T) {
 		isOk, err := gameForTest.isWordPlacedCorectly("books", [2]int{2, 0}, true)
 
 		assert.Equal(t, nil, err)
-		assert.Equal(t, true, isOk, fmt.Sprintf("Expected score: \n%v, got: \n%v", true, isOk))
+		assert.Equal(t, true, isOk)
 	})
 }

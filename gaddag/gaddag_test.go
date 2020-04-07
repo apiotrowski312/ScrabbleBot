@@ -41,7 +41,7 @@ func Test_CreateGraph(t *testing.T) {
 	gaddagRoot, err := CreateGraph("../exampleData/tiny_english.txt")
 	expect := test_utils.GetGoldenFileString(t, fmt.Sprint(gaddagRoot), t.Name(), *update)
 
-	assert.Equal(t, err, nil, "There should be no error.")
+	assert.Equal(t, err, nil)
 	assert.Equal(t, expect, fmt.Sprint(gaddagRoot))
 }
 
