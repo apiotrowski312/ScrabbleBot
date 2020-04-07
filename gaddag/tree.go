@@ -1,5 +1,6 @@
 package gaddag
 
+// Node - struct on which whole gaddag is build.
 type Node struct {
 	children map[rune]Node
 	isWord   bool

@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	TileType = `[0lLwWs]`
+	tileType = `[0lLwWs]`
 )
 
 type board [][]tile
@@ -41,7 +41,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 			continue
 		}
 
-		if matched, _ := regexp.MatchString(TileType, word); !matched {
+		if matched, _ := regexp.MatchString(tileType, word); !matched {
 			log.Fatalf("Fatal error while loading board to struct. Error in %v file. Board scheme with wrong character in scheme %v/ Line %v", filename, word, fileLine)
 			return nil, errors.New("Wrong board scheme")
 		}
@@ -94,7 +94,7 @@ func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal boo
 	tileTypes := []string{}
 
 	currentTile := ""
-	for index, _ := range word {
+	for index := range word {
 		if horizontal {
 			currentTile += string(b[startCord[0]][startCord[1]+index].TileType)
 		} else {

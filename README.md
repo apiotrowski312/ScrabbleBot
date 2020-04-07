@@ -14,4 +14,4 @@ Call `make bench` to run all benchmark tests.
 
 - Improve tests. Print out expected and what test got.
 - Improve tests. Create small utils package to not reprint all variables
-- Improve tests. Add tests for more edge cases. (To improve code quality and coverage)
+- Improve tests. Add tests for more edge cases. (To improve code quality and coverage) 

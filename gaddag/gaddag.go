@@ -2,10 +2,10 @@ package gaddag
 
 import (
 	"bufio"
-	"errors"
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
@@ -37,6 +37,7 @@ func (n *Node) addWord(word string) {
 	}
 }
 
+// IsWordValid - check if provided string is marked as word in gaddag tree
 func (n *Node) IsWordValid(word string) (bool, error) {
 	currentNode := n
 	var isOk bool
@@ -44,17 +45,25 @@ func (n *Node) IsWordValid(word string) (bool, error) {
 		currentNode, isOk = currentNode.get(letter)
 
 		if !isOk {
-			return false, errors.New(fmt.Sprintf("Word %v is not in dictionary", word))
+			return false, n.wordIsNotInDictionary(word)
 		}
 	}
 
 	if currentNode.isWord {
 		return true, nil
-	} else {
-		return false, errors.New(fmt.Sprintf("Word %v is not in dictionary", word))
 	}
+
+	return false, n.wordIsNotInDictionary(word)
 }
 
+func (n *Node) wordIsNotInDictionary(word string) error {
+	i := strings.Index(word, ".")
+
+	processedWord := str_manipulator.Reverse(word[:i]) + word[i+1:]
+	return fmt.Errorf("Word %v is not in dictionary", processedWord)
+}
+
+// CreateGraph - create gaddag tree structure based on file with all words, each starting from newline
 func CreateGraph(filename string) (*Node, error) {
 	root := &Node{
 		children: map[rune]Node{},
