@@ -63,6 +63,10 @@ func Test_IsWordValid(t *testing.T) {
 	isOk, err = gaddagRoot.IsWordValid("ob.ss")
 	assert.Equal(t, true, isOk)
 	assert.Equal(t, nil, err)
+
+	isOk, err = gaddagRoot.IsWordValid("notexistingword")
+	assert.Equal(t, false, isOk)
+	assert.Equal(t, errors.New("Word notexistingword was passed in wrong format (no necessarry dot)"), err)
 }
 
 func Benchmark_CreateGraph_5Words(b *testing.B) {

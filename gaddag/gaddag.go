@@ -59,7 +59,12 @@ func (n *Node) IsWordValid(word string) (bool, error) {
 func (n *Node) wordIsNotInDictionary(word string) error {
 	i := strings.Index(word, ".")
 
+	if i < 0 {
+		return fmt.Errorf("Word %v was passed in wrong format (no necessarry dot)", word)
+
+	}
 	processedWord := str_manipulator.Reverse(word[:i]) + word[i+1:]
+
 	return fmt.Errorf("Word %v is not in dictionary", processedWord)
 }
 
