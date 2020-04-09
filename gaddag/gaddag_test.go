@@ -48,7 +48,10 @@ func Test_CreateGraph(t *testing.T) {
 func Test_IsWordValid(t *testing.T) {
 	gaddagRoot, _ := CreateGraph("../exampleData/tiny_english.txt")
 
-	isOk, err := gaddagRoot.IsWordValid("w.ord")
+	isOk, err := gaddagRoot.IsWordValid("w.or")
+	assert.Equal(t, false, isOk)
+	assert.Equal(t, errors.New("Word wor is not in dictionary"), err)
+	isOk, err = gaddagRoot.IsWordValid("w.ord")
 	assert.Equal(t, true, isOk)
 	assert.Equal(t, nil, err)
 	isOk, err = gaddagRoot.IsWordValid("w.ordX")

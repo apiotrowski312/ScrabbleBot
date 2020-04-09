@@ -26,11 +26,11 @@ func Test_PlaceWord(t *testing.T) {
 
 	gameAfterPlaceWord := game{
 		board: board{
-			[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W'}},
-			[]tile{tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}},
-			[]tile{tile{TileType: 'W', Letter: 'b'}, tile{TileType: '0', Letter: 'o'}, tile{TileType: 's', Letter: 'o'}, tile{TileType: '0', Letter: 'k'}, tile{TileType: 'W'}},
-			[]tile{tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}},
-			[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W'}},
+			[]tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
+			[]tile{{TileType: '0'}, {TileType: 'L'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0'}},
+			[]tile{{TileType: 'W', Letter: 'b'}, {TileType: '0', Letter: 'o'}, {TileType: 's', Letter: 'o'}, {TileType: '0', Letter: 'k'}, {TileType: 'W'}},
+			[]tile{{TileType: '0'}, {TileType: 'L'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0'}},
+			[]tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
 		},
 		dictionary:   *root,
 		letterValues: lv,
@@ -66,11 +66,11 @@ func Test_Game_isWordPlacedCorectly(t *testing.T) {
 	t.Run("Test correctly placed word", func(t *testing.T) {
 		gameForTest := game{
 			board: board{
-				[]tile{tile{TileType: 'W'}, tile{TileType: '0'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W', Letter: 's'}},
-				[]tile{tile{TileType: '0'}, tile{TileType: 'L', Letter: 'b'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0', Letter: 'o'}},
-				[]tile{tile{TileType: 'W'}, tile{TileType: '0', Letter: 'o'}, tile{TileType: 's'}, tile{TileType: '0'}, tile{TileType: 'W'}},
-				[]tile{tile{TileType: '0'}, tile{TileType: 'L', Letter: 's'}, tile{TileType: '0'}, tile{TileType: 'L'}, tile{TileType: '0'}},
-				[]tile{tile{TileType: 'W'}, tile{TileType: '0', Letter: 's'}, tile{TileType: 'w'}, tile{TileType: '0'}, tile{TileType: 'W'}},
+				[]tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W', Letter: 's'}},
+				[]tile{{TileType: '0'}, {TileType: 'L', Letter: 'b'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0', Letter: 'o'}},
+				[]tile{{TileType: 'W'}, {TileType: '0', Letter: 'o'}, {TileType: 's'}, {TileType: '0'}, {TileType: 'W'}},
+				[]tile{{TileType: '0'}, {TileType: 'L', Letter: 's'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0'}},
+				[]tile{{TileType: 'W'}, {TileType: '0', Letter: 's'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
 			},
 			dictionary: *root,
 		}

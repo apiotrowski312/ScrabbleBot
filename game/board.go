@@ -88,92 +88,87 @@ func (b board) isWordInProperPlace(word string, startCord [2]int, horizontal boo
 	return false, errors.New("There is no hooks. Wrong place")
 }
 
-func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal bool) ([]string, []string) {
-	// TODO: refactor (remove ifology)
-	words := []string{word}
+func (b board) collectOtherWordsAndTilesHorizontal(word string, startCord [2]int) ([]string, []string) {
+	words := []string{}
 	tileTypes := []string{}
 
-	currentTile := ""
-	for index := range word {
-		if horizontal {
-			currentTile += string(b[startCord[0]][startCord[1]+index].TileType)
-		} else {
-			currentTile += string(b[startCord[0]+index][startCord[1]].TileType)
-		}
-	}
-
-	tileTypes = append(tileTypes, currentTile)
-
 	for index, letter := range word {
+		if b[startCord[0]][startCord[1]+index].Letter == letter {
+			continue
+		}
 		currentWord := string(letter)
-		if horizontal && b[startCord[0]][startCord[1]+index].Letter == letter {
-			continue
-		} else if !horizontal && b[startCord[0]+index][startCord[1]].Letter == letter {
-			continue
+		currentTile := string(b[startCord[0]][startCord[1]+index].TileType)
+
+		// Up side
+		innerIndex := startCord[0] - 1
+		for innerIndex >= 0 {
+			currentLetter := b[innerIndex][startCord[1]+index].Letter
+			if currentLetter == rune(0) {
+				break
+			}
+			currentWord += string(currentLetter)
+			innerIndex--
 		}
 
-		if horizontal {
-			innerIndex := 1
-			currentTile = string(b[startCord[0]][startCord[1]+index].TileType)
-			for {
-				if startCord[0]-innerIndex == -1 {
-					break
-				}
-				currentLetter := b[startCord[0]-innerIndex][startCord[1]+index].Letter
-				if currentLetter == rune(0) {
-					break
-				}
-				currentWord += string(currentLetter)
-				innerIndex++
+		currentWord += "."
+		// Down side
+		innerIndex = startCord[0] + 1
+		for innerIndex <= len(b) {
+			currentLetter := b[innerIndex][startCord[1]+index].Letter
+			if currentLetter == rune(0) {
+				break
 			}
-			currentWord += "."
-			innerIndex = 1
-			for {
-				if startCord[0]+innerIndex == len(b) { // TODO: Should be handled better (what if board is not a cube)
-					break
-				}
-
-				currentLetter := b[startCord[0]+innerIndex][startCord[1]+index].Letter
-				if currentLetter == rune(0) {
-					break
-				}
-				currentWord += string(currentLetter)
-				innerIndex++
-			}
-		} else {
-			innerIndex := 0
-			currentTile = string(b[startCord[0]][startCord[1]+index].TileType)
-			for {
-				if startCord[0]-innerIndex == -1 {
-					break
-				}
-				currentLetter := b[startCord[0]+index][startCord[1]-innerIndex].Letter
-				if currentLetter != ' ' {
-					break
-				}
-				currentWord += string(currentLetter)
-				innerIndex++
-			}
-			innerIndex = 1
-			for {
-				if startCord[0]+innerIndex == len(b[startCord[0]+index]) {
-					break
-				}
-
-				currentLetter := b[startCord[0]+index][startCord[1]+innerIndex].Letter
-				if currentLetter == ' ' {
-					break
-				}
-				currentWord += string(currentLetter)
-				innerIndex++
-			}
+			currentWord += string(currentLetter)
+			innerIndex++
 		}
-		if currentWord != string(letter)+"." {
+
+		if len(currentWord) > 2 {
 			words = append(words, currentWord)
 			tileTypes = append(tileTypes, currentTile)
 		}
 	}
+	return words, tileTypes
+}
 
+func (b board) collectOtherWordsAndTilesVertical(word string, startCord [2]int) ([]string, []string) {
+	words := []string{}
+	tileTypes := []string{}
+
+	for index, letter := range word {
+		if b[startCord[0]+index][startCord[1]].Letter == letter {
+			continue
+		}
+		currentWord := string(letter)
+		currentTile := string(b[startCord[0]+index][startCord[1]].TileType)
+
+		// Left side
+		innerIndex := startCord[1] - 1
+		for innerIndex >= 0 {
+			currentLetter := b[startCord[0]+index][innerIndex].Letter
+			if currentLetter == rune(0) {
+				break
+			}
+			currentWord += string(currentLetter)
+			innerIndex--
+		}
+
+		currentWord += "."
+		// Right side
+		innerIndex = startCord[1] + 1
+		for innerIndex <= len(b) {
+			currentLetter := b[startCord[0]+index][innerIndex].Letter
+			if currentLetter == rune(0) {
+				break
+			}
+			currentWord += string(currentLetter)
+			innerIndex++
+		}
+
+		if len(currentWord) > 2 {
+			words = append(words, currentWord)
+			tileTypes = append(tileTypes, currentTile)
+		}
+	}
 	return words, tileTypes
 }
 
@@ -187,4 +182,41 @@ func (b board) placeWord(word string, startCord [2]int, horizontal bool) {
 		}
 		tile.Letter = letter
 	}
+}
+
+func (b board) tileUnderLayedWord(word string, startCord [2]int, horizontal bool) string {
+	currentTile := ""
+	for index := range word {
+		if horizontal {
+			currentTile += string(b.getTileType([2]int{startCord[0], startCord[1] + index}))
+		} else {
+			currentTile += string(b.getTileType([2]int{startCord[0] + index, startCord[1]}))
+		}
+	}
+	return currentTile
+}
+
+func (b board) getTileType(cord [2]int) rune {
+	if b[cord[0]][cord[1]].Letter != rune(0) {
+		return '0'
+	}
+	return b[cord[0]][cord[1]].TileType
+}
+
+func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal bool) ([]string, []string) {
+	words := []string{}
+	tiles := []string{}
+	if horizontal {
+		words, tiles = b.collectOtherWordsAndTilesHorizontal(word, startCord)
+	} else {
+		words, tiles = b.collectOtherWordsAndTilesVertical(word, startCord)
+	}
+
+	mainWordTiles := b.tileUnderLayedWord(word, startCord, horizontal)
+
+	words = append(words, word)
+	tiles = append(tiles, mainWordTiles)
+
+	return words, tiles
+
 }

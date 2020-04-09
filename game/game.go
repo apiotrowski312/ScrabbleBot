@@ -18,9 +18,9 @@ func (g game) PlaceWord(word string, startCord [2]int, horizontal bool) (int, er
 		return 0, err
 	}
 
-	g.board.placeWord(word, startCord, horizontal)
-
 	score := g.countScore(word, startCord, horizontal)
+
+	g.board.placeWord(word, startCord, horizontal)
 
 	return score, nil
 }
@@ -39,7 +39,7 @@ func (g game) isWordPlacedCorectly(word string, startCord [2]int, horizontal boo
 
 	words, _ := g.board.collectAllUsedWords(word, startCord, horizontal)
 
-	for _, newWord := range words[1:] {
+	for _, newWord := range words[:len(words)-1] {
 		isOk, err = g.dictionary.IsWordValid(newWord)
 		if !isOk {
 			return false, err

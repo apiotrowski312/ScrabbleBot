@@ -7,6 +7,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
 
 type letterValue map[rune]int
@@ -63,28 +65,26 @@ func (l letterValue) countPoints(words []string, tileTypes []string) int { // TO
 	for index, word := range words {
 		wordPoints := 0
 		multiplayer := 1
+		word = str_manipulator.RemoveCharacters(word, ".")
 		for innerIndex, letter := range word {
-			if letter == '.' {
-				continue
-			}
-
 			currentTile := '0'
 			if len(tileTypes[index])-1 >= innerIndex {
 				currentTile = rune(tileTypes[index][innerIndex])
 			}
 
-			if currentTile == '0' {
+			switch tile := currentTile; tile {
+			case '0':
 				wordPoints += l[letter]
-			} else if currentTile == 's' {
+			case 's':
 				wordPoints += l[letter]
-			} else if currentTile == 'l' {
+			case 'l':
 				wordPoints += 2 * l[letter]
-			} else if currentTile == 'L' {
+			case 'L':
 				wordPoints += 3 * l[letter]
-			} else if currentTile == 'w' {
+			case 'w':
 				multiplayer *= 2
 				wordPoints += l[letter]
-			} else if currentTile == 'W' {
+			case 'W':
 				multiplayer *= 3
 				wordPoints += l[letter]
 			}
