@@ -42,14 +42,28 @@ func Test_isWordInProperPlace(t *testing.T) {
 
 func Test_placeWord(t *testing.T) {
 	var testBoard board
-	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &testBoard)
 
-	testBoard.placeWord("book", [2]int{2, 0}, true)
+	t.Run("Horizontal", func(t *testing.T) {
+		test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &testBoard)
 
-	var expectedBoard board
-	test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
+		testBoard.placeWord("book", [2]int{2, 0}, true)
 
-	assert.Equal(t, expectedBoard, testBoard)
+		var expectedBoard board
+		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
+
+		assert.Equal(t, expectedBoard, testBoard)
+	})
+
+	t.Run("Vertical", func(t *testing.T) {
+		test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &testBoard)
+
+		testBoard.placeWord("book", [2]int{1, 2}, false)
+
+		var expectedBoard board
+		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
+
+		assert.Equal(t, expectedBoard, testBoard)
+	})
 }
 
 func Test_collectOtherWordsAndTilesHorizontal(t *testing.T) {
