@@ -13,9 +13,11 @@ var (
 	tileType = `[0lLwWs]`
 )
 
+// Board struct is a representation of scrabble board.
+// Each tile contain Letter and TileType.
 type Board [][]tile
 
-type tile struct { // TODO: unexport struct
+type tile struct {
 	Letter   rune
 	TileType rune
 }

@@ -26,7 +26,6 @@ func Test_LoadTiles(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, &expectedTb, tb)
 	assert.Equal(t, &expectedLv, lv)
-
 }
 
 func Test_CountPoints(t *testing.T) {
@@ -50,4 +49,29 @@ func Test_CountPoints(t *testing.T) {
 
 	points = lv.CountPoints(words, tiles)
 	assert.Equal(t, 108, points)
+}
+
+func Test_DrawTiles(t *testing.T) {
+	var tb letters.TileBag
+	test_utils.LoadJSONFixture(t, "testdata/tilebag.fixture", &tb)
+
+	tiles := tb.DrawTiles(8)
+	assert.Equal(t, 8, len(tiles))
+	assert.Equal(t, 90, len(tb))
+
+	tiles = tb.DrawTiles(80)
+	assert.Equal(t, 80, len(tiles))
+	assert.Equal(t, 10, len(tb))
+
+	tiles = tb.DrawTiles(1)
+	assert.Equal(t, 1, len(tiles))
+	assert.Equal(t, 9, len(tb))
+
+	tiles = tb.DrawTiles(13)
+	assert.Equal(t, 9, len(tiles))
+	assert.Equal(t, 0, len(tb))
+
+	tiles = tb.DrawTiles(1)
+	assert.Equal(t, 0, len(tiles))
+	assert.Equal(t, 0, len(tb))
 }

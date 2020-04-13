@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"io"
 	"log"
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
@@ -12,7 +13,7 @@ import (
 )
 
 type LetterValue map[rune]int
-type TileBag map[rune]int
+type TileBag []rune
 
 func LoadTilesFromFile(filename string) (*TileBag, *LetterValue, error) {
 	csvFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
@@ -51,7 +52,12 @@ func LoadTilesFromFile(filename string) (*TileBag, *LetterValue, error) {
 			return nil, nil, err
 		}
 
-		tB[letter], err = strconv.Atoi(strings.TrimSpace(record[2]))
+		numberOfTiles, err := strconv.Atoi(strings.TrimSpace(record[2]))
+
+		for i := 0; i < numberOfTiles; i++ {
+			tB = append(tB, letter)
+		}
+
 		if err != nil {
 			log.Fatalf("Fatal error while reading file %v. Wrong line content: %v. Stacktrace: %v", filename, record, err)
 			return nil, nil, err
@@ -60,7 +66,8 @@ func LoadTilesFromFile(filename string) (*TileBag, *LetterValue, error) {
 	return &tB, &lV, nil
 }
 
-func (l LetterValue) CountPoints(words []string, tileTypes []string) int { // TODO: remove ifology
+// CountPoints - count points based on passed string slices
+func (l LetterValue) CountPoints(words []string, tileTypes []string) int {
 	points := 0
 	for index, word := range words {
 		wordPoints := 0
@@ -89,8 +96,25 @@ func (l LetterValue) CountPoints(words []string, tileTypes []string) int { // TO
 				wordPoints += l[letter]
 			}
 		}
-
 		points += multiplayer * wordPoints
 	}
 	return points
+}
+
+// DrawTiles returns rune slice with random draw letters.
+// After each draw, letter is deleted from TileBag.
+func (tb *TileBag) DrawTiles(numberOfTiles int) []rune {
+	tiles := []rune{}
+
+	for i := 0; i < numberOfTiles; i++ {
+		if len((*tb)) <= 0 {
+			return tiles
+		}
+		index := rand.Intn(len((*tb)))
+
+		tiles = append(tiles, (*tb)[index])
+		(*tb) = append((*tb)[:index], (*tb)[index+1:]...)
+	}
+
+	return tiles
 }

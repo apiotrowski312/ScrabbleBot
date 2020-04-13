@@ -3,7 +3,6 @@ package test_utils
 import (
 	"encoding/json"
 	"io/ioutil"
-	"os"
 	"path/filepath"
 	"testing"
 )
@@ -32,7 +31,7 @@ func GetGoldenFileJSON(t *testing.T, actual interface{}, fileName string, should
 	golden := filepath.Join("testdata", fileName+".golden")
 
 	if shouldUpdate {
-		bytes, err := json.Marshal(actual)
+		bytes, err := json.MarshalIndent(actual, "", "\t")
 
 		if err != nil {
 			t.Fatalf("Error while marshal a struct %v: %s", actual, err)
@@ -64,16 +63,12 @@ func GetGoldenFileString(t *testing.T, actual string, fileName string, shouldUpd
 }
 
 func LoadJSONFixture(t *testing.T, fileName string, structToLoad interface{}) {
-	jsonFile, err := os.Open(fileName)
-
+	expected, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer jsonFile.Close()
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	json.Unmarshal(byteValue, &structToLoad)
+	json.Unmarshal(expected, &structToLoad)
 }
 
 func BytesToStruct(t *testing.T, bytes []byte, structToLoad interface{}) {
