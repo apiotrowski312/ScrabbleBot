@@ -1,0 +1,112 @@
+[
+  [
+    {
+      "Letter": 0,
+      "TileType": 87
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 119
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 87
+    }
+  ],
+  [
+    {
+      "Letter": 97,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 76
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 76
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    }
+  ],
+  [
+    {
+      "Letter": 108,
+      "TileType": 87
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 115
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 87
+    }
+  ],
+  [
+    {
+      "Letter": 108,
+      "TileType": 48
+    },
+    {
+      "Letter": 111,
+      "TileType": 76
+    },
+    {
+      "Letter": 118,
+      "TileType": 48
+    },
+    {
+      "Letter": 101,
+      "TileType": 76
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    }
+  ],
+  [
+    {
+      "Letter": 0,
+      "TileType": 87
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 119
+    },
+    {
+      "Letter": 0,
+      "TileType": 48
+    },
+    {
+      "Letter": 0,
+      "TileType": 87
+    }
+  ]
+]

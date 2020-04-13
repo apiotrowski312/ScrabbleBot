@@ -1,18 +1,61 @@
 package game
 
 import (
+	"encoding/json"
+
+	"github.com/apiotrowski312/scrabbleBot/board"
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
+	"github.com/apiotrowski312/scrabbleBot/letters"
 )
 
 type game struct {
-	bag          tileBag
-	letterValues letterValue
-	board        board
-	dictionary   gaddag.Node // to do. Unexport struct, leave type only
+	bag          letters.TileBag
+	letterValues letters.LetterValue
+	board        board.Board
+	dictionary   gaddag.Node
+}
+
+func (g game) MarshalJSON() ([]byte, error) {
+	j, err := json.Marshal(struct {
+		Bag          letters.TileBag `json:"bag"`
+		LetterValues letters.LetterValue
+		Board        board.Board
+		Dictionary   gaddag.Node
+	}{
+		Bag:          g.bag,
+		LetterValues: g.letterValues,
+		Board:        g.board,
+		Dictionary:   g.dictionary,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return j, nil
+}
+
+func (g *game) UnmarshalJSON(jsonBytes []byte) error {
+	type Game struct {
+		Bag          letters.TileBag
+		LetterValues letters.LetterValue
+		Board        board.Board
+		Dictionary   gaddag.Node
+	}
+
+	var exportedGame Game
+	if err := json.Unmarshal(jsonBytes, &exportedGame); err != nil {
+		return err
+	}
+
+	g.bag = exportedGame.Bag
+	g.letterValues = exportedGame.LetterValues
+	g.board = exportedGame.Board
+	g.dictionary = exportedGame.Dictionary
+
+	return nil
 }
 
 func (g game) PlaceWord(word string, startCord [2]int, horizontal bool) (int, error) {
-	isOk, err := g.isWordPlacedCorectly(word, startCord, horizontal)
+	isOk, err := g.IsWordPlacedCorectly(word, startCord, horizontal)
 
 	if !isOk {
 		return 0, err
@@ -20,24 +63,24 @@ func (g game) PlaceWord(word string, startCord [2]int, horizontal bool) (int, er
 
 	score := g.countScore(word, startCord, horizontal)
 
-	g.board.placeWord(word, startCord, horizontal)
+	g.board.PlaceWord(word, startCord, horizontal)
 
 	return score, nil
 }
 
-func (g game) isWordPlacedCorectly(word string, startCord [2]int, horizontal bool) (bool, error) {
+func (g game) IsWordPlacedCorectly(word string, startCord [2]int, horizontal bool) (bool, error) {
 	isOk, err := g.dictionary.IsWordValid(word[:1] + "." + word[1:])
 
 	if !isOk {
 		return false, err
 	}
 
-	isOk, err = g.board.isWordInProperPlace(word, startCord, horizontal)
+	isOk, err = g.board.IsWordInProperPlace(word, startCord, horizontal)
 	if !isOk {
 		return false, err
 	}
 
-	words, _ := g.board.collectAllUsedWords(word, startCord, horizontal)
+	words, _ := g.board.CollectAllUsedWords(word, startCord, horizontal)
 
 	for _, newWord := range words[:len(words)-1] {
 		isOk, err = g.dictionary.IsWordValid(newWord)
@@ -50,9 +93,9 @@ func (g game) isWordPlacedCorectly(word string, startCord [2]int, horizontal boo
 }
 
 func (g game) countScore(word string, startCord [2]int, horizontal bool) int {
-	words, tiles := g.board.collectAllUsedWords(word, startCord, horizontal)
+	words, tiles := g.board.CollectAllUsedWords(word, startCord, horizontal)
 
-	score := g.letterValues.countPoints(words, tiles)
+	score := g.letterValues.CountPoints(words, tiles)
 
 	return score
 }

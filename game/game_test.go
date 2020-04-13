@@ -1,81 +1,91 @@
 package game
 
 import (
+	"errors"
 	"flag"
 	"testing"
 
+	"github.com/apiotrowski312/scrabbleBot/board"
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
+	"github.com/apiotrowski312/scrabbleBot/letters"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/bmizerany/assert"
 )
 
 var update = flag.Bool("update", false, "update the golden files of this test")
 
-func Test_PlaceWord(t *testing.T) {
-	root, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
-	var lv letterValue
-	test_utils.LoadJSONFixture(t, "testdata/letters_values.fixture", &lv)
-	var b board
-	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &b)
+func createGameTestHelper(dictFile, tilesFile, boardFile string) game {
+	root, _ := gaddag.CreateGraph(dictFile)
+	tb, lv, _ := letters.LoadTilesFromFile(tilesFile)
+	b, _ := board.LoadBoardFromFile(boardFile)
 
-	gameForTest := game{
-		board:        b,
+	return game{
+		board:        *b,
 		dictionary:   *root,
-		letterValues: lv,
+		letterValues: *lv,
+		bag:          *tb,
 	}
-
-	gameAfterPlaceWord := game{
-		board: board{
-			[]tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
-			[]tile{{TileType: '0'}, {TileType: 'L'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0'}},
-			[]tile{{TileType: 'W', Letter: 'b'}, {TileType: '0', Letter: 'o'}, {TileType: 's', Letter: 'o'}, {TileType: '0', Letter: 'k'}, {TileType: 'W'}},
-			[]tile{{TileType: '0'}, {TileType: 'L'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0'}},
-			[]tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
-		},
-		dictionary:   *root,
-		letterValues: lv,
-	}
-
-	score, err := gameForTest.PlaceWord("book", [2]int{2, 0}, true)
-
-	assert.Equal(t, nil, err)
-	assert.Equal(t, gameAfterPlaceWord, gameForTest)
-	assert.Equal(t, 30, score)
 }
 
-func Test_Game_isWordPlacedCorectly(t *testing.T) {
-	root, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
-	var lv letterValue
-	test_utils.LoadJSONFixture(t, "testdata/letters_values.fixture", &lv)
-	var b board
-	test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &b)
+func Test_PlaceWord(t *testing.T) {
+	t.Run("Place simple word", func(t *testing.T) {
+		gameForTest := createGameTestHelper("../exampleData/tiny_english.txt", "../exampleData/english_tiles.csv", "../exampleData/scrable.board")
+
+		score, err := gameForTest.PlaceWord("book", [2]int{2, 0}, true)
+
+		var expectedGame game
+		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, gameForTest, t.Name(), *update), &expectedGame)
+
+		assert.Equal(t, nil, err)
+		assert.Equal(t, expectedGame.bag, gameForTest.bag)
+		assert.Equal(t, expectedGame.board, gameForTest.board)
+		assert.Equal(t, expectedGame.letterValues, gameForTest.letterValues)
+		assert.Equal(t, 30, score)
+
+	})
 
 	t.Run("Test correctly placed word", func(t *testing.T) {
-		gameForTest := game{
-			board:        b,
-			dictionary:   *root,
-			letterValues: lv,
-		}
+		gameForTest := createGameTestHelper("../exampleData/tiny_english.txt", "../exampleData/english_tiles.csv", "../exampleData/scrable.board")
+		test_utils.LoadJSONFixture(t, "testdata/all_love_5x5.fixture", &gameForTest.board)
 
-		isOk, err := gameForTest.isWordPlacedCorectly("book", [2]int{2, 0}, true)
+		score, err := gameForTest.PlaceWord("word", [2]int{1, 4}, false)
+
+		var expectedGame game
+		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, gameForTest, t.Name(), *update), &expectedGame)
+
+		assert.Equal(t, nil, err)
+		assert.Equal(t, expectedGame.bag, gameForTest.bag)
+		assert.Equal(t, expectedGame.board, gameForTest.board)
+		assert.Equal(t, expectedGame.letterValues, gameForTest.letterValues)
+		assert.Equal(t, 80, score)
+	})
+}
+
+func Test_Game_IsWordPlacedCorectly(t *testing.T) {
+
+	t.Run("Test correctly placed word", func(t *testing.T) {
+		gameForTest := createGameTestHelper("../exampleData/tiny_english.txt", "../exampleData/english_tiles.csv", "../exampleData/scrable.board")
+		isOk, err := gameForTest.IsWordPlacedCorectly("book", [2]int{2, 0}, true)
 
 		assert.Equal(t, nil, err)
 		assert.Equal(t, true, isOk)
 	})
 
-	t.Run("Test correctly placed word", func(t *testing.T) {
-		gameForTest := game{
-			board: board{
-				[]tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W', Letter: 's'}},
-				[]tile{{TileType: '0'}, {TileType: 'L', Letter: 'b'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0', Letter: 'o'}},
-				[]tile{{TileType: 'W'}, {TileType: '0', Letter: 'o'}, {TileType: 's'}, {TileType: '0'}, {TileType: 'W'}},
-				[]tile{{TileType: '0'}, {TileType: 'L', Letter: 's'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0'}},
-				[]tile{{TileType: 'W'}, {TileType: '0', Letter: 's'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
-			},
-			dictionary: *root,
-		}
+	t.Run("Test incorectly", func(t *testing.T) {
+		gameForTest := createGameTestHelper("../exampleData/tiny_english.txt", "../exampleData/english_tiles.csv", "../exampleData/scrable.board")
+		test_utils.LoadJSONFixture(t, "testdata/all_love_5x5.fixture", &gameForTest.board)
 
-		isOk, err := gameForTest.isWordPlacedCorectly("books", [2]int{2, 0}, true)
+		isOk, err := gameForTest.IsWordPlacedCorectly("books", [2]int{2, 0}, true)
+
+		assert.Equal(t, errors.New("You can't overwrite letter"), err)
+		assert.Equal(t, false, isOk)
+	})
+
+	t.Run("Test correctly placed word", func(t *testing.T) {
+		gameForTest := createGameTestHelper("../exampleData/tiny_english.txt", "../exampleData/english_tiles.csv", "../exampleData/scrable.board")
+		test_utils.LoadJSONFixture(t, "testdata/all_love_5x5.fixture", &gameForTest.board)
+
+		isOk, err := gameForTest.IsWordPlacedCorectly("word", [2]int{1, 4}, false)
 
 		assert.Equal(t, nil, err)
 		assert.Equal(t, true, isOk)

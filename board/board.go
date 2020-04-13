@@ -1,4 +1,4 @@
-package game
+package board
 
 import (
 	"bufio"
@@ -13,14 +13,14 @@ var (
 	tileType = `[0lLwWs]`
 )
 
-type board [][]tile
+type Board [][]tile
 
-type tile struct {
+type tile struct { // TODO: unexport struct
 	Letter   rune
 	TileType rune
 }
 
-func loadBoardFromFile(filename string) (*board, error) {
+func LoadBoardFromFile(filename string) (*Board, error) {
 
 	boardFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
 	if err != nil {
@@ -31,7 +31,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 
 	sc := bufio.NewScanner(boardFile)
 
-	board := board{}
+	board := Board{}
 
 	fileLine := 0
 	for sc.Scan() {
@@ -62,8 +62,7 @@ func loadBoardFromFile(filename string) (*board, error) {
 	return &board, nil
 }
 
-func (b board) isWordInProperPlace(word string, startCord [2]int, horizontal bool) (bool, error) {
-
+func (b Board) IsWordInProperPlace(word string, startCord [2]int, horizontal bool) (bool, error) {
 	isAddedCorectly := false
 
 	for index, letter := range word {
@@ -76,10 +75,25 @@ func (b board) isWordInProperPlace(word string, startCord [2]int, horizontal boo
 		if currentTile.Letter != rune(0) && currentTile.Letter != letter {
 			return false, errors.New("You can't overwrite letter")
 		}
-		if currentTile.Letter == letter {
+
+		if currentTile.Letter == letter || currentTile.TileType == 's' {
 			isAddedCorectly = true
-		} else if currentTile.TileType == 's' {
-			return true, nil
+		}
+
+		if horizontal {
+			if startCord[0] > 0 && b[startCord[0]-1][startCord[1]+index].Letter != rune(0) {
+				isAddedCorectly = true
+			}
+			if startCord[0] < len(b)-1 && b[startCord[0]+1][startCord[1]+index].Letter != rune(0) {
+				isAddedCorectly = true
+			}
+		} else {
+			if startCord[1] > 0 && b[startCord[0]+index][startCord[1]-1].Letter != rune(0) {
+				isAddedCorectly = true
+			}
+			if startCord[1] < len(b[startCord[0]+index])-1 && b[startCord[0]+index][startCord[1]+1].Letter != rune(0) {
+				isAddedCorectly = true
+			}
 		}
 	}
 	if isAddedCorectly {
@@ -88,7 +102,7 @@ func (b board) isWordInProperPlace(word string, startCord [2]int, horizontal boo
 	return false, errors.New("There is no hooks. Wrong place")
 }
 
-func (b board) collectOtherWordsAndTilesHorizontal(word string, startCord [2]int) ([]string, []string) {
+func (b Board) collectOtherWordsAndTilesHorizontal(word string, startCord [2]int) ([]string, []string) {
 	words := []string{}
 	tileTypes := []string{}
 
@@ -113,7 +127,7 @@ func (b board) collectOtherWordsAndTilesHorizontal(word string, startCord [2]int
 		currentWord += "."
 		// Down side
 		innerIndex = startCord[0] + 1
-		for innerIndex <= len(b) {
+		for innerIndex < len(b) {
 			currentLetter := b[innerIndex][startCord[1]+index].Letter
 			if currentLetter == rune(0) {
 				break
@@ -130,7 +144,7 @@ func (b board) collectOtherWordsAndTilesHorizontal(word string, startCord [2]int
 	return words, tileTypes
 }
 
-func (b board) collectOtherWordsAndTilesVertical(word string, startCord [2]int) ([]string, []string) {
+func (b Board) collectOtherWordsAndTilesVertical(word string, startCord [2]int) ([]string, []string) {
 	words := []string{}
 	tileTypes := []string{}
 
@@ -155,7 +169,7 @@ func (b board) collectOtherWordsAndTilesVertical(word string, startCord [2]int) 
 		currentWord += "."
 		// Right side
 		innerIndex = startCord[1] + 1
-		for innerIndex <= len(b) {
+		for innerIndex < len(b) {
 			currentLetter := b[startCord[0]+index][innerIndex].Letter
 			if currentLetter == rune(0) {
 				break
@@ -172,7 +186,7 @@ func (b board) collectOtherWordsAndTilesVertical(word string, startCord [2]int) 
 	return words, tileTypes
 }
 
-func (b board) placeWord(word string, startCord [2]int, horizontal bool) {
+func (b Board) PlaceWord(word string, startCord [2]int, horizontal bool) {
 	for index, letter := range word {
 		tile := &tile{}
 		if horizontal {
@@ -184,7 +198,7 @@ func (b board) placeWord(word string, startCord [2]int, horizontal bool) {
 	}
 }
 
-func (b board) tileUnderLayedWord(word string, startCord [2]int, horizontal bool) string {
+func (b Board) tileUnderLayedWord(word string, startCord [2]int, horizontal bool) string {
 	currentTile := ""
 	for index := range word {
 		if horizontal {
@@ -196,14 +210,7 @@ func (b board) tileUnderLayedWord(word string, startCord [2]int, horizontal bool
 	return currentTile
 }
 
-func (b board) getTileType(cord [2]int) rune {
-	if b[cord[0]][cord[1]].Letter != rune(0) {
-		return '0'
-	}
-	return b[cord[0]][cord[1]].TileType
-}
-
-func (b board) collectAllUsedWords(word string, startCord [2]int, horizontal bool) ([]string, []string) {
+func (b Board) CollectAllUsedWords(word string, startCord [2]int, horizontal bool) ([]string, []string) {
 	words := []string{}
 	tiles := []string{}
 	if horizontal {

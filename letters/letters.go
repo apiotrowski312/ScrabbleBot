@@ -1,4 +1,4 @@
-package game
+package letters
 
 import (
 	"encoding/csv"
@@ -11,10 +11,10 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
 
-type letterValue map[rune]int
-type tileBag map[rune]int
+type LetterValue map[rune]int
+type TileBag map[rune]int
 
-func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
+func LoadTilesFromFile(filename string) (*TileBag, *LetterValue, error) {
 	csvFile, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatalf("Fatal error when opening file %v with letters number and value. Stacktrace: %v", filename, err)
@@ -31,8 +31,8 @@ func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 		return nil, nil, err
 	}
 
-	tB := tileBag{}
-	lV := letterValue{}
+	tB := TileBag{}
+	lV := LetterValue{}
 
 	for {
 		record, err := r.Read()
@@ -60,7 +60,7 @@ func loadTilesFromFile(filename string) (*tileBag, *letterValue, error) {
 	return &tB, &lV, nil
 }
 
-func (l letterValue) countPoints(words []string, tileTypes []string) int { // TODO: remove ifology
+func (l LetterValue) CountPoints(words []string, tileTypes []string) int { // TODO: remove ifology
 	points := 0
 	for index, word := range words {
 		wordPoints := 0

@@ -12,6 +12,7 @@ const (
 	permission = 0666
 )
 
+// TODO: Create dir if not exist
 func GetGoldenFile(t *testing.T, actual []byte, fileName string, shouldUpdate bool) []byte {
 
 	golden := filepath.Join("testdata", fileName+".golden")

@@ -23,7 +23,7 @@ func Test_GraphGet(t *testing.T) {
 	t.Run("Get children when nil", func(t *testing.T) {
 		g := &Node{
 			children: map[rune]Node{
-				'w': Node{
+				'w': {
 					isWord: false,
 				},
 			},
@@ -58,7 +58,7 @@ func Test_GraphAdd(t *testing.T) {
 		exampleNode := Node{
 			isWord: false,
 			children: map[rune]Node{
-				'w': Node{
+				'w': {
 					isWord:   true,
 					children: map[rune]Node{},
 				},
