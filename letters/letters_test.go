@@ -14,14 +14,11 @@ var update = flag.Bool("update", false, "update the golden files of this test")
 func Test_LoadTiles(t *testing.T) {
 	tb, lv, err := letters.LoadTilesFromFile("../exampleData/english_tiles.csv")
 
-	expectedTbBytes := test_utils.GetGoldenFileJSON(t, tb, t.Name()+"_tiles", *update)
-	expectedLvBytes := test_utils.GetGoldenFileJSON(t, lv, t.Name()+"_letters", *update)
-
 	var expectedLv letters.LetterValue
 	var expectedTb letters.TileBag
 
-	test_utils.BytesToStruct(t, expectedLvBytes, &expectedLv)
-	test_utils.BytesToStruct(t, expectedTbBytes, &expectedTb)
+	test_utils.GetGoldenFileJSON(t, tb, &expectedTb, t.Name()+"_tiles", *update)
+	test_utils.GetGoldenFileJSON(t, lv, &expectedLv, t.Name()+"_letters", *update)
 
 	assert.Equal(t, nil, err)
 	assert.Equal(t, &expectedTb, tb)

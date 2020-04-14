@@ -20,14 +20,11 @@ func GetGoldenFile(t *testing.T, actual []byte, fileName string, shouldUpdate bo
 			t.Fatalf("Error writing golden file for filename=%s: %s", fileName, err)
 		}
 	}
-	expected, err := ioutil.ReadFile(golden)
-	if err != nil {
-		t.Fatal(err)
-	}
-	return expected
+
+	return readFile(t, golden)
 }
 
-func GetGoldenFileJSON(t *testing.T, actual interface{}, fileName string, shouldUpdate bool) []byte {
+func GetGoldenFileJSON(t *testing.T, actual interface{}, expected interface{}, fileName string, shouldUpdate bool) {
 	golden := filepath.Join("testdata", fileName+".golden")
 
 	if shouldUpdate {
@@ -41,11 +38,13 @@ func GetGoldenFileJSON(t *testing.T, actual interface{}, fileName string, should
 			t.Fatalf("Error writing golden file for filename=%s: %s", fileName, err)
 		}
 	}
-	expected, err := ioutil.ReadFile(golden)
+
+	err := json.Unmarshal(readFile(t, golden), &expected)
+
 	if err != nil {
 		t.Fatal(err)
 	}
-	return expected
+
 }
 
 func GetGoldenFileString(t *testing.T, actual string, fileName string, shouldUpdate bool) string {
@@ -55,11 +54,8 @@ func GetGoldenFileString(t *testing.T, actual string, fileName string, shouldUpd
 			t.Fatalf("Error writing golden file for filename=%s: %s", fileName, err)
 		}
 	}
-	expected, err := ioutil.ReadFile(golden)
-	if err != nil {
-		t.Fatal(err)
-	}
-	return string(expected)
+
+	return string(readFile(t, golden))
 }
 
 func LoadJSONFixture(t *testing.T, fileName string, structToLoad interface{}) {
@@ -71,10 +67,10 @@ func LoadJSONFixture(t *testing.T, fileName string, structToLoad interface{}) {
 	json.Unmarshal(expected, &structToLoad)
 }
 
-func BytesToStruct(t *testing.T, bytes []byte, structToLoad interface{}) {
-	err := json.Unmarshal(bytes, &structToLoad)
-
+func readFile(t *testing.T, fileName string) []byte {
+	expected, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		t.Fatal(err)
 	}
+	return expected
 }

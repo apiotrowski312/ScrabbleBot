@@ -17,7 +17,7 @@ func Test_LoadBoardFromFile(t *testing.T) {
 	b, err := board.LoadBoardFromFile("../exampleData/scrable.board")
 
 	var expectedBoard board.Board
-	test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, b, t.Name(), *update), &expectedBoard)
+	test_utils.GetGoldenFileJSON(t, b, &expectedBoard, t.Name(), *update)
 
 	assert.Equal(t, nil, err)
 	assert.Equal(t, &expectedBoard, b)
@@ -77,7 +77,7 @@ func Test_PlaceWord(t *testing.T) {
 		testBoard.PlaceWord("book", [2]int{2, 0}, true)
 
 		var expectedBoard board.Board
-		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
+		test_utils.GetGoldenFileJSON(t, testBoard, &expectedBoard, t.Name(), *update)
 
 		assert.Equal(t, expectedBoard, testBoard)
 	})
@@ -88,7 +88,7 @@ func Test_PlaceWord(t *testing.T) {
 		testBoard.PlaceWord("book", [2]int{1, 2}, false)
 
 		var expectedBoard board.Board
-		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), *update), &expectedBoard)
+		test_utils.GetGoldenFileJSON(t, testBoard, &expectedBoard, t.Name(), *update)
 
 		assert.Equal(t, expectedBoard, testBoard)
 	})

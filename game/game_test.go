@@ -34,7 +34,7 @@ func Test_PlaceWord(t *testing.T) {
 		score, err := gameForTest.PlaceWord("book", [2]int{2, 0}, true)
 
 		var expectedGame game
-		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, gameForTest, t.Name(), *update), &expectedGame)
+		test_utils.GetGoldenFileJSON(t, gameForTest, &expectedGame, t.Name(), *update)
 
 		assert.Equal(t, nil, err)
 		assert.Equal(t, expectedGame.bag, gameForTest.bag)
@@ -51,7 +51,7 @@ func Test_PlaceWord(t *testing.T) {
 		score, err := gameForTest.PlaceWord("word", [2]int{1, 4}, false)
 
 		var expectedGame game
-		test_utils.BytesToStruct(t, test_utils.GetGoldenFileJSON(t, gameForTest, t.Name(), *update), &expectedGame)
+		test_utils.GetGoldenFileJSON(t, gameForTest, &expectedGame, t.Name(), *update)
 
 		assert.Equal(t, nil, err)
 		assert.Equal(t, expectedGame.bag, gameForTest.bag)
