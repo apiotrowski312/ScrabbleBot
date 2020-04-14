@@ -10,9 +10,10 @@ Call `make unit` to run all unit tests.
 
 Call `make bench` to run all benchmark tests.
 
-## Improvments
+## To do
 
 - Improve tests. Add tests for more edge cases. (To improve code quality and coverage) 
+- Add. Bonus 50 points when user put all 8 letters on board at once
 
 ## Ideas
 
