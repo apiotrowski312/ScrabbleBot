@@ -177,11 +177,45 @@ func Test_CollectAllUsedWords(t *testing.T) {
 	})
 }
 
-// testBoard = board.Board{
-// 	[]board.Tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
-// 	[]board.Tile{{TileType: '0'}, {TileType: 'L', Letter: 'h'}, {TileType: '0', Letter: 'a'}, {TileType: 'L', Letter: 'i'}, {TileType: '0', Letter: 'r'}},
-// 	[]board.Tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 's'}, {TileType: '0'}, {TileType: 'W', Letter: 'a'}},
-// 	[]board.Tile{{TileType: '0'}, {TileType: 'L'}, {TileType: '0'}, {TileType: 'L'}, {TileType: '0', Letter: 'w'}},
-// 	[]board.Tile{{TileType: 'W'}, {TileType: '0'}, {TileType: 'w'}, {TileType: '0'}, {TileType: 'W'}},
-// }
-// test_utils.GetGoldenFileJSON(t, testBoard, t.Name(), true)
+func Test_GetWholeWordBasedOnLetters(t *testing.T) {
+	var testBoard board.Board
+	t.Run("Empty board", func(t *testing.T) {
+		test_utils.LoadJSONFixture(t, "testdata/empty_board_5x5.fixture", &testBoard)
+
+		expected := "socks"
+		expectedCords := [2]int{3, 0}
+		word, cords := testBoard.MakeProperDataFormat("socks", expectedCords, true)
+		assert.Equal(t, expectedCords, cords)
+		assert.Equal(t, expected, word)
+	})
+
+	t.Run("All love board 1", func(t *testing.T) {
+		test_utils.LoadJSONFixture(t, "testdata/all_love_5x5.fixture", &testBoard)
+
+		expected := "wow"
+		expectedCords := [2]int{2, 1}
+		word, cords := testBoard.MakeProperDataFormat("ww", expectedCords, false)
+		assert.Equal(t, expectedCords, cords)
+		assert.Equal(t, expected, word)
+	})
+
+	t.Run("All love board 2", func(t *testing.T) {
+		test_utils.LoadJSONFixture(t, "testdata/all_love_5x5.fixture", &testBoard)
+
+		expected := "word"
+		expectedCords := [2]int{1, 4}
+		word, cords := testBoard.MakeProperDataFormat("word", expectedCords, false)
+		assert.Equal(t, expectedCords, cords)
+		assert.Equal(t, expected, word)
+	})
+
+	t.Run("All love board 2", func(t *testing.T) {
+		test_utils.LoadJSONFixture(t, "testdata/all_love_5x5.fixture", &testBoard)
+
+		expected := "all"
+		expectedCords := [2]int{1, 1}
+		word, cords := testBoard.MakeProperDataFormat("ll", expectedCords, true)
+		assert.Equal(t, [2]int{1, 0}, cords)
+		assert.Equal(t, expected, word)
+	})
+}

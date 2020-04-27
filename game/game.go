@@ -1,74 +1,64 @@
 package game
 
 import (
-	"encoding/json"
-
 	"github.com/apiotrowski312/scrabbleBot/board"
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
 	"github.com/apiotrowski312/scrabbleBot/letters"
+	"github.com/apiotrowski312/scrabbleBot/rack"
 )
 
-type game struct {
-	bag          letters.TileBag
-	letterValues letters.LetterValue
-	board        board.Board
-	dictionary   gaddag.Node
-}
+func CreateGame(dictFile, tilesFile, boardFile string, users []string, rackSize int) game {
+	root, _ := gaddag.CreateGraph(dictFile)
+	tb, lv, _ := letters.LoadTilesFromFile(tilesFile)
+	b, _ := board.LoadBoardFromFile(boardFile)
 
-func (g game) MarshalJSON() ([]byte, error) {
-	j, err := json.Marshal(struct {
-		Bag          letters.TileBag `json:"bag"`
-		LetterValues letters.LetterValue
-		Board        board.Board
-		Dictionary   gaddag.Node
-	}{
-		Bag:          g.bag,
-		LetterValues: g.letterValues,
-		Board:        g.board,
-		Dictionary:   g.dictionary,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return j, nil
-}
-
-func (g *game) UnmarshalJSON(jsonBytes []byte) error {
-	type Game struct {
-		Bag          letters.TileBag
-		LetterValues letters.LetterValue
-		Board        board.Board
-		Dictionary   gaddag.Node
+	scrabblePlayers := []player{}
+	for _, n := range users {
+		scrabblePlayers = append(scrabblePlayers, player{
+			name: n,
+			rack: rack.CreateRack(rackSize),
+		})
 	}
 
-	var exportedGame Game
-	if err := json.Unmarshal(jsonBytes, &exportedGame); err != nil {
-		return err
+	return game{
+		board:        *b,
+		dictionary:   *root,
+		letterValues: *lv,
+		bag:          *tb,
+		players:      scrabblePlayers,
+		round:        1,
 	}
-
-	g.bag = exportedGame.Bag
-	g.letterValues = exportedGame.LetterValues
-	g.board = exportedGame.Board
-	g.dictionary = exportedGame.Dictionary
-
-	return nil
 }
 
-func (g game) PlaceWord(word string, startCord [2]int, horizontal bool) (int, error) {
-	isOk, err := g.IsWordPlacedCorectly(word, startCord, horizontal)
+func (g game) PlaceWord(letters string, startCord [2]int, horizontal bool) (int, error) {
+
+	isOk, err := g.players[g.round%len(g.players)].rack.AreThereLetters([]rune(letters))
+	if !isOk {
+		return 0, err
+	}
+
+	word, cords := g.board.MakeProperDataFormat(letters, startCord, horizontal)
+
+	isOk, err = g.isWordPlacedCorectly(word, cords, horizontal)
 
 	if !isOk {
 		return 0, err
 	}
 
-	score := g.countScore(word, startCord, horizontal)
+	score := g.countScore(word, cords, horizontal)
 
-	g.board.PlaceWord(word, startCord, horizontal)
+	g.board.PlaceWord(word, cords, horizontal)
+
+	g.players[g.round%len(g.players)].points = g.players[g.round%len(g.players)].points + score // TODO: finish this. I guess we will need refactor some stuff
+	g.round++
+
+	g.players[g.round%len(g.players)].rack.RemoveFromRack([]rune(letters))
+	g.players[g.round%len(g.players)].rack.AddToRack(g.bag.DrawTiles(len(letters)))
 
 	return score, nil
 }
 
-func (g game) IsWordPlacedCorectly(word string, startCord [2]int, horizontal bool) (bool, error) {
+func (g game) isWordPlacedCorectly(word string, startCord [2]int, horizontal bool) (bool, error) {
 	isOk, err := g.dictionary.IsWordValid(word[:1] + "." + word[1:])
 
 	if !isOk {

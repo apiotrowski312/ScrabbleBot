@@ -10,9 +10,15 @@ Call `make unit` to run all unit tests.
 
 Call `make bench` to run all benchmark tests.
 
+
+## Currently working on
+
+- Remove tiles when placing the word
+- Add draw tiles from bag
+
 ## To do
 
-- Improve tests. Add tests for more edge cases. (To improve code quality and coverage) 
+- Improve docs of exported functions 
 - Add. Bonus 50 points when user put all 8 letters on board at once
 
 ## Ideas

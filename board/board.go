@@ -229,3 +229,47 @@ func (b Board) CollectAllUsedWords(word string, startCord [2]int, horizontal boo
 	return words, tiles
 
 }
+
+func (b Board) MakeProperDataFormat(letters string, startCord [2]int, horizontal bool) (string, [2]int) {
+	var word string
+	newCords := startCord
+
+	index := 1
+	lettersLeft := len(letters)
+	if horizontal {
+		for startCord[1]-index >= 0 && b[startCord[0]][startCord[1]-index].Letter != rune(0) {
+			word = string(b[startCord[0]][startCord[1]-index].Letter) + word
+			newCords[1] = startCord[1] - index
+			index++
+		}
+		index = 0
+		for lettersLeft != 0 {
+			if b[startCord[0]][startCord[1]+index].Letter == rune(0) {
+				word = word + string(letters[len(letters)-lettersLeft])
+				lettersLeft--
+			} else {
+				word = word + string(b[startCord[0]][startCord[1]+index].Letter)
+			}
+			index++
+		}
+	} else {
+		for startCord[0]-index >= 0 && b[startCord[0]-index][startCord[1]].Letter != rune(0) {
+			word = string(b[startCord[0]-index][startCord[1]].Letter) + word
+			newCords[0] = startCord[0] - index
+			index++
+		}
+		index = 0
+		for lettersLeft != 0 {
+			if b[startCord[0]+index][startCord[1]].Letter == rune(0) {
+				word = word + string(letters[len(letters)-lettersLeft])
+				lettersLeft--
+			} else {
+				word = word + string(b[startCord[0]+index][startCord[1]].Letter)
+			}
+			index++
+		}
+	}
+
+	return word, newCords
+
+}
