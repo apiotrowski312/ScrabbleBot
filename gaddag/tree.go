@@ -4,18 +4,21 @@ package gaddag
 type Node struct {
 	children map[rune]Node
 	isWord   bool
+	letter   rune
 }
 
+// get return new Node and boolen isOk
 func (n *Node) get(path rune) (*Node, bool) {
 	child, ok := n.children[path]
 	return &child, ok
 }
 
-func (n Node) add(path rune, child Node) *Node {
+func (n Node) add(letter rune, child Node) *Node {
 	if child.children == nil {
 		child.children = map[rune]Node{}
+		child.letter = letter
 	}
 
-	n.children[path] = child
+	n.children[letter] = child
 	return &child
 }
