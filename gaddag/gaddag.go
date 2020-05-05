@@ -24,7 +24,7 @@ func (n *Node) addWord(word string) {
 			if !isOk {
 				isEndOfWord := innerIndex == len(currentWord)-1
 				child = currentNode.add(character, Node{
-					isWord: isEndOfWord,
+					IsWord: isEndOfWord,
 				})
 
 				if isEndOfWord {
@@ -39,6 +39,11 @@ func (n *Node) addWord(word string) {
 
 // IsWordValid - check if provided string is marked as word in gaddag tree
 func (n *Node) IsWordValid(word string) (bool, error) {
+	i := strings.Index(word, ".")
+	if i < 0 {
+		word = word[:0] + "." + word[0:]
+	}
+
 	currentNode := n
 	var isOk bool
 	for _, letter := range word {
@@ -49,7 +54,7 @@ func (n *Node) IsWordValid(word string) (bool, error) {
 		}
 	}
 
-	if currentNode.isWord {
+	if currentNode.IsWord {
 		return true, nil
 	}
 
@@ -58,11 +63,6 @@ func (n *Node) IsWordValid(word string) (bool, error) {
 
 func (n *Node) wordIsNotInDictionary(word string) error {
 	i := strings.Index(word, ".")
-
-	if i < 0 {
-		return fmt.Errorf("Word %v was passed in wrong format (no necessarry dot)", word)
-	}
-
 	processedWord := str_manipulator.Reverse(word[:i]) + word[i+1:]
 
 	return fmt.Errorf("Word %v is not in dictionary", processedWord)
@@ -71,7 +71,7 @@ func (n *Node) wordIsNotInDictionary(word string) error {
 // CreateGraph - create gaddag tree structure based on file with all words, each starting from newline
 func CreateGraph(filename string) (*Node, error) {
 	root := &Node{
-		children: map[rune]Node{},
+		Children: map[rune]Node{},
 	}
 
 	f, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
