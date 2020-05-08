@@ -1,6 +1,10 @@
 package gaddag
 
-import "github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+import (
+	"strings"
+
+	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+)
 
 // Node - struct on which whole gaddag is build.
 type Node struct {
@@ -26,6 +30,7 @@ func (n Node) add(letter rune, child Node) *Node {
 }
 
 func (n *Node) addWord(word string) {
+	word = strings.ToLower(word)
 	for idx := range word {
 
 		prefix := str_manipulator.Reverse(word[:len(word)-idx])

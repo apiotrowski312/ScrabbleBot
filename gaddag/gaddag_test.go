@@ -57,45 +57,93 @@ func Test_IsWordValid(t *testing.T) {
 }
 
 func Test_FindAllWords(t *testing.T) {
-	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
-
 	type testCase struct {
 		nameCase string
 		hook     rune
 		letters  []rune
 		words    []string
 	}
-	cases := []testCase{
-		{"Simple test example", 'w', []rune("ord"), []string{"w.ord"}},
-		{"Multiple matches", 'w', []rune("ordsk"), []string{"w.ord", "w.ords", "w.ork"}},
-		{"Multiple matches from inside", 'r', []rune("orwdsk"), []string{"row.d", "row.ds", "row.k"}},
-		{"Single letters", 'b', []rune("ooks"), []string{"b.ook", "b.ooks"}},
-		{"O inside hook", 'o', []rune("boooks"), []string{"ob.ok", "oob.k", "oob.ks", "ob.oks"}},
+
+	t.Run("Small dictionary", func(t *testing.T) {
+		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+
+		cases := []testCase{
+			{"Simple test example", 'w', []rune("ord"), []string{"w.ord"}},
+			{"Multiple matches", 'w', []rune("ordsk"), []string{"w.ord", "w.ords", "w.ork"}},
+			{"Multiple matches from inside", 'r', []rune("orwdsk"), []string{"row.d", "row.ds", "row.k"}},
+			{"Single letters", 'b', []rune("ooks"), []string{"b.ook", "b.ooks"}},
+			{"O inside hook", 'o', []rune("boooks"), []string{"ob.ok", "oob.k", "oob.ks", "ob.oks"}},
+		}
+
+		for _, c := range cases {
+			t.Run(c.nameCase, func(t *testing.T) {
+				words := gaddagRoot.FindAllWords(c.hook, c.letters)
+				assert.ElementsMatch(t, c.words, words)
+			})
+		}
+	})
+
+	t.Run("Full dictionary", func(t *testing.T) {
+		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
+
+		cases := []testCase{
+			{"Simple test example", 'w', []rune("ord"), []string{"w.ord", "wo.", "w.o", "wor.", "word.", "wod."}},
+			{"Long word match", 'z', []rune("incographer"), []string{"zihc.", "zinagro.er", "zorra.", "z.aire", "zipac.", "z.inger", "z.e", "z.echin", "zihp.", "z.oecia", "zirohpa.er", "zirg.e", "zir.", "zir.a", "z.ingaro", "zc.ar", "z.o", "zoc.ie", "zaec.ing", "za.onic", "zoc.ing", "zac.", "zag.er", "zarc.e", "zinoga.e", "za.on", "z.incograph", "zoc.", "zan.e", "zag.ier", "zarg.e", "zar.oring", "zahg.i", "z.inc", "znap.er", "zorc.e", "zer.", "z.one", "z.oea", "zah.er", "z.ep", "zirp.er", "zihp.og", "zoc.e", "zan.i", "za.o", "zirg.", "zoc.en", "z.ingare", "z.ine", "z.ero", "zineg.ah", "zorc.ier", "z.ag", "z.arnich", "zah.e", "z.arnec", "zi.ar", "zac.h", "zeipa.on", "z.inco", "z.ip", "z.oner", "z.ein", "zingoc.er", "z.ing", "z.oic", "z.anier", "zinagro.e", "zip.e", "zoc.ier", "zarg.er", "zar.ing", "z.ircon", "z.en", "zinga.e", "zah.ier", "za.ine", "z.ori", "z.ho", "zerp.", "znig.o", "zarc.ier", "zar.or", "zar.er", "zah.ing", "za.oic", "z.ari", "zingoc.e", "zirohpa.e", "zarg.ier", "z.ona", "z.oa", "z.ap", "zipe.oa", "zop.", "zag.on", "zarc.ing", "za.ione", "z.incographer", "z.onae", "zih.en", "zar.e", "zaep.ing", "zeip.o", "zorc.er", "z.in", "z.a", "z.ig", "zirga.e", "zehc.", "zinopac.e", "zirp.e", "zipe.oan", "zan.ir", "zag.e", "z.igan", "zihr.ocarp", "znor.", "znor.er", "z.eroing", "z.ea"}},
+		}
+
+		for _, c := range cases {
+			t.Run(c.nameCase, func(t *testing.T) {
+				words := gaddagRoot.FindAllWords(c.hook, c.letters)
+				assert.ElementsMatch(t, c.words, words)
+			})
+		}
+	})
+
+}
+
+func Benchmark_CreateGraph(b *testing.B) {
+	type testCase struct {
+		name string
+		dict string
 	}
 
-	for _, c := range cases {
-		t.Run(c.nameCase, func(t *testing.T) {
-			words := gaddagRoot.FindAllWords(c.hook, c.letters)
-			assert.ElementsMatch(t, c.words, words)
+	cases := []testCase{
+		{"2k words dict", "../exampleData/2k_english.txt"},
+		{"20k words dict", "../exampleData/20k_english.txt"},
+		{"280k words dict", "../exampleData/collins_official_scrabble_2019.txt"},
+	}
+
+	for _, tc := range cases {
+		b.Run(tc.name, func(b *testing.B) {
+			for n := 0; n < b.N; n++ {
+				gaddag.CreateGraph(tc.dict)
+			}
+
 		})
 	}
-
 }
 
-func Benchmark_CreateGraph_2kWords(b *testing.B) {
-	for n := 0; n < b.N; n++ {
-		gaddag.CreateGraph("../exampleData/2k_english.txt")
+func Benchmark_FindAllWords(b *testing.B) {
+	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
+	type testCase struct {
+		name    string
+		hook    rune
+		letters []rune
 	}
-}
 
-func Benchmark_CreateGraph_20kWords(b *testing.B) {
-	for n := 0; n < b.N; n++ {
-		gaddag.CreateGraph("../exampleData/20k_english.txt")
+	cases := []testCase{
+		{"12 letters", 'z', []rune("incographer")},
+		{"5 letters", 'w', []rune("odrs")},
+		{"15 letters", 'o', []rune("icardehartetis")},
 	}
-}
 
-func Benchmark_CreateGraph_280kWords(b *testing.B) {
-	for n := 0; n < b.N; n++ {
-		gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
+	for _, tc := range cases {
+		b.Run(tc.name, func(b *testing.B) {
+			for n := 0; n < b.N; n++ {
+				gaddagRoot.FindAllWords(tc.hook, tc.letters)
+
+			}
+
+		})
 	}
 }
