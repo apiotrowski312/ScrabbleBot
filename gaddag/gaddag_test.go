@@ -3,6 +3,7 @@ package gaddag_test
 import (
 	"errors"
 	"flag"
+	"fmt"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -25,25 +26,40 @@ func Test_CreateGraph(t *testing.T) {
 func Test_IsWordValid(t *testing.T) {
 	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
 
-	isOk, err := gaddagRoot.IsWordValid("w.or")
-	assert.Equal(t, false, isOk)
-	assert.Equal(t, errors.New("Word wor is not in dictionary"), err)
-	isOk, err = gaddagRoot.IsWordValid("w.ord")
-	assert.Equal(t, true, isOk)
-	assert.Equal(t, nil, err)
-	isOk, err = gaddagRoot.IsWordValid("w.ordX")
-	assert.Equal(t, false, isOk)
-	assert.Equal(t, errors.New("Word wordX is not in dictionary"), err)
-	isOk, err = gaddagRoot.IsWordValid("w.orthless")
-	assert.Equal(t, true, isOk)
-	assert.Equal(t, nil, err)
-	isOk, err = gaddagRoot.IsWordValid("w.orthleks")
-	assert.Equal(t, false, isOk)
-	assert.Equal(t, errors.New("Word worthleks is not in dictionary"), err)
-	isOk, err = gaddagRoot.IsWordValid("ob.ss")
-	assert.Equal(t, true, isOk)
-	assert.Equal(t, nil, err)
+	type testCase struct {
+		word    string
+		errWord string
+	}
+	testWord := []testCase{
+		{"word", ""},
+		{"w.or", "wor"},
+		{"w.ord", ""},
+		{"w.ordX", "wordX"},
+		{"w.orthless", ""},
+		{"w.ortzhless", "wortzhless"},
+		{"ob.ss", ""},
+		{"ssob.", ""},
+		{"boss", ""},
+	}
+
+	for _, word := range testWord {
+		t.Run(word.word, func(t *testing.T) {
+			isOk, err := gaddagRoot.IsWordValid(word.word)
+			if len(word.errWord) > 0 {
+				assert.Equal(t, false, isOk)
+				assert.Equal(t, errors.New(fmt.Sprintf("Word %v is not in dictionary", word.errWord)), err)
+			} else {
+				assert.Equal(t, true, isOk)
+				assert.Equal(t, nil, err)
+			}
+		})
+	}
 }
+
+// func Test_IsWordValid(t *testing.T) {
+// 	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+
+// }
 
 func Benchmark_CreateGraph_2kWords(b *testing.B) {
 	for n := 0; n < b.N; n++ {

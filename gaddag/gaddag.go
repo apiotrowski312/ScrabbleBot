@@ -10,38 +10,11 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
 
-func (n *Node) addWord(word string) {
-	for idx := range word {
-
-		prefix := str_manipulator.Reverse(word[:len(word)-idx])
-		sufix := word[len(word)-idx:]
-
-		currentWord := prefix + "." + sufix
-		currentNode := n
-		for innerIndex, character := range currentWord {
-			child, isOk := currentNode.get(character)
-
-			if !isOk {
-				isEndOfWord := innerIndex == len(currentWord)-1
-				child = currentNode.add(character, Node{
-					IsWord: isEndOfWord,
-				})
-
-				if isEndOfWord {
-					break
-				}
-			}
-			currentNode = child
-
-		}
-	}
-}
-
 // IsWordValid - check if provided string is marked as word in gaddag tree
 func (n *Node) IsWordValid(word string) (bool, error) {
 	i := strings.Index(word, ".")
 	if i < 0 {
-		word = word[:0] + "." + word[0:]
+		word = word[:1] + "." + word[1:]
 	}
 
 	currentNode := n

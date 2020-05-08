@@ -1,5 +1,7 @@
 package gaddag
 
+import "github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+
 // Node - struct on which whole gaddag is build.
 type Node struct {
 	Letter   rune
@@ -21,4 +23,31 @@ func (n Node) add(letter rune, child Node) *Node {
 
 	n.Children[letter] = child
 	return &child
+}
+
+func (n *Node) addWord(word string) {
+	for idx := range word {
+
+		prefix := str_manipulator.Reverse(word[:len(word)-idx])
+		sufix := word[len(word)-idx:]
+
+		currentWord := prefix + "." + sufix
+		currentNode := n
+		for innerIndex, character := range currentWord {
+			child, isOk := currentNode.get(character)
+
+			if !isOk {
+				isEndOfWord := innerIndex == len(currentWord)-1
+				child = currentNode.add(character, Node{
+					IsWord: isEndOfWord,
+				})
+
+				if isEndOfWord {
+					break
+				}
+			}
+			currentNode = child
+
+		}
+	}
 }
