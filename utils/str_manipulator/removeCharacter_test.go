@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
-	"github.com/bmizerany/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_RemoveCharacters(t *testing.T) {

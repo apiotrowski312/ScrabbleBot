@@ -4,7 +4,7 @@ import (
 	"flag"
 	"testing"
 
-	"github.com/bmizerany/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var update = flag.Bool("update", false, "update the golden files of this test")

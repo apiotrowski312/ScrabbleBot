@@ -8,7 +8,7 @@ import (
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
-	"github.com/bmizerany/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var update = flag.Bool("update", false, "update the golden files of this test")
@@ -56,10 +56,31 @@ func Test_IsWordValid(t *testing.T) {
 	}
 }
 
-// func Test_IsWordValid(t *testing.T) {
-// 	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+func Test_FindAllWords(t *testing.T) {
+	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
 
-// }
+	type testCase struct {
+		nameCase string
+		hook     rune
+		letters  []rune
+		words    []string
+	}
+	cases := []testCase{
+		{"Simple test example", 'w', []rune("ord"), []string{"w.ord"}},
+		{"Multiple matches", 'w', []rune("ordsk"), []string{"w.ord", "w.ords", "w.ork"}},
+		{"Multiple matches from inside", 'r', []rune("orwdsk"), []string{"row.d", "row.ds", "row.k"}},
+		{"Single letters", 'b', []rune("ooks"), []string{"b.ook", "b.ooks"}},
+		{"O inside hook", 'o', []rune("boooks"), []string{"ob.ok", "oob.k", "oob.ks", "ob.oks"}},
+	}
+
+	for _, c := range cases {
+		t.Run(c.nameCase, func(t *testing.T) {
+			words := gaddagRoot.FindAllWords(c.hook, c.letters)
+			assert.ElementsMatch(t, c.words, words)
+		})
+	}
+
+}
 
 func Benchmark_CreateGraph_2kWords(b *testing.B) {
 	for n := 0; n < b.N; n++ {

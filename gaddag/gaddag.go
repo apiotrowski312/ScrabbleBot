@@ -10,6 +10,54 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
 
+func removeDuplicatesUnordered(elements []string) []string {
+	encountered := map[string]bool{}
+
+	// Create a map of all unique elements.
+	for v := range elements {
+		encountered[elements[v]] = true
+	}
+
+	// Place all keys from the map into a slice.
+	result := []string{}
+	for key, _ := range encountered {
+		result = append(result, key)
+	}
+	return result
+}
+
+func (n Node) FindAllWords(hook rune, letters []rune) []string {
+	newLetters := append(letters, '.')
+	words := n.getAllOk(hook, newLetters)
+	return removeDuplicatesUnordered(words)
+}
+
+func (n Node) getAllOk(currentLetter rune, lettersToGo []rune) []string {
+	hookNode, isOk := n.get(currentLetter)
+
+	if !isOk {
+		return nil
+	}
+
+	partialWords := []string{}
+	if hookNode.IsWord {
+		partialWords = append(partialWords, string(currentLetter))
+	}
+
+	for i, l := range lettersToGo {
+		lettersForIteration := append(append([]rune{}, lettersToGo[:i]...), lettersToGo[i+1:]...)
+
+		newWords := hookNode.getAllOk(l, lettersForIteration)
+		for _, w := range newWords {
+			partialWords = append(partialWords, string(currentLetter)+w)
+		}
+	}
+
+	// fmt.Println(string(currentLetter), ":", partialWords)
+
+	return partialWords
+}
+
 // IsWordValid - check if provided string is marked as word in gaddag tree
 func (n *Node) IsWordValid(word string) (bool, error) {
 	i := strings.Index(word, ".")
