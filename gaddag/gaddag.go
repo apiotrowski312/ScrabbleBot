@@ -12,27 +12,37 @@ import (
 
 func removeDuplicatesUnordered(elements []string) []string {
 	encountered := map[string]bool{}
-
-	// Create a map of all unique elements.
 	for v := range elements {
 		encountered[elements[v]] = true
 	}
 
-	// Place all keys from the map into a slice.
 	result := []string{}
-	for key, _ := range encountered {
+	for key := range encountered {
 		result = append(result, key)
 	}
 	return result
 }
 
-func (n Node) FindAllWords(hook rune, letters []rune) []string {
+func (n Node) FindAllWords(hook rune, letters []rune, lenLeft int, lenRight int) []string {
 	newLetters := append(letters, '.')
-	words := n.getAllOk(hook, newLetters)
+	words := n.getAllOk(hook, newLetters, lenLeft, lenRight)
 	return removeDuplicatesUnordered(words)
 }
 
-func (n Node) getAllOk(currentLetter rune, lettersToGo []rune) []string {
+func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, leftLettersLeft int, rightLettersLeft int) []string {
+
+	// -1 because first left letter is always main hook
+	if (leftLettersLeft == -1 && currentLetter != '.') || (leftLettersLeft < -1 && rightLettersLeft == 0) {
+		return nil
+	}
+
+	if leftLettersLeft < -1 {
+		rightLettersLeft--
+	} else if currentLetter == '.' {
+		leftLettersLeft = -1
+	}
+	leftLettersLeft--
+
 	hookNode, isOk := n.get(currentLetter)
 
 	if !isOk {
@@ -47,18 +57,16 @@ func (n Node) getAllOk(currentLetter rune, lettersToGo []rune) []string {
 	for i, l := range lettersToGo {
 		lettersForIteration := append(append([]rune{}, lettersToGo[:i]...), lettersToGo[i+1:]...)
 
-		newWords := hookNode.getAllOk(l, lettersForIteration)
+		newWords := hookNode.getAllOk(l, lettersForIteration, leftLettersLeft, rightLettersLeft)
 		for _, w := range newWords {
 			partialWords = append(partialWords, string(currentLetter)+w)
 		}
 	}
 
-	// fmt.Println(string(currentLetter), ":", partialWords)
-
 	return partialWords
 }
 
-// IsWordValid - check if provided string is marked as word in gaddag tree
+// IsWordValid - check if provided string is marked as a word in gaddag tree
 func (n *Node) IsWordValid(word string) (bool, error) {
 	i := strings.Index(word, ".")
 	if i < 0 {
