@@ -58,29 +58,33 @@ func Test_IsWordValid(t *testing.T) {
 
 func Test_FindAllWords(t *testing.T) {
 	type testCase struct {
-		name    string
-		hook    rune
-		letters []rune
-		left    int
-		right   int
+		name            string
+		hook            rune
+		letters         []rune
+		left            int
+		right           int
+		existingLetters map[string]map[int]rune
 	}
 
 	t.Run("Small dictionary", func(t *testing.T) {
 		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
 
 		cases := []testCase{
-			{"Simple test example from left", 'w', []rune("ord"), 0, 3},
-			{"Simple test example from right", 'd', []rune("orw"), 5, 0},
-			{"Multiple matches", 'w', []rune("ordsk"), 0, 4},
-			{"Multiple matches from inside", 'r', []rune("orwdsk"), 3, 5},
-			{"Single letters", 'b', []rune("ooks"), 1, 5},
-			{"O inside hook", 'o', []rune("boooks"), 5, 13},
+			{"word to right", 'w', []rune("ord"), 0, 3, nil},
+			{"word to left", 'd', []rune("orw"), 5, 0, nil},
+			{"Multiple matches", 'w', []rune("ordsk"), 0, 4, nil},
+			{"Multiple matches from inside", 'r', []rune("orwdsk"), 3, 5, nil},
+			{"Single letters", 'b', []rune("ooks"), 1, 5, nil},
+			{"O inside hook", 'o', []rune("boooks"), 5, 13, nil},
+			{"with exisitng letters on left", 'd', []rune("or"), 3, 0, map[string]map[int]rune{"left": {1: 'w'}}},
+			{"with exisitng letters on right", 'd', []rune("wor"), 3, 5, map[string]map[int]rune{"right": {5: 's'}}},
+			{"with exisitng letters combo", 'd', []rune("or"), 3, 5, map[string]map[int]rune{"left": {1: 'w'}, "right": {5: 's'}}},
 		}
 
 		for _, c := range cases {
 			t.Run(c.name, func(t *testing.T) {
 				var expectedWords []string
-				words := gaddagRoot.FindAllWords(c.hook, c.letters, c.left, c.right)
+				words := gaddagRoot.FindAllWords(c.hook, c.letters, c.left, c.right, c.existingLetters)
 				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Small_dictionary/"+c.name, *update)
 
 				assert.ElementsMatch(t, expectedWords, words)
@@ -92,15 +96,16 @@ func Test_FindAllWords(t *testing.T) {
 		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
 
 		cases := []testCase{
-			{"Simple test example", 'w', []rune("ord"), 5, 0},
-			{"Long word match", 'z', []rune("incographer"), 2, 4},
-			{"8 letters", 'z', []rune("aeilnrst"), 15, 15},
+			{"word from left", 'w', []rune("ord"), 5, 0, nil},
+			{"Long word match", 'z', []rune("incographer"), 2, 4, nil},
+			{"8 letters", 'z', []rune("aeilnrst"), 15, 15, nil},
+			{"Long word with some letters on board", 'z', []rune("incographer"), 1, 13, map[string]map[int]rune{"right": {13: 'i', 12: 'n'}}},
 		}
 
 		for _, c := range cases {
 			t.Run(c.name, func(t *testing.T) {
 				var expectedWords []string
-				words := gaddagRoot.FindAllWords(c.hook, c.letters, c.left, c.right)
+				words := gaddagRoot.FindAllWords(c.hook, c.letters, c.left, c.right, c.existingLetters)
 				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Full_dictionary/"+c.name, *update)
 
 				assert.ElementsMatch(t, expectedWords, words)
@@ -135,24 +140,25 @@ func Benchmark_CreateGraph(b *testing.B) {
 func Benchmark_FindAllWords(b *testing.B) {
 	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
 	type testCase struct {
-		name    string
-		hook    rune
-		letters []rune
-		left    int
-		right   int
+		name            string
+		hook            rune
+		letters         []rune
+		left            int
+		right           int
+		existingLetters map[string]map[int]rune
 	}
 
 	cases := []testCase{
-		{"5 letters", 'w', []rune("odrs"), 15, 15},
-		{"12 letters", 'z', []rune("incographer"), 15, 15},
-		{"15 letters", 'o', []rune("icardehartetis"), 15, 15},
-		{"8 letters", 'z', []rune("aeilnrst"), 15, 15},
+		{"5 letters", 'w', []rune("odrs"), 15, 15, nil},
+		{"12 letters", 'z', []rune("incographer"), 15, 15, nil},
+		{"15 letters", 'o', []rune("icardehartetis"), 15, 15, nil},
+		{"8 letters", 'z', []rune("aeilnrst"), 15, 15, nil},
 	}
 
-	for _, tc := range cases {
-		b.Run(tc.name, func(b *testing.B) {
+	for _, c := range cases {
+		b.Run(c.name, func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
-				gaddagRoot.FindAllWords(tc.hook, tc.letters, tc.left, tc.right)
+				gaddagRoot.FindAllWords(c.hook, c.letters, c.left, c.right, c.existingLetters)
 
 			}
 

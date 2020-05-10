@@ -23,25 +23,27 @@ func removeDuplicatesUnordered(elements []string) []string {
 	return result
 }
 
-func (n Node) FindAllWords(hook rune, letters []rune, lenLeft int, lenRight int) []string {
+func (n Node) FindAllWords(hook rune, letters []rune, lenLeft int, lenRight int, existingLetters map[string]map[int]rune) []string {
 	newLetters := append(letters, '.')
-	words := n.getAllOk(hook, newLetters, lenLeft, lenRight)
+	// increment lenLeft because of additional lenght for hook.
+	lenLeft++
+
+	words := n.getAllOk(hook, newLetters, lenLeft, lenRight, existingLetters)
 	return removeDuplicatesUnordered(words)
 }
 
-func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, leftLettersLeft int, rightLettersLeft int) []string {
+func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, lenLeft int, lenRight int, existingLetters map[string]map[int]rune) []string {
 
-	// -1 because first left letter is always main hook
-	if (leftLettersLeft == -1 && currentLetter != '.') || (leftLettersLeft < -1 && rightLettersLeft == 0) {
+	if (lenLeft == 0 && currentLetter != '.') || (lenLeft < -1 && lenRight == 0) {
 		return nil
 	}
 
-	if leftLettersLeft < -1 {
-		rightLettersLeft--
+	if lenLeft < 0 {
+		lenRight--
 	} else if currentLetter == '.' {
-		leftLettersLeft = -1
+		lenLeft = 0
 	}
-	leftLettersLeft--
+	lenLeft--
 
 	hookNode, isOk := n.get(currentLetter)
 
@@ -54,12 +56,30 @@ func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, leftLettersLeft i
 		partialWords = append(partialWords, string(currentLetter))
 	}
 
-	for i, l := range lettersToGo {
-		lettersForIteration := append(append([]rune{}, lettersToGo[:i]...), lettersToGo[i+1:]...)
+	var newWords []string
 
-		newWords := hookNode.getAllOk(l, lettersForIteration, leftLettersLeft, rightLettersLeft)
+	if newHook, isOk := existingLetters["left"][lenLeft]; isOk == true && lenLeft >= 0 {
+		lettersForIteration := append(lettersToGo, currentLetter)
+
+		newWords = hookNode.getAllOk(newHook, lettersForIteration, lenLeft, lenRight, existingLetters)
 		for _, w := range newWords {
 			partialWords = append(partialWords, string(currentLetter)+w)
+		}
+	} else if newHook, isOk := existingLetters["right"][lenRight]; isOk == true && lenLeft < 0 {
+		lettersForIteration := append(lettersToGo, currentLetter)
+
+		newWords = hookNode.getAllOk(newHook, lettersForIteration, lenLeft, lenRight, existingLetters)
+		for _, w := range newWords {
+			partialWords = append(partialWords, string(currentLetter)+w)
+		}
+	} else {
+		for i, l := range lettersToGo {
+			lettersForIteration := append(append([]rune{}, lettersToGo[:i]...), lettersToGo[i+1:]...)
+			newWords = hookNode.getAllOk(l, lettersForIteration, lenLeft, lenRight, existingLetters)
+
+			for _, w := range newWords {
+				partialWords = append(partialWords, string(currentLetter)+w)
+			}
 		}
 	}
 
