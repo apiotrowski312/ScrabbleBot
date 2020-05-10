@@ -1,29 +1,22 @@
 {
-	"Letter": 0,
 	"IsWord": false,
 	"Children": {
 		"100": {
-			"Letter": 100,
 			"IsWord": false,
 			"Children": {
 				"114": {
-					"Letter": 114,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"119": {
-									"Letter": 119,
 									"IsWord": false,
 									"Children": {
 										"46": {
-											"Letter": 46,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -38,43 +31,33 @@
 			}
 		},
 		"101": {
-			"Letter": 101,
 			"IsWord": false,
 			"Children": {
 				"108": {
-					"Letter": 108,
 					"IsWord": false,
 					"Children": {
 						"104": {
-							"Letter": 104,
 							"IsWord": false,
 							"Children": {
 								"116": {
-									"Letter": 116,
 									"IsWord": false,
 									"Children": {
 										"114": {
-											"Letter": 114,
 											"IsWord": false,
 											"Children": {
 												"111": {
-													"Letter": 111,
 													"IsWord": false,
 													"Children": {
 														"119": {
-															"Letter": 119,
 															"IsWord": false,
 															"Children": {
 																"46": {
-																	"Letter": 46,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -95,23 +78,18 @@
 					}
 				},
 				"118": {
-					"Letter": 118,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"108": {
-									"Letter": 108,
 									"IsWord": false,
 									"Children": {
 										"46": {
-											"Letter": 46,
 											"IsWord": false,
 											"Children": {
 												"114": {
-													"Letter": 114,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -126,39 +104,30 @@
 			}
 		},
 		"102": {
-			"Letter": 102,
 			"IsWord": false,
 			"Children": {
 				"104": {
-					"Letter": 104,
 					"IsWord": false,
 					"Children": {
 						"116": {
-							"Letter": 116,
 							"IsWord": false,
 							"Children": {
 								"114": {
-									"Letter": 114,
 									"IsWord": false,
 									"Children": {
 										"111": {
-											"Letter": 111,
 											"IsWord": false,
 											"Children": {
 												"119": {
-													"Letter": 119,
 													"IsWord": false,
 													"Children": {
 														"46": {
-															"Letter": 46,
 															"IsWord": false,
 															"Children": {
 																"117": {
-																	"Letter": 117,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -179,39 +148,30 @@
 			}
 		},
 		"104": {
-			"Letter": 104,
 			"IsWord": false,
 			"Children": {
 				"116": {
-					"Letter": 116,
 					"IsWord": false,
 					"Children": {
 						"114": {
-							"Letter": 114,
 							"IsWord": false,
 							"Children": {
 								"111": {
-									"Letter": 111,
 									"IsWord": false,
 									"Children": {
 										"119": {
-											"Letter": 119,
 											"IsWord": false,
 											"Children": {
 												"46": {
-													"Letter": 46,
 													"IsWord": false,
 													"Children": {
 														"102": {
-															"Letter": 102,
 															"IsWord": false,
 															"Children": {
 																"117": {
-																	"Letter": 117,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -220,19 +180,15 @@
 															}
 														},
 														"108": {
-															"Letter": 108,
 															"IsWord": false,
 															"Children": {
 																"101": {
-																	"Letter": 101,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -255,27 +211,21 @@
 			}
 		},
 		"107": {
-			"Letter": 107,
 			"IsWord": false,
 			"Children": {
 				"111": {
-					"Letter": 111,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"98": {
-									"Letter": 98,
 									"IsWord": false,
 									"Children": {
 										"46": {
-											"Letter": 46,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -288,19 +238,15 @@
 					}
 				},
 				"114": {
-					"Letter": 114,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"119": {
-									"Letter": 119,
 									"IsWord": false,
 									"Children": {
 										"46": {
-											"Letter": 46,
 											"IsWord": true,
 											"Children": {}
 										}
@@ -313,43 +259,33 @@
 			}
 		},
 		"108": {
-			"Letter": 108,
 			"IsWord": false,
 			"Children": {
 				"104": {
-					"Letter": 104,
 					"IsWord": false,
 					"Children": {
 						"116": {
-							"Letter": 116,
 							"IsWord": false,
 							"Children": {
 								"114": {
-									"Letter": 114,
 									"IsWord": false,
 									"Children": {
 										"111": {
-											"Letter": 111,
 											"IsWord": false,
 											"Children": {
 												"119": {
-													"Letter": 119,
 													"IsWord": false,
 													"Children": {
 														"46": {
-															"Letter": 46,
 															"IsWord": false,
 															"Children": {
 																"101": {
-																	"Letter": 101,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -370,35 +306,27 @@
 					}
 				},
 				"117": {
-					"Letter": 117,
 					"IsWord": false,
 					"Children": {
 						"102": {
-							"Letter": 102,
 							"IsWord": false,
 							"Children": {
 								"104": {
-									"Letter": 104,
 									"IsWord": false,
 									"Children": {
 										"116": {
-											"Letter": 116,
 											"IsWord": false,
 											"Children": {
 												"114": {
-													"Letter": 114,
 													"IsWord": false,
 													"Children": {
 														"111": {
-															"Letter": 111,
 															"IsWord": false,
 															"Children": {
 																"119": {
-																	"Letter": 119,
 																	"IsWord": false,
 																	"Children": {
 																		"46": {
-																			"Letter": 46,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -417,23 +345,18 @@
 					}
 				},
 				"46": {
-					"Letter": 46,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"118": {
-									"Letter": 118,
 									"IsWord": false,
 									"Children": {
 										"101": {
-											"Letter": 101,
 											"IsWord": false,
 											"Children": {
 												"114": {
-													"Letter": 114,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -448,27 +371,21 @@
 			}
 		},
 		"111": {
-			"Letter": 111,
 			"IsWord": false,
 			"Children": {
 				"108": {
-					"Letter": 108,
 					"IsWord": false,
 					"Children": {
 						"46": {
-							"Letter": 46,
 							"IsWord": false,
 							"Children": {
 								"118": {
-									"Letter": 118,
 									"IsWord": false,
 									"Children": {
 										"101": {
-											"Letter": 101,
 											"IsWord": false,
 											"Children": {
 												"114": {
-													"Letter": 114,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -481,23 +398,18 @@
 					}
 				},
 				"111": {
-					"Letter": 111,
 					"IsWord": false,
 					"Children": {
 						"98": {
-							"Letter": 98,
 							"IsWord": false,
 							"Children": {
 								"46": {
-									"Letter": 46,
 									"IsWord": false,
 									"Children": {
 										"107": {
-											"Letter": 107,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -510,15 +422,12 @@
 					}
 				},
 				"115": {
-					"Letter": 115,
 					"IsWord": false,
 					"Children": {
 						"46": {
-							"Letter": 46,
 							"IsWord": false,
 							"Children": {
 								"115": {
-									"Letter": 115,
 									"IsWord": true,
 									"Children": {}
 								}
@@ -527,51 +436,40 @@
 					}
 				},
 				"119": {
-					"Letter": 119,
 					"IsWord": false,
 					"Children": {
 						"46": {
-							"Letter": 46,
 							"IsWord": false,
 							"Children": {
 								"114": {
-									"Letter": 114,
 									"IsWord": false,
 									"Children": {
 										"100": {
-											"Letter": 100,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
 											}
 										},
 										"107": {
-											"Letter": 107,
 											"IsWord": true,
 											"Children": {}
 										},
 										"116": {
-											"Letter": 116,
 											"IsWord": false,
 											"Children": {
 												"104": {
-													"Letter": 104,
 													"IsWord": false,
 													"Children": {
 														"102": {
-															"Letter": 102,
 															"IsWord": false,
 															"Children": {
 																"117": {
-																	"Letter": 117,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -580,19 +478,15 @@
 															}
 														},
 														"108": {
-															"Letter": 108,
 															"IsWord": false,
 															"Children": {
 																"101": {
-																	"Letter": 101,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -613,23 +507,18 @@
 					}
 				},
 				"98": {
-					"Letter": 98,
 					"IsWord": false,
 					"Children": {
 						"46": {
-							"Letter": 46,
 							"IsWord": false,
 							"Children": {
 								"111": {
-									"Letter": 111,
 									"IsWord": false,
 									"Children": {
 										"107": {
-											"Letter": 107,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -638,11 +527,9 @@
 									}
 								},
 								"115": {
-									"Letter": 115,
 									"IsWord": false,
 									"Children": {
 										"115": {
-											"Letter": 115,
 											"IsWord": true,
 											"Children": {}
 										}
@@ -655,27 +542,21 @@
 			}
 		},
 		"114": {
-			"Letter": 114,
 			"IsWord": false,
 			"Children": {
 				"101": {
-					"Letter": 101,
 					"IsWord": false,
 					"Children": {
 						"118": {
-							"Letter": 118,
 							"IsWord": false,
 							"Children": {
 								"111": {
-									"Letter": 111,
 									"IsWord": false,
 									"Children": {
 										"108": {
-											"Letter": 108,
 											"IsWord": false,
 											"Children": {
 												"46": {
-													"Letter": 46,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -688,51 +569,40 @@
 					}
 				},
 				"111": {
-					"Letter": 111,
 					"IsWord": false,
 					"Children": {
 						"119": {
-							"Letter": 119,
 							"IsWord": false,
 							"Children": {
 								"46": {
-									"Letter": 46,
 									"IsWord": false,
 									"Children": {
 										"100": {
-											"Letter": 100,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
 											}
 										},
 										"107": {
-											"Letter": 107,
 											"IsWord": true,
 											"Children": {}
 										},
 										"116": {
-											"Letter": 116,
 											"IsWord": false,
 											"Children": {
 												"104": {
-													"Letter": 104,
 													"IsWord": false,
 													"Children": {
 														"102": {
-															"Letter": 102,
 															"IsWord": false,
 															"Children": {
 																"117": {
-																	"Letter": 117,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -741,19 +611,15 @@
 															}
 														},
 														"108": {
-															"Letter": 108,
 															"IsWord": false,
 															"Children": {
 																"101": {
-																	"Letter": 101,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -776,27 +642,21 @@
 			}
 		},
 		"115": {
-			"Letter": 115,
 			"IsWord": false,
 			"Children": {
 				"100": {
-					"Letter": 100,
 					"IsWord": false,
 					"Children": {
 						"114": {
-							"Letter": 114,
 							"IsWord": false,
 							"Children": {
 								"111": {
-									"Letter": 111,
 									"IsWord": false,
 									"Children": {
 										"119": {
-											"Letter": 119,
 											"IsWord": false,
 											"Children": {
 												"46": {
-													"Letter": 46,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -809,39 +669,30 @@
 					}
 				},
 				"101": {
-					"Letter": 101,
 					"IsWord": false,
 					"Children": {
 						"108": {
-							"Letter": 108,
 							"IsWord": false,
 							"Children": {
 								"104": {
-									"Letter": 104,
 									"IsWord": false,
 									"Children": {
 										"116": {
-											"Letter": 116,
 											"IsWord": false,
 											"Children": {
 												"114": {
-													"Letter": 114,
 													"IsWord": false,
 													"Children": {
 														"111": {
-															"Letter": 111,
 															"IsWord": false,
 															"Children": {
 																"119": {
-																	"Letter": 119,
 																	"IsWord": false,
 																	"Children": {
 																		"46": {
-																			"Letter": 46,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -862,23 +713,18 @@
 					}
 				},
 				"107": {
-					"Letter": 107,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"111": {
-									"Letter": 111,
 									"IsWord": false,
 									"Children": {
 										"98": {
-											"Letter": 98,
 											"IsWord": false,
 											"Children": {
 												"46": {
-													"Letter": 46,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -891,30 +737,24 @@
 					}
 				},
 				"111": {
-					"Letter": 111,
 					"IsWord": false,
 					"Children": {
 						"115": {
-							"Letter": 115,
 							"IsWord": false,
 							"Children": {
 								"46": {
-									"Letter": 46,
 									"IsWord": true,
 									"Children": {}
 								}
 							}
 						},
 						"98": {
-							"Letter": 98,
 							"IsWord": false,
 							"Children": {
 								"46": {
-									"Letter": 46,
 									"IsWord": false,
 									"Children": {
 										"115": {
-											"Letter": 115,
 											"IsWord": true,
 											"Children": {}
 										}
@@ -925,39 +765,30 @@
 					}
 				},
 				"115": {
-					"Letter": 115,
 					"IsWord": false,
 					"Children": {
 						"101": {
-							"Letter": 101,
 							"IsWord": false,
 							"Children": {
 								"108": {
-									"Letter": 108,
 									"IsWord": false,
 									"Children": {
 										"104": {
-											"Letter": 104,
 											"IsWord": false,
 											"Children": {
 												"116": {
-													"Letter": 116,
 													"IsWord": false,
 													"Children": {
 														"114": {
-															"Letter": 114,
 															"IsWord": false,
 															"Children": {
 																"111": {
-																	"Letter": 111,
 																	"IsWord": false,
 																	"Children": {
 																		"119": {
-																			"Letter": 119,
 																			"IsWord": false,
 																			"Children": {
 																				"46": {
-																					"Letter": 46,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -976,15 +807,12 @@
 							}
 						},
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"98": {
-									"Letter": 98,
 									"IsWord": false,
 									"Children": {
 										"46": {
-											"Letter": 46,
 											"IsWord": true,
 											"Children": {}
 										}
@@ -995,15 +823,12 @@
 					}
 				},
 				"46": {
-					"Letter": 46,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"115": {
-									"Letter": 115,
 									"IsWord": true,
 									"Children": {}
 								}
@@ -1014,39 +839,30 @@
 			}
 		},
 		"116": {
-			"Letter": 116,
 			"IsWord": false,
 			"Children": {
 				"114": {
-					"Letter": 114,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"119": {
-									"Letter": 119,
 									"IsWord": false,
 									"Children": {
 										"46": {
-											"Letter": 46,
 											"IsWord": false,
 											"Children": {
 												"104": {
-													"Letter": 104,
 													"IsWord": false,
 													"Children": {
 														"102": {
-															"Letter": 102,
 															"IsWord": false,
 															"Children": {
 																"117": {
-																	"Letter": 117,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -1055,19 +871,15 @@
 															}
 														},
 														"108": {
-															"Letter": 108,
 															"IsWord": false,
 															"Children": {
 																"101": {
-																	"Letter": 101,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -1090,39 +902,30 @@
 			}
 		},
 		"117": {
-			"Letter": 117,
 			"IsWord": false,
 			"Children": {
 				"102": {
-					"Letter": 102,
 					"IsWord": false,
 					"Children": {
 						"104": {
-							"Letter": 104,
 							"IsWord": false,
 							"Children": {
 								"116": {
-									"Letter": 116,
 									"IsWord": false,
 									"Children": {
 										"114": {
-											"Letter": 114,
 											"IsWord": false,
 											"Children": {
 												"111": {
-													"Letter": 111,
 													"IsWord": false,
 													"Children": {
 														"119": {
-															"Letter": 119,
 															"IsWord": false,
 															"Children": {
 																"46": {
-																	"Letter": 46,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -1143,27 +946,21 @@
 			}
 		},
 		"118": {
-			"Letter": 118,
 			"IsWord": false,
 			"Children": {
 				"111": {
-					"Letter": 111,
 					"IsWord": false,
 					"Children": {
 						"108": {
-							"Letter": 108,
 							"IsWord": false,
 							"Children": {
 								"46": {
-									"Letter": 46,
 									"IsWord": false,
 									"Children": {
 										"101": {
-											"Letter": 101,
 											"IsWord": false,
 											"Children": {
 												"114": {
-													"Letter": 114,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -1178,55 +975,43 @@
 			}
 		},
 		"119": {
-			"Letter": 119,
 			"IsWord": false,
 			"Children": {
 				"46": {
-					"Letter": 46,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"114": {
-									"Letter": 114,
 									"IsWord": false,
 									"Children": {
 										"100": {
-											"Letter": 100,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
 											}
 										},
 										"107": {
-											"Letter": 107,
 											"IsWord": true,
 											"Children": {}
 										},
 										"116": {
-											"Letter": 116,
 											"IsWord": false,
 											"Children": {
 												"104": {
-													"Letter": 104,
 													"IsWord": false,
 													"Children": {
 														"102": {
-															"Letter": 102,
 															"IsWord": false,
 															"Children": {
 																"117": {
-																	"Letter": 117,
 																	"IsWord": false,
 																	"Children": {
 																		"108": {
-																			"Letter": 108,
 																			"IsWord": true,
 																			"Children": {}
 																		}
@@ -1235,19 +1020,15 @@
 															}
 														},
 														"108": {
-															"Letter": 108,
 															"IsWord": false,
 															"Children": {
 																"101": {
-																	"Letter": 101,
 																	"IsWord": false,
 																	"Children": {
 																		"115": {
-																			"Letter": 115,
 																			"IsWord": false,
 																			"Children": {
 																				"115": {
-																					"Letter": 115,
 																					"IsWord": true,
 																					"Children": {}
 																				}
@@ -1270,27 +1051,21 @@
 			}
 		},
 		"98": {
-			"Letter": 98,
 			"IsWord": false,
 			"Children": {
 				"46": {
-					"Letter": 46,
 					"IsWord": false,
 					"Children": {
 						"111": {
-							"Letter": 111,
 							"IsWord": false,
 							"Children": {
 								"111": {
-									"Letter": 111,
 									"IsWord": false,
 									"Children": {
 										"107": {
-											"Letter": 107,
 											"IsWord": true,
 											"Children": {
 												"115": {
-													"Letter": 115,
 													"IsWord": true,
 													"Children": {}
 												}
@@ -1299,11 +1074,9 @@
 									}
 								},
 								"115": {
-									"Letter": 115,
 									"IsWord": false,
 									"Children": {
 										"115": {
-											"Letter": 115,
 											"IsWord": true,
 											"Children": {}
 										}

@@ -8,7 +8,6 @@ import (
 
 // Node - struct on which whole gaddag is build.
 type Node struct {
-	Letter   rune
 	IsWord   bool
 	Children map[rune]Node
 }
@@ -22,7 +21,6 @@ func (n *Node) get(path rune) (*Node, bool) {
 func (n Node) add(letter rune, child Node) *Node {
 	if child.Children == nil {
 		child.Children = map[rune]Node{}
-		child.Letter = letter
 	}
 
 	n.Children[letter] = child

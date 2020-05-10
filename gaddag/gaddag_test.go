@@ -89,7 +89,7 @@ func Test_FindAllWords(t *testing.T) {
 				sort.Strings(words)
 				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Small_dictionary/"+c.name, *update)
 
-				assert.ElementsMatch(t, expectedWords, words)
+				assert.Equal(t, expectedWords, words)
 			})
 		}
 	})
@@ -117,7 +117,7 @@ func Test_FindAllWords(t *testing.T) {
 				sort.Strings(words)
 				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Full_dictionary/"+c.name, *update)
 
-				assert.ElementsMatch(t, expectedWords, words)
+				assert.Equal(t, expectedWords, words)
 			})
 		}
 	})
