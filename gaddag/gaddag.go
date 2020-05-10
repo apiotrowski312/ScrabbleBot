@@ -46,7 +46,6 @@ func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, lenLeft int, lenR
 	lenLeft--
 
 	hookNode, isOk := n.get(currentLetter)
-
 	if !isOk {
 		return nil
 	}

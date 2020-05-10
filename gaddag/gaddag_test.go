@@ -100,6 +100,12 @@ func Test_FindAllWords(t *testing.T) {
 			{"Long word match", 'z', []rune("incographer"), 2, 4, nil},
 			{"8 letters", 'z', []rune("aeilnrst"), 15, 15, nil},
 			{"Long word with some letters on board", 'z', []rune("incographer"), 1, 13, map[string]map[int]rune{"right": {13: 'i', 12: 'n'}}},
+			{"7 letters with existring board", 'n', []rune("wssared"), 8, 6,
+				map[string]map[int]rune{
+					"left":  {1: 'd', 2: 'o', 3: 'w', 4: 'n'},
+					"right": {3: 'e', 2: 's'},
+				},
+			},
 		}
 
 		for _, c := range cases {
@@ -153,6 +159,12 @@ func Benchmark_FindAllWords(b *testing.B) {
 		{"12 letters", 'z', []rune("incographer"), 15, 15, nil},
 		{"15 letters", 'o', []rune("icardehartetis"), 15, 15, nil},
 		{"8 letters", 'z', []rune("aeilnrst"), 15, 15, nil},
+		{"7 letters with existring board", 'n', []rune("wssared"), 8, 6,
+			map[string]map[int]rune{
+				"left":  {1: 'd', 2: 'o', 3: 'w', 4: 'n'},
+				"right": {3: 'e', 2: 's'},
+			},
+		},
 	}
 
 	for _, c := range cases {
