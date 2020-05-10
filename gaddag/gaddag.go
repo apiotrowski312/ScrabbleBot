@@ -34,7 +34,7 @@ func (n Node) FindAllWords(hook rune, letters []rune, lenLeft int, lenRight int,
 
 func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, lenLeft int, lenRight int, existingLetters map[string]map[int]rune) []string {
 
-	if (lenLeft == 0 && currentLetter != '.') || (lenLeft < -1 && lenRight == 0) {
+	if (lenLeft == 0 && currentLetter != '.') || (lenLeft <= -1 && lenRight == 0) {
 		return nil
 	}
 
@@ -42,6 +42,7 @@ func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, lenLeft int, lenR
 		lenRight--
 	} else if currentLetter == '.' {
 		lenLeft = 0
+	} else {
 	}
 	lenLeft--
 

@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"sort"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -85,6 +86,7 @@ func Test_FindAllWords(t *testing.T) {
 			t.Run(c.name, func(t *testing.T) {
 				var expectedWords []string
 				words := gaddagRoot.FindAllWords(c.hook, c.letters, c.left, c.right, c.existingLetters)
+				sort.Strings(words)
 				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Small_dictionary/"+c.name, *update)
 
 				assert.ElementsMatch(t, expectedWords, words)
