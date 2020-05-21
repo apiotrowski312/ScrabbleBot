@@ -40,7 +40,10 @@ func GetGoldenFileString(t *testing.T, actual string, fileName string, shouldUpd
 }
 
 func LoadJSONFixture(t *testing.T, fileName string, structToLoad interface{}) {
-	expected := readFile(t, fileName)
+	expected, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		t.Fatal(err)
+	}
 	json.Unmarshal(expected, &structToLoad)
 }
 
