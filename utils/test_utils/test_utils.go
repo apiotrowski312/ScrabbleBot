@@ -3,13 +3,11 @@ package test_utils
 import (
 	"encoding/json"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
+	"syscall"
 	"testing"
-)
-
-const (
-	permission = 0666
 )
 
 func GetGoldenFileJSON(t *testing.T, actual interface{}, expected interface{}, fileName string, shouldUpdate bool) {
@@ -55,11 +53,23 @@ func readFile(t *testing.T, fileName string) []byte {
 }
 
 func writeFile(t *testing.T, fileName string, bytes []byte) {
-	if err := ioutil.WriteFile(preparePath(fileName), bytes, permission); err != nil {
-		t.Fatalf("Error writing golden file for filename=%s: %s", fileName, err)
+	syscall.Umask(0)
+	if _, err := os.Stat(prepareDirPath(fileName)); err != nil {
+		if err := os.MkdirAll(prepareDirPath(fileName), 0777); err != nil {
+			t.Fatalf("Error direcotry for golden files %s: %s", fileName, err)
+		}
+	}
+
+	if err := ioutil.WriteFile(preparePath(fileName), bytes, 0666); err != nil {
+		t.Fatalf("Error writing golden file for filename=%s: %s", preparePath(fileName), err)
 	}
 }
 
 func preparePath(path string) string {
 	return strings.ReplaceAll(path, " ", "_") + ".golden"
+}
+
+func prepareDirPath(path string) string {
+	dir := strings.Split(strings.ReplaceAll(path, " ", "_"), "/")
+	return strings.Join(dir[:len(dir)-1], "/")
 }
