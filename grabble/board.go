@@ -7,8 +7,15 @@ type field struct {
 
 type Board [15][15]*field
 
-func CreateBoard(template [15][15]rune) (Board, error) {
-	var board Board
+var (
+	board           = Board{}
+	transposedBoard = Board{}
+)
+
+func CreateBoard(template [15][15]rune) *Board {
+	if (Board{}) != board {
+		return &board
+	}
 
 	for x, row := range template {
 		for y, f := range row {
@@ -16,16 +23,18 @@ func CreateBoard(template [15][15]rune) (Board, error) {
 		}
 	}
 
-	return board, nil
+	return &board
 }
 
-func (b *Board) TransposeBoard() Board {
-	var transposedBoard Board
+func (b *Board) TransposeBoard() *Board {
+	if (Board{}) != transposedBoard {
+		return &transposedBoard
+	}
 
 	for i, row := range b {
 		for j := range row {
 			transposedBoard[i][j] = b[j][i]
 		}
 	}
-	return transposedBoard
+	return &transposedBoard
 }
