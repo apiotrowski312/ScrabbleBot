@@ -14,30 +14,17 @@ var update = flag.Bool("update", false, "update the golden files of this test")
 func Test_CreateBoard(t *testing.T) {
 	type testCase struct {
 		name     string
-		template [][]rune
+		template [15][15]rune
 		err      bool
 	}
 	test := []testCase{
 		{
 			"Proper template",
-			[][]rune{
-				[]rune("W0W"),
-				[]rune("lsl"),
-				[]rune("Lww"),
+			[15][15]rune{
+				[15]rune{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'},
+				[15]rune{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
+				[15]rune{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'},
 			}, false,
-		}, {
-			"Wrong template",
-			[][]rune{
-				[]rune("W0"),
-				[]rune("lsl"),
-				[]rune("Lww"),
-			}, true,
-		}, {
-			"Wrong template v2",
-			[][]rune{
-				[]rune("W0W"),
-				[]rune("Lww"),
-			}, true,
 		},
 	}
 
@@ -69,5 +56,8 @@ func Test_TransposeBoard(t *testing.T) {
 	test_utils.GetGoldenFileJSON(t, transposedBoard, &expectedTransposedBoard, "transposed_board", true)
 
 	assert.Equal(t, expectedTransposedBoard, transposedBoard)
+
+	board[5][7].Letter = 'c'
+	assert.Equal(t, board[5][7], transposedBoard[7][5])
 
 }
