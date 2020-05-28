@@ -51,5 +51,4 @@ func Test_TransposeBoard(t *testing.T) {
 
 	board[5][7].Letter = 'c'
 	assert.Equal(t, board[5][7], transposedBoard[7][5])
-
 }
