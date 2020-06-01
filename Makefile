@@ -5,7 +5,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-DOCKER_TEST_COMMAND=docker run --rm -v $(PWD):/gaddag golang:1.13 sh -c "cd /gaddag; go mod download 2> /dev/null;
+DOCKER_TEST_COMMAND=docker run --rm -v $(PWD):/gaddag golang:1.14 sh -c "cd /gaddag; go mod download 2> /dev/null;
 COLOR_TEST_OUTPUT=sed ''/ok/s//$$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$$(printf "\033[31mFAIL\033[0m")/''
 
 # -----------------------------------------------------------------------------
@@ -20,7 +20,9 @@ golden-update: ## update golden files
 	@echo -e ${GREEN}GOLDENFILES UPDATE${NC}
 	@find . -name "*.golden" -type f -delete
 	@${DOCKER_TEST_COMMAND} go test ./... -update" | ${COLOR_TEST_OUTPUT}
+
 bench: ## Run benchmark tests in Docker
+	@echo -e ${GREEN}BENCHMART TESTS${NC}
 	@${DOCKER_TEST_COMMAND} go test ./... -bench=. -run=^a"
 
 help: ## Show this help.
