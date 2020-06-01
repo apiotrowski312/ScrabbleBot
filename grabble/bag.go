@@ -27,4 +27,7 @@ func (b *Bag) DrawLetters(number int) []rune {
 	return letters
 }
 
-// TODO: Put letters back to the bag when user change letters
+func (b *Bag) ChangeLetters(letters []rune) []rune {
+	(*b) = append((*b), letters...)
+	return b.DrawLetters(len(letters))
+}

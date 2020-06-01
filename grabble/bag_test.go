@@ -82,3 +82,37 @@ func Test_DrawLetters(t *testing.T) {
 		})
 	}
 }
+
+func Test_ChangeLetters(t *testing.T) {
+	type testCase struct {
+		name          string
+		tiles         []rune
+		changeLetters []rune
+	}
+	test := []testCase{
+		{
+			"Change 3 letters",
+			[]rune("abcdefghijklmnoprstuw"),
+			[]rune("qwe"),
+		},
+		{
+			"Empty bag",
+			[]rune(""),
+			[]rune("qawsedrf"),
+		},
+		{
+			"Empty bag, changing no letters",
+			[]rune(""),
+			[]rune(""),
+		},
+	}
+
+	for _, c := range test {
+		t.Run(c.name, func(t *testing.T) {
+			bag := grabble.CreateBag(c.tiles)
+			drawedLetters := bag.ChangeLetters(c.changeLetters)
+			assert.Equal(t, len(c.changeLetters), len(drawedLetters))
+			assert.Equal(t, len(c.tiles), len(bag))
+		})
+	}
+}
