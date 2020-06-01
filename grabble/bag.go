@@ -26,3 +26,5 @@ func (b *Bag) DrawLetters(number int) []rune {
 	}
 	return letters
 }
+
+// TODO: Put letters back to the bag when user change letters
