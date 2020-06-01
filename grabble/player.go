@@ -44,4 +44,6 @@ func (p *Player) addToRack(lettersToAdd []rune) {
 	p.Rack = append(p.Rack, lettersToAdd...)
 }
 
-// TODO: Add points after placing word
+func (p *Player) addPoints(points int) {
+	p.Points += points
+}
