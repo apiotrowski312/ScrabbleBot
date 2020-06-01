@@ -2,72 +2,26 @@
 	[
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 119
 		},
 		{
-			"Bonus": 108,
-			"Letter": 0
+			"Bonus": 119,
+			"Letter": 111
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 114
 		},
 		{
-			"Bonus": 0,
-			"Letter": 0
+			"Bonus": 48,
+			"Letter": 100
 		},
 		{
-			"Bonus": 0,
-			"Letter": 0
+			"Bonus": 48,
+			"Letter": 115
 		},
 		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 119,
-			"Letter": 0
-		},
-		{
-			"Bonus": 76,
+			"Bonus": 87,
 			"Letter": 0
 		},
 		{
@@ -75,57 +29,11 @@
 			"Letter": 0
 		},
 		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
 			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
 			"Letter": 0
 		},
 		{
@@ -137,119 +45,25 @@
 			"Letter": 0
 		},
 		{
-			"Bonus": 0,
+			"Bonus": 119,
 			"Letter": 0
 		},
 		{
-			"Bonus": 0,
+			"Bonus": 87,
 			"Letter": 0
 		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
 		{
 			"Bonus": 48,
 			"Letter": 0
 		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		}
+	],
+	[
 		{
 			"Bonus": 108,
-			"Letter": 0
-		},
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 48,
 			"Letter": 0
 		},
 		{
@@ -261,553 +75,7 @@
 			"Letter": 0
 		},
 		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 97
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 119,
-			"Letter": 0
-		},
-		{
 			"Bonus": 108,
-			"Letter": 0
-		},
-		{
-			"Bonus": 119,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 76,
-			"Letter": 0
-		},
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 99
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 108,
-			"Letter": 0
-		},
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 76,
-			"Letter": 0
-		},
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 119,
-			"Letter": 0
-		},
-		{
-			"Bonus": 48,
-			"Letter": 0
-		},
-		{
-			"Bonus": 119,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 108,
-			"Letter": 0
-		},
-		{
-			"Bonus": 87,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0
-		}
-	],
-	[
-		{
-			"Bonus": 48,
 			"Letter": 0
 		},
 		{
@@ -819,6 +87,118 @@
 			"Letter": 0
 		},
 		{
+			"Bonus": 108,
+			"Letter": 0
+		},
+		{
+			"Bonus": 76,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 108,
+			"Letter": 0
+		},
+		{
+			"Bonus": 76,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 108,
+			"Letter": 0
+		},
+		{
+			"Bonus": 76,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 119,
+			"Letter": 0
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 119,
+			"Letter": 0
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 119,
+			"Letter": 0
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		},
+		{
+			"Bonus": 48,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
 			"Bonus": 0,
 			"Letter": 0
 		},
@@ -869,15 +249,635 @@
 	],
 	[
 		{
-			"Bonus": 48,
+			"Bonus": 0,
 			"Letter": 0
 		},
 		{
-			"Bonus": 48,
+			"Bonus": 0,
 			"Letter": 0
 		},
 		{
-			"Bonus": 48,
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		}
+	],
+	[
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0
+		},
+		{
+			"Bonus": 0,
 			"Letter": 0
 		},
 		{
