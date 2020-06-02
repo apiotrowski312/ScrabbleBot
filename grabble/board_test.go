@@ -22,7 +22,19 @@ func Test_CreateBoard(t *testing.T) {
 			[15][15]rune{
 				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'},
 				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
+				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'}, // 3
+				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'}, // 6
+				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
+				{'W', '0', '0', '0', '0', '0', '0', 's', '0', '0', '0', '0', '0', '0', 'W'},
+				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'}, // 9
+				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'}, // 12
 				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'},
+				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
+				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'}, // 15
 			},
 		},
 	}
@@ -31,6 +43,7 @@ func Test_CreateBoard(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			var expectedBoard grabble.Board
 			board := grabble.CreateBoard(c.template)
+
 			test_utils.GetGoldenFileJSON(t, board, &expectedBoard, c.name, *update)
 
 			assert.Equal(t, &expectedBoard, board)
@@ -117,6 +130,77 @@ func Test_PlaceWord(t *testing.T) {
 
 			test_utils.GetGoldenFileJSON(t, board, &expectedBoard, c.name, *update)
 			assert.Equal(t, expectedBoard, board)
+		})
+	}
+}
+
+func Test_CanWordBePlaced(t *testing.T) {
+	type testCase struct {
+		name       string
+		word       string
+		startPos   [2]int
+		horizontal bool
+		isOk       bool
+		fixture    string
+	}
+	test := []testCase{
+		{
+			"Word in the middle",
+			"words",
+			[2]int{7, 7},
+			true,
+			true,
+			"testdata/board.fixture",
+		},
+		{
+			"Wrong place - no starting point",
+			"words",
+			[2]int{0, 0},
+			true,
+			false,
+			"testdata/board.fixture",
+		},
+		{
+			"Proper vertical with hook",
+			"words",
+			[2]int{6, 8},
+			false,
+			true,
+			"testdata/board_with_starting.fixture",
+		},
+		{
+			"hook on left",
+			"words",
+			[2]int{6, 12},
+			false,
+			true,
+			"testdata/board_with_starting.fixture",
+		},
+		{
+			"No hook",
+			"testuj",
+			[2]int{6, 13},
+			false,
+			false,
+			"testdata/board_with_starting.fixture",
+		},
+		{
+			"No hook and to long word",
+			"testuj",
+			[2]int{6, 13},
+			true,
+			false,
+			"testdata/board_with_starting.fixture",
+		},
+	}
+
+	for _, c := range test {
+		t.Run(c.name, func(t *testing.T) {
+			var board grabble.Board
+			test_utils.LoadJSONFixture(t, c.fixture, &board)
+			isOk := board.CanWordBePlaced(c.word, c.startPos, c.horizontal)
+
+			assert.Equal(t, c.isOk, isOk)
 		})
 	}
 }
