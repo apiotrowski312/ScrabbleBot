@@ -243,6 +243,15 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			[]string{"l0l0", "0"},
 			"testdata/board_with_starting.fixture",
 		},
+		{
+			"Add x to word",
+			"wordsx",
+			[2]int{7, 7},
+			true,
+			[]string{"wordsx"},
+			[]string{"000000"},
+			"testdata/board_with_starting.fixture",
+		},
 	}
 
 	for _, c := range test {

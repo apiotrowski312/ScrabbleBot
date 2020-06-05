@@ -103,7 +103,11 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 	bonuses := []string{""}
 
 	for i := range word {
-		bonuses[0] += string(b[startPos[0]][startPos[1]+i].Bonus)
+		if b[startPos[0]][startPos[1]+i].Letter != rune(0) {
+			bonuses[0] += "0"
+		} else {
+			bonuses[0] += string(b[startPos[0]][startPos[1]+i].Bonus)
+		}
 	}
 
 	for i := range word {
