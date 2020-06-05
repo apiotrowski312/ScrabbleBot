@@ -204,3 +204,55 @@ func Test_CanWordBePlaced(t *testing.T) {
 		})
 	}
 }
+
+func Test_GetAllWordsAndBonuses(t *testing.T) {
+	type testCase struct {
+		name       string
+		word       string
+		startPos   [2]int
+		horizontal bool
+		words      []string
+		bonuses    []string
+		fixture    string
+	}
+	test := []testCase{
+		{
+			"Word in the middle",
+			"words",
+			[2]int{7, 7},
+			true,
+			[]string{"words"},
+			[]string{"s0000"},
+			"testdata/board.fixture",
+		},
+		{
+			"Proper vertical with hook",
+			"words",
+			[2]int{6, 8},
+			false,
+			[]string{"words"},
+			[]string{"00000"},
+			"testdata/board_with_starting.fixture",
+		},
+		{
+			"hook on left",
+			"test",
+			[2]int{6, 12},
+			false,
+			[]string{"test", "wordse"},
+			[]string{"l0l0", "0"},
+			"testdata/board_with_starting.fixture",
+		},
+	}
+
+	for _, c := range test {
+		t.Run(c.name, func(t *testing.T) {
+			var board grabble.Board
+			test_utils.LoadJSONFixture(t, c.fixture, &board)
+			words, bonuses := board.GetAllWordsAndBonuses(c.word, c.startPos, c.horizontal)
+
+			assert.Equal(t, c.words, words)
+			assert.Equal(t, c.bonuses, bonuses)
+		})
+	}
+}

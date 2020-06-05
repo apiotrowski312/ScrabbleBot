@@ -1,5 +1,7 @@
 package grabble
 
+import "github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+
 type field struct {
 	Bonus  rune
 	Letter rune
@@ -87,5 +89,54 @@ func (b *Board) placeWord(word string, startPos [2]int) {
 	}
 }
 
+func (b *Board) GetAllWordsAndBonuses(word string, startPos [2]int, horizontal bool) ([]string, []string) {
+	if horizontal {
+		return b.getAllWordsAndBonuses(word, startPos)
+	}
+
+	tb := b.TransposeBoard()
+	return tb.getAllWordsAndBonuses(word, [2]int{startPos[1], startPos[0]})
+}
+
+func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, []string) {
+	words := []string{word}
+	bonuses := []string{""}
+
+	for i := range word {
+		bonuses[0] += string(b[startPos[0]][startPos[1]+i].Bonus)
+	}
+
+	for i := range word {
+		if b[startPos[0]][startPos[1]+i].Letter != rune(0) {
+			continue
+		}
+
+		currentWord := string(word[i])
+
+		index := 1
+		for startPos[0]-index >= 0 && b[startPos[0]-index][startPos[1]+i].Letter != rune(0) {
+			currentWord += string(b[startPos[0]-index][startPos[1]+i].Letter)
+			index++
+		}
+
+		currentWord = str_manipulator.Reverse(currentWord)
+
+		index = 1
+		for startPos[0]+index <= 14 && b[startPos[0]+index][startPos[1]+i].Letter != rune(0) {
+			currentWord += string(b[startPos[0]+index][startPos[1]+i].Letter)
+			index++
+		}
+
+		// len == 1 mean there was no word in this column
+		if len(currentWord) == 1 {
+			continue
+		}
+
+		words = append(words, currentWord)
+		bonuses = append(bonuses, string(b[startPos[0]][startPos[1]+i].Bonus))
+	}
+
+	return words, bonuses
+}
+
 // TODO: Create helper function for getting board/transposedBoard
-// TODO: Collect all new words
