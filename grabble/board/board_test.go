@@ -241,7 +241,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			[2]int{6, 12},
 			false,
 			[]string{"test", "wordse"},
-			[]string{"l0l0", "0"},
+			[]string{"l0l0", "000000"},
 			"testdata/board_with_starting.fixture",
 		},
 		{

@@ -114,18 +114,22 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 		}
 
 		currentWord := string(word[i])
+		bonus := string(b[startPos[0]][startPos[1]+i].Bonus)
 
 		index := 1
 		for startPos[0]-index >= 0 && b[startPos[0]-index][startPos[1]+i].Letter != rune(0) {
 			currentWord += string(b[startPos[0]-index][startPos[1]+i].Letter)
+			bonus += "0"
 			index++
 		}
 
 		currentWord = str_manipulator.Reverse(currentWord)
+		bonus = str_manipulator.Reverse(bonus)
 
 		index = 1
 		for startPos[0]+index <= 14 && b[startPos[0]+index][startPos[1]+i].Letter != rune(0) {
 			currentWord += string(b[startPos[0]+index][startPos[1]+i].Letter)
+			bonus += "0"
 			index++
 		}
 
@@ -135,7 +139,7 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 		}
 
 		words = append(words, currentWord)
-		bonuses = append(bonuses, string(b[startPos[0]][startPos[1]+i].Bonus))
+		bonuses = append(bonuses, bonus)
 	}
 
 	return words, bonuses

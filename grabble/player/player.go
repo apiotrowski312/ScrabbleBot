@@ -44,6 +44,6 @@ func (p *Player) addToRack(lettersToAdd []rune) {
 	p.Rack = append(p.Rack, lettersToAdd...)
 }
 
-func (p *Player) addPoints(points int) {
+func (p *Player) AddPoints(points int) {
 	p.Points += points
 }

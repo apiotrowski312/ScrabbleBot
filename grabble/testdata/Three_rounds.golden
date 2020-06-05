@@ -1,0 +1,2092 @@
+{
+	"Board": [
+		[
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 119
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 115,
+				"Letter": 119
+			},
+			{
+				"Bonus": 48,
+				"Letter": 111
+			},
+			{
+				"Bonus": 48,
+				"Letter": 114
+			},
+			{
+				"Bonus": 48,
+				"Letter": 100
+			},
+			{
+				"Bonus": 48,
+				"Letter": 115
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 114
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 111
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 116
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 115
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 104
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 102
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 117
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 108
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		],
+		[
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			},
+			{
+				"Bonus": 48,
+				"Letter": 0
+			}
+		]
+	],
+	"Players": [
+		{
+			"Name": "Olek",
+			"Points": 23,
+			"Rack": [
+				116,
+				101,
+				116,
+				115,
+				112,
+				110
+			]
+		},
+		{
+			"Name": "Zuza",
+			"Points": 71,
+			"Rack": [
+				116,
+				101,
+				115,
+				116,
+				115,
+				112,
+				110
+			]
+		}
+	],
+	"Bag": [
+		98,
+		99,
+		101,
+		104,
+		105,
+		112,
+		114,
+		115,
+		116,
+		122
+	],
+	"LettterPoints": {
+		"100": 2,
+		"101": 2,
+		"102": 2,
+		"103": 3,
+		"104": 3,
+		"105": 3,
+		"106": 4,
+		"107": 4,
+		"108": 4,
+		"109": 1,
+		"110": 1,
+		"111": 1,
+		"112": 2,
+		"114": 2,
+		"115": 2,
+		"116": 3,
+		"117": 3,
+		"119": 3,
+		"120": 4,
+		"121": 4,
+		"122": 4,
+		"97": 1,
+		"98": 1,
+		"99": 1
+	},
+	"CurrentRound": 3,
+	"Dict": {
+		"IsWord": false,
+		"Children": {
+			"100": {
+				"IsWord": false,
+				"Children": {
+					"114": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"119": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"101": {
+				"IsWord": false,
+				"Children": {
+					"108": {
+						"IsWord": false,
+						"Children": {
+							"104": {
+								"IsWord": false,
+								"Children": {
+									"116": {
+										"IsWord": false,
+										"Children": {
+											"114": {
+												"IsWord": false,
+												"Children": {
+													"111": {
+														"IsWord": false,
+														"Children": {
+															"119": {
+																"IsWord": false,
+																"Children": {
+																	"46": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"118": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"108": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": false,
+												"Children": {
+													"114": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"102": {
+				"IsWord": false,
+				"Children": {
+					"104": {
+						"IsWord": false,
+						"Children": {
+							"116": {
+								"IsWord": false,
+								"Children": {
+									"114": {
+										"IsWord": false,
+										"Children": {
+											"111": {
+												"IsWord": false,
+												"Children": {
+													"119": {
+														"IsWord": false,
+														"Children": {
+															"46": {
+																"IsWord": false,
+																"Children": {
+																	"117": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"104": {
+				"IsWord": false,
+				"Children": {
+					"116": {
+						"IsWord": false,
+						"Children": {
+							"114": {
+								"IsWord": false,
+								"Children": {
+									"111": {
+										"IsWord": false,
+										"Children": {
+											"119": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": false,
+														"Children": {
+															"102": {
+																"IsWord": false,
+																"Children": {
+																	"117": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"108": {
+																"IsWord": false,
+																"Children": {
+																	"101": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"107": {
+				"IsWord": false,
+				"Children": {
+					"111": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"98": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"114": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"119": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"108": {
+				"IsWord": false,
+				"Children": {
+					"104": {
+						"IsWord": false,
+						"Children": {
+							"116": {
+								"IsWord": false,
+								"Children": {
+									"114": {
+										"IsWord": false,
+										"Children": {
+											"111": {
+												"IsWord": false,
+												"Children": {
+													"119": {
+														"IsWord": false,
+														"Children": {
+															"46": {
+																"IsWord": false,
+																"Children": {
+																	"101": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"117": {
+						"IsWord": false,
+						"Children": {
+							"102": {
+								"IsWord": false,
+								"Children": {
+									"104": {
+										"IsWord": false,
+										"Children": {
+											"116": {
+												"IsWord": false,
+												"Children": {
+													"114": {
+														"IsWord": false,
+														"Children": {
+															"111": {
+																"IsWord": false,
+																"Children": {
+																	"119": {
+																		"IsWord": false,
+																		"Children": {
+																			"46": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"118": {
+										"IsWord": false,
+										"Children": {
+											"101": {
+												"IsWord": false,
+												"Children": {
+													"114": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"111": {
+				"IsWord": false,
+				"Children": {
+					"108": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"118": {
+										"IsWord": false,
+										"Children": {
+											"101": {
+												"IsWord": false,
+												"Children": {
+													"114": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"111": {
+						"IsWord": false,
+						"Children": {
+							"98": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"107": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"115": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"115": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"119": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"114": {
+										"IsWord": false,
+										"Children": {
+											"100": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"107": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"116": {
+												"IsWord": false,
+												"Children": {
+													"104": {
+														"IsWord": false,
+														"Children": {
+															"102": {
+																"IsWord": false,
+																"Children": {
+																	"117": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"108": {
+																"IsWord": false,
+																"Children": {
+																	"101": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"98": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"111": {
+										"IsWord": false,
+										"Children": {
+											"107": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									},
+									"115": {
+										"IsWord": false,
+										"Children": {
+											"115": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"114": {
+				"IsWord": false,
+				"Children": {
+					"101": {
+						"IsWord": false,
+						"Children": {
+							"118": {
+								"IsWord": false,
+								"Children": {
+									"111": {
+										"IsWord": false,
+										"Children": {
+											"108": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"111": {
+						"IsWord": false,
+						"Children": {
+							"119": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"100": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"107": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"116": {
+												"IsWord": false,
+												"Children": {
+													"104": {
+														"IsWord": false,
+														"Children": {
+															"102": {
+																"IsWord": false,
+																"Children": {
+																	"117": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"108": {
+																"IsWord": false,
+																"Children": {
+																	"101": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"115": {
+				"IsWord": false,
+				"Children": {
+					"100": {
+						"IsWord": false,
+						"Children": {
+							"114": {
+								"IsWord": false,
+								"Children": {
+									"111": {
+										"IsWord": false,
+										"Children": {
+											"119": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"101": {
+						"IsWord": false,
+						"Children": {
+							"108": {
+								"IsWord": false,
+								"Children": {
+									"104": {
+										"IsWord": false,
+										"Children": {
+											"116": {
+												"IsWord": false,
+												"Children": {
+													"114": {
+														"IsWord": false,
+														"Children": {
+															"111": {
+																"IsWord": false,
+																"Children": {
+																	"119": {
+																		"IsWord": false,
+																		"Children": {
+																			"46": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"107": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"111": {
+										"IsWord": false,
+										"Children": {
+											"98": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"111": {
+						"IsWord": false,
+						"Children": {
+							"115": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							},
+							"98": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"115": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"115": {
+						"IsWord": false,
+						"Children": {
+							"101": {
+								"IsWord": false,
+								"Children": {
+									"108": {
+										"IsWord": false,
+										"Children": {
+											"104": {
+												"IsWord": false,
+												"Children": {
+													"116": {
+														"IsWord": false,
+														"Children": {
+															"114": {
+																"IsWord": false,
+																"Children": {
+																	"111": {
+																		"IsWord": false,
+																		"Children": {
+																			"119": {
+																				"IsWord": false,
+																				"Children": {
+																					"46": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"98": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"115": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"116": {
+				"IsWord": false,
+				"Children": {
+					"114": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"119": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": false,
+												"Children": {
+													"104": {
+														"IsWord": false,
+														"Children": {
+															"102": {
+																"IsWord": false,
+																"Children": {
+																	"117": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"108": {
+																"IsWord": false,
+																"Children": {
+																	"101": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"117": {
+				"IsWord": false,
+				"Children": {
+					"102": {
+						"IsWord": false,
+						"Children": {
+							"104": {
+								"IsWord": false,
+								"Children": {
+									"116": {
+										"IsWord": false,
+										"Children": {
+											"114": {
+												"IsWord": false,
+												"Children": {
+													"111": {
+														"IsWord": false,
+														"Children": {
+															"119": {
+																"IsWord": false,
+																"Children": {
+																	"46": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"118": {
+				"IsWord": false,
+				"Children": {
+					"111": {
+						"IsWord": false,
+						"Children": {
+							"108": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"101": {
+												"IsWord": false,
+												"Children": {
+													"114": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"119": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"114": {
+										"IsWord": false,
+										"Children": {
+											"100": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"107": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"116": {
+												"IsWord": false,
+												"Children": {
+													"104": {
+														"IsWord": false,
+														"Children": {
+															"102": {
+																"IsWord": false,
+																"Children": {
+																	"117": {
+																		"IsWord": false,
+																		"Children": {
+																			"108": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"108": {
+																"IsWord": false,
+																"Children": {
+																	"101": {
+																		"IsWord": false,
+																		"Children": {
+																			"115": {
+																				"IsWord": false,
+																				"Children": {
+																					"115": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"98": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"111": {
+								"IsWord": false,
+								"Children": {
+									"111": {
+										"IsWord": false,
+										"Children": {
+											"107": {
+												"IsWord": true,
+												"Children": {
+													"115": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									},
+									"115": {
+										"IsWord": false,
+										"Children": {
+											"115": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -19,7 +19,7 @@ func Test_CreateBag(t *testing.T) {
 	test := []testCase{
 		{
 			"Bag of tiles",
-			[]rune("abcdefghijklmnoprstuw"),
+			[]rune("abcdefghijklmnoprstuwxyz"),
 		},
 	}
 
@@ -44,8 +44,30 @@ func Test_CreateLettersPoint(t *testing.T) {
 		{
 			"Letter values",
 			map[rune]int{
-				'a': 5,
-				'b': 10,
+				'a': 1,
+				'b': 1,
+				'c': 1,
+				'd': 2,
+				'e': 2,
+				'f': 2,
+				'g': 3,
+				'h': 3,
+				'i': 3,
+				'j': 4,
+				'k': 4,
+				'l': 4,
+				'm': 1,
+				'n': 1,
+				'o': 1,
+				'p': 2,
+				'r': 2,
+				's': 2,
+				't': 3,
+				'u': 3,
+				'w': 3,
+				'x': 4,
+				'y': 4,
+				'z': 4,
 			},
 		},
 	}
@@ -116,6 +138,39 @@ func Test_ChangeLetters(t *testing.T) {
 			drawedLetters := bag.ChangeLetters(c.changeLetters)
 			assert.Equal(t, len(c.changeLetters), len(drawedLetters))
 			assert.Equal(t, len(c.tiles), len(bag))
+		})
+	}
+}
+
+func Test_GetPoints(t *testing.T) {
+	type testCase struct {
+		name    string
+		words   []string
+		bonuses []string
+		points  int
+	}
+	test := []testCase{
+		{
+			"One word",
+			[]string{"words"},
+			[]string{"0W000"},
+			30,
+		},
+		{
+			"Multiple word",
+			[]string{"words", "test", "biling"},
+			[]string{"0W0W0", "00L0", "00W000"},
+			149,
+		},
+	}
+
+	for _, c := range test {
+		t.Run(c.name, func(t *testing.T) {
+			var lv bag.LettersPoint
+			test_utils.LoadJSONFixture(t, "testdata/letter_values.fixture", &lv)
+
+			points := lv.GetPoints(c.words, c.bonuses)
+			assert.Equal(t, c.points, points)
 		})
 	}
 }
