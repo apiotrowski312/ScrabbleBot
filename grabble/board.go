@@ -138,5 +138,3 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 
 	return words, bonuses
 }
-
-// TODO: Create helper function for getting board/transposedBoard
