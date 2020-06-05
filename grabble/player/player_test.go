@@ -1,12 +1,15 @@
-package grabble_test
+package player_test
 
 import (
+	"flag"
 	"testing"
 
-	"github.com/apiotrowski312/scrabbleBot/grabble"
+	"github.com/apiotrowski312/scrabbleBot/grabble/player"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/stretchr/testify/assert"
 )
+
+var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_UpdateRack(t *testing.T) {
 	type testCase struct {
@@ -42,8 +45,8 @@ func Test_UpdateRack(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var expectedPlayer grabble.Player
-			player := grabble.Player{Rack: c.rack}
+			var expectedPlayer player.Player
+			player := player.Player{Rack: c.rack}
 
 			err := player.UpdateRack(c.toRemove, c.toAdd)
 			test_utils.GetGoldenFileJSON(t, player, &expectedPlayer, c.name, true)

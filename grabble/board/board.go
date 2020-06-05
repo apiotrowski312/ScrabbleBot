@@ -1,4 +1,4 @@
-package grabble
+package board
 
 import "github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 
@@ -8,8 +8,6 @@ type field struct {
 }
 
 type Board [15][15]*field
-
-var ()
 
 func CreateBoard(template [15][15]rune) *Board {
 

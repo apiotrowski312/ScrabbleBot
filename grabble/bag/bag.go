@@ -1,4 +1,4 @@
-package grabble
+package bag
 
 import (
 	"math/rand"

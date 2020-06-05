@@ -1,4 +1,4 @@
-package grabble
+package player
 
 import "fmt"
 

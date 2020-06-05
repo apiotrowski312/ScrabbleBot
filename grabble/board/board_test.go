@@ -1,10 +1,10 @@
-package grabble_test
+package board_test
 
 import (
 	"flag"
 	"testing"
 
-	"github.com/apiotrowski312/scrabbleBot/grabble"
+	"github.com/apiotrowski312/scrabbleBot/grabble/board"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/stretchr/testify/assert"
 )
@@ -41,8 +41,8 @@ func Test_CreateBoard(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var expectedBoard grabble.Board
-			board := grabble.CreateBoard(c.template)
+			var expectedBoard board.Board
+			board := board.CreateBoard(c.template)
 
 			test_utils.GetGoldenFileJSON(t, board, &expectedBoard, c.name, *update)
 
@@ -52,7 +52,8 @@ func Test_CreateBoard(t *testing.T) {
 }
 
 func Test_TransposeBoard(t *testing.T) {
-	var board grabble.Board
+	var expectedTransposedBoard board.Board
+	var board board.Board
 	test_utils.LoadJSONFixture(t, "testdata/board.fixture", &board)
 
 	transposedBoard := board.TransposeBoard()
@@ -62,7 +63,6 @@ func Test_TransposeBoard(t *testing.T) {
 	transposedBoard[5][7].Letter = 'a'
 	assert.Equal(t, transposedBoard[5][7], board[7][5])
 
-	var expectedTransposedBoard grabble.Board
 	test_utils.GetGoldenFileJSON(t, transposedBoard, &expectedTransposedBoard, "transposed_board", *update)
 	assert.Equal(t, &expectedTransposedBoard, transposedBoard)
 
@@ -120,9 +120,10 @@ func Test_PlaceWord(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var board grabble.Board
+			var expectedBoard board.Board
+			var board board.Board
+
 			test_utils.LoadJSONFixture(t, "testdata/board.fixture", &board)
-			var expectedBoard grabble.Board
 
 			for i, word := range c.words {
 				board.PlaceWord(word, c.startPos[i], c.horizontal)
@@ -196,7 +197,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var board grabble.Board
+			var board board.Board
 			test_utils.LoadJSONFixture(t, c.fixture, &board)
 			isOk := board.CanWordBePlaced(c.word, c.startPos, c.horizontal)
 
@@ -256,7 +257,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var board grabble.Board
+			var board board.Board
 			test_utils.LoadJSONFixture(t, c.fixture, &board)
 			words, bonuses := board.GetAllWordsAndBonuses(c.word, c.startPos, c.horizontal)
 
