@@ -9,6 +9,8 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/grabble/player"
 )
 
+// TODO: Create enum for wWlLs
+
 type Grabble struct {
 	Board         board.Board
 	Players       []player.Player
@@ -16,6 +18,26 @@ type Grabble struct {
 	LettterPoints bag.LettersPoint
 	CurrentRound  int
 	Dict          gaddag.Node
+}
+
+func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles []rune, tilePoints map[rune]int) Grabble {
+	board := board.CreateBoard(b)
+	dict, _ := gaddag.CreateGraph(dictionary)
+	ba := bag.CreateBag(allTiles)
+	lp := bag.CreateLettersPoint(tilePoints)
+
+	players := []player.Player{}
+	for _, p := range nicks {
+		players = append(players, player.CreatePlayer(p))
+	}
+
+	return Grabble{
+		Board:         *board,
+		Players:       players,
+		Bag:           ba,
+		Dict:          *dict,
+		LettterPoints: lp,
+	}
 }
 
 func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizontal bool) error {
