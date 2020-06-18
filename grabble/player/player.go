@@ -9,7 +9,10 @@ type Player struct {
 }
 
 func CreatePlayer(name string) Player {
-	return Player{Name: name}
+	return Player{
+		Name:   name,
+		Points: 0,
+	}
 }
 
 func (p *Player) UpdateRack(lettersToRemove, lettersToAdd []rune) error {

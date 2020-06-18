@@ -49,7 +49,7 @@ func Test_UpdateRack(t *testing.T) {
 			player := player.Player{Rack: c.rack}
 
 			err := player.UpdateRack(c.toRemove, c.toAdd)
-			test_utils.GetGoldenFileJSON(t, player, &expectedPlayer, c.name, true)
+			test_utils.GetGoldenFileJSON(t, player, &expectedPlayer, c.name, *update)
 
 			assert.Equal(t, expectedPlayer, player)
 			assert.Equal(t, c.err, err != nil)
