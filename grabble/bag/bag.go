@@ -19,8 +19,12 @@ func CreateLettersPoint(lp map[rune]int) LettersPoint {
 func (b *Bag) DrawLetters(number int) []rune {
 	var letters []rune
 	rand.Seed(time.Now().Unix())
+
+	if number > len(*b) {
+		number = len(*b)
+	}
 	for i := 0; i < number; i++ {
-		letterIndex := rand.Intn(len((*b)))
+		letterIndex := rand.Intn(len(*b))
 		letters = append(letters, (*b)[letterIndex])
 		(*b) = append((*b)[:letterIndex], (*b)[letterIndex+1:]...)
 	}
