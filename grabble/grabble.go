@@ -18,9 +18,10 @@ type Grabble struct {
 	LettterPoints bag.LettersPoint
 	CurrentRound  int
 	Dict          gaddag.Node
+	RackSize      int
 }
 
-func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles []rune, tilePoints map[rune]int) Grabble {
+func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles []rune, tilePoints map[rune]int, rackSize int) Grabble {
 	board := board.CreateBoard(b)
 	dict, _ := gaddag.CreateGraph(dictionary)
 	ba := bag.CreateBag(allTiles)
@@ -37,7 +38,12 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 		Bag:           ba,
 		Dict:          *dict,
 		LettterPoints: lp,
+		RackSize:      rackSize,
 	}
+}
+
+func (g Grabble) CurrentPlayer() *player.Player {
+	return &g.Players[g.CurrentRound%len(g.Players)]
 }
 
 func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizontal bool) error {
@@ -63,11 +69,11 @@ func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizo
 	points := g.LettterPoints.GetPoints(words, bonuses)
 
 	// If all letters were used, add bonus 50 points (Scrabble)
-	if len(letters) == 7 {
+	if len(letters) == g.RackSize {
 		points += 50
 	}
-	g.Players[g.CurrentRound%len(g.Players)].AddPoints(points)
-	g.Players[g.CurrentRound%len(g.Players)].UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
+	g.CurrentPlayer().AddPoints(points)
+	g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
 	g.CurrentRound++
 	return nil
 }

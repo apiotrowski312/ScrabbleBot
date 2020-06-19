@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var update = flag.Bool("update", true, "update the golden files of this test")
+var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_PlaceWord(t *testing.T) {
 	type round struct {

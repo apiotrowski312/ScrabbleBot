@@ -33,5 +33,5 @@ func CreateDeafultGame(players []string) Grabble {
 	}
 	allTiles := []rune("__EEEEEEEEEEEEAAAAAAAAAIIIIIIIIIOOOOOOOONNNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXQZ")
 
-	return CreateGrabble(officialDict, officialScrabbleBoard, players, allTiles, tilePoints)
+	return CreateGrabble(officialDict, officialScrabbleBoard, players, allTiles, tilePoints, 7)
 }
