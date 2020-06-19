@@ -112,3 +112,27 @@ func Test_PlaceWord(t *testing.T) {
 		})
 	}
 }
+
+func Test_PassTurn(t *testing.T) {
+
+	type testCase struct {
+		name  string
+		round int
+	}
+	test := []testCase{
+		{
+			"Test pass round",
+			1,
+		},
+	}
+
+	for _, c := range test {
+		t.Run(c.name, func(t *testing.T) {
+			var game grabble.Grabble
+			test_utils.LoadJSONFixture(t, "testdata/game.fixture", &game)
+
+			game.PassTurn()
+			assert.Equal(t, c.round, game.CurrentRound)
+		})
+	}
+}

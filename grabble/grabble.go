@@ -42,10 +42,6 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 	}
 }
 
-func (g Grabble) CurrentPlayer() *player.Player {
-	return &g.Players[g.CurrentRound%len(g.Players)]
-}
-
 func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizontal bool) error {
 	if len(letters) == 0 {
 		return fmt.Errorf("no letters, nothing to place")
@@ -76,4 +72,12 @@ func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizo
 	g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
 	g.CurrentRound++
 	return nil
+}
+
+func (g Grabble) CurrentPlayer() *player.Player {
+	return &g.Players[g.CurrentRound%len(g.Players)]
+}
+
+func (g *Grabble) PassTurn() {
+	g.CurrentRound++
 }
