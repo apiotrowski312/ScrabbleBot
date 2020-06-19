@@ -961,7 +961,6 @@
 	],
 	"Bag": [
 		97,
-		99,
 		100,
 		101,
 		103,
@@ -973,8 +972,9 @@
 		109,
 		110,
 		111,
-		115,
+		114,
 		116,
+		117,
 		119,
 		120,
 		121,
@@ -1006,7 +1006,6 @@
 		"98": 1,
 		"99": 1
 	},
-	"CurrentRound": 1,
 	"Dict": {
 		"IsWord": false,
 		"Children": {
@@ -2099,5 +2098,10 @@
 			}
 		}
 	},
-	"RackSize": 7
+	"RackSize": 7,
+	"Stats": {
+		"CurrentRound": 1,
+		"Finished": false,
+		"Winner": null
+	}
 }

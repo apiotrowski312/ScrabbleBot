@@ -959,15 +959,15 @@
 		}
 	],
 	"Bag": [
+		97,
 		98,
-		99,
 		100,
-		105,
-		107,
-		115,
+		101,
+		106,
+		109,
+		110,
 		116,
-		119,
-		121,
+		117,
 		122
 	],
 	"LettterPoints": {
@@ -996,7 +996,6 @@
 		"98": 1,
 		"99": 1
 	},
-	"CurrentRound": 3,
 	"Dict": {
 		"IsWord": false,
 		"Children": {
@@ -2089,5 +2088,10 @@
 			}
 		}
 	},
-	"RackSize": 7
+	"RackSize": 7,
+	"Stats": {
+		"CurrentRound": 3,
+		"Finished": false,
+		"Winner": null
+	}
 }

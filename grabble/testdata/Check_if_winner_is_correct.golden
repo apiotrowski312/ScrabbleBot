@@ -465,15 +465,15 @@
 			},
 			{
 				"Bonus": 115,
-				"Letter": 0
+				"Letter": 115
 			},
 			{
 				"Bonus": 48,
-				"Letter": 0
+				"Letter": 111
 			},
 			{
 				"Bonus": 48,
-				"Letter": 0
+				"Letter": 115
 			},
 			{
 				"Bonus": 48,
@@ -934,20 +934,12 @@
 	"Players": [
 		{
 			"Name": "Olek",
-			"Points": 0,
-			"Rack": [
-				116,
-				101,
-				115,
-				116,
-				115,
-				112,
-				110
-			]
+			"Points": 142,
+			"Rack": []
 		},
 		{
 			"Name": "Zuza",
-			"Points": 0,
+			"Points": 143,
 			"Rack": [
 				116,
 				101,
@@ -959,32 +951,7 @@
 			]
 		}
 	],
-	"Bag": [
-		97,
-		98,
-		99,
-		100,
-		101,
-		102,
-		103,
-		104,
-		105,
-		106,
-		107,
-		108,
-		109,
-		110,
-		111,
-		112,
-		114,
-		115,
-		116,
-		117,
-		119,
-		120,
-		121,
-		122
-	],
+	"Bag": [],
 	"LettterPoints": {
 		"100": 2,
 		"101": 2,
@@ -2105,8 +2072,20 @@
 	},
 	"RackSize": 7,
 	"Stats": {
-		"CurrentRound": 0,
-		"Finished": false,
-		"Winner": null
+		"CurrentRound": 1,
+		"Finished": true,
+		"Winner": {
+			"Name": "Zuza",
+			"Points": 143,
+			"Rack": [
+				116,
+				101,
+				115,
+				116,
+				115,
+				112,
+				110
+			]
+		}
 	}
 }

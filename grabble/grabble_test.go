@@ -21,8 +21,9 @@ func Test_PlaceWord(t *testing.T) {
 		err        bool
 	}
 	type testCase struct {
-		name   string
-		rounds []round
+		name    string
+		rounds  []round
+		fixture string
 	}
 	test := []testCase{
 		{
@@ -36,6 +37,7 @@ func Test_PlaceWord(t *testing.T) {
 					false,
 				},
 			},
+			"game.fixture",
 		},
 		{
 			"Three rounds",
@@ -62,6 +64,7 @@ func Test_PlaceWord(t *testing.T) {
 					false,
 				},
 			},
+			"game.fixture",
 		},
 		{
 			"Second round on error",
@@ -81,6 +84,7 @@ func Test_PlaceWord(t *testing.T) {
 					true,
 				},
 			},
+			"game.fixture",
 		},
 		{
 			"No letters to place",
@@ -93,6 +97,20 @@ func Test_PlaceWord(t *testing.T) {
 					true,
 				},
 			},
+			"game.fixture",
+		},
+		{
+			"Check if winner is correct",
+			[]round{
+				{
+					"sos",
+					[]rune{'s', 'o', 's'},
+					[2]int{7, 7},
+					true,
+					false,
+				},
+			},
+			"endgame.fixture",
 		},
 	}
 
@@ -100,7 +118,7 @@ func Test_PlaceWord(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			var game grabble.Grabble
 			var expectedGame grabble.Grabble
-			test_utils.LoadJSONFixture(t, "testdata/game.fixture", &game)
+			test_utils.LoadJSONFixture(t, "testdata/"+c.fixture, &game)
 
 			for i, r := range c.rounds {
 				err := game.PlaceWord(r.word, r.letters, r.startPos, r.horizontal)
@@ -108,7 +126,15 @@ func Test_PlaceWord(t *testing.T) {
 			}
 
 			test_utils.GetGoldenFileJSON(t, game, &expectedGame, c.name, *update)
-			assert.Equal(t, expectedGame, game)
+			for i, p := range expectedGame.Players {
+				assert.Equal(t, p.Name, game.Players[i].Name)
+				assert.Equal(t, p.Points, game.Players[i].Points)
+			}
+			assert.Equal(t, expectedGame.Board, game.Board)
+			assert.Equal(t, expectedGame.Dict, game.Dict)
+			assert.Equal(t, expectedGame.LettterPoints, game.LettterPoints)
+			assert.Equal(t, expectedGame.Stats, game.Stats)
+			assert.Equal(t, expectedGame.RackSize, game.RackSize)
 		})
 	}
 }
@@ -132,7 +158,7 @@ func Test_PassTurn(t *testing.T) {
 			test_utils.LoadJSONFixture(t, "testdata/game.fixture", &game)
 
 			game.PassTurn()
-			assert.Equal(t, c.round, game.CurrentRound)
+			assert.Equal(t, c.round, game.Stats.CurrentRound)
 		})
 	}
 }

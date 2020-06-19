@@ -2,7 +2,8 @@ package grabble
 
 var ()
 
-func CreateDeafultGame(players []string) Grabble {
+// CreateDefaultGame - it creates and return basic Grabble game.
+func CreateDefaultGame(players []string) Grabble {
 	officialScrabbleBoard := [15][15]rune{
 		{'W', '0', '0', 'l', '0', '0', '0', 'W', '0', '0', '0', 'l', '0', '0', 'W'},
 		{'0', 'w', '0', '0', '0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'w', '0'},
