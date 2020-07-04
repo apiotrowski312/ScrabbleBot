@@ -12,7 +12,7 @@ type Node struct {
 	Children map[rune]Node
 }
 
-// get return new Node and boolen isOk
+// get return child node for provided rune if exist.
 func (n *Node) get(path rune) (*Node, bool) {
 	child, ok := n.Children[path]
 	return &child, ok

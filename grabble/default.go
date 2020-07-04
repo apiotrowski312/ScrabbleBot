@@ -1,7 +1,5 @@
 package grabble
 
-var ()
-
 // CreateDefaultGame - it creates and return basic Grabble game.
 func CreateDefaultGame(players []string) Grabble {
 	officialScrabbleBoard := [15][15]rune{

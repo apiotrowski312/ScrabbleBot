@@ -87,6 +87,7 @@ func (b *Board) placeWord(word string, startPos [2]int) {
 	}
 }
 
+// TODO: Create Bench tests
 func (b *Board) GetAllWordsAndBonuses(word string, startPos [2]int, horizontal bool) ([]string, []string) {
 	if horizontal {
 		return b.getAllWordsAndBonuses(word, startPos)

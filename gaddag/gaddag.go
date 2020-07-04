@@ -23,37 +23,18 @@ func removeDuplicatesUnordered(elements []string) []string {
 	return result
 }
 
-func (n Node) FindAllWords(hook rune, letters []rune, lenLeft int, lenRight int, existingLetters map[string]map[int]rune) []string {
+func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
 	newLetters := append(letters, '.')
-	// increment lenLeft because of additional lenght for hook.
-	lenLeft++
 
-	words := n.getAllOk(hook, newLetters, lenLeft, lenRight, existingLetters)
+	words := n.getAllOk(row[hookIndex], hookIndex, newLetters, row, hookIndex)
 	return removeDuplicatesUnordered(words)
 }
 
 // TODO: If there is a letter on right, do not append it, it wont be valid word anyway
-func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, lenLeft int, lenRight int, existingLetters map[string]map[int]rune) []string {
+func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune, row []rune, hookIndex int) []string {
 
-	if (lenLeft == 0 && currentLetter != '.') || (lenLeft == -1 && lenRight == 0) {
+	if letterIndex == -1 && currentLetter != '.' {
 		return nil
-	}
-
-	var side string
-	var currentLen int
-
-	if lenLeft < 0 {
-		lenRight--
-		currentLen = lenRight
-		side = "right"
-	} else if currentLetter == '.' {
-		lenLeft = -1
-		currentLen = lenRight
-		side = "right"
-	} else {
-		lenLeft--
-		currentLen = lenLeft
-		side = "left"
 	}
 
 	hookNode, isOk := n.get(currentLetter)
@@ -66,17 +47,32 @@ func (n Node) getAllOk(currentLetter rune, lettersToGo []rune, lenLeft int, lenR
 		partialWords = append(partialWords, string(currentLetter))
 	}
 
-	if newHook, isOk := existingLetters[side][currentLen]; isOk {
-		lettersForIteration := append(lettersToGo, currentLetter)
+	var newLetterIndex int
+	if currentLetter == '.' {
+		newLetterIndex = hookIndex + 1
+	} else if letterIndex <= hookIndex {
+		newLetterIndex = letterIndex - 1
+	} else {
+		newLetterIndex = letterIndex + 1
+	}
 
-		newWords := hookNode.getAllOk(newHook, lettersForIteration, lenLeft, lenRight, existingLetters)
+	if newLetterIndex == len(row) {
+		if hookNode.IsWord {
+			return partialWords
+		}
+		return nil
+	}
+
+	// FIXME: There is no point in checking for smth else than dot in -1
+	if newLetterIndex >= 0 && row[newLetterIndex] != rune(0) {
+		newWords := hookNode.getAllOk(row[newLetterIndex], newLetterIndex, lettersToUse, row, hookIndex)
 		for _, w := range newWords {
 			partialWords = append(partialWords, string(currentLetter)+w)
 		}
 	} else {
-		for i, l := range lettersToGo {
-			lettersForIteration := append(append([]rune{}, lettersToGo[:i]...), lettersToGo[i+1:]...)
-			newWords := hookNode.getAllOk(l, lettersForIteration, lenLeft, lenRight, existingLetters)
+		for i, l := range lettersToUse {
+			lettersForIteration := append(append([]rune{}, lettersToUse[:i]...), lettersToUse[i+1:]...)
+			newWords := hookNode.getAllOk(l, newLetterIndex, lettersForIteration, row, hookIndex)
 
 			for _, w := range newWords {
 				partialWords = append(partialWords, string(currentLetter)+w)
