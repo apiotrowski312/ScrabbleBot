@@ -78,6 +78,7 @@ func Test_FindAllWords(t *testing.T) {
 			{"with exisitng letters on left", 3, []rune{'w', rune(0), rune(0), 'd'}, []rune("or")},
 			{"with exisitng letters on right", 3, []rune{rune(0), rune(0), rune(0), 'd', 's'}, []rune("wor")},
 			{"with exisitng letters combo", 3, []rune{'w', rune(0), rune(0), 'd', 's'}, []rune("or")},
+			{"hook is beetwen other letters", 3, []rune{'w', rune(0), 'r', 'd', 's'}, []rune("or")},
 		}
 
 		for _, c := range cases {

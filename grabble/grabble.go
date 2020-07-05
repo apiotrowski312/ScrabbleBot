@@ -9,12 +9,15 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/grabble/player"
 )
 
+// TODO: Add logging to file. It will be helpfull in future for collecting statistics.
+
 // TODO: Create enum for wWlLs
 type gameStats struct {
 	CurrentRound int
 	Finished     bool
 	Winner       *player.Player
 }
+
 type Grabble struct {
 	Board         board.Board
 	Players       []player.Player
@@ -53,33 +56,52 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 
 // PlaceWord - this is the most important function to use. This function will:
 // - validate all created words by this move,
-// - check if player has ability to do such move,
+// - look for letter conflicts
 // - increment round counter,
 // - update player rack,
 // - check if game should still going.
+// Pass word which you want to create and letters you will use to do soo.
 func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizontal bool) error {
 
 	if g.Stats.Finished {
 		return fmt.Errorf("game finished already")
 	}
 
+	// MAYBE: Add checker if word match letters
 	if len(letters) == 0 {
 		return fmt.Errorf("no letters, nothing to place")
 	}
 
+	points, err := g.countPoints(word, letters, startPos, horizontal)
+	if err != nil {
+		return err
+	}
+
+	g.Board.PlaceWord(word, startPos, horizontal)
+	g.CurrentPlayer().AddPoints(points)
+	g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
+	g.shouldGameEnd()
+	g.Stats.CurrentRound++
+
+	return nil
+}
+
+func (g Grabble) countPoints(word string, letters []rune, startPos [2]int, horizontal bool) (int, error) {
+	// FIXME: This shouldn't be here, am I right? I should change function name or move it smwhere else
+
+	// THIS SHOULD RETURN LETTERS PLAYER NEED TO PLACE. IT WILL BE VALIDATION
+	// AND THEN NO LETTERS variable is needed. It will make API easier + it will fix issiue with points :D
 	if isOk := g.Board.CanWordBePlaced(word, startPos, horizontal); isOk == false {
-		return fmt.Errorf("word cannot be placed here")
+		return 0, fmt.Errorf("word cannot be placed here")
 	}
 
 	words, bonuses := g.Board.GetAllWordsAndBonuses(word, startPos, horizontal)
 
 	for _, word := range words {
 		if isValid, err := g.Dict.IsWordValid(word); isValid == false {
-			return err
+			return 0, err
 		}
 	}
-
-	g.Board.PlaceWord(word, startPos, horizontal)
 
 	points := g.LettterPoints.GetPoints(words, bonuses)
 
@@ -87,13 +109,7 @@ func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizo
 	if len(letters) == g.RackSize {
 		points += 50
 	}
-	g.CurrentPlayer().AddPoints(points)
-	g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
-
-	g.shouldGameEnd()
-
-	g.Stats.CurrentRound++
-	return nil
+	return points, nil
 }
 
 // CurrentPlayer - return player who should do a move next.
@@ -129,9 +145,10 @@ func (g *Grabble) shouldGameEnd() {
 	}
 
 	g.finishGameNoTilesLeft()
+
+	// TODO: Add ending game bacause everyboty pass round two times in a row
 }
 
-// TODO: How to check if game was ended already?
 func (g *Grabble) finishGameNoTilesLeft() {
 	letters := []string{}
 	placeholder := []string{}

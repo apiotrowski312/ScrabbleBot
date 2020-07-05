@@ -33,6 +33,8 @@ func (b *Board) TransposeBoard() *Board {
 	return &transposedBoard
 }
 
+// CanWordBePlaced - return true if provided string has no blockers
+// e.g. conflict with existing letters on board
 func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) bool {
 	if horizontal {
 		return b.canWordBePlaced(word, startPos)
@@ -72,6 +74,8 @@ func (b *Board) canWordBePlaced(word string, startPos [2]int) bool {
 	return true
 }
 
+// PlaceWord - will place word on board. Function assumes that there is no conflicts on board.
+// If there will be any, it will overwrite existing letters.
 func (b *Board) PlaceWord(word string, startPos [2]int, horizontal bool) {
 	if horizontal {
 		b.placeWord(word, startPos)
