@@ -1,5 +1,39 @@
 package grabble
 
+import (
+	"flag"
+	"io"
+	"os"
+
+	"github.com/sirupsen/logrus"
+	easy "github.com/t-tomalak/logrus-easy-formatter"
+)
+
+var log = logrus.New()
+var logPath = flag.String("logfile", "/tmp/grabble.log", "provide path for log file")
+var logLevel = flag.String("loglevel", "INFO", "provide log level")
+
+func init() {
+
+	// log to console and file
+	f, err := os.OpenFile(*logPath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+	wrt := io.MultiWriter(os.Stdout, f)
+
+	level, err := logrus.ParseLevel(*logLevel)
+	if err != nil {
+		panic(err)
+	}
+	log.SetLevel(level)
+	log.SetFormatter(&easy.Formatter{
+		TimestampFormat: "2006-01-02 15:04:05",
+		LogFormat:       "[%lvl%]: %time% - %msg%",
+	})
+	log.SetOutput(wrt)
+}
+
 // CreateDefaultGame - it creates and return basic Grabble game.
 func CreateDefaultGame(players []string) Grabble {
 	officialScrabbleBoard := [15][15]rune{

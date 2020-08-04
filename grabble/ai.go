@@ -16,7 +16,6 @@ type bestWord struct {
 }
 
 func (g *Grabble) PickBestWord() bestWord {
-
 	rack := g.CurrentPlayer().Rack
 
 	wordsCollection := g.getWordCollection(rack, true)
@@ -49,7 +48,7 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []wordCollecti
 
 	for x, row := range board {
 		rowLetters := g.getRowOfLetters(x)
-		for y, _ := range row {
+		for y := range row {
 			words := []string{}
 			if board[x][y].Letter != rune(0) && y > 0 && board[x][y-1].Letter == rune(0) {
 				words = g.Dict.FindAllWords(y, rowLetters, rack)
