@@ -9,10 +9,10 @@ type wordCollection struct {
 }
 
 type bestWord struct {
-	points     int
-	cords      [2]int
-	word       string
-	horizontal bool
+	Points     int
+	Cords      [2]int
+	Word       string
+	Horizontal bool
 }
 
 func (g *Grabble) PickBestWord() bestWord {
@@ -26,11 +26,11 @@ func (g *Grabble) PickBestWord() bestWord {
 	for _, singleCollection := range wordsCollection {
 		for _, word := range singleCollection.words {
 			// BUG: Its not working properly. I should pass not a rack, but used letters.
-			if points, err := g.countPoints(word, rack, singleCollection.cords, true); err == nil && points > bestW.points {
+			if points, err := g.countPoints(word, singleCollection.cords, true); err == nil && points > bestW.Points {
 				bestW = bestWord{
-					cords:  singleCollection.cords,
-					word:   word,
-					points: points,
+					Cords:  singleCollection.cords,
+					Word:   word,
+					Points: points,
 				}
 			}
 		}

@@ -24,7 +24,7 @@ func removeDuplicatesUnordered(elements []string) []string {
 }
 
 // FindAllWords - pass hookIndex, row and letters.
-// Function will find all words based od available letters and already existring one.
+// Function will find all words based od available letters and already existing one.
 func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
 	newLetters := append(letters, '.')
 

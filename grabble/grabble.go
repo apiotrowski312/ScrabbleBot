@@ -72,7 +72,7 @@ func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizo
 		return fmt.Errorf("no letters, nothing to place")
 	}
 
-	points, err := g.countPoints(word, letters, startPos, horizontal)
+	points, err := g.countPoints(word, startPos, horizontal)
 	if err != nil {
 		return err
 	}
@@ -86,12 +86,11 @@ func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizo
 	return nil
 }
 
-func (g Grabble) countPoints(word string, letters []rune, startPos [2]int, horizontal bool) (int, error) {
+func (g Grabble) countPoints(word string, startPos [2]int, horizontal bool) (int, error) {
 	// FIXME: This shouldn't be here, am I right? I should change function name or move it smwhere else
 
-	// THIS SHOULD RETURN LETTERS PLAYER NEED TO PLACE. IT WILL BE VALIDATION
-	// AND THEN NO LETTERS variable is needed. It will make API easier + it will fix issiue with points :D
-	if isOk := g.Board.CanWordBePlaced(word, startPos, horizontal); isOk == false {
+	letters, isOk := g.Board.CanWordBePlaced(word, startPos, horizontal)
+	if isOk == false {
 		return 0, fmt.Errorf("word cannot be placed here")
 	}
 
@@ -106,7 +105,7 @@ func (g Grabble) countPoints(word string, letters []rune, startPos [2]int, horiz
 	points := g.LettterPoints.GetPoints(words, bonuses)
 
 	// If all letters were used, add bonus 50 points (Scrabble)
-	if len(letters) == g.RackSize {
+	if letters == g.RackSize {
 		points += 50
 	}
 	return points, nil

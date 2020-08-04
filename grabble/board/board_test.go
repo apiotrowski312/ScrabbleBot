@@ -137,12 +137,13 @@ func Test_PlaceWord(t *testing.T) {
 
 func Test_CanWordBePlaced(t *testing.T) {
 	type testCase struct {
-		name       string
-		word       string
-		startPos   [2]int
-		horizontal bool
-		isOk       bool
-		fixture    string
+		name         string
+		word         string
+		startPos     [2]int
+		horizontal   bool
+		isOk         bool
+		numOfLetters int
+		fixture      string
 	}
 	test := []testCase{
 		{
@@ -151,6 +152,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 			[2]int{7, 7},
 			true,
 			true,
+			5,
 			"testdata/board.fixture",
 		},
 		{
@@ -159,6 +161,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 			[2]int{0, 0},
 			true,
 			false,
+			0,
 			"testdata/board.fixture",
 		},
 		{
@@ -167,6 +170,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 			[2]int{6, 8},
 			false,
 			true,
+			4,
 			"testdata/board_with_starting.fixture",
 		},
 		{
@@ -175,6 +179,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 			[2]int{6, 12},
 			false,
 			true,
+			5,
 			"testdata/board_with_starting.fixture",
 		},
 		{
@@ -183,6 +188,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 			[2]int{6, 13},
 			false,
 			false,
+			0,
 			"testdata/board_with_starting.fixture",
 		},
 		{
@@ -191,6 +197,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 			[2]int{6, 13},
 			true,
 			false,
+			0,
 			"testdata/board_with_starting.fixture",
 		},
 	}
@@ -199,9 +206,10 @@ func Test_CanWordBePlaced(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			var board board.Board
 			test_utils.LoadJSONFixture(t, c.fixture, &board)
-			isOk := board.CanWordBePlaced(c.word, c.startPos, c.horizontal)
+			numOfLetters, isOk := board.CanWordBePlaced(c.word, c.startPos, c.horizontal)
 
 			assert.Equal(t, c.isOk, isOk)
+			assert.Equal(t, c.numOfLetters, numOfLetters)
 		})
 	}
 }

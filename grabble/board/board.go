@@ -33,9 +33,9 @@ func (b *Board) TransposeBoard() *Board {
 	return &transposedBoard
 }
 
-// CanWordBePlaced - return true if provided string has no blockers
-// e.g. conflict with existing letters on board
-func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) bool {
+// CanWordBePlaced - return number of placed letters and boolean with information if word can be placed.
+// False is e.g. when in conflict with existing letters on board
+func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) (int, bool) {
 	if horizontal {
 		return b.canWordBePlaced(word, startPos)
 	}
@@ -44,22 +44,27 @@ func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) b
 	return tb.canWordBePlaced(word, [2]int{startPos[1], startPos[0]})
 }
 
-func (b *Board) canWordBePlaced(word string, startPos [2]int) bool {
+func (b *Board) canWordBePlaced(word string, startPos [2]int) (int, bool) {
 	hook := false
 
 	if startPos[1]+len(word) > 15 {
-		return false
+		return 0, false
 	}
+
+	numOfNewLetters := len(word)
 
 	for i, letter := range word {
 		bc := b[startPos[0]][startPos[1]+i]
 
 		if bc.Letter != rune(0) && bc.Letter != letter {
-			return false
+			return 0, false
 		}
-
-		if bc.Bonus == rune('s') || bc.Letter == letter {
+		if bc.Letter == letter {
 			hook = true
+			numOfNewLetters--
+		} else if bc.Bonus == rune('s') {
+			hook = true
+			// FIXME: It is not a hook. These else ifs should be redo in different manner.
 		} else if startPos[0] > 0 && b[startPos[0]-1][startPos[1]+i].Letter != rune(0) {
 			hook = true
 		} else if startPos[0] < 15 && b[startPos[0]+1][startPos[1]+i].Letter != rune(0) {
@@ -68,10 +73,10 @@ func (b *Board) canWordBePlaced(word string, startPos [2]int) bool {
 	}
 
 	if hook == false {
-		return false
+		return 0, false
 	}
 
-	return true
+	return numOfNewLetters, true
 }
 
 // PlaceWord - will place word on board. Function assumes that there is no conflicts on board.
