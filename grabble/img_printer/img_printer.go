@@ -1,4 +1,4 @@
-package imgPrinter
+package img_printer
 
 import (
 	"image"
@@ -9,8 +9,10 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/grabble"
 )
 
-const (
-	rectSize = 50
+var (
+	rectSize    = 25
+	tileColor   = color.White
+	letterColor = color.Black
 )
 
 type customImage struct {
@@ -36,12 +38,22 @@ func (c customImage) rect(x1, y1, x2, y2 int, col color.Color) {
 	c.vLine(x2, y1, y2, col)
 }
 
-func (c customImage) fullRect(x1, y1, x2, y2 int, col color.Color) {
-	c.rect(x1, y1, x2, y2, col)
+func (c customImage) fullRect(x1, y1, x2, y2 int) {
+	c.rect(x1, y1, x2, y2, letterColor)
 
 	y1++
 	for ; y1 < y2; y1++ {
-		c.hLine(x1+1, y1, x2-1, color.White)
+		c.hLine(x1+1, y1, x2-1, tileColor)
+	}
+}
+
+func (c customImage) drawTile(x, y int, tile [25][25]int) {
+	for h, row := range tile {
+		for v, cell := range row {
+			if cell == 1 {
+				c.image.Set(x+v, y+h, letterColor)
+			}
+		}
 	}
 }
 
@@ -51,8 +63,21 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 	img := customImage{image.NewRGBA(image.Rectangle{upLeft, lowRight})}
 
 	for v, row := range g.Board {
-		for h := range row {
-			img.fullRect(v*rectSize, h*rectSize, v*rectSize+rectSize, h*rectSize+rectSize, color.Black)
+		for h, cell := range row {
+			img.fullRect(v*rectSize, h*rectSize, v*rectSize+rectSize, h*rectSize+rectSize)
+
+			switch cell.Bonus {
+			case 'l':
+				img.drawTile(v*rectSize, h*rectSize, bonus2xLetter)
+			case 'L':
+				img.drawTile(v*rectSize, h*rectSize, bonus3xLetter)
+			case 'w':
+				img.drawTile(v*rectSize, h*rectSize, bonus2xWord)
+			case 'W':
+				img.drawTile(v*rectSize, h*rectSize, bonus3xWord)
+			case 's':
+				img.drawTile(v*rectSize, h*rectSize, startTile)
+			}
 		}
 	}
 
