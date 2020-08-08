@@ -9,6 +9,7 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/grabble/player"
 )
 
+// TODO: Create one place with all fixtures etc. to make it easier to manage
 // TODO: Create enum for wWlLs
 type gameStats struct {
 	CurrentRound int
@@ -39,7 +40,7 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 	}
 
 	log.Trace("Grabble game created")
-	return Grabble{
+	game := Grabble{
 		Board:         *board,
 		Players:       players,
 		Bag:           ba,
@@ -51,6 +52,12 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 		},
 		RackSize: rackSize,
 	}
+
+	for i := range game.Players {
+		game.Players[i].UpdateRack([]rune{}, game.Bag.DrawLetters(rackSize))
+	}
+
+	return game
 }
 
 // PlaceWord - this is the most important function to use. This function will:
@@ -59,40 +66,51 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 // - increment round counter,
 // - update player rack,
 // - check if game should still going.
-// Pass word which you want to create and letters you will use to do soo.
-func (g *Grabble) PlaceWord(word string, letters []rune, startPos [2]int, horizontal bool) error {
+// Pass word which you want to create.
+func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error {
 	log.Tracef("PlaceWord function called by %s\n", g.CurrentPlayer().Name)
-	if g.Stats.Finished {
-		return fmt.Errorf("game finished already")
+
+	letters, err := g.extractUsedNewLetters(word, startPos, horizontal)
+	if err != nil {
+		return err
 	}
 
-	// MAYBE: Add checker if word match letters
-	if len(letters) == 0 {
-		return fmt.Errorf("no letters, nothing to place")
+	points, err := g.countPoints(word, len(letters), startPos, horizontal)
+	if err != nil {
+		return err
 	}
 
-	points, err := g.countPoints(word, startPos, horizontal)
+	err = g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
 	if err != nil {
 		return err
 	}
 
 	g.Board.PlaceWord(word, startPos, horizontal)
 	g.CurrentPlayer().AddPoints(points)
-	g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
 	g.shouldGameEnd()
 	g.Stats.CurrentRound++
 
 	return nil
 }
 
-func (g Grabble) countPoints(word string, startPos [2]int, horizontal bool) (int, error) {
-	// FIXME: This shouldn't be here, am I right? I should change function name or move it smwhere else
-
+func (g Grabble) extractUsedNewLetters(word string, startPos [2]int, horizontal bool) ([]rune, error) {
 	letters, isOk := g.Board.CanWordBePlaced(word, startPos, horizontal)
 	if isOk == false {
-		return 0, fmt.Errorf("word cannot be placed here")
+		return []rune{}, fmt.Errorf("word cannot be placed here")
 	}
 
+	if err := g.CurrentPlayer().AreLettersInRack(letters); err != nil {
+		return []rune{}, err
+	}
+
+	if len(letters) == 0 {
+		return []rune{}, fmt.Errorf("no new letters would be use with this word")
+	}
+
+	return letters, nil
+}
+
+func (g Grabble) countPoints(word string, numOfUsedLetters int, startPos [2]int, horizontal bool) (int, error) {
 	words, bonuses := g.Board.GetAllWordsAndBonuses(word, startPos, horizontal)
 
 	for _, word := range words {
@@ -104,7 +122,7 @@ func (g Grabble) countPoints(word string, startPos [2]int, horizontal bool) (int
 	points := g.LettterPoints.GetPoints(words, bonuses)
 
 	// If all letters were used, add bonus 50 points (Scrabble)
-	if letters == g.RackSize {
+	if numOfUsedLetters == g.RackSize {
 		points += 50
 	}
 	return points, nil

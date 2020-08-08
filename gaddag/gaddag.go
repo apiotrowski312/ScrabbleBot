@@ -88,7 +88,7 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 // IsWordValid - check if provided string is marked as a word in gaddag tree
 func (n *Node) IsWordValid(word string) (bool, error) {
 	i := strings.Index(word, ".")
-	if i < 0 {
+	if i == -1 {
 		word = word[:1] + "." + word[1:]
 	}
 
@@ -110,10 +110,12 @@ func (n *Node) IsWordValid(word string) (bool, error) {
 }
 
 func (n *Node) wordIsNotInDictionary(word string) error {
-	i := strings.Index(word, ".")
-	processedWord := str_manipulator.Reverse(word[:i]) + word[i+1:]
+	return fmt.Errorf("Word %v is not in dictionary", NormalizeWord(word))
+}
 
-	return fmt.Errorf("Word %v is not in dictionary", processedWord)
+func NormalizeWord(word string) string {
+	i := strings.Index(word, ".")
+	return str_manipulator.Reverse(word[:i]) + word[i+1:]
 }
 
 // CreateGraph - create gaddag tree structure based on file with all words, each starting from newline

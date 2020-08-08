@@ -15,7 +15,6 @@ var update = flag.Bool("update", false, "update the golden files of this test")
 func Test_PlaceWord(t *testing.T) {
 	type round struct {
 		word       string
-		letters    []rune
 		startPos   [2]int
 		horizontal bool
 		err        bool
@@ -30,8 +29,7 @@ func Test_PlaceWord(t *testing.T) {
 			"One round",
 			[]round{
 				{
-					"words",
-					[]rune{'w', 'o', 'r', 'd', 's'},
+					"WORDS",
 					[2]int{7, 7},
 					true,
 					false,
@@ -40,26 +38,17 @@ func Test_PlaceWord(t *testing.T) {
 			"game.fixture",
 		},
 		{
-			"Three rounds",
+			"Two rounds",
 			[]round{
 				{
-					"word",
-					[]rune{'w', 'o', 'r', 'd'},
+					"WORD",
 					[2]int{7, 7},
 					true,
 					false,
 				},
 				{
-					"worthful",
-					[]rune{'w', 'r', 't', 'h', 'f', 'u', 'l'},
-					[2]int{6, 8},
-					false,
-					false,
-				},
-				{
-					"sos",
-					[]rune{'s', 'o', 's'},
-					[2]int{7, 11},
+					"WEST",
+					[2]int{7, 7},
 					false,
 					false,
 				},
@@ -70,15 +59,13 @@ func Test_PlaceWord(t *testing.T) {
 			"Second round on error",
 			[]round{
 				{
-					"words",
-					[]rune{'w', 'o', 'r', 'd', 's'},
+					"WORDS",
 					[2]int{7, 7},
 					true,
 					false,
 				},
 				{
-					"wordsX",
-					[]rune{'X'},
+					"WORDSX",
 					[2]int{7, 7},
 					true,
 					true,
@@ -91,7 +78,6 @@ func Test_PlaceWord(t *testing.T) {
 			[]round{
 				{
 					"",
-					[]rune{},
 					[2]int{7, 7},
 					true,
 					true,
@@ -103,8 +89,7 @@ func Test_PlaceWord(t *testing.T) {
 			"Check if winner is correct",
 			[]round{
 				{
-					"sos",
-					[]rune{'s', 'o', 's'},
+					"SOS",
 					[2]int{7, 7},
 					true,
 					false,
@@ -121,8 +106,8 @@ func Test_PlaceWord(t *testing.T) {
 			test_utils.LoadJSONFixture(t, "testdata/"+c.fixture, &game)
 
 			for i, r := range c.rounds {
-				err := game.PlaceWord(r.word, r.letters, r.startPos, r.horizontal)
-				assert.Equal(t, r.err, err != nil, fmt.Sprintf("Round: %v, word: %v", i, r.word))
+				err := game.PlaceWord(r.word, r.startPos, r.horizontal)
+				assert.Equal(t, r.err, err != nil, fmt.Sprintf("Round: %v\nword: %v\nError: %v", i, r.word, err))
 			}
 
 			test_utils.GetGoldenFileJSON(t, game, &expectedGame, c.name, *update)

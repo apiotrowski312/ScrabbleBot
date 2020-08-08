@@ -32,15 +32,15 @@ func Test_IsWordValid(t *testing.T) {
 		errWord string
 	}
 	testWord := []testCase{
-		{"word", ""},
-		{"w.or", "wor"},
-		{"w.ord", ""},
-		{"w.ordX", "wordX"},
-		{"w.orthless", ""},
-		{"w.ortzhless", "wortzhless"},
-		{"ob.ss", ""},
-		{"ssob.", ""},
-		{"boss", ""},
+		{"WORD", ""},
+		{"W.OR", "WOR"},
+		{"W.ORD", ""},
+		{"W.ORDX", "WORDX"},
+		{"W.ORTHLESS", ""},
+		{"W.ORTZHLESS", "WORTZHLESS"},
+		{"OB.SS", ""},
+		{"SSOB.", ""},
+		{"BOSS", ""},
 	}
 
 	for _, word := range testWord {
@@ -69,16 +69,16 @@ func Test_FindAllWords(t *testing.T) {
 		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
 
 		cases := []testCase{
-			{"word to right", 0, []rune{'w', rune(0), rune(0), rune(0)}, []rune("ord")},
-			{"word to left", 3, []rune{rune(0), rune(0), rune(0), 'd'}, []rune("orw")},
-			{"Multiple matches", 0, []rune{'w', rune(0), rune(0), rune(0), rune(0)}, []rune("ordsk")},
-			{"Multiple matches from inside", 3, []rune{rune(0), rune(0), rune(0), 'r', rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("orwdsk")},
-			{"Single letters", 1, []rune{rune(0), 'b', rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ooks")},
-			{"O inside hook", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'o', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("boooks")},
-			{"with exisitng letters on left", 3, []rune{'w', rune(0), rune(0), 'd'}, []rune("or")},
-			{"with exisitng letters on right", 3, []rune{rune(0), rune(0), rune(0), 'd', 's'}, []rune("wor")},
-			{"with exisitng letters combo", 3, []rune{'w', rune(0), rune(0), 'd', 's'}, []rune("or")},
-			{"hook is beetwen other letters", 3, []rune{'w', rune(0), 'r', 'd', 's'}, []rune("or")},
+			{"word to right", 0, []rune{'W', rune(0), rune(0), rune(0)}, []rune("ORD")},
+			{"word to left", 3, []rune{rune(0), rune(0), rune(0), 'D'}, []rune("ORW")},
+			{"Multiple matches", 0, []rune{'W', rune(0), rune(0), rune(0), rune(0)}, []rune("ORDSK")},
+			{"Multiple matches from inside", 3, []rune{rune(0), rune(0), rune(0), 'R', rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ORWDSK")},
+			{"Single letters", 1, []rune{rune(0), 'B', rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("OOKS")},
+			{"O inside hook", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'O', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("BOOOKS")},
+			{"with exisitng letters on left", 3, []rune{'W', rune(0), rune(0), 'S'}, []rune("OR")},
+			{"with exisitng letters on right", 3, []rune{rune(0), rune(0), rune(0), 'D', 'S'}, []rune("WOR")},
+			{"with exisitng letters combo", 3, []rune{'W', rune(0), rune(0), 'D', 'S'}, []rune("OR")},
+			{"hook is beetwen other letters", 3, []rune{'W', rune(0), 'R', 'D', 'S'}, []rune("OR")},
 		}
 
 		for _, c := range cases {
@@ -97,11 +97,13 @@ func Test_FindAllWords(t *testing.T) {
 		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
 
 		cases := []testCase{
-			{"word from left", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'w'}, []rune("ord")},
-			{"Long word match", 2, []rune{rune(0), rune(0), 'z', rune(0), rune(0), rune(0), rune(0)}, []rune("incographer")},
-			{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("aeilnrst")},
-			{"Long word with some letters on board", 1, []rune{rune(0), 'z', 'i', 'n', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("incographer")},
-			{"7 letters with existring board", 8, []rune{'d', 'o', 'w', 'n', rune(0), rune(0), rune(0), rune(0), 'n', rune(0), rune(0), rune(0), 'e', 's', rune(0)}, []rune("wssared")},
+			{"word from left", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'W'}, []rune("ORD")},
+			{"Long word match", 2, []rune{rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0)}, []rune("INCOGRAPHER")},
+			{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("AEILNRST")},
+			{"Long word with some letters on board", 1, []rune{rune(0), 'Z', 'I', 'N', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("INCOGRAPHER")},
+			{"7 letters with existring board", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'B', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSARED")},
+			// FIXME: For some reason, R is duplicated in output 0_0
+			{"Test with double R", 7, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'R', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("WGRESEA")},
 		}
 
 		for _, c := range cases {
@@ -150,11 +152,11 @@ func Benchmark_FindAllWords(b *testing.B) {
 	}
 
 	cases := []testCase{
-		{"5 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'w', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("odrs")},
+		{"5 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("odrs")},
 		{"12 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("incographer")},
 		{"15 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'o', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("icardehartetis")},
 		{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("aeilnrst")},
-		{"7 letters with existring board", 8, []rune{'d', 'o', 'w', 'n', rune(0), rune(0), rune(0), rune(0), 'n', rune(0), rune(0), rune(0), 'e', 's', rune(0)}, []rune("wssared")},
+		{"7 letters with existring board", 8, []rune{'d', 'o', 'W', 'n', rune(0), rune(0), rune(0), rune(0), 'n', rune(0), rune(0), rune(0), 'e', 's', rune(0)}, []rune("wssared")},
 	}
 
 	for _, c := range cases {

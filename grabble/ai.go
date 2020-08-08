@@ -1,50 +1,43 @@
 package grabble
 
+import (
+	"strings"
+
+	"github.com/apiotrowski312/scrabbleBot/gaddag"
+)
+
 // TODO: Function with starting word
-
-type wordCollection struct {
-	cords      [2]int
-	words      []string
-	horizontal bool
-}
-
-type bestWord struct {
+// FIXME: Better naming for this variable
+type gaddagWord struct {
 	Points     int
 	Cords      [2]int
 	Word       string
 	Horizontal bool
 }
 
-func (g *Grabble) PickBestWord() bestWord {
+func (g *Grabble) PickBestWord() gaddagWord {
 	rack := g.CurrentPlayer().Rack
 
 	wordsCollection := g.getWordCollection(rack, true)
 	wordsCollection = append(wordsCollection, g.getWordCollection(rack, false)...)
 
-	bestW := bestWord{}
-	for _, singleCollection := range wordsCollection {
-		for _, word := range singleCollection.words {
-			// BUG: Its not working properly. I should pass not a rack, but used letters.
-			if points, err := g.countPoints(word, singleCollection.cords, true); err == nil && points > bestW.Points {
-				bestW = bestWord{
-					Cords:  singleCollection.cords,
-					Word:   word,
-					Points: points,
-				}
-			}
+	bestW := gaddagWord{}
+	for _, word := range wordsCollection {
+		if word.Points > bestW.Points {
+			bestW = word
 		}
 	}
 
 	return bestW
 }
 
-func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []wordCollection {
+func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 	board := g.Board
 	if !horizontal {
 		board = *g.Board.TransposeBoard()
 	}
 
-	wordsCollection := []wordCollection{}
+	wordsCollection := []gaddagWord{}
 
 	for x, row := range board {
 		rowLetters := g.getRowOfLetters(x)
@@ -56,14 +49,29 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []wordCollecti
 				// HACK: Better and faster option will be create new function in gaddag to look for words without hook
 				for _, l := range rack {
 					sWords := g.Dict.FindAllWords(y, mockRowWithHookWhenStartingLetter(y, l, rowLetters), rack)
+
 					words = append(words, sWords...)
 				}
 			}
 			if len(words) != 0 {
-				wordsCollection = append(wordsCollection, wordCollection{
-					cords:      [2]int{x, y},
-					words:      words,
-					horizontal: horizontal})
+				for _, w := range words {
+					normalizedWord, cords := prepareWord(w, [2]int{x, y}, horizontal)
+
+					letters, letterError := g.extractUsedNewLetters(normalizedWord, cords, true)
+					if letterError != nil {
+						continue
+					}
+
+					if points, err := g.countPoints(normalizedWord, len(letters), cords, true); err == nil {
+						wordsCollection = append(wordsCollection, gaddagWord{
+							Cords:      cords,
+							Word:       normalizedWord,
+							Horizontal: horizontal,
+							Points:     points},
+						)
+					}
+
+				}
 			}
 		}
 	}
@@ -83,4 +91,20 @@ func (g *Grabble) getRowOfLetters(row int) []rune {
 		letters = append(letters, letter.Letter)
 	}
 	return letters
+}
+
+func prepareWord(word string, cords [2]int, horizontal bool) (string, [2]int) {
+	i := strings.Index(word, ".")
+	if i == -1 {
+		return word, cords
+	}
+
+	if horizontal {
+		cords[1] = cords[1] - i + 1
+	} else {
+		cords[0] = cords[0] - i + 1
+	}
+	nWord := gaddag.NormalizeWord(word)
+
+	return nWord, cords
 }

@@ -26,17 +26,16 @@ func (p *Player) UpdateRack(lettersToRemove, lettersToAdd []rune) error {
 }
 
 func (p *Player) removeFromRack(lettersToRemove []rune) error {
+	if err := p.AreLettersInRack(lettersToRemove); err != nil {
+		return err
+	}
+
 	for _, l := range lettersToRemove {
-		letterInRack := false
 		for i := range p.Rack {
 			if p.Rack[i] == l {
 				p.Rack = append(p.Rack[:i], p.Rack[i+1:]...)
-				letterInRack = true
 				break
 			}
-		}
-		if letterInRack == false {
-			return fmt.Errorf("Letter %s is not in your rack. It cannot be removed", string(l))
 		}
 	}
 
@@ -49,4 +48,21 @@ func (p *Player) addToRack(lettersToAdd []rune) {
 
 func (p *Player) AddPoints(points int) {
 	p.Points += points
+}
+
+// AreLettersInRack - iterate over all letters and check if all are in user Rack
+func (p *Player) AreLettersInRack(letters []rune) error {
+	for _, l := range letters {
+		foundLetter := false
+		for _, r := range p.Rack {
+			if l == r {
+				foundLetter = true
+			}
+		}
+
+		if foundLetter == false {
+			return fmt.Errorf("Letter %v(%v) is not in your rack", string(l), l)
+		}
+	}
+	return nil
 }

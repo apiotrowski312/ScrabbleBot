@@ -936,24 +936,12 @@
     {
       "Name": "Olek",
       "Points": 122,
-      "Rack": [
-		115, 
-		111, 
-		115
-      ]
+      "Rack": [83, 79, 83]
     },
     {
       "Name": "Zuza",
       "Points": 143,
-      "Rack": [
-        116,
-        101,
-        115,
-        116,
-        115,
-        112,
-        110
-      ]
+      "Rack": [84, 69, 83, 84, 83, 80, 78]
     }
   ],
   "Bag": [],
@@ -1122,6 +1110,25 @@
 													"Children": {}
 												}
 											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"87": {
+					"IsWord": false,
+					"Children": {
+						"46": {
+							"IsWord": false,
+							"Children": {
+								"83": {
+									"IsWord": false,
+									"Children": {
+										"84": {
+											"IsWord": true,
+											"Children": {}
 										}
 									}
 								}
@@ -1751,6 +1758,20 @@
 									}
 								}
 							}
+						},
+						"87": {
+							"IsWord": false,
+							"Children": {
+								"46": {
+									"IsWord": false,
+									"Children": {
+										"84": {
+											"IsWord": true,
+											"Children": {}
+										}
+									}
+								}
+							}
 						}
 					}
 				},
@@ -1926,6 +1947,25 @@
 							}
 						}
 					}
+				},
+				"83": {
+					"IsWord": false,
+					"Children": {
+						"69": {
+							"IsWord": false,
+							"Children": {
+								"87": {
+									"IsWord": false,
+									"Children": {
+										"46": {
+											"IsWord": true,
+											"Children": {}
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		},
@@ -2008,6 +2048,20 @@
 				"46": {
 					"IsWord": false,
 					"Children": {
+						"69": {
+							"IsWord": false,
+							"Children": {
+								"83": {
+									"IsWord": false,
+									"Children": {
+										"84": {
+											"IsWord": true,
+											"Children": {}
+										}
+									}
+								}
+							}
+						},
 						"79": {
 							"IsWord": false,
 							"Children": {

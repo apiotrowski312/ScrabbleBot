@@ -9,6 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// TODO: Test vertical stuff maybe
 func Test_PickBectWord(t *testing.T) {
 	type expectedWord struct {
 		word       string
@@ -24,14 +25,14 @@ func Test_PickBectWord(t *testing.T) {
 	}
 	test := []testCase{
 		{
-			"Test pass round",
-			expectedWord{points: 10, cords: [2]int{7, 7}, word: "w.ords", horizontal: false},
+			"Get best word",
+			expectedWord{points: 13, cords: [2]int{7, 3}, word: "WORDS", horizontal: true},
 			"testdata/game.fixture",
 			"",
 		},
 		{
-			"Test pass round",
-			expectedWord{points: 63, cords: [2]int{7, 7}, word: "worhs.d", horizontal: false},
+			"Get best word - 2",
+			expectedWord{points: 17, cords: [2]int{7, 2}, word: "SHROWD", horizontal: true},
 			"testdata/game.fixture",
 			"../exampleData/collins_official_scrabble_2019.txt",
 		},
@@ -42,7 +43,7 @@ func Test_PickBectWord(t *testing.T) {
 			var game grabble.Grabble
 			test_utils.LoadJSONFixture(t, c.fixture, &game)
 			if c.dict != "" {
-				gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
+				gaddagRoot, _ := gaddag.CreateGraph(c.dict)
 				game.Dict = *gaddagRoot
 			}
 

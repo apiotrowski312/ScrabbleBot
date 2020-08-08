@@ -7,6 +7,7 @@ type field struct {
 	Letter rune
 }
 
+// TODO: Change all small letters to big one :/
 type Board [15][15]*field
 
 func CreateBoard(template [15][15]rune) *Board {
@@ -21,8 +22,6 @@ func CreateBoard(template [15][15]rune) *Board {
 	return &board
 }
 
-// TODO: Create little helper package to pretty print fixtures and golden files
-
 func (b *Board) TransposeBoard() *Board {
 	var transposedBoard Board
 	for i, row := range b {
@@ -33,9 +32,10 @@ func (b *Board) TransposeBoard() *Board {
 	return &transposedBoard
 }
 
-// CanWordBePlaced - return number of placed letters and boolean with information if word can be placed.
+// CanWordBePlaced - return array with all new letters to place
+// and boolean with information if word can be placed on the board.
 // False is e.g. when in conflict with existing letters on board
-func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) (int, bool) {
+func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) ([]rune, bool) {
 	if horizontal {
 		return b.canWordBePlaced(word, startPos)
 	}
@@ -44,27 +44,29 @@ func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) (
 	return tb.canWordBePlaced(word, [2]int{startPos[1], startPos[0]})
 }
 
-func (b *Board) canWordBePlaced(word string, startPos [2]int) (int, bool) {
+func (b *Board) canWordBePlaced(word string, startPos [2]int) ([]rune, bool) {
 	hook := false
 
 	if startPos[1]+len(word) > 15 {
-		return 0, false
+		return []rune{}, false
 	}
 
-	numOfNewLetters := len(word)
+	newLetters := []rune{}
 
 	for i, letter := range word {
 		bc := b[startPos[0]][startPos[1]+i]
 
 		if bc.Letter != rune(0) && bc.Letter != letter {
-			return 0, false
+			return []rune{}, false
 		}
 		if bc.Letter == letter {
 			hook = true
-			numOfNewLetters--
-		} else if bc.Bonus == rune('s') {
+			continue
+		}
+
+		newLetters = append(newLetters, letter)
+		if bc.Bonus == rune('s') {
 			hook = true
-			// FIXME: It is not a hook. These else ifs should be redo in different manner.
 		} else if startPos[0] > 0 && b[startPos[0]-1][startPos[1]+i].Letter != rune(0) {
 			hook = true
 		} else if startPos[0] < 15 && b[startPos[0]+1][startPos[1]+i].Letter != rune(0) {
@@ -73,10 +75,10 @@ func (b *Board) canWordBePlaced(word string, startPos [2]int) (int, bool) {
 	}
 
 	if hook == false {
-		return 0, false
+		return []rune{}, false
 	}
 
-	return numOfNewLetters, true
+	return newLetters, true
 }
 
 // PlaceWord - will place word on board. Function assumes that there is no conflicts on board.
