@@ -935,12 +935,12 @@
 		{
 			"Name": "Olek",
 			"Points": 0,
-			"Rack": null
+			"Rack": [87, 79, 82, 68, 83, 66, 72]
 		},
 		{
 			"Name": "Zuzanna",
 			"Points": 0,
-			"Rack": null
+			"Rack": [84, 69, 83, 84, 83, 80, 78]
 		}
 	],
 	"Bag": [
@@ -1077,524 +1077,22 @@
 	"Dict": {
 		"IsWord": false,
 		"Children": {
-			"100": {
+			"66": {
 				"IsWord": false,
 				"Children": {
-					"114": {
-						"IsWord": false,
-						"Children": {
-							"111": {
-								"IsWord": false,
-								"Children": {
-									"119": {
-										"IsWord": false,
-										"Children": {
-											"46": {
-												"IsWord": true,
-												"Children": {
-													"115": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"101": {
-				"IsWord": false,
-				"Children": {
-					"108": {
-						"IsWord": false,
-						"Children": {
-							"104": {
-								"IsWord": false,
-								"Children": {
-									"116": {
-										"IsWord": false,
-										"Children": {
-											"114": {
-												"IsWord": false,
-												"Children": {
-													"111": {
-														"IsWord": false,
-														"Children": {
-															"119": {
-																"IsWord": false,
-																"Children": {
-																	"46": {
-																		"IsWord": false,
-																		"Children": {
-																			"115": {
-																				"IsWord": false,
-																				"Children": {
-																					"115": {
-																						"IsWord": true,
-																						"Children": {}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					"118": {
-						"IsWord": false,
-						"Children": {
-							"111": {
-								"IsWord": false,
-								"Children": {
-									"108": {
-										"IsWord": false,
-										"Children": {
-											"46": {
-												"IsWord": false,
-												"Children": {
-													"114": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"102": {
-				"IsWord": false,
-				"Children": {
-					"104": {
-						"IsWord": false,
-						"Children": {
-							"116": {
-								"IsWord": false,
-								"Children": {
-									"114": {
-										"IsWord": false,
-										"Children": {
-											"111": {
-												"IsWord": false,
-												"Children": {
-													"119": {
-														"IsWord": false,
-														"Children": {
-															"46": {
-																"IsWord": false,
-																"Children": {
-																	"117": {
-																		"IsWord": false,
-																		"Children": {
-																			"108": {
-																				"IsWord": true,
-																				"Children": {}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"104": {
-				"IsWord": false,
-				"Children": {
-					"116": {
-						"IsWord": false,
-						"Children": {
-							"114": {
-								"IsWord": false,
-								"Children": {
-									"111": {
-										"IsWord": false,
-										"Children": {
-											"119": {
-												"IsWord": false,
-												"Children": {
-													"46": {
-														"IsWord": false,
-														"Children": {
-															"102": {
-																"IsWord": false,
-																"Children": {
-																	"117": {
-																		"IsWord": false,
-																		"Children": {
-																			"108": {
-																				"IsWord": true,
-																				"Children": {}
-																			}
-																		}
-																	}
-																}
-															},
-															"108": {
-																"IsWord": false,
-																"Children": {
-																	"101": {
-																		"IsWord": false,
-																		"Children": {
-																			"115": {
-																				"IsWord": false,
-																				"Children": {
-																					"115": {
-																						"IsWord": true,
-																						"Children": {}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"107": {
-				"IsWord": false,
-				"Children": {
-					"111": {
-						"IsWord": false,
-						"Children": {
-							"111": {
-								"IsWord": false,
-								"Children": {
-									"98": {
-										"IsWord": false,
-										"Children": {
-											"46": {
-												"IsWord": true,
-												"Children": {
-													"115": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					"114": {
-						"IsWord": false,
-						"Children": {
-							"111": {
-								"IsWord": false,
-								"Children": {
-									"119": {
-										"IsWord": false,
-										"Children": {
-											"46": {
-												"IsWord": true,
-												"Children": {}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"108": {
-				"IsWord": false,
-				"Children": {
-					"104": {
-						"IsWord": false,
-						"Children": {
-							"116": {
-								"IsWord": false,
-								"Children": {
-									"114": {
-										"IsWord": false,
-										"Children": {
-											"111": {
-												"IsWord": false,
-												"Children": {
-													"119": {
-														"IsWord": false,
-														"Children": {
-															"46": {
-																"IsWord": false,
-																"Children": {
-																	"101": {
-																		"IsWord": false,
-																		"Children": {
-																			"115": {
-																				"IsWord": false,
-																				"Children": {
-																					"115": {
-																						"IsWord": true,
-																						"Children": {}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					"117": {
-						"IsWord": false,
-						"Children": {
-							"102": {
-								"IsWord": false,
-								"Children": {
-									"104": {
-										"IsWord": false,
-										"Children": {
-											"116": {
-												"IsWord": false,
-												"Children": {
-													"114": {
-														"IsWord": false,
-														"Children": {
-															"111": {
-																"IsWord": false,
-																"Children": {
-																	"119": {
-																		"IsWord": false,
-																		"Children": {
-																			"46": {
-																				"IsWord": true,
-																				"Children": {}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
 					"46": {
 						"IsWord": false,
 						"Children": {
-							"111": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"118": {
+									"79": {
 										"IsWord": false,
 										"Children": {
-											"101": {
-												"IsWord": false,
-												"Children": {
-													"114": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"111": {
-				"IsWord": false,
-				"Children": {
-					"108": {
-						"IsWord": false,
-						"Children": {
-							"46": {
-								"IsWord": false,
-								"Children": {
-									"118": {
-										"IsWord": false,
-										"Children": {
-											"101": {
-												"IsWord": false,
-												"Children": {
-													"114": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					"111": {
-						"IsWord": false,
-						"Children": {
-							"98": {
-								"IsWord": false,
-								"Children": {
-									"46": {
-										"IsWord": false,
-										"Children": {
-											"107": {
+											"75": {
 												"IsWord": true,
 												"Children": {
-													"115": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					"115": {
-						"IsWord": false,
-						"Children": {
-							"46": {
-								"IsWord": false,
-								"Children": {
-									"115": {
-										"IsWord": true,
-										"Children": {}
-									}
-								}
-							}
-						}
-					},
-					"119": {
-						"IsWord": false,
-						"Children": {
-							"46": {
-								"IsWord": false,
-								"Children": {
-									"114": {
-										"IsWord": false,
-										"Children": {
-											"100": {
-												"IsWord": true,
-												"Children": {
-													"115": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											},
-											"107": {
-												"IsWord": true,
-												"Children": {}
-											},
-											"116": {
-												"IsWord": false,
-												"Children": {
-													"104": {
-														"IsWord": false,
-														"Children": {
-															"102": {
-																"IsWord": false,
-																"Children": {
-																	"117": {
-																		"IsWord": false,
-																		"Children": {
-																			"108": {
-																				"IsWord": true,
-																				"Children": {}
-																			}
-																		}
-																	}
-																}
-															},
-															"108": {
-																"IsWord": false,
-																"Children": {
-																	"101": {
-																		"IsWord": false,
-																		"Children": {
-																			"115": {
-																				"IsWord": false,
-																				"Children": {
-																					"115": {
-																						"IsWord": true,
-																						"Children": {}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					"98": {
-						"IsWord": false,
-						"Children": {
-							"46": {
-								"IsWord": false,
-								"Children": {
-									"111": {
-										"IsWord": false,
-										"Children": {
-											"107": {
-												"IsWord": true,
-												"Children": {
-													"115": {
+													"83": {
 														"IsWord": true,
 														"Children": {}
 													}
@@ -1602,10 +1100,10 @@
 											}
 										}
 									},
-									"115": {
+									"83": {
 										"IsWord": false,
 										"Children": {
-											"115": {
+											"83": {
 												"IsWord": true,
 												"Children": {}
 											}
@@ -1617,22 +1115,22 @@
 					}
 				}
 			},
-			"114": {
+			"68": {
 				"IsWord": false,
 				"Children": {
-					"101": {
+					"82": {
 						"IsWord": false,
 						"Children": {
-							"118": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"111": {
+									"87": {
 										"IsWord": false,
 										"Children": {
-											"108": {
-												"IsWord": false,
+											"46": {
+												"IsWord": true,
 												"Children": {
-													"46": {
+													"83": {
 														"IsWord": true,
 														"Children": {}
 													}
@@ -1643,42 +1141,151 @@
 								}
 							}
 						}
-					},
-					"111": {
+					}
+				}
+			},
+			"69": {
+				"IsWord": false,
+				"Children": {
+					"76": {
 						"IsWord": false,
 						"Children": {
-							"119": {
+							"72": {
 								"IsWord": false,
 								"Children": {
-									"46": {
+									"84": {
 										"IsWord": false,
 										"Children": {
-											"100": {
-												"IsWord": true,
+											"82": {
+												"IsWord": false,
 												"Children": {
-													"115": {
+													"79": {
+														"IsWord": false,
+														"Children": {
+															"87": {
+																"IsWord": false,
+																"Children": {
+																	"46": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"86": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"76": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": false,
+												"Children": {
+													"82": {
 														"IsWord": true,
 														"Children": {}
 													}
 												}
-											},
-											"107": {
-												"IsWord": true,
-												"Children": {}
-											},
-											"116": {
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"70": {
+				"IsWord": false,
+				"Children": {
+					"72": {
+						"IsWord": false,
+						"Children": {
+							"84": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"79": {
 												"IsWord": false,
 												"Children": {
-													"104": {
+													"87": {
 														"IsWord": false,
 														"Children": {
-															"102": {
+															"46": {
 																"IsWord": false,
 																"Children": {
-																	"117": {
+																	"85": {
 																		"IsWord": false,
 																		"Children": {
-																			"108": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"72": {
+				"IsWord": false,
+				"Children": {
+					"84": {
+						"IsWord": false,
+						"Children": {
+							"82": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"87": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
 																				"IsWord": true,
 																				"Children": {}
 																			}
@@ -1686,16 +1293,16 @@
 																	}
 																}
 															},
-															"108": {
+															"76": {
 																"IsWord": false,
 																"Children": {
-																	"101": {
+																	"69": {
 																		"IsWord": false,
 																		"Children": {
-																			"115": {
+																			"83": {
 																				"IsWord": false,
 																				"Children": {
-																					"115": {
+																					"83": {
 																						"IsWord": true,
 																						"Children": {}
 																					}
@@ -1717,22 +1324,22 @@
 					}
 				}
 			},
-			"115": {
+			"75": {
 				"IsWord": false,
 				"Children": {
-					"100": {
+					"79": {
 						"IsWord": false,
 						"Children": {
-							"114": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"111": {
+									"66": {
 										"IsWord": false,
 										"Children": {
-											"119": {
-												"IsWord": false,
+											"46": {
+												"IsWord": true,
 												"Children": {
-													"46": {
+													"83": {
 														"IsWord": true,
 														"Children": {}
 													}
@@ -1744,31 +1351,79 @@
 							}
 						}
 					},
-					"101": {
+					"82": {
 						"IsWord": false,
 						"Children": {
-							"108": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"104": {
+									"87": {
 										"IsWord": false,
 										"Children": {
-											"116": {
+											"46": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"76": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"86": {
+										"IsWord": false,
+										"Children": {
+											"69": {
 												"IsWord": false,
 												"Children": {
-													"114": {
+													"82": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"72": {
+						"IsWord": false,
+						"Children": {
+							"84": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"79": {
+												"IsWord": false,
+												"Children": {
+													"87": {
 														"IsWord": false,
 														"Children": {
-															"111": {
+															"46": {
 																"IsWord": false,
 																"Children": {
-																	"119": {
+																	"69": {
 																		"IsWord": false,
 																		"Children": {
-																			"46": {
+																			"83": {
 																				"IsWord": false,
 																				"Children": {
-																					"115": {
+																					"83": {
 																						"IsWord": true,
 																						"Children": {}
 																					}
@@ -1788,16 +1443,231 @@
 							}
 						}
 					},
-					"107": {
+					"85": {
 						"IsWord": false,
 						"Children": {
-							"111": {
+							"70": {
 								"IsWord": false,
 								"Children": {
-									"111": {
+									"72": {
 										"IsWord": false,
 										"Children": {
-											"98": {
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": false,
+														"Children": {
+															"79": {
+																"IsWord": false,
+																"Children": {
+																	"87": {
+																		"IsWord": false,
+																		"Children": {
+																			"46": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"79": {
+				"IsWord": false,
+				"Children": {
+					"66": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"75": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									},
+									"83": {
+										"IsWord": false,
+										"Children": {
+											"83": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"76": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"86": {
+										"IsWord": false,
+										"Children": {
+											"69": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"66": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"75": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"83": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"83": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"87": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"68": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"75": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"72": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"82": {
+				"IsWord": false,
+				"Children": {
+					"69": {
+						"IsWord": false,
+						"Children": {
+							"86": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"76": {
 												"IsWord": false,
 												"Children": {
 													"46": {
@@ -1812,27 +1682,113 @@
 							}
 						}
 					},
-					"111": {
+					"79": {
 						"IsWord": false,
 						"Children": {
-							"115": {
-								"IsWord": false,
-								"Children": {
-									"46": {
-										"IsWord": true,
-										"Children": {}
-									}
-								}
-							},
-							"98": {
+							"87": {
 								"IsWord": false,
 								"Children": {
 									"46": {
 										"IsWord": false,
 										"Children": {
-											"115": {
+											"68": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"75": {
 												"IsWord": true,
 												"Children": {}
+											},
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"72": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"83": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"83": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"68": {
+						"IsWord": false,
+						"Children": {
+							"82": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"87": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
 											}
 										}
 									}
@@ -1840,28 +1796,124 @@
 							}
 						}
 					},
-					"115": {
+					"69": {
 						"IsWord": false,
 						"Children": {
-							"101": {
+							"76": {
 								"IsWord": false,
 								"Children": {
-									"108": {
+									"72": {
 										"IsWord": false,
 										"Children": {
-											"104": {
+											"84": {
 												"IsWord": false,
 												"Children": {
-													"116": {
+													"82": {
 														"IsWord": false,
 														"Children": {
-															"114": {
+															"79": {
 																"IsWord": false,
 																"Children": {
-																	"111": {
+																	"87": {
 																		"IsWord": false,
 																		"Children": {
-																			"119": {
+																			"46": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"75": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"66": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"66": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"83": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							},
+							"83": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"83": {
+						"IsWord": false,
+						"Children": {
+							"69": {
+								"IsWord": false,
+								"Children": {
+									"76": {
+										"IsWord": false,
+										"Children": {
+											"72": {
+												"IsWord": false,
+												"Children": {
+													"84": {
+														"IsWord": false,
+														"Children": {
+															"82": {
+																"IsWord": false,
+																"Children": {
+																	"79": {
+																		"IsWord": false,
+																		"Children": {
+																			"87": {
 																				"IsWord": false,
 																				"Children": {
 																					"46": {
@@ -1882,10 +1934,10 @@
 									}
 								}
 							},
-							"111": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"98": {
+									"66": {
 										"IsWord": false,
 										"Children": {
 											"46": {
@@ -1897,48 +1949,34 @@
 								}
 							}
 						}
-					},
-					"46": {
-						"IsWord": false,
-						"Children": {
-							"111": {
-								"IsWord": false,
-								"Children": {
-									"115": {
-										"IsWord": true,
-										"Children": {}
-									}
-								}
-							}
-						}
 					}
 				}
 			},
-			"116": {
+			"84": {
 				"IsWord": false,
 				"Children": {
-					"114": {
+					"82": {
 						"IsWord": false,
 						"Children": {
-							"111": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"119": {
+									"87": {
 										"IsWord": false,
 										"Children": {
 											"46": {
 												"IsWord": false,
 												"Children": {
-													"104": {
+													"72": {
 														"IsWord": false,
 														"Children": {
-															"102": {
+															"70": {
 																"IsWord": false,
 																"Children": {
-																	"117": {
+																	"85": {
 																		"IsWord": false,
 																		"Children": {
-																			"108": {
+																			"76": {
 																				"IsWord": true,
 																				"Children": {}
 																			}
@@ -1946,16 +1984,16 @@
 																	}
 																}
 															},
-															"108": {
+															"76": {
 																"IsWord": false,
 																"Children": {
-																	"101": {
+																	"69": {
 																		"IsWord": false,
 																		"Children": {
-																			"115": {
+																			"83": {
 																				"IsWord": false,
 																				"Children": {
-																					"115": {
+																					"83": {
 																						"IsWord": true,
 																						"Children": {}
 																					}
@@ -1977,31 +2015,31 @@
 					}
 				}
 			},
-			"117": {
+			"85": {
 				"IsWord": false,
 				"Children": {
-					"102": {
+					"70": {
 						"IsWord": false,
 						"Children": {
-							"104": {
+							"72": {
 								"IsWord": false,
 								"Children": {
-									"116": {
+									"84": {
 										"IsWord": false,
 										"Children": {
-											"114": {
+											"82": {
 												"IsWord": false,
 												"Children": {
-													"111": {
+													"79": {
 														"IsWord": false,
 														"Children": {
-															"119": {
+															"87": {
 																"IsWord": false,
 																"Children": {
 																	"46": {
 																		"IsWord": false,
 																		"Children": {
-																			"108": {
+																			"76": {
 																				"IsWord": true,
 																				"Children": {}
 																			}
@@ -2021,22 +2059,22 @@
 					}
 				}
 			},
-			"118": {
+			"86": {
 				"IsWord": false,
 				"Children": {
-					"111": {
+					"79": {
 						"IsWord": false,
 						"Children": {
-							"108": {
+							"76": {
 								"IsWord": false,
 								"Children": {
 									"46": {
 										"IsWord": false,
 										"Children": {
-											"101": {
+											"69": {
 												"IsWord": false,
 												"Children": {
-													"114": {
+													"82": {
 														"IsWord": true,
 														"Children": {}
 													}
@@ -2050,44 +2088,44 @@
 					}
 				}
 			},
-			"119": {
+			"87": {
 				"IsWord": false,
 				"Children": {
 					"46": {
 						"IsWord": false,
 						"Children": {
-							"111": {
+							"79": {
 								"IsWord": false,
 								"Children": {
-									"114": {
+									"82": {
 										"IsWord": false,
 										"Children": {
-											"100": {
+											"68": {
 												"IsWord": true,
 												"Children": {
-													"115": {
+													"83": {
 														"IsWord": true,
 														"Children": {}
 													}
 												}
 											},
-											"107": {
+											"75": {
 												"IsWord": true,
 												"Children": {}
 											},
-											"116": {
+											"84": {
 												"IsWord": false,
 												"Children": {
-													"104": {
+													"72": {
 														"IsWord": false,
 														"Children": {
-															"102": {
+															"70": {
 																"IsWord": false,
 																"Children": {
-																	"117": {
+																	"85": {
 																		"IsWord": false,
 																		"Children": {
-																			"108": {
+																			"76": {
 																				"IsWord": true,
 																				"Children": {}
 																			}
@@ -2095,16 +2133,16 @@
 																	}
 																}
 															},
-															"108": {
+															"76": {
 																"IsWord": false,
 																"Children": {
-																	"101": {
+																	"69": {
 																		"IsWord": false,
 																		"Children": {
-																			"115": {
+																			"83": {
 																				"IsWord": false,
 																				"Children": {
-																					"115": {
+																					"83": {
 																						"IsWord": true,
 																						"Children": {}
 																					}
@@ -2117,44 +2155,6 @@
 														}
 													}
 												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"98": {
-				"IsWord": false,
-				"Children": {
-					"46": {
-						"IsWord": false,
-						"Children": {
-							"111": {
-								"IsWord": false,
-								"Children": {
-									"111": {
-										"IsWord": false,
-										"Children": {
-											"107": {
-												"IsWord": true,
-												"Children": {
-													"115": {
-														"IsWord": true,
-														"Children": {}
-													}
-												}
-											}
-										}
-									},
-									"115": {
-										"IsWord": false,
-										"Children": {
-											"115": {
-												"IsWord": true,
-												"Children": {}
 											}
 										}
 									}

@@ -28,7 +28,7 @@ func (n Node) add(letter rune, child Node) *Node {
 }
 
 func (n *Node) addWord(word string) {
-	word = strings.ToLower(word)
+	word = strings.ToUpper(word)
 	for idx := range word {
 
 		prefix := str_manipulator.Reverse(word[:len(word)-idx])
