@@ -15,7 +15,7 @@ func Game() {
 	game := grabble.CreateDefaultGame([]string{"Zuza", "Olek"})
 
 	for !game.Stats.Finished {
-		bestWords := game.PickBestWord(1000)
+		bestWords := game.PickBestWord(50)
 		fmt.Println("Current player:", game.CurrentPlayer().Name)
 		fmt.Println("Rack:", game.CurrentPlayer().Rack)
 		fmt.Println("Points:", game.CurrentPlayer().Points)
