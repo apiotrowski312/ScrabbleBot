@@ -56,3 +56,26 @@ func Test_UpdateRack(t *testing.T) {
 		})
 	}
 }
+
+func Test_AreLettersInRack(t *testing.T) {
+	type testCase struct {
+		name    string
+		rack    []rune
+		letters []rune
+		err     bool
+	}
+	test := []testCase{
+		{"Easy rack", []rune("ABCDEF"), []rune("ABC"), false},
+		{"To much A letter", []rune("ABCDEF"), []rune("ABCA"), true},
+		{"Check for double letters", []rune("ABBA"), []rune("BABA"), false},
+	}
+
+	for _, c := range test {
+		t.Run(c.name, func(t *testing.T) {
+			player := player.Player{Rack: c.rack}
+			err := player.AreLettersInRack(c.letters)
+
+			assert.Equal(t, c.err, err != nil, err)
+		})
+	}
+}

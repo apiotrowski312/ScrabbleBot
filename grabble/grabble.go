@@ -17,6 +17,8 @@ type gameStats struct {
 	Winner       *player.Player
 }
 
+// FIXME: gaddag finds words with too much lettersw
+
 type Grabble struct {
 	Board         board.Board
 	Players       []player.Player
@@ -27,6 +29,10 @@ type Grabble struct {
 
 	Stats gameStats
 }
+
+// FIXME: You cant place word with hook like this (W in SW would be a hook):
+// WORDS
+//     WORDS
 
 func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles []rune, tilePoints map[rune]int, rackSize int) Grabble {
 	board := board.CreateBoard(b)
@@ -70,7 +76,7 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error {
 	log.Tracef("PlaceWord function called by %s\n", g.CurrentPlayer().Name)
 
-	letters, err := g.extractUsedNewLetters(word, startPos, horizontal)
+	letters, err := g.validateAndExtractUsedNewLetters(word, startPos, horizontal)
 	if err != nil {
 		return err
 	}
@@ -93,8 +99,8 @@ func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error
 	return nil
 }
 
-func (g Grabble) extractUsedNewLetters(word string, startPos [2]int, horizontal bool) ([]rune, error) {
-	letters, isOk := g.Board.CanWordBePlaced(word, startPos, horizontal)
+func (g Grabble) validateAndExtractUsedNewLetters(word string, startPos [2]int, horizontal bool) ([]rune, error) {
+	letters, isOk := g.Board.DoesHookExist(word, startPos, horizontal)
 	if isOk == false {
 		return []rune{}, fmt.Errorf("word cannot be placed here")
 	}

@@ -57,12 +57,12 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 				for _, w := range words {
 					normalizedWord, cords := prepareWord(w, [2]int{x, y}, horizontal)
 
-					letters, letterError := g.extractUsedNewLetters(normalizedWord, cords, true)
+					letters, letterError := g.validateAndExtractUsedNewLetters(normalizedWord, cords, horizontal)
 					if letterError != nil {
 						continue
 					}
 
-					if points, err := g.countPoints(normalizedWord, len(letters), cords, true); err == nil {
+					if points, err := g.countPoints(normalizedWord, len(letters), cords, horizontal); err == nil {
 						wordsCollection = append(wordsCollection, gaddagWord{
 							Cords:      cords,
 							Word:       normalizedWord,

@@ -135,7 +135,7 @@ func Test_PlaceWord(t *testing.T) {
 	}
 }
 
-func Test_CanWordBePlaced(t *testing.T) {
+func Test_DoesHookExist(t *testing.T) {
 	type testCase struct {
 		name       string
 		word       string
@@ -206,7 +206,7 @@ func Test_CanWordBePlaced(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			var board board.Board
 			test_utils.LoadJSONFixture(t, c.fixture, &board)
-			letters, isOk := board.CanWordBePlaced(c.word, c.startPos, c.horizontal)
+			letters, isOk := board.DoesHookExist(c.word, c.startPos, c.horizontal)
 
 			assert.Equal(t, c.isOk, isOk)
 			assert.Equal(t, c.letters, letters)

@@ -32,22 +32,30 @@ func (b *Board) TransposeBoard() *Board {
 	return &transposedBoard
 }
 
-// CanWordBePlaced - return array with all new letters to place
+// DoesHookExist - return array with all new letters to place
 // and boolean with information if word can be placed on the board.
 // False is e.g. when in conflict with existing letters on board
-func (b *Board) CanWordBePlaced(word string, startPos [2]int, horizontal bool) ([]rune, bool) {
+func (b *Board) DoesHookExist(word string, startPos [2]int, horizontal bool) ([]rune, bool) {
 	if horizontal {
-		return b.canWordBePlaced(word, startPos)
+		return b.doesHookExist(word, startPos)
 	}
 
 	tb := b.TransposeBoard()
-	return tb.canWordBePlaced(word, [2]int{startPos[1], startPos[0]})
+	return tb.doesHookExist(word, [2]int{startPos[1], startPos[0]})
 }
 
-func (b *Board) canWordBePlaced(word string, startPos [2]int) ([]rune, bool) {
+func (b *Board) doesHookExist(word string, startPos [2]int) ([]rune, bool) {
 	hook := false
 
-	if startPos[1]+len(word) > 15 {
+	if startPos[1]+len(word) > 15 || startPos[1] < 0 {
+		return []rune{}, false
+	}
+
+	if startPos[1] > 0 && b[startPos[0]][startPos[1]-1].Letter != rune(0) {
+		return []rune{}, false
+	}
+
+	if startPos[1]+len(word) < 14 && b[startPos[0]][startPos[1]+len(word)+1].Letter != rune(0) {
 		return []rune{}, false
 	}
 

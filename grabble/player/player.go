@@ -52,11 +52,15 @@ func (p *Player) AddPoints(points int) {
 
 // AreLettersInRack - iterate over all letters and check if all are in user Rack
 func (p *Player) AreLettersInRack(letters []rune) error {
+	alreadyChecked := make(map[int]bool)
+
 	for _, l := range letters {
 		foundLetter := false
-		for _, r := range p.Rack {
-			if l == r {
+		for i, r := range p.Rack {
+			if isOk := alreadyChecked[i]; !isOk && l == r {
+				alreadyChecked[i] = true
 				foundLetter = true
+				break
 			}
 		}
 
