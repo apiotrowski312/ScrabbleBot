@@ -1,6 +1,7 @@
 package grabble
 
 import (
+	"sort"
 	"strings"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -15,20 +16,21 @@ type gaddagWord struct {
 	Horizontal bool
 }
 
-func (g *Grabble) PickBestWord() gaddagWord {
+// PickBestWord returns best words for current player and board
+func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 	rack := g.CurrentPlayer().Rack
 
 	wordsCollection := g.getWordCollection(rack, true)
 	wordsCollection = append(wordsCollection, g.getWordCollection(rack, false)...)
 
-	bestW := gaddagWord{}
-	for _, word := range wordsCollection {
-		if word.Points > bestW.Points {
-			bestW = word
-		}
-	}
+	sort.Slice(wordsCollection, func(i, j int) bool {
+		return wordsCollection[i].Points > wordsCollection[j].Points
+	})
 
-	return bestW
+	if len(wordsCollection) < numberOfWords {
+		return wordsCollection
+	}
+	return wordsCollection[:numberOfWords]
 }
 
 func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {

@@ -5,6 +5,8 @@ import (
 	"image/color"
 	"image/png"
 	"os"
+	"strconv"
+	"unicode"
 
 	"github.com/apiotrowski312/scrabbleBot/grabble"
 )
@@ -38,16 +40,13 @@ func (c customImage) rect(x1, y1, x2, y2 int, col color.Color) {
 	c.vLine(x2, y1, y2, col)
 }
 
-func (c customImage) fullRect(x1, y1, x2, y2 int) {
-	c.rect(x1, y1, x2, y2, letterColor)
-
-	y1++
+func (c customImage) fullRect(x1, y1, x2, y2 int, col color.Color) {
 	for ; y1 < y2; y1++ {
-		c.hLine(x1+1, y1, x2-1, tileColor)
+		c.hLine(x1, y1, x2, col)
 	}
 }
 
-func (c customImage) drawTileFromArray(x, y int, tile [15][15]int) {
+func (c customImage) drawTileFromArray(x, y int, tile [][]int) {
 	for h, row := range tile {
 		for v, cell := range row {
 			if cell == 1 {
@@ -57,7 +56,7 @@ func (c customImage) drawTileFromArray(x, y int, tile [15][15]int) {
 	}
 }
 
-func (c customImage) drawTile(x, y int, tileType rune) {
+func (c customImage) drawBonus(x, y int, tileType rune) {
 	switch tileType {
 	case 'l':
 		c.drawTileFromArray(x, y, bonus2xLetter)
@@ -124,22 +123,76 @@ func (c customImage) drawLetter(x, y int, letter rune) {
 		c.drawTileFromArray(x, y, letterX)
 	case 'Y':
 		c.drawTileFromArray(x, y, letterY)
+	case '_':
+		c.drawTileFromArray(x, y, letter_)
 	case 'Z':
 		c.drawTileFromArray(x, y, letterZ)
+	case '0':
+		c.drawTileFromArray(x, y, number0)
+	case '1':
+		c.drawTileFromArray(x, y, number1)
+	case '2':
+		c.drawTileFromArray(x, y, number2)
+	case '3':
+		c.drawTileFromArray(x, y, number3)
+	case '4':
+		c.drawTileFromArray(x, y, number4)
+	case '5':
+		c.drawTileFromArray(x, y, number5)
+	case '6':
+		c.drawTileFromArray(x, y, number6)
+	case '7':
+		c.drawTileFromArray(x, y, number7)
+	case '8':
+		c.drawTileFromArray(x, y, number8)
+	case '9':
+		c.drawTileFromArray(x, y, number9)
 	}
 }
 
 func PrintScreenBoard(g grabble.Grabble, imgName string) {
 	upLeft := image.Point{0, 0}
-	lowRight := image.Point{226, 226}
+	lowRight := image.Point{350, 226}
 	img := customImage{image.NewRGBA(image.Rectangle{upLeft, lowRight})}
+
+	img.fullRect(0, 0, 350, 226, tileColor)
 
 	// Draw board
 	for y, row := range g.Board {
 		for x, cell := range row {
-			img.fullRect(x*rectSize, y*rectSize, x*rectSize+rectSize, y*rectSize+rectSize)
-			img.drawTile(x*rectSize, y*rectSize, cell.Bonus)
-			img.drawLetter(x*rectSize, y*rectSize, cell.Letter)
+			img.rect(x*rectSize, y*rectSize, x*rectSize+rectSize, y*rectSize+rectSize, letterColor)
+			img.drawBonus(x*rectSize+5, y*rectSize+9, cell.Bonus)
+			img.drawLetter(x*rectSize+2, y*rectSize+2, cell.Letter)
+		}
+	}
+
+	xAxis := 230
+	// Draw racks
+	yRack := 10
+	for x, letter := range "Racks" {
+		img.drawLetter(xAxis+x*6, yRack+5, unicode.ToUpper(letter))
+	}
+	for y, player := range g.Players {
+		for x, letter := range player.Name {
+			img.drawLetter(xAxis+x*6, yRack+10+y*10+5, unicode.ToUpper(letter))
+		}
+		for x, letter := range player.Rack {
+			img.drawLetter(xAxis+50+x*6, yRack+10+y*10+5, unicode.ToUpper(letter))
+		}
+	}
+
+	// Draw scores
+	yScores := 100
+	for x, letter := range "Score" {
+		img.drawLetter(xAxis+x*6, yScores+5, unicode.ToUpper(letter))
+	}
+
+	for y, player := range g.Players {
+		for x, letter := range player.Name {
+			img.drawLetter(xAxis+x*6, yScores+10+y*10+5, unicode.ToUpper(letter))
+		}
+		for x, letter := range strconv.Itoa(player.Points) {
+			img.drawLetter(xAxis+50+x*6, yScores+10+y*10+5, unicode.ToUpper(letter))
 		}
 	}
 

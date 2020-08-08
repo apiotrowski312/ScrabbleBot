@@ -20,12 +20,13 @@ type gameStats struct {
 // FIXME: gaddag finds words with too much lettersw
 
 type Grabble struct {
-	Board         board.Board
-	Players       []player.Player
-	Bag           bag.Bag
-	LettterPoints bag.LettersPoint
-	Dict          gaddag.Node
-	RackSize      int
+	Board            board.Board
+	Players          []player.Player
+	Bag              bag.Bag
+	LettterPoints    bag.LettersPoint
+	Dict             gaddag.Node
+	RackSize         int
+	passedTurnInARow int
 
 	Stats gameStats
 }
@@ -95,7 +96,7 @@ func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error
 	g.CurrentPlayer().AddPoints(points)
 	g.shouldGameEnd()
 	g.Stats.CurrentRound++
-
+	g.passedTurnInARow = 0
 	return nil
 }
 
@@ -144,6 +145,8 @@ func (g Grabble) CurrentPlayer() *player.Player {
 func (g *Grabble) PassTurn() {
 	log.Tracef("PassTurn function called by %s\n", g.CurrentPlayer().Name)
 	g.Stats.CurrentRound++
+	g.passedTurnInARow++
+	g.shouldGameEnd()
 }
 
 // ChangeTiles - change tiles. Important - player will lost turn.
@@ -154,6 +157,12 @@ func (g *Grabble) ChangeTiles(tilesToChange []rune) {
 }
 
 func (g *Grabble) shouldGameEnd() {
+
+	if g.passedTurnInARow >= len(g.Players)*2 {
+		g.Stats.Finished = true
+		return
+	}
+
 	// Part for ending game because lack of tiles
 	if len(g.Bag) != 0 {
 		return
@@ -164,10 +173,9 @@ func (g *Grabble) shouldGameEnd() {
 	}
 
 	g.finishGameNoTilesLeft()
-
-	// TODO: Add ending game bacause everyboty pass round two times in a row
 }
 
+// FIXME: Players should have minus points if they have letters on tile.
 func (g *Grabble) finishGameNoTilesLeft() {
 	letters := []string{}
 	placeholder := []string{}

@@ -14,26 +14,32 @@ func main() {
 func Game() {
 	game := grabble.CreateDefaultGame([]string{"Zuza", "Olek"})
 
-	for !game.Stats.Finished && game.Stats.CurrentRound < 20 {
-		word := game.PickBestWord()
+	for !game.Stats.Finished {
+		bestWords := game.PickBestWord(1000)
 		fmt.Println("Current player:", game.CurrentPlayer().Name)
 		fmt.Println("Rack:", game.CurrentPlayer().Rack)
 		fmt.Println("Points:", game.CurrentPlayer().Points)
 
-		if word.Word == "" {
-			game.PassTurn()
-			fmt.Println("Turn passed")
-		} else {
+		wordPlaced := false
+		for _, word := range bestWords {
 			err := game.PlaceWord(word.Word, word.Cords, word.Horizontal)
-			fmt.Println("Word to place:", word.Word, word.Cords, word.Horizontal, word.Points)
-			if err != nil {
+			if err == nil {
+				wordPlaced = true
+				fmt.Println("Word to place:", word.Word, word.Cords, word.Horizontal, word.Points)
+				break
+			} else {
 				fmt.Println(err)
-				return
 			}
+		}
+
+		if !wordPlaced {
+			game.PassTurn()
+			fmt.Println("Pass turn")
 		}
 		fmt.Println()
 
 		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 	}
 
+	fmt.Printf("Winner is %v, with %v points\nIn %v rounds\n", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 }
