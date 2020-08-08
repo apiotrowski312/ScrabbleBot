@@ -33,6 +33,7 @@ func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
 }
 
 // TODO: If there is a letter on right, do not append it, it wont be valid word anyway
+// getAllOk return string array with all possible combinations of words with letters
 func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune, row []rune, hookIndex int) []string {
 
 	if letterIndex == -1 && currentLetter != '.' {
@@ -46,7 +47,11 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 
 	partialWords := []string{}
 	if hookNode.IsWord {
-		partialWords = append(partialWords, string(currentLetter))
+		if letterIndex == len(row)-1 {
+			partialWords = append(partialWords, string(currentLetter))
+		} else if row[letterIndex+1] == rune(0) {
+			partialWords = append(partialWords, string(currentLetter))
+		}
 	}
 
 	var newLetterIndex int

@@ -102,8 +102,7 @@ func Test_FindAllWords(t *testing.T) {
 			{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("AEILNRST")},
 			{"Long word with some letters on board", 1, []rune{rune(0), 'Z', 'I', 'N', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("INCOGRAPHER")},
 			{"7 letters with existring board", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'B', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSARED")},
-			// FIXME: For some reason, R is duplicated in output 0_0
-			{"Test with double R", 7, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'R', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("WGRESEA")},
+			{"Test with double R", 7, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'R', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("WGESEA")},
 		}
 
 		for _, c := range cases {
