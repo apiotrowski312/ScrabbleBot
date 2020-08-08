@@ -47,7 +47,7 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 			words := []string{}
 			if board[x][y].Letter != rune(0) && y > 0 && board[x][y-1].Letter == rune(0) {
 				words = g.Dict.FindAllWords(y, rowLetters, rack)
-			} else if board[x][y].Bonus == 's' {
+			} else if board[x][y].Bonus == 's' && board[x][y].Letter == rune(0) {
 				// HACK: Better and faster option will be create new function in gaddag to look for words without hook
 				for _, l := range rack {
 					sWords := g.Dict.FindAllWords(y, mockRowWithHookWhenStartingLetter(y, l, rowLetters), rack)
