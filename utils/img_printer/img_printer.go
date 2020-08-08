@@ -167,9 +167,16 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 	}
 
 	xAxis := 230
+	// Draw round:
+	for x, letter := range "Round:" {
+		img.drawLetter(xAxis+x*6, 1, unicode.ToUpper(letter))
+	}
+	for x, letter := range strconv.Itoa(g.Stats.CurrentRound) {
+		img.drawLetter(xAxis+50+x*6, 1, unicode.ToUpper(letter))
+	}
 	// Draw racks
 	yRack := 10
-	for x, letter := range "Racks" {
+	for x, letter := range "Racks:" {
 		img.drawLetter(xAxis+x*6, yRack+5, unicode.ToUpper(letter))
 	}
 	for y, player := range g.Players {
@@ -183,7 +190,7 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 
 	// Draw scores
 	yScores := 100
-	for x, letter := range "Score" {
+	for x, letter := range "Score:" {
 		img.drawLetter(xAxis+x*6, yScores+5, unicode.ToUpper(letter))
 	}
 
