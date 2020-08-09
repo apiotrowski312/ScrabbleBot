@@ -18,11 +18,14 @@ type gaddagWord struct {
 
 // PickBestWord returns best words for current player and board
 func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
+	log.Debugf("PickBestWord function called by %s", g.CurrentPlayer().Name)
+	log.Debugf("Rack: %s", string(g.CurrentPlayer().Rack))
 	rack := g.CurrentPlayer().Rack
 
 	wordsCollection := g.getWordCollection(rack, true)
 	wordsCollection = append(wordsCollection, g.getWordCollection(rack, false)...)
 
+	log.Debugf("Found %v words", len(wordsCollection))
 	sort.Slice(wordsCollection, func(i, j int) bool {
 		return wordsCollection[i].Points > wordsCollection[j].Points
 	})
@@ -34,6 +37,8 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 }
 
 func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
+	log.Debugf("getWordCollection called. Horizontal: %v", horizontal)
+
 	board := g.Board
 	if !horizontal {
 		board = *g.Board.TransposeBoard()
@@ -49,31 +54,40 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 				words = g.Dict.FindAllWords(y, rowLetters, rack)
 			} else if board[x][y].Bonus == 's' && board[x][y].Letter == rune(0) {
 				// HACK: Better and faster option will be create new function in gaddag to look for words without hook
-				for _, l := range rack {
-					sWords := g.Dict.FindAllWords(y, mockRowWithHookWhenStartingLetter(y, l, rowLetters), rack)
+				for i, l := range rack {
+					rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
+					sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)
 
 					words = append(words, sWords...)
 				}
 			}
 			if len(words) != 0 {
+				log.Debugf("There is %v new words before counting points", len(words))
 				for _, w := range words {
 					normalizedWord, cords := prepareWord(w, [2]int{x, y}, horizontal)
 
 					letters, letterError := g.validateAndExtractUsedNewLetters(normalizedWord, cords, horizontal)
 					if letterError != nil {
+						log.Debugf("There was error after validatin word: %v. Error: %v", w, letterError)
 						continue
 					}
 
-					if points, err := g.countPoints(normalizedWord, len(letters), cords, horizontal); err == nil {
-						wordsCollection = append(wordsCollection, gaddagWord{
-							Cords:      cords,
-							Word:       normalizedWord,
-							Horizontal: horizontal,
-							Points:     points},
-						)
+					points, err := g.countPoints(normalizedWord, len(letters), cords, horizontal)
+
+					if err != nil {
+						log.Debugf("There was error after counting points for word: %v. Error: %v", w, err)
+						continue
 					}
+					wordsCollection = append(wordsCollection, gaddagWord{
+						Cords:      cords,
+						Word:       normalizedWord,
+						Horizontal: horizontal,
+						Points:     points},
+					)
 
 				}
+				log.Debugf("There is overall %v words after counting points", len(wordsCollection))
+
 			}
 		}
 	}
@@ -81,7 +95,7 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 	return wordsCollection
 }
 
-func mockRowWithHookWhenStartingLetter(hookIndex int, letter rune, row []rune) []rune {
+func mockRowForStartingTile(hookIndex int, letter rune, row []rune) []rune {
 	slicecopy := append([]rune(nil), row...)
 	slicecopy[hookIndex] = letter
 	return slicecopy

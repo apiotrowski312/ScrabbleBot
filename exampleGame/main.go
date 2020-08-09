@@ -16,10 +16,6 @@ func Game() {
 
 	for !game.Stats.Finished {
 		bestWords := game.PickBestWord(50)
-		fmt.Println("Current player:", game.CurrentPlayer().Name)
-		fmt.Println("Rack:", game.CurrentPlayer().Rack)
-		fmt.Println("Points:", game.CurrentPlayer().Points)
-
 		wordPlaced := false
 		for _, word := range bestWords {
 			err := game.PlaceWord(word.Word, word.Cords, word.Horizontal)
@@ -34,12 +30,10 @@ func Game() {
 
 		if !wordPlaced {
 			game.PassTurn()
-			fmt.Println("Pass turn")
 		}
-		fmt.Println()
 
 		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 	}
 
-	fmt.Printf("Winner is %v, with %v points\nIn %v rounds\n", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
+	fmt.Printf("Winner is %v, with %v points\nIn %v rounds", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 }

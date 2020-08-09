@@ -45,8 +45,6 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 	for _, p := range nicks {
 		players = append(players, player.CreatePlayer(p))
 	}
-
-	log.Trace("Grabble game created")
 	game := Grabble{
 		Board:         *board,
 		Players:       players,
@@ -63,7 +61,8 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 	for i := range game.Players {
 		game.Players[i].UpdateRack([]rune{}, game.Bag.DrawLetters(rackSize))
 	}
-
+	log.Debug("")
+	log.Debug("Grabble game created")
 	return game
 }
 
@@ -75,20 +74,23 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 // - check if game should still going.
 // Pass word which you want to create.
 func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error {
-	log.Tracef("PlaceWord function called by %s\n", g.CurrentPlayer().Name)
+	log.Debugf("PlaceWord function called by %s", g.CurrentPlayer().Name)
 
 	letters, err := g.validateAndExtractUsedNewLetters(word, startPos, horizontal)
 	if err != nil {
+		log.Debugf("Word %v(%v) is not valid. Error: %v", word, startPos, err)
 		return err
 	}
 
 	points, err := g.countPoints(word, len(letters), startPos, horizontal)
 	if err != nil {
+		log.Debugf("Word %v(%v) was invalid when counting points. Error: %v", word, startPos, err)
 		return err
 	}
 
 	err = g.CurrentPlayer().UpdateRack(letters, g.Bag.DrawLetters(len(letters)))
 	if err != nil {
+		log.Debugf("Smth went wrong while updating rack. Error: %v", err)
 		return err
 	}
 
@@ -103,7 +105,7 @@ func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error
 func (g Grabble) validateAndExtractUsedNewLetters(word string, startPos [2]int, horizontal bool) ([]rune, error) {
 	letters, isOk := g.Board.DoesHookExist(word, startPos, horizontal)
 	if isOk == false {
-		return []rune{}, fmt.Errorf("word cannot be placed here")
+		return []rune{}, fmt.Errorf("word %v cannot be placed here (%v)", word, startPos)
 	}
 
 	if err := g.CurrentPlayer().AreLettersInRack(letters); err != nil {
@@ -111,7 +113,7 @@ func (g Grabble) validateAndExtractUsedNewLetters(word string, startPos [2]int, 
 	}
 
 	if len(letters) == 0 {
-		return []rune{}, fmt.Errorf("no new letters would be use with this word")
+		return []rune{}, fmt.Errorf("no new letters would be use with this word (%v)", word)
 	}
 
 	return letters, nil
@@ -143,7 +145,7 @@ func (g Grabble) CurrentPlayer() *player.Player {
 // PassTurn - player omit his turn. No points for him.
 // TODO: count number of passed turns, if its 2 for all players - finish game.
 func (g *Grabble) PassTurn() {
-	log.Tracef("PassTurn function called by %s\n", g.CurrentPlayer().Name)
+	log.Debugf("PassTurn function called by %s", g.CurrentPlayer().Name)
 	g.Stats.CurrentRound++
 	g.passedTurnInARow++
 	g.shouldGameEnd()
@@ -151,8 +153,11 @@ func (g *Grabble) PassTurn() {
 
 // ChangeTiles - change tiles. Important - player will lost turn.
 func (g *Grabble) ChangeTiles(tilesToChange []rune) {
-	log.Tracef("ChangeTiles function called by %s\n", g.CurrentPlayer().Name)
-	g.CurrentPlayer().UpdateRack(tilesToChange, g.Bag.ChangeLetters(tilesToChange))
+	log.Debugf("ChangeTiles function called by %s", g.CurrentPlayer().Name)
+	if err := g.CurrentPlayer().UpdateRack(tilesToChange, g.Bag.ChangeLetters(tilesToChange)); err != nil {
+		log.Debugf("Smth went wrong while changing tiles. Error: %v", err)
+		return
+	}
 	g.Stats.CurrentRound++
 }
 
@@ -201,5 +206,5 @@ func (g *Grabble) finishGameNoTilesLeft() {
 		}
 	}
 
-	log.Infof("Game finished. Winner is %s\n with %v points", g.Stats.Winner.Name, g.Stats.Winner.Points)
+	log.Debugf("Game finished. Winner is %s\n with %v points", g.Stats.Winner.Name, g.Stats.Winner.Points)
 }

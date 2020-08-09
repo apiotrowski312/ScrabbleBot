@@ -11,7 +11,7 @@ import (
 
 var log = logrus.New()
 var logPath = flag.String("logfile", "/tmp/grabble.log", "provide path for log file")
-var logLevel = flag.String("loglevel", "INFO", "provide log level")
+var logLevel = flag.String("loglevel", "DEBUG", "provide log level")
 
 func init() {
 
@@ -29,7 +29,7 @@ func init() {
 	log.SetLevel(level)
 	log.SetFormatter(&easy.Formatter{
 		TimestampFormat: "2006-01-02 15:04:05",
-		LogFormat:       "[%lvl%]: %time% - %msg%",
+		LogFormat:       "[%lvl%]: %time% - %msg%\n",
 	})
 	log.SetOutput(wrt)
 }
