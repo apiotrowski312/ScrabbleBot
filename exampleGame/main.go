@@ -21,10 +21,7 @@ func Game() {
 			err := game.PlaceWord(word.Word, word.Cords, word.Horizontal)
 			if err == nil {
 				wordPlaced = true
-				fmt.Println("Word to place:", word.Word, word.Cords, word.Horizontal, word.Points)
 				break
-			} else {
-				fmt.Println(err)
 			}
 		}
 
@@ -34,6 +31,4 @@ func Game() {
 
 		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 	}
-
-	fmt.Printf("Winner is %v, with %v points\nIn %v rounds", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 }

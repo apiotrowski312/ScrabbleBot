@@ -47,11 +47,12 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 	wordsCollection := []gaddagWord{}
 
 	for x, row := range board {
-		rowLetters := g.getRowOfLetters(x)
+		rowLetters := board.GetRowOfLetters(x)
 		for y := range row {
 			words := []string{}
 			if board[x][y].Letter != rune(0) && y > 0 && board[x][y-1].Letter == rune(0) {
-				log.Debugf("Hook found %v(%v). Horizontal: %v", board[x][y].Letter, [2]int{x, y}, horizontal)
+				log.Debugf("Hook found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
+				log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
 				words = g.Dict.FindAllWords(y, rowLetters, rack)
 			} else if board[x][y].Bonus == 's' && board[x][y].Letter == rune(0) {
 				// HACK: Better and faster option will be create new function in gaddag to look for words without hook
@@ -65,7 +66,9 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 			if len(words) != 0 {
 				log.Debugf("There is %v new words before counting points", len(words))
 				for _, w := range words {
-					normalizedWord, cords := prepareWord(w, [2]int{x, y}, horizontal)
+					normalizedWord, cords := prepareWordAndFixCords(w, [2]int{x, y}, horizontal)
+					log.Debugf("Before normalization %v %v", w, [2]int{x, y})
+					log.Debugf("After normalization %v %v", normalizedWord, cords)
 
 					letters, letterError := g.validateAndExtractUsedNewLetters(normalizedWord, cords, horizontal)
 					if letterError != nil {
@@ -102,25 +105,21 @@ func mockRowForStartingTile(hookIndex int, letter rune, row []rune) []rune {
 	return slicecopy
 }
 
-func (g *Grabble) getRowOfLetters(row int) []rune {
-	letters := []rune{}
-	for _, letter := range g.Board[row] {
-		letters = append(letters, letter.Letter)
-	}
-	return letters
-}
+func prepareWordAndFixCords(word string, cords [2]int, horizontal bool) (string, [2]int) {
 
-func prepareWord(word string, cords [2]int, horizontal bool) (string, [2]int) {
 	i := strings.Index(word, ".")
 	if i == -1 {
 		return word, cords
 	}
+	cords[1] = cords[1] - i + 1
 
-	if horizontal {
-		cords[1] = cords[1] - i + 1
-	} else {
-		cords[0] = cords[0] - i + 1
+	// Redo cords after searching for words in transposed board
+	if !horizontal {
+		x := cords[0]
+		cords[0] = cords[1]
+		cords[1] = x
 	}
+
 	nWord := gaddag.NormalizeWord(word)
 
 	return nWord, cords

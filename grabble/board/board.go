@@ -47,7 +47,8 @@ func (b *Board) DoesHookExist(word string, startPos [2]int, horizontal bool) ([]
 func (b *Board) doesHookExist(word string, startPos [2]int) ([]rune, bool) {
 	hook := false
 
-	if startPos[1]+len(word) > 15 || startPos[1] < 0 {
+	// FIXME: Avoid hardcodeing numbers like 15. What number is that?
+	if startPos[1]+len(word) >= 15 || startPos[1] < 0 {
 		return []rune{}, false
 	}
 
@@ -163,4 +164,13 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 	}
 
 	return words, bonuses
+}
+
+// GetRowOfLetters returns row of letters as a rune array.
+func (b *Board) GetRowOfLetters(row int) []rune {
+	letters := []rune{}
+	for _, letter := range b[row] {
+		letters = append(letters, letter.Letter)
+	}
+	return letters
 }

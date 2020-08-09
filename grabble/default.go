@@ -65,7 +65,6 @@ func CreateDefaultGame(players []string) Grabble {
 		'Q': 10, 'Z': 10,
 	}
 	// FIXME: I removed __ from all tiles to test stuff. Blanks will require rework in many functions.
-	// Lets firstly fix AI
 	allTiles := []rune("EEEEEEEEEEEEAAAAAAAAAIIIIIIIIIOOOOOOOONNNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXQZ")
 
 	return CreateGrabble(officialDict, officialScrabbleBoard, players, allTiles, tilePoints, 7)

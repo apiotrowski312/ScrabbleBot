@@ -56,6 +56,7 @@ func (p *Player) AreLettersInRack(letters []rune) error {
 
 	for _, l := range letters {
 		foundLetter := false
+
 		for i, r := range p.Rack {
 			if isOk := alreadyChecked[i]; !isOk && l == r {
 				alreadyChecked[i] = true
