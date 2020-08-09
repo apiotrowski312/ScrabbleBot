@@ -11,7 +11,7 @@ import (
 
 var log = logrus.New()
 var logPath = flag.String("logfile", "/tmp/grabble.log", "provide path for log file")
-var logLevel = flag.String("loglevel", "DEBUG", "provide log level")
+var logLevel = flag.String("loglevel", "INFO", "provide log level")
 
 func init() {
 

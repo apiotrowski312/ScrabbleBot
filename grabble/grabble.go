@@ -143,7 +143,6 @@ func (g Grabble) CurrentPlayer() *player.Player {
 }
 
 // PassTurn - player omit his turn. No points for him.
-// TODO: count number of passed turns, if its 2 for all players - finish game.
 func (g *Grabble) PassTurn() {
 	log.Debugf("PassTurn function called by %s. Turn %v", g.CurrentPlayer().Name, g.Stats.CurrentRound)
 	g.Stats.CurrentRound++
@@ -154,58 +153,58 @@ func (g *Grabble) PassTurn() {
 // ChangeTiles - change tiles. Important - player will lost turn.
 func (g *Grabble) ChangeTiles(tilesToChange []rune) {
 	log.Debugf("ChangeTiles function called by %s", g.CurrentPlayer().Name)
+	if len(g.Bag) == 0 {
+		log.Debugf("No tiles in bag. Failover to PassTurn")
+		g.PassTurn()
+		return
+	}
 	if err := g.CurrentPlayer().UpdateRack(tilesToChange, g.Bag.ChangeLetters(tilesToChange)); err != nil {
 		log.Debugf("Smth went wrong while changing tiles. Error: %v", err)
 		return
 	}
 	g.Stats.CurrentRound++
+	g.passedTurnInARow = 0
 }
 
 func (g *Grabble) shouldGameEnd() {
 
-	// FIXME: fix below code. it doesnt work as intended now
 	if g.passedTurnInARow >= len(g.Players)*2 {
-		g.Stats.Finished = true
+		g.finishGame()
 		return
 	}
 
-	// Part for ending game because lack of tiles
-	if len(g.Bag) != 0 {
+	if len(g.Bag) == 0 && len(g.CurrentPlayer().Rack) == 0 {
+		g.finishGame()
 		return
 	}
 
-	if len(g.CurrentPlayer().Rack) != 0 {
-		return
-	}
-
-	g.finishGameNoTilesLeft()
 }
 
-// FIXME: Players should have minus points if they have letters on tile.
-func (g *Grabble) finishGameNoTilesLeft() {
-	letters := []string{}
-	placeholder := []string{}
+func (g *Grabble) finishGame() {
+	pointsFromRacks := 0
 
 	for _, p := range g.Players {
-		letters = append(letters, string(p.Rack))
-	}
-
-	for _, l := range letters {
 		bonus := ""
-		for range l {
+		for range p.Rack {
 			bonus += "0"
 		}
-		placeholder = append(placeholder, bonus)
+		points := g.LettterPoints.GetPoints([]string{string(p.Rack)}, []string{bonus})
+		pointsFromRacks += points
+		p.MinusPoints(points)
 	}
 
-	leftTilesPoints := g.LettterPoints.GetPoints(letters, placeholder)
-	g.CurrentPlayer().AddPoints(leftTilesPoints)
+	if len(g.CurrentPlayer().Rack) == 0 {
+		g.CurrentPlayer().AddPoints(pointsFromRacks)
+	}
+
 	g.Stats.Finished = true
-	for _, p := range g.Players {
+	for i, p := range g.Players {
 		if p.Points > g.Stats.Winner.Points {
-			g.Stats.Winner = &p
+			log.Debugf("Player %v(%v) has more points than %v(%v)", p.Name, p.Points, g.Stats.Winner.Name, g.Stats.Winner.Points)
+			g.Stats.Winner = &g.Players[i]
+			log.Debugf("Now %v is winning", g.Stats.Winner.Name)
 		}
 	}
 
-	log.Debugf("Game finished. Winner is %s\n with %v points", g.Stats.Winner.Name, g.Stats.Winner.Points)
+	log.Debugf("Game finished. Winner is %s with %v points", g.Stats.Winner.Name, g.Stats.Winner.Points)
 }

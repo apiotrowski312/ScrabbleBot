@@ -203,6 +203,20 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 		}
 	}
 
+	// Draw winner
+	yWinner := 180
+	if g.Stats.Finished {
+		for x, letter := range "Winner:" {
+			img.drawLetter(xAxis+x*6, yWinner+5, unicode.ToUpper(letter))
+		}
+		for x, letter := range g.Stats.Winner.Name {
+			img.drawLetter(xAxis+50+x*6, yWinner+5, unicode.ToUpper(letter))
+		}
+		for x, letter := range strconv.Itoa(g.Stats.Winner.Points) {
+			img.drawLetter(xAxis+100+x*6, yWinner+5, unicode.ToUpper(letter))
+		}
+	}
+
 	f, _ := os.Create(imgName)
 	png.Encode(f, img.image)
 }

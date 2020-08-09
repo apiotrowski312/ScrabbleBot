@@ -12,6 +12,7 @@ func main() {
 }
 
 func Game() {
+
 	game := grabble.CreateDefaultGame([]string{"Zuza", "Olek"})
 
 	for !game.Stats.Finished {
@@ -31,4 +32,5 @@ func Game() {
 
 		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 	}
+	fmt.Printf("Winner: %v\tPoints: %v\t Turns: %v", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 }

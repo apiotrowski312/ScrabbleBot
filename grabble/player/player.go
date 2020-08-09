@@ -50,6 +50,10 @@ func (p *Player) AddPoints(points int) {
 	p.Points += points
 }
 
+func (p *Player) MinusPoints(points int) {
+	p.Points -= points
+}
+
 // AreLettersInRack - iterate over all letters and check if all are in user Rack
 func (p *Player) AreLettersInRack(letters []rune) error {
 	alreadyChecked := make(map[int]bool)
