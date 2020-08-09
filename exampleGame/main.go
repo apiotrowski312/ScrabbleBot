@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"time"
 
 	"github.com/apiotrowski312/scrabbleBot/grabble"
 	"github.com/apiotrowski312/scrabbleBot/utils/img_printer"
@@ -13,7 +14,8 @@ func main() {
 }
 
 var loopNumber = flag.Int("times", 1, "number of games to play")
-var screenshot = flag.Bool("screenshot", false, "should I create jpg output")
+var screenshot = flag.Bool("screenshot", false, "create screenshot after each round")
+var winnerScreenshot = flag.Bool("winshot", false, "create screenshot with finished game")
 
 func Game() {
 	flag.Parse()
@@ -37,7 +39,10 @@ func Game() {
 				img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 			}
 		}
-		fmt.Printf("Winner: %v\tPoints: %v\t Turns: %v\n", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
+		if *winnerScreenshot == true {
+			img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/finished-%v.png", time.Now().UnixNano()))
+		}
+		fmt.Printf("%v - Winner: %v\tPoints: %v\t Turns: %v\n", time.Now().UnixNano(), game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 	}
 
 }
