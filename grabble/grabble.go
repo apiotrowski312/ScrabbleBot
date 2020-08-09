@@ -17,8 +17,6 @@ type gameStats struct {
 	Winner       *player.Player
 }
 
-// FIXME: gaddag finds words with too much lettersw
-
 type Grabble struct {
 	Board            board.Board
 	Players          []player.Player
