@@ -29,16 +29,6 @@ func removeDuplicatesUnordered(elements []string) []string {
 func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
 	newLetters := append(letters, '.')
 
-	// This is workaround(fix) for issiue when letter is on right to the hook.
-	// We just iterate over row and move hook to the max right letter in current word.
-	// for true {
-	// 	if hookIndex < len(row)-1 && row[hookIndex+1] != rune(0) {
-	// 		hookIndex++
-	// 	} else {
-	// 		break
-	// 	}
-	// }
-
 	words := n.getAllOk(row[hookIndex], hookIndex, newLetters, row, hookIndex)
 	return removeDuplicatesUnordered(words)
 }
@@ -130,6 +120,7 @@ func (n *Node) wordIsNotInDictionary(word string) error {
 	return fmt.Errorf("Word %v is not in dictionary", NormalizeWord(word))
 }
 
+// NormalizeWord returns word converted from gaddag notation to normal
 func NormalizeWord(word string) string {
 	i := strings.Index(word, ".")
 	return str_manipulator.Reverse(word[:i]) + word[i+1:]

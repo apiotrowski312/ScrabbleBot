@@ -50,7 +50,7 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 		rowLetters := board.GetRowOfLetters(x)
 		for y := range row {
 			words := []string{}
-			if board[x][y].Letter != rune(0) && y > 0 && board[x][y-1].Letter == rune(0) {
+			if board[x][y].Letter != rune(0) && (y == 0 || (y > 0 && board[x][y-1].Letter == rune(0))) {
 				log.Debugf("Hook found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
 				log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
 				words = g.Dict.FindAllWords(y, rowLetters, rack)

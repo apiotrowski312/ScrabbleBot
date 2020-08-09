@@ -1,18 +1,23 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 
 	"github.com/apiotrowski312/scrabbleBot/grabble"
+	"github.com/apiotrowski312/scrabbleBot/utils/img_printer"
 )
 
 func main() {
 	Game()
 }
 
-func Game() {
+var loopNumber = flag.Int("times", 1, "number of games to play")
+var screenshot = flag.Bool("screenshot", false, "should I create jpg output")
 
-	for x := 0; x < 1000; x++ {
+func Game() {
+	flag.Parse()
+	for x := 0; x < *loopNumber; x++ {
 		game := grabble.CreateDefaultGame([]string{"Bot 1", "Bot 2"})
 		for !game.Stats.Finished {
 			bestWords := game.PickBestWord(50)
@@ -28,8 +33,9 @@ func Game() {
 			if !wordPlaced {
 				game.PassTurn()
 			}
-
-			// img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
+			if *screenshot == true {
+				img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
+			}
 		}
 		fmt.Printf("Winner: %v\tPoints: %v\t Turns: %v\n", game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 	}
