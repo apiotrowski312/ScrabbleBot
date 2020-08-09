@@ -35,9 +35,15 @@ type Grabble struct {
 // WORDS
 //     WORDS
 
+// Simple singleton. Just for testing purposes as it would take a lot of time to generate graph
+// e.g. 1000 times
+var gaddagFullGraph *gaddag.Node
+
 func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles []rune, tilePoints map[rune]int, rackSize int) Grabble {
 	board := board.CreateBoard(b)
-	dict, _ := gaddag.CreateGraph(dictionary)
+	if gaddagFullGraph == nil {
+		gaddagFullGraph, _ = gaddag.CreateGraph(dictionary)
+	}
 	ba := bag.CreateBag(allTiles)
 	lp := bag.CreateLettersPoint(tilePoints)
 
@@ -49,7 +55,7 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 		Board:         *board,
 		Players:       players,
 		Bag:           ba,
-		Dict:          *dict,
+		Dict:          *gaddagFullGraph,
 		LettterPoints: lp,
 		Stats: gameStats{
 			CurrentRound: 0,
