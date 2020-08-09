@@ -145,7 +145,7 @@ func (g Grabble) CurrentPlayer() *player.Player {
 // PassTurn - player omit his turn. No points for him.
 // TODO: count number of passed turns, if its 2 for all players - finish game.
 func (g *Grabble) PassTurn() {
-	log.Debugf("PassTurn function called by %s", g.CurrentPlayer().Name)
+	log.Debugf("PassTurn function called by %s. Turn %v", g.CurrentPlayer().Name, g.Stats.CurrentRound)
 	g.Stats.CurrentRound++
 	g.passedTurnInARow++
 	g.shouldGameEnd()
@@ -163,6 +163,7 @@ func (g *Grabble) ChangeTiles(tilesToChange []rune) {
 
 func (g *Grabble) shouldGameEnd() {
 
+	// FIXME: fix below code. it doesnt work as intended now
 	if g.passedTurnInARow >= len(g.Players)*2 {
 		g.Stats.Finished = true
 		return

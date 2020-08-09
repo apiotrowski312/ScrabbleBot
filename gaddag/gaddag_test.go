@@ -105,6 +105,7 @@ func Test_FindAllWords(t *testing.T) {
 			{"Test for a but with double R", 7, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'R', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("WGESEA")},
 			{"Check if DO will be find", 7, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'D', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("VOQFEII")},
 			{"Check if LONE will be find", 8, []rune{rune(0), rune(0), rune(0), 'R', rune(0), rune(0), 'H', rune(0), 'L', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("IQEIOCN")},
+			{"Debug wrong matches for MAGOT", 3, []rune{rune(0), rune(0), rune(0), 'M', 'A', 'G', 'O', 'T', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("TEICIEI")},
 		}
 
 		for _, c := range cases {

@@ -29,11 +29,20 @@ func removeDuplicatesUnordered(elements []string) []string {
 func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
 	newLetters := append(letters, '.')
 
+	// This is workaround(fix) for issiue when letter is on right to the hook.
+	// We just iterate over row and move hook to the max right letter in current word.
+	// for true {
+	// 	if hookIndex < len(row)-1 && row[hookIndex+1] != rune(0) {
+	// 		hookIndex++
+	// 	} else {
+	// 		break
+	// 	}
+	// }
+
 	words := n.getAllOk(row[hookIndex], hookIndex, newLetters, row, hookIndex)
 	return removeDuplicatesUnordered(words)
 }
 
-// TODO: If there is a letter on right, do not append it, it wont be valid word anyway
 // getAllOk return string array with all possible combinations of words with letters
 func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune, row []rune, hookIndex int) []string {
 
@@ -48,9 +57,11 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 
 	partialWords := []string{}
 	if hookNode.IsWord {
-		if letterIndex == len(row)-1 {
+		if letterIndex == len(row)-1 || hookIndex == len(row)-1 {
 			partialWords = append(partialWords, string(currentLetter))
-		} else if row[letterIndex+1] == rune(0) {
+		} else if letterIndex < hookIndex && row[hookIndex+1] == rune(0) {
+			partialWords = append(partialWords, string(currentLetter))
+		} else if letterIndex >= hookIndex && row[letterIndex+1] == rune(0) {
 			partialWords = append(partialWords, string(currentLetter))
 		}
 	}
