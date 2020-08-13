@@ -13,3 +13,4 @@ Call `make bench` to run all benchmark tests.
 ## Golden files
 
 To update golden files call `make golden-update`
+

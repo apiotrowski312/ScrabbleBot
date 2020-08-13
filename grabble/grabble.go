@@ -78,7 +78,7 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 // - check if game should still going.
 // Pass word which you want to create.
 func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error {
-	log.Debugf("PlaceWord function called by %s", g.CurrentPlayer().Name)
+	log.Tracef("PlaceWord function called by %s", g.CurrentPlayer().Name)
 
 	letters, err := g.validateAndExtractUsedNewLetters(word, startPos, horizontal)
 	if err != nil {
@@ -100,9 +100,9 @@ func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error
 
 	g.Board.PlaceWord(word, startPos, horizontal)
 	g.CurrentPlayer().AddPoints(points)
+	log.Infof("Player %v placed word %v(cords:%v, horizontal: %v) on the board. Sum value of %v points", g.CurrentPlayer(), word, startPos, horizontal)
 	g.shouldGameEnd()
-	g.Stats.CurrentRound++
-	g.passedTurnInARow = 0
+	g.nextRound(false)
 	return nil
 }
 
@@ -134,7 +134,7 @@ func (g Grabble) countPoints(word string, numOfUsedLetters int, startPos [2]int,
 
 	points := g.LettterPoints.GetPoints(words, bonuses)
 
-	// If all letters were used, add bonus 50 points (Scrabble)
+	// If all letters were used, add 50 points bonus
 	if numOfUsedLetters == g.RackSize {
 		points += 50
 	}
@@ -148,16 +148,16 @@ func (g Grabble) CurrentPlayer() *player.Player {
 
 // PassTurn - player omit his turn. No points for him.
 func (g *Grabble) PassTurn() {
-	log.Debugf("PassTurn function called by %s. Turn %v", g.CurrentPlayer().Name, g.Stats.CurrentRound)
-	g.Stats.CurrentRound++
-	g.passedTurnInARow++
+	log.Tracef("PassTurn function called by %s. Turn %v", g.CurrentPlayer().Name, g.Stats.CurrentRound)
+	g.nextRound(true)
 	g.shouldGameEnd()
 }
 
 // ChangeTiles - change tiles. Important - player will lost turn.
 func (g *Grabble) ChangeTiles(tilesToChange []rune) {
-	log.Debugf("ChangeTiles function called by %s", g.CurrentPlayer().Name)
+	log.Tracef("ChangeTiles function called by %s", g.CurrentPlayer().Name)
 	if len(g.Bag) == 0 {
+		// FIXME: Return error with information about no tiles in bag.
 		log.Debugf("No tiles in bag. Failover to PassTurn")
 		g.PassTurn()
 		return
@@ -166,8 +166,7 @@ func (g *Grabble) ChangeTiles(tilesToChange []rune) {
 		log.Debugf("Smth went wrong while changing tiles. Error: %v", err)
 		return
 	}
-	g.Stats.CurrentRound++
-	g.passedTurnInARow = 0
+	g.nextRound(false)
 }
 
 func (g *Grabble) shouldGameEnd() {
@@ -182,6 +181,17 @@ func (g *Grabble) shouldGameEnd() {
 		return
 	}
 
+}
+
+func (g *Grabble) nextRound(roundPassed bool) {
+	if roundPassed {
+		g.passedTurnInARow++
+	} else {
+		g.passedTurnInARow = 0
+	}
+
+	g.Stats.CurrentRound++
+	log.Debugf("Current round: %v", g.Stats.CurrentRound)
 }
 
 func (g *Grabble) finishGame() {
@@ -210,5 +220,5 @@ func (g *Grabble) finishGame() {
 		}
 	}
 
-	log.Debugf("Game finished. Winner is %s with %v points", g.Stats.Winner.Name, g.Stats.Winner.Points)
+	log.Infof("Game finished. Winner is %s with %v points", g.Stats.Winner.Name, g.Stats.Winner.Points)
 }
