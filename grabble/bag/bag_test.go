@@ -167,7 +167,7 @@ func Test_GetPoints(t *testing.T) {
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
 			var lv bag.LettersPoint
-			test_utils.LoadJSONFixture(t, "testdata/letter_values.fixture", &lv)
+			test_utils.LoadJSONFixture(t, "../../fixtures/letter_values.fixture", &lv)
 
 			points := lv.GetPoints(c.words, c.bonuses)
 			assert.Equal(t, c.points, points)

@@ -13,7 +13,7 @@ var update = flag.Bool("update", false, "update the golden files of this test")
 
 func TestNewSceneReturnsANewScene(t *testing.T) {
 	var game grabble.Grabble
-	test_utils.LoadJSONFixture(t, "../../grabble/testdata/endgame.fixture", &game)
+	test_utils.LoadJSONFixture(t, "../../fixtures/endgame.fixture", &game)
 
 	img_printer.PrintScreenBoard(game, "test.png")
 }

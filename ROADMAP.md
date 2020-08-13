@@ -9,7 +9,7 @@
 - [ ] Fix current function with searching for words. Make it easier to use
 - [x] Extract incrementing round to external fuction and add logging
 - [x] Add multiple level logging (for MA)
-- [ ] Move fixtures to one place, so it will be easier to handle
+- [X] Move fixtures to one place, so it will be easier to handle
 
 
 Trace level - info about e.g function calls

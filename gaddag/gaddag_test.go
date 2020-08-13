@@ -15,7 +15,7 @@ import (
 var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_CreateGraph(t *testing.T) {
-	gaddagRoot, err := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+	gaddagRoot, err := gaddag.CreateGraph("../fixtures/tiny_english.txt")
 
 	var expected gaddag.Node
 	test_utils.GetGoldenFileJSON(t, gaddagRoot, &expected, t.Name(), *update)
@@ -25,7 +25,7 @@ func Test_CreateGraph(t *testing.T) {
 }
 
 func Test_IsWordValid(t *testing.T) {
-	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/tiny_english.txt")
 
 	type testCase struct {
 		word    string
@@ -66,7 +66,7 @@ func Test_FindAllWords(t *testing.T) {
 	}
 
 	t.Run("Small dictionary", func(t *testing.T) {
-		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/tiny_english.txt")
+		gaddagRoot, _ := gaddag.CreateGraph("../fixtures/tiny_english.txt")
 
 		cases := []testCase{
 			{"word to right", 0, []rune{'W', rune(0), rune(0), rune(0)}, []rune("ORD")},
@@ -94,7 +94,7 @@ func Test_FindAllWords(t *testing.T) {
 	})
 
 	t.Run("Full dictionary", func(t *testing.T) {
-		gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
+		gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
 
 		cases := []testCase{
 			{"word from left", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'W'}, []rune("ORD")},
@@ -129,9 +129,9 @@ func Benchmark_CreateGraph(b *testing.B) {
 	}
 
 	cases := []testCase{
-		{"2k words dict", "../exampleData/2k_english.txt"},
-		{"20k words dict", "../exampleData/20k_english.txt"},
-		{"280k words dict", "../exampleData/collins_official_scrabble_2019.txt"},
+		{"2k words dict", "../fixtures/2k_english.txt"},
+		{"20k words dict", "../fixtures/20k_english.txt"},
+		{"280k words dict", "../fixtures/collins_official_scrabble_2019.txt"},
 	}
 
 	for _, tc := range cases {
@@ -145,7 +145,7 @@ func Benchmark_CreateGraph(b *testing.B) {
 }
 
 func Benchmark_FindAllWords(b *testing.B) {
-	gaddagRoot, _ := gaddag.CreateGraph("../exampleData/collins_official_scrabble_2019.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
 	type testCase struct {
 		name      string
 		hookIndex int

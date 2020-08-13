@@ -32,7 +32,7 @@ func Test_PickBectWord(t *testing.T) {
 			[]expectedWord{
 				{points: 13, cords: [2]int{7, 3}, word: "WORDS", horizontal: true},
 			},
-			"testdata/game.fixture",
+			"../fixture/fresh_game.fixture",
 			"",
 		},
 		{
@@ -40,8 +40,8 @@ func Test_PickBectWord(t *testing.T) {
 			[]expectedWord{
 				{points: 17, cords: [2]int{2, 7}, word: "SHROWD", horizontal: false},
 			},
-			"testdata/game.fixture",
-			"../exampleData/collins_official_scrabble_2019.txt",
+			"../fixture/fresh_game.fixture",
+			"../fixtures/collins_official_scrabble_2019.txt",
 		},
 	}
 

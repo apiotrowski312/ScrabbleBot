@@ -54,7 +54,7 @@ func Test_CreateBoard(t *testing.T) {
 func Test_TransposeBoard(t *testing.T) {
 	var expectedTransposedBoard board.Board
 	var board board.Board
-	test_utils.LoadJSONFixture(t, "testdata/board.fixture", &board)
+	test_utils.LoadJSONFixture(t, "../../fixtures/empty_board.fixture", &board)
 
 	transposedBoard := board.TransposeBoard()
 	board[5][7].Letter = 'c'
@@ -123,7 +123,7 @@ func Test_PlaceWord(t *testing.T) {
 			var expectedBoard board.Board
 			var board board.Board
 
-			test_utils.LoadJSONFixture(t, "testdata/board.fixture", &board)
+			test_utils.LoadJSONFixture(t, "../../fixtures/empty_board.fixture", &board)
 
 			for i, word := range c.words {
 				board.PlaceWord(word, c.startPos[i], c.horizontal)
@@ -153,7 +153,7 @@ func Test_DoesHookExist(t *testing.T) {
 			true,
 			true,
 			[]rune{'w', 'o', 'r', 'd', 's'},
-			"testdata/board.fixture",
+			"empty_board.fixture",
 		},
 		{
 			"Wrong place - no starting point",
@@ -162,7 +162,7 @@ func Test_DoesHookExist(t *testing.T) {
 			true,
 			false,
 			[]rune{},
-			"testdata/board.fixture",
+			"empty_board.fixture",
 		},
 		{
 			"Proper vertical with hook",
@@ -171,7 +171,7 @@ func Test_DoesHookExist(t *testing.T) {
 			false,
 			true,
 			[]rune{'w', 'r', 'd', 's'},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 		{
 			"hook on left",
@@ -180,7 +180,7 @@ func Test_DoesHookExist(t *testing.T) {
 			false,
 			true,
 			[]rune{'w', 'o', 'r', 'd', 's'},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 		{
 			"No hook",
@@ -189,7 +189,7 @@ func Test_DoesHookExist(t *testing.T) {
 			false,
 			false,
 			[]rune{},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 		{
 			"No hook and to long word",
@@ -198,14 +198,14 @@ func Test_DoesHookExist(t *testing.T) {
 			true,
 			false,
 			[]rune{},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 	}
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
 			var board board.Board
-			test_utils.LoadJSONFixture(t, c.fixture, &board)
+			test_utils.LoadJSONFixture(t, "../../fixtures/"+c.fixture, &board)
 			letters, isOk := board.DoesHookExist(c.word, c.startPos, c.horizontal)
 
 			assert.Equal(t, c.isOk, isOk)
