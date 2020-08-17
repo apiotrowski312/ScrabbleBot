@@ -7,11 +7,18 @@ type field struct {
 	Letter rune
 }
 
-// TODO: Change all small letters to big one :/
+// Board struct - simple 15x15 matrix representing state of board
 type Board [15][15]*field
 
+// CreateBoard - create board from a 15x15 template.
+// Temple use following pattern:
+// * 0 - just normal, regular tile
+// * s - starting tile, there can be more than one of them
+// * l - double letter bonus
+// * L - triple letter bonus
+// * w - double word bonus
+// * W - triple word bonus
 func CreateBoard(template [15][15]rune) *Board {
-
 	var board Board
 	for x, row := range template {
 		for y, f := range row {
@@ -22,6 +29,8 @@ func CreateBoard(template [15][15]rune) *Board {
 	return &board
 }
 
+// TransposeBoard - transpose board, makes other functions easier to write
+// IMPORTANT! In transposed board cords are reversed
 func (b *Board) TransposeBoard() *Board {
 	var transposedBoard Board
 	for i, row := range b {
@@ -107,6 +116,7 @@ func (b *Board) placeWord(word string, startPos [2]int) {
 	}
 }
 
+// GetAllWordsAndBonuses gets all new words(with bonuses) created with new placed word
 // TODO: Create Bench tests
 func (b *Board) GetAllWordsAndBonuses(word string, startPos [2]int, horizontal bool) ([]string, []string) {
 	if horizontal {

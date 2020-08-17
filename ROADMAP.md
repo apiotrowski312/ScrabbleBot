@@ -10,8 +10,8 @@
 - [x] Extract incrementing round to external fuction and add logging
 - [x] Add multiple level logging (for MA)
 - [X] Move fixtures to one place, so it will be easier to handle
-
+- [ ] Add comments to all exported functions
 
 Trace level - info about e.g function calls
 Debug level - info about expected errors
-Info - info about placed word, winner etc.
+Info - info about placed word, winner etc
