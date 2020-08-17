@@ -4,7 +4,7 @@
 
 - [ ] Add blanks (it will require a lot of work I guess)
 - [ ] Add two more functions for word search
-  - [ ] Look for all words, do not care about hooks
+  - [X] Look for all words, do not care about hooks
   - [ ] Find all words, when hook from strange place (like eg. WORD and adding S would be connecting point)
 - [ ] Fix current function with searching for words. Make it easier to use
 - [x] Extract incrementing round to external fuction and add logging
