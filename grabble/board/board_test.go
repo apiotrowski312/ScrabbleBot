@@ -232,7 +232,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			true,
 			[]string{"words"},
 			[]string{"s0000"},
-			"testdata/board.fixture",
+			"empty_board.fixture",
 		},
 		{
 			"Proper vertical with hook",
@@ -241,7 +241,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			false,
 			[]string{"words"},
 			[]string{"00000"},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 		{
 			"hook on left",
@@ -250,7 +250,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			false,
 			[]string{"test", "wordse"},
 			[]string{"l0l0", "000000"},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 		{
 			"Add x to word",
@@ -259,14 +259,14 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			true,
 			[]string{"wordsx"},
 			[]string{"000000"},
-			"testdata/board_with_starting.fixture",
+			"board_with_starting_word.fixture",
 		},
 	}
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
 			var board board.Board
-			test_utils.LoadJSONFixture(t, c.fixture, &board)
+			test_utils.LoadJSONFixture(t, "../../fixtures/"+c.fixture, &board)
 			words, bonuses := board.GetAllWordsAndBonuses(c.word, c.startPos, c.horizontal)
 
 			assert.Equal(t, c.words, words)
