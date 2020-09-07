@@ -10,9 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// TODO: Test vertical stuff maybe
-// TODO: Add more advanced tests
-// TODO: Add benchmark tests
+// TODO: Test vertical stuff maybe, Add more advanced tests, Add benchmark tests
 func Test_PickBectWord(t *testing.T) {
 	type expectedWord struct {
 		word       string

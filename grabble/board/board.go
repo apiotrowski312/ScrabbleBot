@@ -110,6 +110,7 @@ func (b *Board) PlaceWord(word string, startPos [2]int, horizontal bool) {
 	}
 }
 
+// TODO: Blank - placeWord need new flag (if blank and where)
 func (b *Board) placeWord(word string, startPos [2]int) {
 	for i, letter := range word {
 		b[startPos[0]][startPos[1]+i].Letter = letter
@@ -127,6 +128,8 @@ func (b *Board) GetAllWordsAndBonuses(word string, startPos [2]int, horizontal b
 	return tb.getAllWordsAndBonuses(word, [2]int{startPos[1], startPos[0]})
 }
 
+// TODO: Blank - blank should have 0 points.
+// Maybe add bool variable to field to mark if blank was used here?
 func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, []string) {
 	words := []string{word}
 	bonuses := []string{""}

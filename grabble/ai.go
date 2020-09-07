@@ -36,6 +36,7 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 	return wordsCollection[:numberOfWords]
 }
 
+// TODO: Blank - how to look for word when there is a blank?
 func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 	log.Debugf("getWordCollection called. Horizontal: %v", horizontal)
 

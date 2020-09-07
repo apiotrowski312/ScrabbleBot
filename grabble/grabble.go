@@ -9,7 +9,6 @@ import (
 	"github.com/apiotrowski312/scrabbleBot/grabble/player"
 )
 
-// TODO: Create one place with all fixtures etc. to make it easier to manage
 // TODO: Create enum for wWlLs
 type gameStats struct {
 	CurrentRound int
