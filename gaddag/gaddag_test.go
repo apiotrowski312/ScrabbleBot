@@ -130,6 +130,7 @@ func Test_FindWords(t *testing.T) {
 		{"simple case", []rune("WORD")},
 		{"long case", []rune("WSSARED")},
 		{"longest case", []rune("WSSAREDDREFCDSAA")},
+		{"Intersing case with extremly hard rack", []rune("QZJXKHW")},
 	}
 
 	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
@@ -177,11 +178,11 @@ func Benchmark_FindAllWords(b *testing.B) {
 	}
 
 	cases := []testCase{
-		{"5 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("odrs")},
-		{"12 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("incographer")},
-		{"15 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'o', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("icardehartetis")},
-		{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("aeilnrst")},
-		{"7 letters with existring board", 8, []rune{'d', 'o', 'W', 'n', rune(0), rune(0), rune(0), rune(0), 'n', rune(0), rune(0), rune(0), 'e', 's', rune(0)}, []rune("wssared")},
+		{"5 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ODRS")},
+		{"12 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("INCOGRAPHER")},
+		{"15 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'O', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ICARDEHARTETIS")},
+		{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("AEILNRST")},
+		{"7 letters with existring board", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSARED")},
 	}
 
 	for _, c := range cases {
@@ -203,11 +204,11 @@ func Benchmark_FindWords(b *testing.B) {
 	}
 
 	cases := []testCase{
-		{"5 letters", []rune("wodrs")},
-		{"7 letters", []rune("wssared")},
-		{"8 letters", []rune("aeilnrst")},
-		{"12 letters", []rune("incographers")},
-		{"15 letters", []rune("wicardehartetis")},
+		{"5 letters", []rune("WODRS")},
+		{"7 letters", []rune("WSSARED")},
+		{"8 letters", []rune("AEILNRST")},
+		{"12 letters", []rune("INCOGRAPHERS")},
+		{"15 letters", []rune("WICARDEHARTETIS")},
 	}
 
 	for _, c := range cases {

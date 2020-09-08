@@ -53,6 +53,9 @@ func (l LettersPoint) GetPoints(words, bonuses []string) int {
 			case 'W':
 				points += l[letter]
 				wordBonus *= 3
+			case 's':
+				points += l[letter]
+				wordBonus *= 2
 			default:
 				points += l[letter]
 			}
