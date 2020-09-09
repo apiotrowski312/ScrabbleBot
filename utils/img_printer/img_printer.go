@@ -12,9 +12,18 @@ import (
 )
 
 var (
-	rectSize    = 15
-	tileColor   = color.White
-	letterColor = color.Black
+	rectSize   = 15
+	screenSize = [2]int{350, 226}
+	colors     = map[string]color.RGBA{
+		"letter": {0, 0, 0, 255},
+		"tile":   {255, 255, 255, 255},
+		"w":      {204, 255, 204, 255},
+		"W":      {102, 255, 102, 255},
+		"l":      {204, 204, 255, 255},
+		"L":      {102, 102, 255, 255},
+		"s":      {204, 255, 204, 255},
+		"":       {0, 0, 0, 255},
+	}
 )
 
 type customImage struct {
@@ -50,7 +59,7 @@ func (c customImage) drawTileFromArray(x, y int, tile [][]int) {
 	for h, row := range tile {
 		for v, cell := range row {
 			if cell == 1 {
-				c.image.Set(x+v, y+h, letterColor)
+				c.image.Set(x+v, y+h, colors["letter"])
 			}
 		}
 	}
@@ -152,15 +161,18 @@ func (c customImage) drawLetter(x, y int, letter rune) {
 
 func PrintScreenBoard(g grabble.Grabble, imgName string) {
 	upLeft := image.Point{0, 0}
-	lowRight := image.Point{350, 226}
+	lowRight := image.Point{screenSize[0], screenSize[1]}
 	img := customImage{image.NewRGBA(image.Rectangle{upLeft, lowRight})}
 
-	img.fullRect(0, 0, 350, 226, tileColor)
+	img.fullRect(0, 0, screenSize[0], screenSize[1], colors["tile"])
 
 	// Draw board
 	for y, row := range g.Board {
 		for x, cell := range row {
-			img.rect(x*rectSize, y*rectSize, x*rectSize+rectSize, y*rectSize+rectSize, letterColor)
+			img.rect(x*rectSize, y*rectSize, x*rectSize+rectSize, y*rectSize+rectSize, colors["letter"])
+			if cell.Bonus != rune(0) {
+				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors[string(cell.Bonus)])
+			}
 			img.drawBonus(x*rectSize+5, y*rectSize+9, cell.Bonus)
 			img.drawLetter(x*rectSize+2, y*rectSize+2, cell.Letter)
 		}

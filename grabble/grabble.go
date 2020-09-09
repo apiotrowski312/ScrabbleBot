@@ -99,7 +99,7 @@ func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error
 
 	g.Board.PlaceWord(word, startPos, horizontal)
 	g.CurrentPlayer().AddPoints(points)
-	log.Infof("Player %v placed word %v(cords:%v, horizontal: %v) on the board. Sum value of %v points", g.CurrentPlayer(), word, startPos, horizontal)
+	log.Infof("Player %v placed word %v(cords:%v, horizontal: %v) on the board. Sum value of %v points", g.CurrentPlayer(), word, startPos, horizontal, points)
 	g.shouldGameEnd()
 	g.nextRound(false)
 	return nil

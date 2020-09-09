@@ -28,17 +28,17 @@ func Test_PickBectWord(t *testing.T) {
 		{
 			"Get best word",
 			[]expectedWord{
-				{points: 13, cords: [2]int{7, 3}, word: "WORDS", horizontal: true},
+				{points: 26, cords: [2]int{7, 3}, word: "WORDS", horizontal: true},
 			},
-			"../fixture/fresh_game.fixture",
+			"../fixtures/fresh_game.fixture",
 			"",
 		},
 		{
 			"Get best word - 2",
 			[]expectedWord{
-				{points: 17, cords: [2]int{2, 7}, word: "SHROWD", horizontal: false},
+				{points: 34, cords: [2]int{2, 7}, word: "SHROWD", horizontal: false},
 			},
-			"../fixture/fresh_game.fixture",
+			"../fixtures/fresh_game.fixture",
 			"../fixtures/collins_official_scrabble_2019.txt",
 		},
 	}

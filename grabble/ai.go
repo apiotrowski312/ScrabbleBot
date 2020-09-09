@@ -51,10 +51,21 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 		rowLetters := board.GetRowOfLetters(x)
 		for y := range row {
 			words := []string{}
+			// This is Hook type 1 or 2.
 			if board[x][y].Letter != rune(0) && (y == 0 || (y > 0 && board[x][y-1].Letter == rune(0))) {
 				log.Debugf("Hook found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
 				log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
 				words = g.Dict.FindAllWords(y, rowLetters, rack)
+				// This is Hook type 3
+			} else if board[x][y].Letter == rune(0) && ((x <= 0 || board[x-1][y].Letter != rune(0)) || (x >= 14 || board[x+1][y].Letter != rune(0))) {
+				// FIXME: Create proper solution for this case
+				for i, l := range rack {
+					rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
+					sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)
+
+					words = append(words, sWords...)
+				}
+				// There is no hook. This is for starting round
 			} else if board[x][y].Bonus == 's' && board[x][y].Letter == rune(0) {
 				// HACK: Better and faster option will be create new function in gaddag to look for words without hook
 				for i, l := range rack {
@@ -64,6 +75,7 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 					words = append(words, sWords...)
 				}
 			}
+
 			if len(words) != 0 {
 				log.Debugf("There is %v new words before counting points", len(words))
 				for _, w := range words {

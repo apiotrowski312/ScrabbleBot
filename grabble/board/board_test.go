@@ -20,21 +20,21 @@ func Test_CreateBoard(t *testing.T) {
 		{
 			"Proper template",
 			[15][15]rune{
-				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'},
-				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
-				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'}, // 3
-				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'}, // 6
-				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
-				{'W', '0', '0', '0', '0', '0', '0', 's', '0', '0', '0', '0', '0', '0', 'W'},
-				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'}, // 9
-				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-				{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'}, // 12
-				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'},
-				{'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0', 'l', 'L', '0'},
-				{'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0', 'W', 'w', 'W', '0', '0'}, // 15
+				{'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0)},
+				{'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0)},
+				{'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0)}, // 3
+				{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)},
+				{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)},
+				{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, // 6
+				{'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0)},
+				{'W', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 's', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'W'},
+				{'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0)}, // 9
+				{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)},
+				{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)},
+				{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, // 12
+				{'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0)},
+				{'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0), 'l', 'L', rune(0)},
+				{'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0), 'W', 'w', 'W', rune(0), rune(0)}, // 15
 			},
 		},
 	}
@@ -231,7 +231,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			[2]int{7, 7},
 			true,
 			[]string{"words"},
-			[]string{"s0000"},
+			[]string{"s\x00\x00\x00\x00"},
 			"empty_board.fixture",
 		},
 		{
@@ -240,7 +240,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			[2]int{6, 8},
 			false,
 			[]string{"words"},
-			[]string{"00000"},
+			[]string{"\x00\x00\x00\x00\x00"},
 			"board_with_starting_word.fixture",
 		},
 		{
@@ -249,7 +249,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			[2]int{6, 12},
 			false,
 			[]string{"test", "wordse"},
-			[]string{"l0l0", "000000"},
+			[]string{"l\x00l\x00", "\x00\x00\x00\x00\x00\x00"},
 			"board_with_starting_word.fixture",
 		},
 		{
@@ -258,7 +258,7 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 			[2]int{7, 7},
 			true,
 			[]string{"wordsx"},
-			[]string{"000000"},
+			[]string{"\x00\x00\x00\x00\x00\x00"},
 			"board_with_starting_word.fixture",
 		},
 	}

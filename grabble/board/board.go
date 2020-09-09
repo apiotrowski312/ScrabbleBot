@@ -85,9 +85,9 @@ func (b *Board) doesHookExist(word string, startPos [2]int) ([]rune, bool) {
 		newLetters = append(newLetters, letter)
 		if bc.Bonus == rune('s') {
 			hook = true
-		} else if startPos[0] > 0 && b[startPos[0]-1][startPos[1]+i].Letter != rune(0) {
+		} else if startPos[0] >= 1 && b[startPos[0]-1][startPos[1]+i].Letter != rune(0) {
 			hook = true
-		} else if startPos[0] < 15 && b[startPos[0]+1][startPos[1]+i].Letter != rune(0) {
+		} else if startPos[0] <= 13 && b[startPos[0]+1][startPos[1]+i].Letter != rune(0) {
 			hook = true
 		}
 	}
@@ -136,7 +136,7 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 
 	for i := range word {
 		if b[startPos[0]][startPos[1]+i].Letter != rune(0) {
-			bonuses[0] += "0"
+			bonuses[0] += string(rune(0))
 		} else {
 			bonuses[0] += string(b[startPos[0]][startPos[1]+i].Bonus)
 		}
@@ -153,7 +153,7 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 		index := 1
 		for startPos[0]-index >= 0 && b[startPos[0]-index][startPos[1]+i].Letter != rune(0) {
 			currentWord += string(b[startPos[0]-index][startPos[1]+i].Letter)
-			bonus += "0"
+			bonus += string(rune(0))
 			index++
 		}
 
@@ -163,7 +163,7 @@ func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, [
 		index = 1
 		for startPos[0]+index <= 14 && b[startPos[0]+index][startPos[1]+i].Letter != rune(0) {
 			currentWord += string(b[startPos[0]+index][startPos[1]+i].Letter)
-			bonus += "0"
+			bonus += string(rune(0))
 			index++
 		}
 

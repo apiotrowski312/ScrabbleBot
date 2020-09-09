@@ -7,11 +7,11 @@
 				"Letter": 65
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 66
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 67
 			},
 			{
@@ -19,15 +19,15 @@
 				"Letter": 68
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 69
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 70
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 71
 			},
 			{
@@ -35,15 +35,15 @@
 				"Letter": 72
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 73
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 74
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 75
 			},
 			{
@@ -51,11 +51,11 @@
 				"Letter": 76
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 77
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 78
 			},
 			{
@@ -65,7 +65,7 @@
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 80
 			},
 			{
@@ -73,15 +73,15 @@
 				"Letter": 81
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 82
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 83
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 84
 			},
 			{
@@ -89,15 +89,15 @@
 				"Letter": 85
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 86
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 87
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 88
 			},
 			{
@@ -105,15 +105,15 @@
 				"Letter": 89
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 90
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -121,57 +121,17 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 119,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 108,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 108,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -179,11 +139,51 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
@@ -193,11 +193,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -205,15 +205,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -221,15 +221,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -237,11 +237,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -251,43 +251,19 @@
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 119,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -295,25 +271,49 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -321,31 +321,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 76,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -353,15 +337,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -369,33 +353,33 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 108,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -403,7 +387,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -411,15 +403,7 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -427,11 +411,27 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
@@ -441,11 +441,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -453,15 +453,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -469,15 +469,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -485,11 +485,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -499,27 +499,11 @@
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 108,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -527,7 +511,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -535,15 +527,7 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -551,17 +535,33 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -569,31 +569,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 76,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -601,15 +585,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -617,49 +601,41 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 119,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -667,19 +643,43 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
@@ -689,11 +689,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -701,15 +701,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -717,15 +717,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -733,11 +733,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -747,51 +747,11 @@
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 119,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 108,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 108,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
-				"Letter": 0
-			},
-			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -799,17 +759,57 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0
+			},
+			{
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
 		[
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -817,15 +817,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -833,15 +833,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -849,15 +849,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -865,7 +865,7 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			}
 		],
@@ -875,11 +875,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -887,15 +887,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -903,15 +903,15 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
@@ -919,11 +919,11 @@
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{
-				"Bonus": 48,
+				"Bonus": 0,
 				"Letter": 0
 			},
 			{

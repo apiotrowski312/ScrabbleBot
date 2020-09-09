@@ -11,7 +11,7 @@ import (
 
 var log = logrus.New()
 var logPath = flag.String("logfile", "/tmp/grabble.log", "provide path for log file")
-var logLevel = flag.String("loglevel", "INFO", "provide log level")
+var logLevel = flag.String("loglevel", "ERROR", "provide log level")
 
 func init() {
 
@@ -37,21 +37,21 @@ func init() {
 // CreateDefaultGame - it creates and return basic Grabble game.
 func CreateDefaultGame(players []string) Grabble {
 	officialScrabbleBoard := [15][15]rune{
-		{'W', '0', '0', 'l', '0', '0', '0', 'W', '0', '0', '0', 'l', '0', '0', 'W'},
-		{'0', 'w', '0', '0', '0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'w', '0'},
-		{'0', '0', 'w', '0', '0', '0', 'l', '0', 'l', '0', '0', '0', 'w', '0', '0'}, // 3
-		{'l', '0', '0', 'w', '0', '0', '0', 'l', '0', '0', '0', 'w', '0', '0', 'l'},
-		{'0', '0', '0', '0', 'w', '0', '0', '0', '0', '0', 'w', '0', '0', '0', '0'},
-		{'0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'L', '0'}, // 6
-		{'0', '0', 'l', '0', '0', '0', 'l', '0', 'l', '0', '0', '0', 'l', '0', '0'},
-		{'W', '0', '0', 'l', '0', '0', '0', 's', '0', '0', '0', 'l', '0', '0', 'W'},
-		{'0', '0', 'l', '0', '0', '0', 'l', '0', 'l', '0', '0', '0', 'l', '0', '0'}, // 9
-		{'0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'L', '0'},
-		{'0', '0', '0', '0', 'w', '0', '0', '0', '0', '0', 'w', '0', '0', '0', '0'},
-		{'l', '0', '0', 'w', '0', '0', '0', 'l', '0', '0', '0', 'w', '0', '0', 'l'}, // 12
-		{'0', '0', 'w', '0', '0', '0', 'l', '0', 'l', '0', '0', '0', 'w', '0', '0'},
-		{'0', 'w', '0', '0', '0', 'L', '0', '0', '0', 'L', '0', '0', '0', 'w', '0'},
-		{'W', '0', '0', 'l', '0', '0', '0', 'W', '0', '0', '0', 'l', '0', '0', 'W'}, // 15
+		{'W', rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), 'W'},
+		{rune(0), 'w', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'w', rune(0)},
+		{rune(0), rune(0), 'w', rune(0), rune(0), rune(0), 'l', rune(0), 'l', rune(0), rune(0), rune(0), 'w', rune(0), rune(0)}, // 3
+		{'l', rune(0), rune(0), 'w', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'w', rune(0), rune(0), 'l'},
+		{rune(0), rune(0), rune(0), rune(0), 'w', rune(0), rune(0), rune(0), rune(0), rune(0), 'w', rune(0), rune(0), rune(0), rune(0)},
+		{rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0)}, // 6
+		{rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'l', rune(0), 'l', rune(0), rune(0), rune(0), 'l', rune(0), rune(0)},
+		{'W', rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 's', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), 'W'},
+		{rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'l', rune(0), 'l', rune(0), rune(0), rune(0), 'l', rune(0), rune(0)}, // 9
+		{rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0)},
+		{rune(0), rune(0), rune(0), rune(0), 'w', rune(0), rune(0), rune(0), rune(0), rune(0), 'w', rune(0), rune(0), rune(0), rune(0)},
+		{'l', rune(0), rune(0), 'w', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'w', rune(0), rune(0), 'l'}, // 12
+		{rune(0), rune(0), 'w', rune(0), rune(0), rune(0), 'l', rune(0), 'l', rune(0), rune(0), rune(0), 'w', rune(0), rune(0)},
+		{rune(0), 'w', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'w', rune(0)},
+		{'W', rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), 'W'}, // 15
 	}
 	officialDict := "../fixtures/collins_official_scrabble_2019.txt"
 	tilePoints := map[rune]int{

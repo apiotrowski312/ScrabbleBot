@@ -103,7 +103,7 @@ func Test_PlaceWord(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			var game grabble.Grabble
 			var expectedGame grabble.Grabble
-			test_utils.LoadJSONFixture(t, "../fixture/"+c.fixture, &game)
+			test_utils.LoadJSONFixture(t, "../fixtures/"+c.fixture, &game)
 
 			for i, r := range c.rounds {
 				err := game.PlaceWord(r.word, r.startPos, r.horizontal)
@@ -140,7 +140,7 @@ func Test_PassTurn(t *testing.T) {
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
 			var game grabble.Grabble
-			test_utils.LoadJSONFixture(t, "../fixture/fresh_game.fixture", &game)
+			test_utils.LoadJSONFixture(t, "../fixtures/fresh_game.fixture", &game)
 
 			game.PassTurn()
 			assert.Equal(t, c.round, game.Stats.CurrentRound)
