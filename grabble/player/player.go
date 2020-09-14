@@ -1,6 +1,9 @@
 package player
 
-import "fmt"
+import (
+	"fmt"
+	"unicode"
+)
 
 type Player struct {
 	Name   string
@@ -60,6 +63,10 @@ func (p *Player) AreLettersInRack(letters []rune) error {
 	alreadyChecked := make(map[int]bool)
 
 	for _, l := range letters {
+		if unicode.IsLower(l) {
+			l = '_'
+		}
+
 		foundLetter := false
 
 		for i, r := range p.Rack {

@@ -2,931 +2,1606 @@
 	[
 		{
 			"Bonus": 87,
-			"Letter": 119
+			"Letter": 87,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 119,
-			"Letter": 119
+			"Letter": 87,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 108,
-			"Letter": 111
+			"Letter": 79,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 76,
-			"Letter": 111
+			"Letter": 79,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 87,
-			"Letter": 114
+			"Letter": 82,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 119,
-			"Letter": 114
+			"Letter": 82,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 87,
-			"Letter": 119
+			"Letter": 87,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 100
+			"Letter": 68,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 100
+			"Letter": 68,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 111
+			"Letter": 79,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 115
+			"Letter": 83,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 115
+			"Letter": 83,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 114
+			"Letter": 82,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 100
+			"Letter": 68,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 115
+			"Letter": 83,
+			"Blank": false,
+			"Round": 0,
+			"Player": "none"
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 115,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 119,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 0
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	]
 ]

@@ -57,10 +57,10 @@ func Test_TransposeBoard(t *testing.T) {
 	test_utils.LoadJSONFixture(t, "../../fixtures/empty_board.fixture", &board)
 
 	transposedBoard := board.TransposeBoard()
-	board[5][7].Letter = 'c'
+	board[5][7].Letter = 'C'
 	assert.Equal(t, board[5][7], transposedBoard[7][5])
 
-	transposedBoard[5][7].Letter = 'a'
+	transposedBoard[5][7].Letter = 'A'
 	assert.Equal(t, transposedBoard[5][7], board[7][5])
 
 	test_utils.GetGoldenFileJSON(t, transposedBoard, &expectedTransposedBoard, "transposed_board", *update)
@@ -78,7 +78,7 @@ func Test_PlaceWord(t *testing.T) {
 	test := []testCase{
 		{
 			"Place one word",
-			[]string{"words"},
+			[]string{"WORDS"},
 			[][2]int{
 				{0, 0},
 			},
@@ -87,7 +87,7 @@ func Test_PlaceWord(t *testing.T) {
 		{
 			"Place many word",
 			[]string{
-				"words", "words", "words", "words", "words", "words",
+				"WORDS", "WORDS", "WORDS", "WORDS", "WORDS", "WORDS",
 			},
 			[][2]int{
 				{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0},
@@ -97,7 +97,7 @@ func Test_PlaceWord(t *testing.T) {
 		{
 			"Simple vertically",
 			[]string{
-				"words",
+				"WORDS",
 			},
 			[][2]int{
 				{0, 0},
@@ -107,12 +107,22 @@ func Test_PlaceWord(t *testing.T) {
 		{
 			"Words vertically",
 			[]string{
-				"words",
-				"words",
-				"words",
+				"WORDS",
+				"WORDS",
+				"WORDS",
 			},
 			[][2]int{
 				{0, 0}, {0, 1}, {2, 2},
+			},
+			false,
+		},
+		{
+			"Put blank",
+			[]string{
+				"WOrdS",
+			},
+			[][2]int{
+				{0, 0},
 			},
 			false,
 		},
@@ -126,7 +136,7 @@ func Test_PlaceWord(t *testing.T) {
 			test_utils.LoadJSONFixture(t, "../../fixtures/empty_board.fixture", &board)
 
 			for i, word := range c.words {
-				board.PlaceWord(word, c.startPos[i], c.horizontal)
+				board.PlaceWord(word, c.startPos[i], "none", 0, c.horizontal)
 			}
 
 			test_utils.GetGoldenFileJSON(t, board, &expectedBoard, c.name, *update)
@@ -148,16 +158,16 @@ func Test_DoesHookExist(t *testing.T) {
 	test := []testCase{
 		{
 			"Word in the middle",
-			"words",
+			"WORDS",
 			[2]int{7, 7},
 			true,
 			true,
-			[]rune{'w', 'o', 'r', 'd', 's'},
+			[]rune{'W', 'O', 'R', 'D', 'S'},
 			"empty_board.fixture",
 		},
 		{
 			"Wrong place - no starting point",
-			"words",
+			"WORDS",
 			[2]int{0, 0},
 			true,
 			false,
@@ -166,25 +176,25 @@ func Test_DoesHookExist(t *testing.T) {
 		},
 		{
 			"Proper vertical with hook",
-			"words",
+			"WORDS",
 			[2]int{6, 8},
 			false,
 			true,
-			[]rune{'w', 'r', 'd', 's'},
+			[]rune{'W', 'R', 'D', 'S'},
 			"board_with_starting_word.fixture",
 		},
 		{
 			"hook on left",
-			"words",
+			"WORDS",
 			[2]int{6, 12},
 			false,
 			true,
-			[]rune{'w', 'o', 'r', 'd', 's'},
+			[]rune{'W', 'O', 'R', 'D', 'S'},
 			"board_with_starting_word.fixture",
 		},
 		{
 			"No hook",
-			"testuj",
+			"TESTUJ",
 			[2]int{6, 13},
 			false,
 			false,
@@ -193,7 +203,7 @@ func Test_DoesHookExist(t *testing.T) {
 		},
 		{
 			"No hook and to long word",
-			"testuj",
+			"TESTUJ",
 			[2]int{6, 13},
 			true,
 			false,
@@ -227,37 +237,37 @@ func Test_GetAllWordsAndBonuses(t *testing.T) {
 	test := []testCase{
 		{
 			"Word in the middle",
-			"words",
+			"WORDS",
 			[2]int{7, 7},
 			true,
-			[]string{"words"},
+			[]string{"WORDS"},
 			[]string{"s\x00\x00\x00\x00"},
 			"empty_board.fixture",
 		},
 		{
 			"Proper vertical with hook",
-			"words",
+			"WORDS",
 			[2]int{6, 8},
 			false,
-			[]string{"words"},
+			[]string{"WORDS"},
 			[]string{"\x00\x00\x00\x00\x00"},
 			"board_with_starting_word.fixture",
 		},
 		{
 			"hook on left",
-			"test",
+			"TEST",
 			[2]int{6, 12},
 			false,
-			[]string{"test", "wordse"},
+			[]string{"TEST", "WORDSE"},
 			[]string{"l\x00l\x00", "\x00\x00\x00\x00\x00\x00"},
 			"board_with_starting_word.fixture",
 		},
 		{
 			"Add x to word",
-			"wordsx",
+			"WORDSX",
 			[2]int{7, 7},
 			true,
-			[]string{"wordsx"},
+			[]string{"WORDSX"},
 			[]string{"\x00\x00\x00\x00\x00\x00"},
 			"board_with_starting_word.fixture",
 		},

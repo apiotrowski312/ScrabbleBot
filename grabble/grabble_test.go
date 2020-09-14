@@ -38,6 +38,36 @@ func Test_PlaceWord(t *testing.T) {
 			"fresh_game.fixture",
 		},
 		{
+			"One round, with blank",
+			[]round{
+				{
+					"WORdS",
+					[2]int{7, 7},
+					true,
+					false,
+				},
+			},
+			"fresh_game.fixture",
+		},
+		{
+			"Two rounds with missing word in dictionary",
+			[]round{
+				{
+					"WORD",
+					[2]int{7, 7},
+					true,
+					false,
+				},
+				{
+					"TESTS",
+					[2]int{3, 11},
+					false,
+					true,
+				},
+			},
+			"fresh_game.fixture",
+		},
+		{
 			"Two rounds",
 			[]round{
 				{

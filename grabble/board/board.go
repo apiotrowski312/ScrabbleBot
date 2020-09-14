@@ -1,10 +1,17 @@
 package board
 
-import "github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+import (
+	"unicode"
+
+	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
+)
 
 type field struct {
 	Bonus  rune
 	Letter rune
+	Blank  bool
+	Round  int
+	Player string
 }
 
 // Board struct - simple 15x15 matrix representing state of board
@@ -101,21 +108,28 @@ func (b *Board) doesHookExist(word string, startPos [2]int) ([]rune, bool) {
 
 // PlaceWord - will place word on board. Function assumes that there is no conflicts on board.
 // If there will be any, it will overwrite existing letters.
-func (b *Board) PlaceWord(word string, startPos [2]int, horizontal bool) {
+func (b *Board) PlaceWord(word string, startPos [2]int, player string, round int, horizontal bool) {
 	if horizontal {
-		b.placeWord(word, startPos)
+		b.placeWord(word, startPos, player, round)
 	} else {
 		tb := b.TransposeBoard()
-		tb.placeWord(word, [2]int{startPos[1], startPos[0]})
+		tb.placeWord(word, [2]int{startPos[1], startPos[0]}, player, round)
 	}
 }
 
-// TODO: Blank - placeWord need new flag (if blank and where)
-// Do not place letter if it is already places
-// Add information aboyt round and who put it
-func (b *Board) placeWord(word string, startPos [2]int) {
+func (b *Board) placeWord(word string, startPos [2]int, player string, round int) {
 	for i, letter := range word {
-		b[startPos[0]][startPos[1]+i].Letter = letter
+		if b[startPos[0]][startPos[1]+i].Letter == rune(0) {
+			// MAYBE: Should it be UpperCase in case of blank?
+			b[startPos[0]][startPos[1]+i].Letter = letter
+			b[startPos[0]][startPos[1]+i].Player = player
+			b[startPos[0]][startPos[1]+i].Round = round
+
+			// Blank uses lowercase letters to different them from normal letters.
+			if unicode.IsLower(letter) {
+				b[startPos[0]][startPos[1]+i].Blank = true
+			}
+		}
 	}
 }
 

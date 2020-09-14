@@ -174,7 +174,7 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors[string(cell.Bonus)])
 			}
 			img.drawBonus(x*rectSize+5, y*rectSize+9, cell.Bonus)
-			img.drawLetter(x*rectSize+2, y*rectSize+2, cell.Letter)
+			img.drawLetter(x*rectSize+2, y*rectSize+2, unicode.ToUpper(cell.Letter))
 		}
 	}
 

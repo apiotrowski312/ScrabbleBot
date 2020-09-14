@@ -19,7 +19,7 @@ func Test_CreateBag(t *testing.T) {
 	test := []testCase{
 		{
 			"Bag of tiles",
-			[]rune("abcdefghijklmnoprstuwxyz"),
+			[]rune("ABCDEFGHIJKLMNOPRSTUWXYZ"),
 		},
 	}
 
@@ -44,30 +44,30 @@ func Test_CreateLettersPoint(t *testing.T) {
 		{
 			"Letter values",
 			map[rune]int{
-				'a': 1,
-				'b': 1,
-				'c': 1,
-				'd': 2,
-				'e': 2,
-				'f': 2,
-				'g': 3,
-				'h': 3,
-				'i': 3,
-				'j': 4,
-				'k': 4,
-				'l': 4,
-				'm': 1,
-				'n': 1,
-				'o': 1,
-				'p': 2,
-				'r': 2,
-				's': 2,
-				't': 3,
-				'u': 3,
-				'w': 3,
-				'x': 4,
-				'y': 4,
-				'z': 4,
+				'A': 1,
+				'B': 1,
+				'C': 1,
+				'D': 2,
+				'E': 2,
+				'F': 2,
+				'G': 3,
+				'H': 3,
+				'I': 3,
+				'J': 4,
+				'K': 4,
+				'L': 4,
+				'M': 1,
+				'N': 1,
+				'O': 1,
+				'P': 2,
+				'R': 2,
+				'S': 2,
+				'T': 3,
+				'U': 3,
+				'W': 3,
+				'X': 4,
+				'Y': 4,
+				'Z': 4,
 			},
 		},
 	}
@@ -93,7 +93,7 @@ func Test_DrawLetters(t *testing.T) {
 	test := []testCase{
 		{
 			"Bag of tiles",
-			[]rune("abcdefghijklmnoprstuw"),
+			[]rune("ABCDEFGHIJKLMNOPRSTUW"),
 			5,
 		},
 	}
@@ -117,13 +117,13 @@ func Test_ChangeLetters(t *testing.T) {
 	test := []testCase{
 		{
 			"Change 3 letters",
-			[]rune("abcdefghijklmnoprstuw"),
-			[]rune("qwe"),
+			[]rune("ABCDEFGHIJKLMNOPRSTUW"),
+			[]rune("QWE"),
 		},
 		{
 			"Empty bag",
 			[]rune(""),
-			[]rune("qawsedrf"),
+			[]rune("QAWSEDRF"),
 		},
 		{
 			"Empty bag, changing no letters",
@@ -152,13 +152,31 @@ func Test_GetPoints(t *testing.T) {
 	test := []testCase{
 		{
 			"One word",
-			[]string{"words"},
+			[]string{"WORDS"},
 			[]string{"0W000"},
 			30,
 		},
 		{
+			"Starting Point",
+			[]string{"WORDS"},
+			[]string{"0s000"},
+			20,
+		},
+		{
+			"Blank test, word bonus",
+			[]string{"WoRDS"},
+			[]string{"0w000"},
+			18,
+		},
+		{
+			"Blank test, letter bonus",
+			[]string{"WoRDS"},
+			[]string{"0L000"},
+			9,
+		},
+		{
 			"Multiple word",
-			[]string{"words", "test", "biling"},
+			[]string{"WORDS", "TEST", "BILING"},
 			[]string{"0W0W0", "00L0", "00W000"},
 			149,
 		},

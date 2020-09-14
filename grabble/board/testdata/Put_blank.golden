@@ -9,31 +9,31 @@
 		},
 		{
 			"Bonus": 119,
-			"Letter": 79,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
-			"Letter": 82,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 68,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 83,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 87,
@@ -109,38 +109,38 @@
 	[
 		{
 			"Bonus": 108,
-			"Letter": 87,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 76,
 			"Letter": 79,
 			"Blank": false,
 			"Round": 0,
 			"Player": "none"
 		},
 		{
-			"Bonus": 0,
-			"Letter": 82,
+			"Bonus": 76,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		},
 		{
 			"Bonus": 108,
-			"Letter": 68,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 76,
-			"Letter": 83,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
@@ -216,45 +216,10 @@
 	[
 		{
 			"Bonus": 87,
-			"Letter": 87,
-			"Blank": false,
+			"Letter": 114,
+			"Blank": true,
 			"Round": 0,
 			"Player": "none"
-		},
-		{
-			"Bonus": 119,
-			"Letter": 79,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 87,
-			"Letter": 82,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 68,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 83,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 87,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
 		},
 		{
 			"Bonus": 119,
@@ -318,37 +283,151 @@
 			"Blank": false,
 			"Round": 0,
 			"Player": ""
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 119,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 87,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
 		}
 	],
 	[
 		{
 			"Bonus": 0,
-			"Letter": 87,
-			"Blank": false,
+			"Letter": 100,
+			"Blank": true,
 			"Round": 0,
 			"Player": "none"
 		},
 		{
 			"Bonus": 0,
-			"Letter": 79,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 82,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 68,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		},
+		{
+			"Bonus": 0,
+			"Letter": 0,
+			"Blank": false,
+			"Round": 0,
+			"Player": ""
+		}
+	],
+	[
 		{
 			"Bonus": 0,
 			"Letter": 83,
@@ -425,85 +504,6 @@
 			"Blank": false,
 			"Round": 0,
 			"Player": ""
-		}
-	],
-	[
-		{
-			"Bonus": 0,
-			"Letter": 87,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 79,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 82,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 68,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 83,
-			"Blank": false,
-			"Round": 0,
-			"Player": "none"
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
-		},
-		{
-			"Bonus": 0,
-			"Letter": 0,
-			"Blank": false,
-			"Round": 0,
-			"Player": ""
 		},
 		{
 			"Bonus": 0,
@@ -537,38 +537,38 @@
 	[
 		{
 			"Bonus": 0,
-			"Letter": 87,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 79,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 82,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 68,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,
-			"Letter": 83,
+			"Letter": 0,
 			"Blank": false,
 			"Round": 0,
-			"Player": "none"
+			"Player": ""
 		},
 		{
 			"Bonus": 0,

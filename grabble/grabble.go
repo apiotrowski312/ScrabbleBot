@@ -97,7 +97,7 @@ func (g *Grabble) PlaceWord(word string, startPos [2]int, horizontal bool) error
 		return err
 	}
 
-	g.Board.PlaceWord(word, startPos, horizontal)
+	g.Board.PlaceWord(word, startPos, g.CurrentPlayer().Name, g.Stats.CurrentRound, horizontal)
 	g.CurrentPlayer().AddPoints(points)
 	log.Infof("Player %v placed word %v(cords:%v, horizontal: %v) on the board. Sum value of %v points", g.CurrentPlayer(), word, startPos, horizontal, points)
 	g.shouldGameEnd()
@@ -182,6 +182,7 @@ func (g *Grabble) shouldGameEnd() {
 
 }
 
+// FIXME: Change naming of this function
 func (g *Grabble) nextRound(roundPassed bool) {
 	if roundPassed {
 		g.passedTurnInARow++

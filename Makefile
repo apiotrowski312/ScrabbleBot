@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 DOCKER_TEST_COMMAND=docker run --rm -v $(PWD):/gaddag golang:1.14 sh -c "cd /gaddag; go mod download;
-COLOR_TEST_OUTPUT=sed ''/ok/s//$$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$$(printf "\033[31mFAIL\033[0m")/''
+COLOR_TEST_OUTPUT=sed ''/^ok/s//$$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$$(printf "\033[31mFAIL\033[0m")/''
 TEE_COMMAND=tee -a /tmp/results.tmp
 
 # -----------------------------------------------------------------------------

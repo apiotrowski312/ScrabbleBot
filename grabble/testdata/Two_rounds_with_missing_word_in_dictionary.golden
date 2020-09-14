@@ -829,10 +829,10 @@
 			},
 			{
 				"Bonus": 108,
-				"Letter": 83,
+				"Letter": 0,
 				"Blank": false,
 				"Round": 0,
-				"Player": "Olek"
+				"Player": ""
 			},
 			{
 				"Bonus": 0,
@@ -1609,15 +1609,15 @@
 	"Players": [
 		{
 			"Name": "Olek",
-			"Points": 20,
+			"Points": 16,
 			"Rack": [
+				83,
 				72,
 				95,
 				76,
 				95,
 				65,
-				82,
-				83
+				82
 			]
 		},
 		{
@@ -1693,6 +1693,7 @@
 		76,
 		76,
 		76,
+		83,
 		83,
 		83,
 		83,

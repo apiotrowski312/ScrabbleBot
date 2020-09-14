@@ -99,6 +99,8 @@ func (n *Node) IsWordValid(word string) (bool, error) {
 		word = word[:1] + "." + word[1:]
 	}
 
+	word = strings.ToUpper(word)
+
 	currentNode := n
 	var isOk bool
 	for _, letter := range word {

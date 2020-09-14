@@ -22,23 +22,23 @@ func Test_UpdateRack(t *testing.T) {
 	test := []testCase{
 		{
 			"Simple test",
-			[]rune("abcdefgh"),
-			[]rune("abc"),
-			[]rune("ijk"),
+			[]rune("ABCDEFGH"),
+			[]rune("ABC"),
+			[]rune("IJK"),
 			false,
 		},
 		{
 			"Test with multiple sameletters",
-			[]rune("aabccdde"),
-			[]rune("abc"),
-			[]rune("iak"),
+			[]rune("AABCCDDE"),
+			[]rune("ABC"),
+			[]rune("IAK"),
 			false,
 		},
 		{
 			"Test with letter that not exist in rack",
-			[]rune("abcdefgh"),
-			[]rune("xyz"),
-			[]rune("ijk"),
+			[]rune("ABCDEFGH"),
+			[]rune("XYZ"),
+			[]rune("IJK"),
 			true,
 		},
 	}
@@ -68,6 +68,9 @@ func Test_AreLettersInRack(t *testing.T) {
 		{"Easy rack", []rune("ABCDEF"), []rune("ABC"), false},
 		{"To much A letter", []rune("ABCDEF"), []rune("ABCA"), true},
 		{"Check for double letters", []rune("ABBA"), []rune("BABA"), false},
+		{"Missing letters in rack", []rune("BA"), []rune("ABBA"), true},
+		{"Blanks in rack", []rune("TE__"), []rune("TEst"), false},
+		{"One blank only in rack", []rune("TE_"), []rune("TEst"), true},
 	}
 
 	for _, c := range test {
