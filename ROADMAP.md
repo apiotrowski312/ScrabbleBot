@@ -4,15 +4,12 @@
 
 - [ ] Add blanks (it will require a lot of work I guess)
 - [ ] Add two more functions for word search
-  - [ ] Find all words, when hook from strange place (like eg. WORD and adding S would be connecting point)
 - [ ] Fix current function with searching for words. Make it easier to use
-- [ ] Add comments to all exported functions
-
+- [ ] Add checker to be sure all letter are capital letters.
 
 Trace level - info about e.g function calls
 Debug level - info about expected errors
 Info - info about placed word, winner etc
-
 
 1. Make it possible to search for Hooks type 3 (how?)
 2. Add more inteligence to "AI". It should know that it's better to gain less points and use hard letters.

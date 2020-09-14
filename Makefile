@@ -52,7 +52,6 @@ _e-run-100:
 _e-run-X:
 	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -times=$(NUM) -loglevel=panic" | ${TEE_COMMAND}
 
-
 e-run: ## Run example game
 	@rm -f $(PWD)/exampleGame/img/*.png
 	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -screenshot -winshot -loglevel=info"

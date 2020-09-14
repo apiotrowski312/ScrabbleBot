@@ -111,6 +111,8 @@ func (b *Board) PlaceWord(word string, startPos [2]int, horizontal bool) {
 }
 
 // TODO: Blank - placeWord need new flag (if blank and where)
+// Do not place letter if it is already places
+// Add information aboyt round and who put it
 func (b *Board) placeWord(word string, startPos [2]int) {
 	for i, letter := range word {
 		b[startPos[0]][startPos[1]+i].Letter = letter
