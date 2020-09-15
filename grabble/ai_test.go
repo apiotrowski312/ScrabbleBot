@@ -2,6 +2,7 @@ package grabble_test
 
 import (
 	"fmt"
+	"sort"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -34,9 +35,10 @@ func Test_PickBectWord(t *testing.T) {
 			"",
 		},
 		{
-			"Get best word - 2",
+			"Get best word 2",
 			[]expectedWord{
-				{points: 34, cords: [2]int{2, 7}, word: "SHROWD", horizontal: false},
+				{points: 84, cords: [2]int{2, 7}, word: "WORDiSH", horizontal: false},
+				{points: 84, cords: [2]int{2, 7}, word: "SHROWeD", horizontal: false},
 			},
 			"../fixtures/fresh_game.fixture",
 			"../fixtures/collins_official_scrabble_2019.txt",
@@ -52,7 +54,12 @@ func Test_PickBectWord(t *testing.T) {
 				game.Dict = *gaddagRoot
 			}
 
-			words := game.PickBestWord(1)
+			words := game.PickBestWord(len(c.expectedWords))
+
+			sort.Slice(words, func(i, j int) bool {
+				return words[i].Word > words[j].Word
+			})
+
 			for i, word := range words {
 				errMessage := fmt.Sprintf("Wrong word is %v, index %v", word.Word, i)
 				assert.Equal(t, c.expectedWords[i].word, word.Word, errMessage)

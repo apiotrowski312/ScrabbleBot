@@ -23,6 +23,7 @@ var (
 		"L":      {102, 102, 255, 255},
 		"s":      {204, 255, 204, 255},
 		"":       {0, 0, 0, 255},
+		"blank":  {120, 120, 0, 255},
 	}
 )
 
@@ -172,6 +173,9 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 			img.rect(x*rectSize, y*rectSize, x*rectSize+rectSize, y*rectSize+rectSize, colors["letter"])
 			if cell.Bonus != rune(0) {
 				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors[string(cell.Bonus)])
+			}
+			if unicode.IsLower(cell.Letter) {
+				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors["blank"])
 			}
 			img.drawBonus(x*rectSize+5, y*rectSize+9, cell.Bonus)
 			img.drawLetter(x*rectSize+2, y*rectSize+2, unicode.ToUpper(cell.Letter))

@@ -5,10 +5,14 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sort"
 	"strings"
+	"unicode"
 
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
+
+const blankLetters = "EAIONRTLSUUDGBCMPFHVWYKJXQZ"
 
 func removeDuplicatesUnordered(elements []string) []string {
 	encountered := map[string]bool{}
@@ -27,9 +31,35 @@ func removeDuplicatesUnordered(elements []string) []string {
 // Function will find all words based od available letters and already existing one.
 // Passed row have to have at least one word inside. This algorithm works only with existing hook.
 func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
-	newLetters := append(letters, '.')
+	newLetters := append([]rune{}, append(letters, '.')...)
 
-	words := n.getAllOk(row[hookIndex], hookIndex, newLetters, row, hookIndex)
+	sort.Slice(newLetters, func(i, j int) bool {
+		return newLetters[i] < newLetters[j]
+	})
+
+	var words []string
+	if i := strings.Index(string(newLetters), "_"); i == -1 {
+		words = n.getAllOk(row[hookIndex], hookIndex, newLetters, row, hookIndex)
+	} else {
+		lettersExceptBlanks := newLetters[:i]
+		numOfBlanks := len(newLetters) - i
+
+		permutation := []rune{}
+		for a := 1; a <= numOfBlanks; a++ {
+			permutation = append(permutation, 'a')
+		}
+
+		var err error
+		for {
+			permutationLetters := append(append([]rune{}, lettersExceptBlanks...), permutation...)
+			wordsFromPermutation := n.getAllOk(row[hookIndex], hookIndex, permutationLetters, row, hookIndex)
+			words = append(words, wordsFromPermutation...)
+			if permutation, err = GetNextPermutation(permutation); err != nil {
+				break
+			}
+		}
+	}
+
 	return removeDuplicatesUnordered(words)
 }
 
@@ -40,7 +70,7 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 		return nil
 	}
 
-	hookNode, isOk := n.get(currentLetter)
+	hookNode, isOk := n.get(unicode.ToUpper(currentLetter))
 	if !isOk {
 		return nil
 	}
@@ -154,6 +184,7 @@ func CreateGraph(filename string) (*Node, error) {
 	return root, nil
 }
 
+// FIXME: Add blank support
 func (n *Node) FindWords(letters []rune) []string {
 	letters = append(letters, '.')
 
@@ -178,4 +209,17 @@ func (n *Node) findWords(letters []rune) []string {
 	}
 
 	return words
+}
+
+func GetNextPermutation(permutation []rune) ([]rune, error) {
+	for i := range permutation {
+		if permutation[i] == 'z' {
+			permutation[i] = 'a'
+		} else {
+			permutation[i]++
+			return permutation, nil
+		}
+	}
+
+	return []rune{}, fmt.Errorf("Next permutation not exists")
 }

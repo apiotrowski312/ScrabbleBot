@@ -79,6 +79,9 @@ func Test_FindAllWords(t *testing.T) {
 			{"with exisitng letters on right", 3, []rune{rune(0), rune(0), rune(0), 'D', 'S'}, []rune("WOR")},
 			{"with exisitng letters combo", 3, []rune{'W', rune(0), rune(0), 'D', 'S'}, []rune("OR")},
 			{"hook is beetwen other letters", 3, []rune{'W', rune(0), 'R', 'D', 'S'}, []rune("OR")},
+			{"1 blank", 0, []rune{'W', rune(0), rune(0), rune(0)}, []rune("OR_")},
+			{"4 blanks", 0, []rune{'W', rune(0), rune(0), rune(0), rune(0)}, []rune("____")},
+			{"Blank as a hook", 0, []rune{'w', rune(0), rune(0), rune(0), rune(0)}, []rune("ORD")},
 		}
 
 		for _, c := range cases {
@@ -86,7 +89,7 @@ func Test_FindAllWords(t *testing.T) {
 				var expectedWords []string
 				words := gaddagRoot.FindAllWords(c.hookIndex, c.row, c.letters)
 				sort.Strings(words)
-				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "old/Small_dictionary/"+c.name, *update)
+				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Small_dictionary/"+c.name, *update)
 
 				assert.Equal(t, expectedWords, words)
 			})
@@ -106,6 +109,11 @@ func Test_FindAllWords(t *testing.T) {
 			{"Check if DO will be find", 7, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'D', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("VOQFEII")},
 			{"Check if LONE will be find", 8, []rune{rune(0), rune(0), rune(0), 'R', rune(0), rune(0), 'H', rune(0), 'L', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("IQEIOCN")},
 			{"Debug wrong matches for MAGOT", 3, []rune{rune(0), rune(0), rune(0), 'M', 'A', 'G', 'O', 'T', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("TEICIEI")},
+			{"Debug wrong matches for MAGOT, blank letters", 3, []rune{rune(0), rune(0), rune(0), 'm', 'a', 'g', 'o', 't', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("TEICIEI")},
+			{"Look for words with blank", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'W'}, []rune("ORD_")},
+			{"7 letters with existing board and blank", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'B', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WS_ARED")},
+			{"7 letters with existing board and 3 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'B', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WS_A__D")},
+			{"7 letters with existing board and 3 blanks. Blank as hook", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'b', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WS_A__D")},
 		}
 
 		for _, c := range cases {
@@ -113,7 +121,7 @@ func Test_FindAllWords(t *testing.T) {
 				var expectedWords []string
 				words := gaddagRoot.FindAllWords(c.hookIndex, c.row, c.letters)
 				sort.Strings(words)
-				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "old/Full_dictionary/"+c.name, *update)
+				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Full_dictionary/"+c.name, *update)
 
 				assert.Equal(t, expectedWords, words)
 			})
@@ -142,6 +150,31 @@ func Test_FindWords(t *testing.T) {
 			test_utils.GetGoldenFileJSON(t, words, &expectedWords, t.Name()+c.name, *update)
 
 			assert.Equal(t, expectedWords, words)
+		})
+	}
+}
+
+func Test_GetNextPermutation(t *testing.T) {
+	type testCase struct {
+		name                string
+		permutation         []rune
+		expectedPermutation []rune
+		err                 bool
+	}
+	cases := []testCase{
+		{"One letter permutation", []rune("a"), []rune("b"), false},
+		{"One letter permutation", []rune("z"), []rune{}, true},
+		{"Three letter permutation", []rune("aaa"), []rune("baa"), false},
+		{"Three letter permutation 1", []rune("zaa"), []rune("aba"), false},
+		{"Three letter permutation 2", []rune("zza"), []rune("aab"), false},
+		{"Three letter permutation with error", []rune("zzz"), []rune{}, true},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			permutation, err := gaddag.GetNextPermutation(c.permutation)
+			assert.Equal(t, c.expectedPermutation, permutation)
+			assert.Equal(t, c.err, err != nil)
 		})
 	}
 }
@@ -181,8 +214,15 @@ func Benchmark_FindAllWords(b *testing.B) {
 		{"5 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ODRS")},
 		{"12 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("INCOGRAPHER")},
 		{"15 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'O', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ICARDEHARTETIS")},
+		{"5 letters + 2 blanks", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("AILNR__")},
+		{"6 letters + 2 blanks", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("AEILNR__")},
 		{"8 letters", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'Z', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("AEILNRST")},
 		{"7 letters with existring board", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSARED")},
+		{"7 letters with existring board. 1 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSARE_")},
+		{"7 letters with existring board. 2 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSAR__")},
+		{"7 letters with existring board. 3 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSA___")},
+		{"7 letters with existring board. 4 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSS____")},
+		{"15 letters. 1 blanks", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'O', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ICARDEHARTETI_")},
 	}
 
 	for _, c := range cases {

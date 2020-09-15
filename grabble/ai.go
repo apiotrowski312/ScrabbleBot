@@ -59,6 +59,9 @@ func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 				// This is Hook type 3
 			} else if board[x][y].Letter == rune(0) && ((x <= 0 || board[x-1][y].Letter != rune(0)) || (x >= 14 || board[x+1][y].Letter != rune(0))) {
 				// FIXME: Create proper solution for this case
+				// There is no point of looking for a word, if we wont be able to do a word with
+				// Lower/higher already exisitng word. Follwoing sollution is good enought
+				// only for now
 				for i, l := range rack {
 					rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
 					sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)

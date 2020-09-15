@@ -210,6 +210,15 @@ func Test_DoesHookExist(t *testing.T) {
 			[]rune{},
 			"board_with_starting_word.fixture",
 		},
+		{
+			"hook on left, blank used",
+			"WOrDS",
+			[2]int{6, 12},
+			false,
+			true,
+			[]rune{'W', 'O', 'r', 'D', 'S'},
+			"board_with_starting_word.fixture",
+		},
 	}
 
 	for _, c := range test {

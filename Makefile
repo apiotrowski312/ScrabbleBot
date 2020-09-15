@@ -9,6 +9,7 @@ DOCKER_TEST_COMMAND=docker run --rm -v $(PWD):/gaddag golang:1.14 sh -c "cd /gad
 COLOR_TEST_OUTPUT=sed ''/^ok/s//$$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$$(printf "\033[31mFAIL\033[0m")/''
 TEE_COMMAND=tee -a /tmp/results.tmp
 
+_MAKE=$(MAKE) --no-print-directory 
 # -----------------------------------------------------------------------------
 # Tests
 # -----------------------------------------------------------------------------
@@ -33,31 +34,30 @@ help: ## Show this help.
 # Commands for example game
 # -----------------------------------------------------------------------------
 
-e-get-average: ## Get average points from log file
+_game-get-average: ## Get average points from log file
 	@cat /tmp/results.tmp | awk '{ sum += $$7 } END { if (NR > 0) print "Average winning points: " sum / NR }'
 
-e-get-average-player: ## Get average player winner
+_game-get-average-player: ## Get average player winner
 	@cat /tmp/results.tmp | awk '{ sum += $$5 } END { if (NR > 0) print "Average winning player: " sum / NR }'
 
-e-clean:
+_game-run-X:
+	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -times=$(NUM) -winshot -loglevel=info" | ${TEE_COMMAND}
+
+game-clean:
 	@rm -f $(PWD)/exampleGame/img/*.png
 	@rm /tmp/results.tmp
 
-_e-run-10:
-	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -times=10 -loglevel=panic" | ${TEE_COMMAND}
-
-_e-run-100:
-	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -times=100 -loglevel=panic" | ${TEE_COMMAND}
-
-_e-run-X:
-	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -times=$(NUM) -loglevel=panic" | ${TEE_COMMAND}
-
-e-run: ## Run example game
+game-run: ## Run example game
 	@rm -f $(PWD)/exampleGame/img/*.png
-	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -screenshot -winshot -loglevel=info"
+	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -screenshot -winshot -loglevel=panic"
 
-e-run-10: _e-run-10 e-get-average e-get-average-player ## run 10 example games
+game-run-X: ## run X example games. Pass NUM=XXX
+	@${_MAKE} _game-run-X
+	@${_MAKE} _game-get-average 
+	@${_MAKE} _game-get-average-player
 
-e-run-100: _e-run-100 e-get-average e-get-average-player ## run 100 example games
+game-run-10:
+	@${_MAKE} _game-run-X NUM=10	
 
-e-run-X: _e-run-X e-get-average e-get-average-player ## run X example games. Pass NUM=XXX
+game-run-100:
+	@${_MAKE} _game-run-X NUM=100	

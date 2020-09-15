@@ -22,7 +22,7 @@ func Game() {
 	for x := 0; x < *loopNumber; x++ {
 		game := grabble.CreateDefaultGame([]string{"Bot 1", "Bot 2"})
 		for !game.Stats.Finished {
-			bestWords := game.PickBestWord(50)
+			bestWords := game.PickBestWord(500)
 			wordPlaced := false
 			for _, word := range bestWords {
 				err := game.PlaceWord(word.Word, word.Cords, word.Horizontal)
@@ -42,7 +42,7 @@ func Game() {
 		if *winnerScreenshot == true {
 			img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/finished-%v.png", time.Now().UnixNano()))
 		}
-		fmt.Printf("%v - Winner: %v\tPoints: %v\t Turns: %v\n", time.Now().UnixNano(), game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
+		fmt.Printf("%v - Winner: %v\tPoints: %v\t Turns: %v\n", time.Now().Format("2006-01-02_15:04:05.000000"), game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 	}
 
 }

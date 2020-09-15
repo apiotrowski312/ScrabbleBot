@@ -34,6 +34,10 @@ func (p *Player) removeFromRack(lettersToRemove []rune) error {
 	}
 
 	for _, l := range lettersToRemove {
+		if unicode.IsLower(l) {
+			l = '_'
+		}
+
 		for i := range p.Rack {
 			if p.Rack[i] == l {
 				p.Rack = append(p.Rack[:i], p.Rack[i+1:]...)

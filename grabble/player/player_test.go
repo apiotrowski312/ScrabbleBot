@@ -41,6 +41,13 @@ func Test_UpdateRack(t *testing.T) {
 			[]rune("IJK"),
 			true,
 		},
+		{
+			"Test removing blanks",
+			[]rune("ABCDE___"),
+			[]rune("abc"),
+			[]rune("IJK"),
+			false,
+		},
 	}
 
 	for _, c := range test {
