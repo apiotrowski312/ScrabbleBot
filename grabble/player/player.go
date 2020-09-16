@@ -62,7 +62,6 @@ func (p *Player) MinusPoints(points int) {
 }
 
 // AreLettersInRack - iterate over all letters and check if all are in user Rack
-// TODO: Blank - how to check if blank letter were used?
 func (p *Player) AreLettersInRack(letters []rune) error {
 	alreadyChecked := make(map[int]bool)
 

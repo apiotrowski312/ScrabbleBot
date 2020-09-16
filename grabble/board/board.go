@@ -1,15 +1,12 @@
 package board
 
 import (
-	"unicode"
-
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
 )
 
 type field struct {
 	Bonus  rune
 	Letter rune
-	Blank  bool
 	Round  int
 	Player string
 }
@@ -63,8 +60,7 @@ func (b *Board) DoesHookExist(word string, startPos [2]int, horizontal bool) ([]
 func (b *Board) doesHookExist(word string, startPos [2]int) ([]rune, bool) {
 	hook := false
 
-	// FIXME: Avoid hardcodeing numbers like 15. What number is that?
-	if startPos[1]+len(word) >= 15 || startPos[1] < 0 {
+	if startPos[1]+len(word) >= len(b) || startPos[1] < 0 {
 		return []rune{}, false
 	}
 
@@ -120,21 +116,14 @@ func (b *Board) PlaceWord(word string, startPos [2]int, player string, round int
 func (b *Board) placeWord(word string, startPos [2]int, player string, round int) {
 	for i, letter := range word {
 		if b[startPos[0]][startPos[1]+i].Letter == rune(0) {
-			// MAYBE: Should it be UpperCase in case of blank?
 			b[startPos[0]][startPos[1]+i].Letter = letter
 			b[startPos[0]][startPos[1]+i].Player = player
 			b[startPos[0]][startPos[1]+i].Round = round
-
-			// Blank uses lowercase letters to different them from normal letters.
-			if unicode.IsLower(letter) {
-				b[startPos[0]][startPos[1]+i].Blank = true
-			}
 		}
 	}
 }
 
 // GetAllWordsAndBonuses gets all new words(with bonuses) created with new placed word
-// TODO: Create Bench tests
 func (b *Board) GetAllWordsAndBonuses(word string, startPos [2]int, horizontal bool) ([]string, []string) {
 	if horizontal {
 		return b.getAllWordsAndBonuses(word, startPos)
@@ -144,8 +133,6 @@ func (b *Board) GetAllWordsAndBonuses(word string, startPos [2]int, horizontal b
 	return tb.getAllWordsAndBonuses(word, [2]int{startPos[1], startPos[0]})
 }
 
-// TODO: Blank - blank should have 0 points.
-// Maybe add bool variable to field to mark if blank was used here?
 func (b *Board) getAllWordsAndBonuses(word string, startPos [2]int) ([]string, []string) {
 	words := []string{word}
 	bonuses := []string{""}

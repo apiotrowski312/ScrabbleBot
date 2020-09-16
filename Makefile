@@ -34,10 +34,10 @@ help: ## Show this help.
 # Commands for example game
 # -----------------------------------------------------------------------------
 
-_game-get-average: ## Get average points from log file
+game-get-average: ## Get average points from log file
 	@cat /tmp/results.tmp | awk '{ sum += $$7 } END { if (NR > 0) print "Average winning points: " sum / NR }'
 
-_game-get-average-player: ## Get average player winner
+game-get-average-player: ## Get average player winner
 	@cat /tmp/results.tmp | awk '{ sum += $$5 } END { if (NR > 0) print "Average winning player: " sum / NR }'
 
 _game-run-X:
@@ -53,11 +53,11 @@ game-run: ## Run example game
 
 game-run-X: ## run X example games. Pass NUM=XXX
 	@${_MAKE} _game-run-X
-	@${_MAKE} _game-get-average 
-	@${_MAKE} _game-get-average-player
+	@${_MAKE} game-get-average 
+	@${_MAKE} game-get-average-player
 
-game-run-10:
+game-10: ## run 10 example games.
 	@${_MAKE} _game-run-X NUM=10	
 
-game-run-100:
+game-100: ## run 100 example games.
 	@${_MAKE} _game-run-X NUM=100	

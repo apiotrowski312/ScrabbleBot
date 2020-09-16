@@ -28,10 +28,6 @@ type Grabble struct {
 	Stats gameStats
 }
 
-// FIXME: You cant place word with hook like this (W in SW would be a hook):
-// WORDS
-//     WORDS
-
 // Simple singleton. Just for testing purposes as it would take a lot of time to generate graph
 // e.g. 1000 times
 var gaddagFullGraph *gaddag.Node

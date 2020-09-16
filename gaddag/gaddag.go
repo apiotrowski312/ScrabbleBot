@@ -102,12 +102,19 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 		return nil
 	}
 
-	// FIXME: There is no point in checking for smth else than dot in -1
 	if newLetterIndex >= 0 && row[newLetterIndex] != rune(0) {
 		newWords := hookNode.getAllOk(row[newLetterIndex], newLetterIndex, lettersToUse, row, hookIndex)
 		for _, w := range newWords {
 			partialWords = append(partialWords, string(currentLetter)+w)
 		}
+	} else if newLetterIndex == -1 && lettersToUse[0] == '.' {
+		lettersForIteration := append(append([]rune{}, lettersToUse[:0]...), lettersToUse[1:]...)
+		newWords := hookNode.getAllOk('.', newLetterIndex, lettersForIteration, row, hookIndex)
+
+		for _, w := range newWords {
+			partialWords = append(partialWords, string(currentLetter)+w)
+		}
+
 	} else {
 		for i, l := range lettersToUse {
 			lettersForIteration := append(append([]rune{}, lettersToUse[:i]...), lettersToUse[i+1:]...)
@@ -184,7 +191,6 @@ func CreateGraph(filename string) (*Node, error) {
 	return root, nil
 }
 
-// FIXME: Add blank support
 func (n *Node) FindWords(letters []rune) []string {
 	letters = append(letters, '.')
 
