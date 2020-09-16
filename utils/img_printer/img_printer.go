@@ -15,15 +15,16 @@ var (
 	rectSize   = 15
 	screenSize = [2]int{350, 226}
 	colors     = map[string]color.RGBA{
-		"letter": {0, 0, 0, 255},
-		"tile":   {255, 255, 255, 255},
-		"w":      {204, 255, 204, 255},
-		"W":      {102, 255, 102, 255},
-		"l":      {204, 204, 255, 255},
-		"L":      {102, 102, 255, 255},
-		"s":      {204, 255, 204, 255},
-		"":       {0, 0, 0, 255},
-		"blank":  {120, 120, 0, 255},
+		"letter":     {0, 0, 0, 255},
+		"tile":       {255, 255, 255, 255},
+		"w":          {245, 184, 225, 255},
+		"W":          {250, 72, 192, 255},
+		"l":          {143, 227, 242, 255},
+		"L":          {38, 185, 212, 255},
+		"s":          {245, 184, 225, 255},
+		"":           {0, 0, 0, 255},
+		"blank":      {189, 191, 130, 255},
+		"tileLetter": {235, 237, 187, 255},
 	}
 )
 
@@ -171,12 +172,14 @@ func PrintScreenBoard(g grabble.Grabble, imgName string) {
 	for y, row := range g.Board {
 		for x, cell := range row {
 			img.rect(x*rectSize, y*rectSize, x*rectSize+rectSize, y*rectSize+rectSize, colors["letter"])
-			if cell.Bonus != rune(0) {
-				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors[string(cell.Bonus)])
-			}
 			if unicode.IsLower(cell.Letter) {
 				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors["blank"])
+			} else if unicode.IsUpper(cell.Letter) {
+				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors["tileLetter"])
+			} else if cell.Bonus != rune(0) {
+				img.fullRect(x*rectSize+1, y*rectSize+1, x*rectSize+rectSize-1, y*rectSize+rectSize, colors[string(cell.Bonus)])
 			}
+
 			img.drawBonus(x*rectSize+5, y*rectSize+9, cell.Bonus)
 			img.drawLetter(x*rectSize+2, y*rectSize+2, unicode.ToUpper(cell.Letter))
 		}
