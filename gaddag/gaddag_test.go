@@ -165,8 +165,10 @@ func Test_GetNextPermutation(t *testing.T) {
 		{"One letter permutation", []rune("a"), []rune("b"), false},
 		{"One letter permutation", []rune("z"), []rune{}, true},
 		{"Three letter permutation", []rune("aaa"), []rune("baa"), false},
-		{"Three letter permutation 1", []rune("zaa"), []rune("aba"), false},
-		{"Three letter permutation 2", []rune("zza"), []rune("aab"), false},
+		{"Three letter permutation 1", []rune("zaa"), []rune("bba"), false},
+		{"Three letter permutation 2", []rune("zza"), []rune("bbb"), false},
+		{"Three letter permutation 3", []rune("cza"), []rune("dza"), false},
+		{"Three letter permutation 4", []rune("azz"), []rune("bzz"), false},
 		{"Three letter permutation with error", []rune("zzz"), []rune{}, true},
 	}
 

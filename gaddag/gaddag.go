@@ -217,10 +217,16 @@ func (n *Node) findWords(letters []rune) []string {
 	return words
 }
 
+// FIXME: I can trim it by half
 func GetNextPermutation(permutation []rune) ([]rune, error) {
 	for i := range permutation {
 		if permutation[i] == 'z' {
-			permutation[i] = 'a'
+			for _, p := range permutation[i+1:] {
+				if p != 'z' {
+					permutation[i] = p + 1
+					break
+				}
+			}
 		} else {
 			permutation[i]++
 			return permutation, nil
