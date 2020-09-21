@@ -3,8 +3,10 @@ package grabble
 import (
 	"sort"
 	"strings"
+	"sync"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
+	"github.com/apiotrowski312/scrabbleBot/grabble/board"
 )
 
 // TODO: Function with starting word
@@ -22,8 +24,26 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 	log.Debugf("Rack: %s", string(g.CurrentPlayer().Rack))
 	rack := g.CurrentPlayer().Rack
 
-	wordsCollection := g.getWordCollection(rack, true)
-	wordsCollection = append(wordsCollection, g.getWordCollection(rack, false)...)
+	wordChan := make(chan []gaddagWord, 2)
+	var wg sync.WaitGroup
+	for _, h := range [2]bool{true, false} {
+		wg.Add(1)
+		go func(horizontal bool) {
+			defer wg.Done()
+			wc := g.getWordCollection(rack, horizontal)
+			if len(wc) > 0 {
+				wordChan <- wc
+			}
+		}(h)
+	}
+
+	wg.Wait()
+	close(wordChan)
+
+	wordsCollection := []gaddagWord{}
+	for w := range wordChan {
+		wordsCollection = append(wordsCollection, w...)
+	}
 
 	log.Debugf("Found %v words", len(wordsCollection))
 	sort.Slice(wordsCollection, func(i, j int) bool {
@@ -39,78 +59,125 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 	log.Debugf("getWordCollection called. Horizontal: %v", horizontal)
 
-	board := g.Board
+	board := &g.Board
 	if !horizontal {
-		board = *g.Board.TransposeBoard()
+		board = g.Board.TransposeBoard()
 	}
 
 	wordsCollection := []gaddagWord{}
 
-	for x, row := range board {
-		rowLetters := board.GetRowOfLetters(x)
-		for y := range row {
-			words := []string{}
-			// This is Hook type 1 or 2.
-			if board[x][y].Letter != rune(0) && (y == 0 || (y > 0 && board[x][y-1].Letter == rune(0))) {
-				log.Debugf("Hook found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
-				log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
-				words = g.Dict.FindAllWords(y, rowLetters, rack)
-				// This is Hook type 3
-			} else if board[x][y].Letter == rune(0) && ((x <= 0 || board[x-1][y].Letter != rune(0)) || (x >= 14 || board[x+1][y].Letter != rune(0))) {
-				// FIXME: Create proper solution for this case
-				// There is no point of looking for a word, if we wont be able to do a word with
-				// Lower/higher already exisitng word. Follwoing sollution is good enought
-				// only for now
-				for i, l := range rack {
-					rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
-					sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)
+	wordChan := make(chan []gaddagWord, len(board))
+	var wg sync.WaitGroup
 
-					words = append(words, sWords...)
-				}
-				// There is no hook. This is for starting round
-			} else if board[x][y].Bonus == 's' && board[x][y].Letter == rune(0) {
-				// HACK: Better and faster option will be create new function in gaddag to look for words without hook
-				for i, l := range rack {
-					rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
-					sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)
+	for x := range board {
+		wg.Add(1)
+		go func(x int) {
+			wc := []gaddagWord{}
 
-					words = append(words, sWords...)
-				}
+			for y := range board[x] {
+				wc = append(wc, g.getWordsFromATile(x, y, board, horizontal)...)
 			}
 
-			if len(words) != 0 {
-				log.Debugf("There is %v new words before counting points", len(words))
-				for _, w := range words {
-					normalizedWord, cords := prepareWordAndFixCords(w, [2]int{x, y}, horizontal)
-					log.Debugf("Before normalization %v %v", w, [2]int{x, y})
-					log.Debugf("After normalization %v %v", normalizedWord, cords)
-
-					letters, letterError := g.validateAndExtractUsedNewLetters(normalizedWord, cords, horizontal)
-					if letterError != nil {
-						log.Debugf("There was error after validatin word: %v. Error: %v", w, letterError)
-						continue
-					}
-
-					points, err := g.countPoints(normalizedWord, len(letters), cords, horizontal)
-
-					if err != nil {
-						log.Debugf("There was error after counting points for word: %v. Error: %v", w, err)
-						continue
-					}
-					wordsCollection = append(wordsCollection, gaddagWord{
-						Cords:      cords,
-						Word:       normalizedWord,
-						Horizontal: horizontal,
-						Points:     points},
-					)
-
-				}
-				log.Debugf("There is overall %v words after counting points", len(wordsCollection))
+			if len(wc) > 0 {
+				wordChan <- wc
 
 			}
-		}
+			wg.Done()
+		}(x)
+	}
+	wg.Wait()
+
+	close(wordChan)
+
+	for w := range wordChan {
+		wordsCollection = append(wordsCollection, w...)
 	}
 
+	return wordsCollection
+}
+
+func (g Grabble) getWordsFromATile(x, y int, board *board.Board, horizontal bool) []gaddagWord {
+	words := g.getWordFromAHook(x, y, board, horizontal)
+	var wordsCollection []gaddagWord
+	if len(words) > 0 {
+		wordsCollection = g.checkWord(words, x, y, horizontal)
+	}
+	return wordsCollection
+}
+
+func hookType1And2(x, y int, board *board.Board) bool {
+	return board[x][y].Letter != rune(0) && (y == 0 || (y > 0 && board[x][y-1].Letter == rune(0)))
+}
+
+func hookType3(x, y int, board *board.Board) bool {
+	return board[x][y].Letter == rune(0) && ((x <= 0 || board[x-1][y].Letter != rune(0)) || (x >= 14 || board[x+1][y].Letter != rune(0)))
+}
+
+func hookStarterTile(x, y int, board *board.Board) bool {
+	return board[x][y].Bonus == 's' && board[x][y].Letter == rune(0)
+}
+
+func (g Grabble) getWordFromAHook(x, y int, board *board.Board, horizontal bool) []string {
+	rack := g.CurrentPlayer().Rack
+	rowLetters := board.GetRowOfLetters(x)
+	words := []string{}
+	if hookType1And2(x, y, board) {
+		log.Debugf("Hook (type 1/2) found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
+		log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
+		words = g.Dict.FindAllWords(y, rowLetters, rack)
+	} else if hookType3(x, y, board) {
+		log.Debugf("Hook (type 3) found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
+		log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
+		// FIXME: Create proper solution for this case. There is no point of looking for a word, if we wont be able to do a word with
+		// Lower/higher already exisitng word. Follwoing sollution is good enough only for now
+		for i, l := range rack {
+			rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
+			sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)
+
+			words = append(words, sWords...)
+		}
+	} else if hookStarterTile(x, y, board) {
+		log.Debugf("Starting tile found %v(%v). Horizontal: %v", string(board[x][y].Letter), [2]int{x, y}, horizontal)
+		log.Debugf("Row for finding words %v, rack %v, hookIndex %v", rowLetters, rack, y)
+		for i, l := range rack {
+			rackForThisItteration := append(append([]rune{}, rack[:i]...), rack[i+1:]...)
+			sWords := g.Dict.FindAllWords(y, mockRowForStartingTile(y, l, rowLetters), rackForThisItteration)
+
+			words = append(words, sWords...)
+		}
+	}
+	return words
+}
+
+func (g Grabble) checkWord(words []string, x, y int, horizontal bool) []gaddagWord {
+	log.Debugf("There is %v new words before counting points", len(words))
+	wordsCollection := []gaddagWord{}
+	for _, w := range words {
+		normalizedWord, cords := prepareWordAndFixCords(w, [2]int{x, y}, horizontal)
+		log.Debugf("Before normalization %v %v", w, [2]int{x, y})
+		log.Debugf("After normalization %v %v", normalizedWord, cords)
+
+		letters, letterError := g.validateAndExtractUsedNewLetters(normalizedWord, cords, horizontal)
+		if letterError != nil {
+			log.Debugf("There was error after validatin word: %v. Error: %v", w, letterError)
+			continue
+		}
+
+		points, err := g.countPoints(normalizedWord, len(letters), cords, horizontal)
+
+		if err != nil {
+			log.Debugf("There was error after counting points for word: %v. Error: %v", w, err)
+			continue
+		}
+		wordsCollection = append(wordsCollection, gaddagWord{
+			Cords:      cords,
+			Word:       normalizedWord,
+			Horizontal: horizontal,
+			Points:     points},
+		)
+
+	}
+	log.Debugf("There is overall %v words after counting points", len(wordsCollection))
 	return wordsCollection
 }
 

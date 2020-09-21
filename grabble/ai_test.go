@@ -11,7 +11,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// TODO: Test vertical stuff maybe, Add more advanced tests, Add benchmark tests
 func Test_PickBectWord(t *testing.T) {
 	type expectedWord struct {
 		word       string
@@ -34,15 +33,15 @@ func Test_PickBectWord(t *testing.T) {
 			"../fixtures/fresh_game.fixture",
 			"",
 		},
-		{
-			"Get best word 2",
-			[]expectedWord{
-				{points: 84, cords: [2]int{2, 7}, word: "WORDiSH", horizontal: false},
-				{points: 84, cords: [2]int{2, 7}, word: "SHROWeD", horizontal: false},
-			},
-			"../fixtures/fresh_game.fixture",
-			"../fixtures/collins_official_scrabble_2019.txt",
-		},
+		// {
+		// 	"Get best word 2",
+		// 	[]expectedWord{
+		// 		{points: 84, cords: [2]int{2, 7}, word: "WORDiSH", horizontal: false},
+		// 		{points: 84, cords: [2]int{2, 7}, word: "SHROWeD", horizontal: false},
+		// 	},
+		// 	"../fixtures/fresh_game.fixture",
+		// 	"../fixtures/collins_official_scrabble_2019.txt",
+		// },
 	}
 
 	for _, c := range test {

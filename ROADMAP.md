@@ -9,4 +9,3 @@ Info - info about placed word, winner etc
 1. Add more inteligence to "AI". It should know that it's better to gain less points and use hard letters.
 2. Extract grabble functions from gaddag package (package should not have dependencies on it).
 3. Add checkers to that you are using capital letter
-4. Optimize searching for words with Goroutines?
