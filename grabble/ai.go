@@ -4,6 +4,7 @@ import (
 	"sort"
 	"strings"
 	"sync"
+	"unicode"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
 	"github.com/apiotrowski312/scrabbleBot/grabble/board"
@@ -16,6 +17,7 @@ type gaddagWord struct {
 	Cords      [2]int
 	Word       string
 	Horizontal bool
+	Ratio      float64
 }
 
 // PickBestWord returns best words for current player and board
@@ -47,7 +49,7 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 
 	log.Debugf("Found %v words", len(wordsCollection))
 	sort.Slice(wordsCollection, func(i, j int) bool {
-		return wordsCollection[i].Points > wordsCollection[j].Points
+		return wordsCollection[i].Ratio > wordsCollection[j].Ratio
 	})
 
 	if len(wordsCollection) < numberOfWords {
@@ -56,7 +58,7 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 	return wordsCollection[:numberOfWords]
 }
 
-func (g *Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
+func (g Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {
 	log.Debugf("getWordCollection called. Horizontal: %v", horizontal)
 
 	board := &g.Board
@@ -169,16 +171,36 @@ func (g Grabble) checkWord(words []string, x, y int, horizontal bool) []gaddagWo
 			log.Debugf("There was error after counting points for word: %v. Error: %v", w, err)
 			continue
 		}
+
+		// MAYBE: Add constructor for gaddagWord?
 		wordsCollection = append(wordsCollection, gaddagWord{
 			Cords:      cords,
 			Word:       normalizedWord,
 			Horizontal: horizontal,
-			Points:     points},
+			Points:     points,
+			Ratio:      getRatio(letters, points),
+		},
 		)
 
 	}
 	log.Debugf("There is overall %v words after counting points", len(wordsCollection))
 	return wordsCollection
+}
+
+func getRatio(letters []rune, points int) float64 {
+	ratio := 0.0
+
+	for _, l := range letters {
+		if unicode.IsLower(l) {
+			ratio += letterRatio['_']
+		} else {
+			ratio += letterRatio[l]
+		}
+	}
+
+	ratio /= float64(len(letters))
+
+	return ratio * float64(points)
 }
 
 func mockRowForStartingTile(hookIndex int, letter rune, row []rune) []rune {

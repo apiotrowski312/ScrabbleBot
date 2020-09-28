@@ -13,6 +13,40 @@ var log = logrus.New()
 var logPath = flag.String("logfile", "/tmp/grabble.log", "provide path for log file")
 var logLevel = flag.String("loglevel", "ERROR", "provide log level")
 
+var letterRatio = map[rune]float64{
+	'_': normalizeRatio(31.5, 31.5, -4),
+	'S': normalizeRatio(12, 31.5, -4),
+	'Z': normalizeRatio(8, 31.5, -4),
+	'X': normalizeRatio(6.3, 31.5, -4),
+	'E': normalizeRatio(4, 31.5, -4),
+	'H': normalizeRatio(3.9, 31.5, -4),
+	'C': normalizeRatio(3, 31.5, -4),
+	'D': normalizeRatio(3, 31.5, -4),
+	'R': normalizeRatio(2.75, 31.5, -4),
+	'M': normalizeRatio(2.75, 31.5, -4),
+	'A': normalizeRatio(2.5, 31.5, -4),
+	'T': normalizeRatio(2.5, 31.5, -4),
+	'P': normalizeRatio(2.1, 31.5, -4),
+	'Y': normalizeRatio(1.95, 31.5, -4),
+	'K': normalizeRatio(1.75, 31.5, -4),
+	'N': normalizeRatio(1.5, 31.5, -4),
+	'L': normalizeRatio(1.2, 31.5, -4),
+	'J': normalizeRatio(0.6, 31.5, -4),
+	'F': normalizeRatio(0.25, 31.5, -4),
+	'I': normalizeRatio(0.15, 31.5, -4),
+	'O': normalizeRatio(-0.1, 31.5, -4),
+	'B': normalizeRatio(-0.5, 31.5, -4),
+	'G': normalizeRatio(-1.5, 31.5, -4),
+	'W': normalizeRatio(-1.9, 31.5, -4),
+	'U': normalizeRatio(-3.2, 31.5, -4),
+	'V': normalizeRatio(-3.75, 31.5, -4),
+	'Q': normalizeRatio(-4.5, 31.5, -4),
+}
+
+func normalizeRatio(ratio, max, min float64) float64 {
+	return 1 - (ratio-min)/(max-min)
+}
+
 func init() {
 
 	// log to console and file

@@ -2,7 +2,6 @@ package grabble_test
 
 import (
 	"fmt"
-	"sort"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -13,10 +12,9 @@ import (
 
 func Test_PickBectWord(t *testing.T) {
 	type expectedWord struct {
-		word       string
-		points     int
-		horizontal bool
-		cords      [2]int
+		word   string
+		points int
+		ratio  float64
 	}
 	type testCase struct {
 		name          string
@@ -28,20 +26,16 @@ func Test_PickBectWord(t *testing.T) {
 		{
 			"Get best word",
 			[]expectedWord{
-				{points: 26, cords: [2]int{7, 3}, word: "WORDS", horizontal: true},
+				{points: 26, word: "WORDS", ratio: 20.76338028169014},
+				{points: 26, word: "WORDS", ratio: 20.76338028169014},
+				{points: 20, word: "WORDS", ratio: 15.971830985915492},
+				{points: 20, word: "WORDS", ratio: 15.971830985915492},
+				{points: 24, word: "WOrDS", ratio: 15.27887323943662},
+				{points: 24, word: "WOrDS", ratio: 15.27887323943662},
 			},
 			"../fixtures/fresh_game.fixture",
 			"",
 		},
-		// {
-		// 	"Get best word 2",
-		// 	[]expectedWord{
-		// 		{points: 84, cords: [2]int{2, 7}, word: "WORDiSH", horizontal: false},
-		// 		{points: 84, cords: [2]int{2, 7}, word: "SHROWeD", horizontal: false},
-		// 	},
-		// 	"../fixtures/fresh_game.fixture",
-		// 	"../fixtures/collins_official_scrabble_2019.txt",
-		// },
 	}
 
 	for _, c := range test {
@@ -55,18 +49,11 @@ func Test_PickBectWord(t *testing.T) {
 
 			words := game.PickBestWord(len(c.expectedWords))
 
-			sort.Slice(words, func(i, j int) bool {
-				return words[i].Word > words[j].Word
-			})
-
 			for i, word := range words {
 				errMessage := fmt.Sprintf("Wrong word is %v, index %v", word.Word, i)
 				assert.Equal(t, c.expectedWords[i].word, word.Word, errMessage)
 				assert.Equal(t, c.expectedWords[i].points, word.Points, errMessage)
-				// FIXME: Results are not indempotempt.
-				// assert.Equal(t, c.expectedWords[i].cords, word.Cords, errMessage)
-				// assert.Equal(t, c.expectedWords[i].horizontal, word.Horizontal, errMessage)
-
+				assert.Equal(t, c.expectedWords[i].ratio, word.Ratio, errMessage)
 			}
 		})
 	}

@@ -53,7 +53,7 @@ game-clean:
 
 game-run: ## Run example game
 	@rm -f $(PWD)/exampleGame/img/*.png
-	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -screenshot -winshot -loglevel=panic"
+	@${DOCKER_TEST_COMMAND} cd exampleGame; go run main.go -screenshot -loglevel=panic"
 
 game-run-X: ## run X example games. Pass NUM=XXX
 	@${_MAKE} _game-run-X
