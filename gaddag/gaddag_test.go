@@ -261,3 +261,36 @@ func Benchmark_FindWords(b *testing.B) {
 		})
 	}
 }
+
+func Test_SaveToFile(t *testing.T) {
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot.SaveToFile("../fixtures/test_dict.gaddag")
+}
+
+func Test_LoadFromFile(t *testing.T) {
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gdRoot := gaddag.LoadFromFile("../fixtures/test_dict.gaddag")
+
+	assert.Equal(t, gaddagRoot, &gdRoot)
+}
+
+func Benchmark_SaveToFile(b *testing.B) {
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+
+	b.Run(b.Name(), func(b *testing.B) {
+		for n := 0; n < b.N; n++ {
+			gaddagRoot.SaveToFile("../fixtures/test_dict.gaddag")
+		}
+	})
+}
+
+func Benchmark_LoadFromFile(b *testing.B) {
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot.SaveToFile("../fixtures/test_dict.gaddag")
+
+	b.Run(b.Name(), func(b *testing.B) {
+		for n := 0; n < b.N; n++ {
+			gaddag.LoadFromFile("../fixtures/test_dict.gaddag")
+		}
+	})
+}

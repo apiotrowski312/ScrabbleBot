@@ -1,6 +1,8 @@
 package gaddag
 
 import (
+	"encoding/gob"
+	"os"
 	"strings"
 
 	"github.com/apiotrowski312/scrabbleBot/utils/str_manipulator"
@@ -53,4 +55,34 @@ func (n *Node) addWord(word string) {
 
 		}
 	}
+}
+
+func (n Node) SaveToFile(filePath string) {
+	dataFile, err := os.Create(filePath)
+
+	if err != nil {
+		panic("Couldn't open the file: " + err.Error())
+	}
+	defer dataFile.Close()
+
+	dataEncoder := gob.NewEncoder(dataFile)
+	dataEncoder.Encode(n)
+}
+
+func LoadFromFile(filePath string) Node {
+	var root Node
+	dataFile, err := os.Open(filePath)
+
+	if err != nil {
+		panic("Couldn't open the file: " + err.Error())
+	}
+
+	dataDecoder := gob.NewDecoder(dataFile)
+	err = dataDecoder.Decode(&root)
+
+	if err != nil {
+		panic("Couldn't decode the file: " + err.Error())
+	}
+
+	return root
 }
