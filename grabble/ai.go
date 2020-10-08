@@ -112,7 +112,7 @@ func hookType1And2(x, y int, board *board.Board) bool {
 }
 
 func hookType3(x, y int, board *board.Board) bool {
-	return board[x][y].Letter == rune(0) && ((x <= 0 || board[x-1][y].Letter != rune(0)) || (x >= 14 || board[x+1][y].Letter != rune(0)))
+	return board[x][y].Letter == rune(0) && ((x > 0 && board[x-1][y].Letter != rune(0)) || (x < 14 && board[x+1][y].Letter != rune(0)))
 }
 
 func hookStarterTile(x, y int, board *board.Board) bool {

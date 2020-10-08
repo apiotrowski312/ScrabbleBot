@@ -29,7 +29,7 @@ bench: ## Run benchmark tests in Docker
 
 game-bench: ## Run benchmark tests in Docker ()
 	@echo -e ${GREEN}BENCHMARK TESTS - GAME ONLY${NC}
-	@${DOCKER_TEST_COMMAND} go test ./... -bench=Benchmark_Game -benchtime=10x -run=^a"
+	@${DOCKER_TEST_COMMAND} go test ./... -bench=Benchmark_Game -benchtime=50x -run=^a"
 
 help: ## Show this help.
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
