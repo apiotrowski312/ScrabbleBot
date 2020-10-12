@@ -129,31 +129,6 @@ func Test_FindAllWords(t *testing.T) {
 	})
 }
 
-func Test_FindWords(t *testing.T) {
-	type testCase struct {
-		name    string
-		letters []rune
-	}
-	cases := []testCase{
-		{"simple case", []rune("WORD")},
-		{"long case", []rune("WSSARED")},
-		{"longest case", []rune("WSSAREDDREFCDSAA")},
-		{"Intersing case with extremly hard rack", []rune("QZJXKHW")},
-	}
-
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
-	for _, c := range cases {
-		t.Run(c.name, func(t *testing.T) {
-			var expectedWords []string
-			words := gaddagRoot.FindWords(c.letters)
-			sort.Strings(words)
-			test_utils.GetGoldenFileJSON(t, words, &expectedWords, t.Name()+c.name, *update)
-
-			assert.Equal(t, expectedWords, words)
-		})
-	}
-}
-
 func Test_GetNextPermutation(t *testing.T) {
 	type testCase struct {
 		name                string
@@ -234,30 +209,6 @@ func Benchmark_FindAllWords(b *testing.B) {
 
 			}
 
-		})
-	}
-}
-
-func Benchmark_FindWords(b *testing.B) {
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
-	type testCase struct {
-		name    string
-		letters []rune
-	}
-
-	cases := []testCase{
-		{"5 letters", []rune("WODRS")},
-		{"7 letters", []rune("WSSARED")},
-		{"8 letters", []rune("AEILNRST")},
-		{"12 letters", []rune("INCOGRAPHERS")},
-		{"15 letters", []rune("WICARDEHARTETIS")},
-	}
-
-	for _, c := range cases {
-		b.Run(c.name, func(b *testing.B) {
-			for n := 0; n < b.N; n++ {
-				gaddagRoot.FindWords(c.letters)
-			}
 		})
 	}
 }

@@ -191,33 +191,6 @@ func CreateGraph(filename string) (*Node, error) {
 	return root, nil
 }
 
-func (n *Node) FindWords(letters []rune) []string {
-	letters = append(letters, '.')
-
-	words := n.findWords(letters)
-	return removeDuplicatesUnordered(words)
-}
-
-func (n *Node) findWords(letters []rune) []string {
-	words := []string{}
-	for i, l := range letters {
-		if lNode, isOk := n.get(l); isOk {
-			lLetters := append(append([]rune{}, letters[:i]...), letters[i+1:]...)
-			newWords := lNode.findWords(lLetters)
-			for _, w := range newWords {
-				words = append(words, string(l)+w)
-			}
-
-			if lNode.IsWord {
-				words = append(words, string(l))
-			}
-		}
-	}
-
-	return words
-}
-
-// FIXME: I can trim it by half
 func GetNextPermutation(permutation []rune) ([]rune, error) {
 	for i := range permutation {
 		if permutation[i] == 'z' {
