@@ -163,6 +163,9 @@ func Benchmark_CreateGraph(b *testing.B) {
 	}
 
 	cases := []testCase{
+		{"tiny", "../fixtures/tiny_english.txt"},
+		{"100 words dict", "../fixtures/100_english.txt"},
+		{"1k words dict", "../fixtures/1k_english.txt"},
 		{"2k words dict", "../fixtures/2k_english.txt"},
 		{"20k words dict", "../fixtures/20k_english.txt"},
 		{"280k words dict", "../fixtures/collins_official_scrabble_2019.txt"},
@@ -214,12 +217,13 @@ func Benchmark_FindAllWords(b *testing.B) {
 }
 
 func Test_SaveToFile(t *testing.T) {
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/tiny_english.txt")
 	gaddagRoot.SaveToFile("../fixtures/test_dict.gaddag")
 }
 
 func Test_LoadFromFile(t *testing.T) {
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/tiny_english.txt")
+	gaddagRoot.SaveToFile("../fixtures/test_dict.gaddag")
 	gdRoot := gaddag.LoadFromFile("../fixtures/test_dict.gaddag")
 
 	assert.Equal(t, gaddagRoot, &gdRoot)

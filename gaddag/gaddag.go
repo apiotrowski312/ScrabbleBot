@@ -168,7 +168,7 @@ func NormalizeWord(word string) string {
 // CreateGraph - create gaddag tree structure based on file with all words, each starting from newline
 func CreateGraph(filename string) (*Node, error) {
 	root := &Node{
-		Children: map[rune]Node{},
+		Children: map[rune]*Node{},
 	}
 
 	f, err := os.OpenFile(filename, os.O_RDONLY, os.ModePerm)
@@ -187,6 +187,11 @@ func CreateGraph(filename string) (*Node, error) {
 		log.Fatalf("Scan file error: %v", err)
 		return nil, err
 	}
+
+	// FIXME: Function below does nothing if we want to
+	// save struct to binary file
+
+	// root._morphTreeToGADDAG(root)
 
 	return root, nil
 }
