@@ -203,6 +203,8 @@ func Benchmark_FindAllWords(b *testing.B) {
 		{"7 letters with existring board. 3 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSSA___")},
 		{"7 letters with existring board. 4 blanks", 8, []rune{'D', 'O', 'W', 'N', rune(0), rune(0), rune(0), rune(0), 'N', rune(0), rune(0), rune(0), 'E', 'S', rune(0)}, []rune("WSS____")},
 		{"15 letters. 1 blanks", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'O', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ICARDEHARTETI_")},
+		{"15 letters. 1 blanks. Hook max to the right", 15, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), 'O'}, []rune("ICARDEHARTETI_")},
+		{"15 letters. 1 blanks. Hook max to the left", 0, []rune{'A', rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0), rune(0)}, []rune("ICARDEHARTETI_")},
 	}
 
 	for _, c := range cases {

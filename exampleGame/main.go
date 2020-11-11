@@ -21,8 +21,10 @@ func Game() {
 	flag.Parse()
 	for x := 0; x < *loopNumber; x++ {
 		game := grabble.CreateDefaultGame([]string{"Bot 1", "Bot 2"})
+		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
+
 		for !game.Stats.Finished {
-			bestWords := game.PickBestWord(500)
+			bestWords := game.PickBestWord(100)
 			wordPlaced := false
 			for _, word := range bestWords {
 				err := game.PlaceWord(word.Word, word.Cords, word.Horizontal)

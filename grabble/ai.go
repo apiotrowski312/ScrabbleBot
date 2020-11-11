@@ -48,6 +48,7 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 	}
 
 	log.Debugf("Found %v words", len(wordsCollection))
+	// FIXME: Return biggest value would be better
 	sort.Slice(wordsCollection, func(i, j int) bool {
 		return wordsCollection[i].Ratio > wordsCollection[j].Ratio
 	})

@@ -31,7 +31,7 @@ func removeDuplicatesUnordered(elements []string) []string {
 // Function will find all words based od available letters and already existing one.
 // Passed row have to have at least one word inside. This algorithm works only with existing hook.
 func (n Node) FindAllWords(hookIndex int, row []rune, letters []rune) []string {
-	newLetters := append([]rune{}, append(letters, '.')...)
+	newLetters := append([]rune{'.'}, letters...)
 
 	sort.Slice(newLetters, func(i, j int) bool {
 		return newLetters[i] < newLetters[j]
@@ -96,10 +96,7 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 	}
 
 	if newLetterIndex == len(row) {
-		if hookNode.IsWord {
-			return partialWords
-		}
-		return nil
+		return partialWords
 	}
 
 	if newLetterIndex >= 0 && row[newLetterIndex] != rune(0) {
@@ -107,16 +104,22 @@ func (n Node) getAllOk(currentLetter rune, letterIndex int, lettersToUse []rune,
 		for _, w := range newWords {
 			partialWords = append(partialWords, string(currentLetter)+w)
 		}
-	} else if newLetterIndex == -1 && lettersToUse[0] == '.' {
-		lettersForIteration := append(append([]rune{}, lettersToUse[:0]...), lettersToUse[1:]...)
-		newWords := hookNode.getAllOk('.', newLetterIndex, lettersForIteration, row, hookIndex)
+		// There can be only "." on the -1 index, so let's check only that
+	} else if newLetterIndex == -1 {
+		lettersForIteration := append([]rune{}, lettersToUse[1:]...)
+		// lettersToUse[0] only on this index "." can be found
+		newWords := hookNode.getAllOk(lettersToUse[0], newLetterIndex, lettersForIteration, row, hookIndex)
 
 		for _, w := range newWords {
 			partialWords = append(partialWords, string(currentLetter)+w)
 		}
-
 	} else {
 		for i, l := range lettersToUse {
+			// There is no point in looking into the same node two times.
+			// E.g. when there are two "S" letters
+			if i != 0 && lettersToUse[i-1] == l {
+				continue
+			}
 			lettersForIteration := append(append([]rune{}, lettersToUse[:i]...), lettersToUse[i+1:]...)
 			newWords := hookNode.getAllOk(l, newLetterIndex, lettersForIteration, row, hookIndex)
 
