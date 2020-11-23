@@ -6,9 +6,10 @@ import (
 )
 
 type Player struct {
-	Name   string
-	Points int
-	Rack   []rune
+	Name     string
+	Points   int
+	Rack     []rune
+	Strategy string
 }
 
 func CreatePlayer(name string) Player {

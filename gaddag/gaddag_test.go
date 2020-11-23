@@ -176,7 +176,6 @@ func Benchmark_CreateGraph(b *testing.B) {
 			for n := 0; n < b.N; n++ {
 				gaddag.CreateGraph(tc.dict)
 			}
-
 		})
 	}
 }
