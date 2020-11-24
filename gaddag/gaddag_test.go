@@ -97,7 +97,7 @@ func Test_FindAllWords(t *testing.T) {
 	})
 
 	t.Run("Full dictionary", func(t *testing.T) {
-		gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+		gaddagRoot, _ := gaddag.CreateGraph("../fixtures/english_dict.txt")
 
 		cases := []testCase{
 			{"word from left", 5, []rune{rune(0), rune(0), rune(0), rune(0), rune(0), 'W'}, []rune("ORD")},
@@ -168,7 +168,7 @@ func Benchmark_CreateGraph(b *testing.B) {
 		{"1k words dict", "../fixtures/1k_english.txt"},
 		{"2k words dict", "../fixtures/2k_english.txt"},
 		{"20k words dict", "../fixtures/20k_english.txt"},
-		{"280k words dict", "../fixtures/collins_official_scrabble_2019.txt"},
+		{"280k words dict", "../fixtures/english_dict.txt"},
 	}
 
 	for _, tc := range cases {
@@ -181,7 +181,7 @@ func Benchmark_CreateGraph(b *testing.B) {
 }
 
 func Benchmark_FindAllWords(b *testing.B) {
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/english_dict.txt")
 	type testCase struct {
 		name      string
 		hookIndex int
@@ -231,7 +231,7 @@ func Test_LoadFromFile(t *testing.T) {
 }
 
 func Benchmark_SaveToFile(b *testing.B) {
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/english_dict.txt")
 
 	b.Run(b.Name(), func(b *testing.B) {
 		for n := 0; n < b.N; n++ {
@@ -241,7 +241,7 @@ func Benchmark_SaveToFile(b *testing.B) {
 }
 
 func Benchmark_LoadFromFile(b *testing.B) {
-	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/collins_official_scrabble_2019.txt")
+	gaddagRoot, _ := gaddag.CreateGraph("../fixtures/english_dict.txt")
 	gaddagRoot.SaveToFile("../fixtures/test_dict.gaddag")
 
 	b.Run(b.Name(), func(b *testing.B) {

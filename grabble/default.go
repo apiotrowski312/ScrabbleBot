@@ -87,7 +87,7 @@ func CreateDefaultGame(players []string) Grabble {
 		{rune(0), 'w', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'w', rune(0)},
 		{'W', rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), 'W'}, // 15
 	}
-	officialDict := "../fixtures/collins_official_scrabble_2019.txt"
+	officialDict := "../fixtures/english_dict.txt"
 	tilePoints := map[rune]int{
 		'_': 0,
 		'E': 1, 'A': 1, 'I': 1, 'O': 1, 'N': 1, 'R': 1, 'T': 1, 'L': 1, 'S': 1, 'U': 1,

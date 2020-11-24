@@ -1,4 +1,4 @@
-fixtures/collins_official_scrabble_2019.txt
+fixtures/english_dict.txt
 fixtures/test_dict.gaddag
 vendor
 frontend/deploy
