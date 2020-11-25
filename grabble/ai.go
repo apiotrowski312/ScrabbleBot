@@ -1,6 +1,7 @@
 package grabble
 
 import (
+	"fmt"
 	"sort"
 	"strings"
 	"sync"
@@ -20,8 +21,8 @@ type gaddagWord struct {
 	Ratio      float64
 }
 
-// PickBestWord returns best words for current player and board
-func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
+// PickBestWord returns best word for current player and board
+func (g *Grabble) PickBestWord() (gaddagWord, error) {
 	log.Debugf("PickBestWord function called by %s", g.CurrentPlayer().Name)
 	log.Debugf("Rack: %s", string(g.CurrentPlayer().Rack))
 	rack := g.CurrentPlayer().Rack
@@ -48,15 +49,50 @@ func (g *Grabble) PickBestWord(numberOfWords int) []gaddagWord {
 	}
 
 	log.Debugf("Found %v words", len(wordsCollection))
-	// FIXME: Return biggest value would be better
-	sort.Slice(wordsCollection, func(i, j int) bool {
-		return wordsCollection[i].Ratio > wordsCollection[j].Ratio
+
+	if len(wordsCollection) == 0 {
+		return gaddagWord{}, fmt.Errorf("No words")
+	}
+	if g.CurrentPlayer().Strategy == "bestPrice" {
+		return getBestPoints(wordsCollection), nil
+	}
+
+	if g.CurrentPlayer().Strategy == "middleRatio" {
+		return getMiddleRatio(wordsCollection), nil
+	}
+
+	// Default strategy, get bestRatio
+	return getBestRatio(wordsCollection), nil
+}
+
+func getBestRatio(words []gaddagWord) gaddagWord {
+	bestWord := words[0]
+	for _, w := range words {
+		if bestWord.Ratio < w.Ratio {
+			bestWord = w
+		}
+	}
+
+	return bestWord
+}
+
+func getBestPoints(words []gaddagWord) gaddagWord {
+	bestWord := words[0]
+	for _, w := range words {
+		if bestWord.Points < w.Points {
+			bestWord = w
+		}
+	}
+
+	return bestWord
+}
+
+func getMiddleRatio(words []gaddagWord) gaddagWord {
+	sort.Slice(words, func(i, j int) bool {
+		return words[i].Ratio > words[j].Ratio
 	})
 
-	if len(wordsCollection) < numberOfWords {
-		return wordsCollection
-	}
-	return wordsCollection[:numberOfWords]
+	return words[len(words)/2]
 }
 
 func (g Grabble) getWordCollection(rack []rune, horizontal bool) []gaddagWord {

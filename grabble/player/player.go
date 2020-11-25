@@ -12,10 +12,11 @@ type Player struct {
 	Strategy string
 }
 
-func CreatePlayer(name string) Player {
+func CreatePlayer(name string, strategy string) Player {
 	return Player{
-		Name:   name,
-		Points: 0,
+		Name:     name,
+		Points:   0,
+		Strategy: strategy,
 	}
 }
 

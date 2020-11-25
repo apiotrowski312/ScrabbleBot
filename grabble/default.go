@@ -69,7 +69,7 @@ func init() {
 }
 
 // CreateDefaultGame - it creates and return basic Grabble game.
-func CreateDefaultGame(players []string) Grabble {
+func CreateDefaultGame(players [][2]string) Grabble {
 	officialScrabbleBoard := [15][15]rune{
 		{'W', rune(0), rune(0), 'l', rune(0), rune(0), rune(0), 'W', rune(0), rune(0), rune(0), 'l', rune(0), rune(0), 'W'},
 		{rune(0), 'w', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'L', rune(0), rune(0), rune(0), 'w', rune(0)},

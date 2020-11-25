@@ -1,7 +1,6 @@
 package grabble_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
@@ -17,22 +16,15 @@ func Test_PickBectWord(t *testing.T) {
 		ratio  float64
 	}
 	type testCase struct {
-		name          string
-		expectedWords []expectedWord
-		fixture       string
-		dict          string
+		name         string
+		expectedWord expectedWord
+		fixture      string
+		dict         string
 	}
 	test := []testCase{
 		{
 			"Get best word",
-			[]expectedWord{
-				{points: 26, word: "WORDS", ratio: 20.76338028169014},
-				{points: 26, word: "WORDS", ratio: 20.76338028169014},
-				{points: 20, word: "WORDS", ratio: 15.971830985915492},
-				{points: 20, word: "WORDS", ratio: 15.971830985915492},
-				{points: 24, word: "WOrDS", ratio: 15.27887323943662},
-				{points: 24, word: "WOrDS", ratio: 15.27887323943662},
-			},
+			expectedWord{points: 26, word: "WORDS", ratio: 20.76338028169014},
 			"../fixtures/fresh_game.fixture",
 			"",
 		},
@@ -47,14 +39,11 @@ func Test_PickBectWord(t *testing.T) {
 				game.Dict = *gaddagRoot
 			}
 
-			words := game.PickBestWord(len(c.expectedWords))
+			word, _ := game.PickBestWord()
 
-			for i, word := range words {
-				errMessage := fmt.Sprintf("Wrong word is %v, index %v", word.Word, i)
-				assert.Equal(t, c.expectedWords[i].word, word.Word, errMessage)
-				assert.Equal(t, c.expectedWords[i].points, word.Points, errMessage)
-				assert.Equal(t, c.expectedWords[i].ratio, word.Ratio, errMessage)
-			}
+			assert.Equal(t, c.expectedWord.word, word.Word)
+			assert.Equal(t, c.expectedWord.points, word.Points)
+			assert.Equal(t, c.expectedWord.ratio, word.Ratio)
 		})
 	}
 }

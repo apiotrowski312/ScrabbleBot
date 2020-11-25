@@ -32,7 +32,7 @@ type Grabble struct {
 // e.g. 1000 times
 var gaddagFullGraph *gaddag.Node
 
-func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles []rune, tilePoints map[rune]int, rackSize int) Grabble {
+func CreateGrabble(dictionary string, b [15][15]rune, nicks [][2]string, allTiles []rune, tilePoints map[rune]int, rackSize int) Grabble {
 	board := board.CreateBoard(b)
 	if gaddagFullGraph == nil {
 		gaddagFullGraph, _ = gaddag.CreateGraph(dictionary)
@@ -42,7 +42,7 @@ func CreateGrabble(dictionary string, b [15][15]rune, nicks []string, allTiles [
 
 	players := []player.Player{}
 	for _, p := range nicks {
-		players = append(players, player.CreatePlayer(p))
+		players = append(players, player.CreatePlayer(p[0], p[1]))
 	}
 	game := Grabble{
 		Board:         *board,
