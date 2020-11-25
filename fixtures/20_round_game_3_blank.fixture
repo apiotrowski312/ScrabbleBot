@@ -1,0 +1,2695 @@
+{
+	"Board": [
+		[
+			{
+				"Bonus": 87,
+				"Letter": 67,
+				"Round": 17,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 15,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 72,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 79,
+				"Round": 17,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 87,
+				"Round": 17,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 90,
+				"Round": 15,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 71,
+				"Round": 7,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 79,
+				"Round": 15,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 78,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 66,
+				"Round": 9,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 9,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 82,
+				"Round": 7,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 70,
+				"Round": 9,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 76,
+				"Round": 9,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 89,
+				"Round": 9,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 68,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 73,
+				"Round": 16,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 7,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 69,
+				"Round": 14,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 69,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 71,
+				"Round": 7,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 87,
+				"Round": 14,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 79,
+				"Round": 8,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 82,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 81,
+				"Round": 1,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 85,
+				"Round": 1,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 0,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 75,
+				"Round": 1,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 76,
+				"Letter": 69,
+				"Round": 1,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 82,
+				"Round": 7,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 77,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 8,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 83,
+				"Round": 13,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 77,
+				"Round": 0,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 89,
+				"Round": 3,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 7,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 83,
+				"Round": 12,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 18,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 84,
+				"Round": 19,
+				"Player": "Zuzanna"
+			}
+		],
+		[
+			{
+				"Bonus": 87,
+				"Letter": 69,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 68,
+				"Round": 8,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 66,
+				"Round": 2,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 115,
+				"Letter": 69,
+				"Round": 0,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 76,
+				"Round": 3,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 12,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 78,
+				"Round": 18,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 87,
+				"Letter": 69,
+				"Round": 19,
+				"Player": "Zuzanna"
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 100,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 8,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 79,
+				"Round": 2,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 78,
+				"Round": 0,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 79,
+				"Round": 3,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 79,
+				"Round": 10,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 108,
+				"Letter": 85,
+				"Round": 12,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 19,
+				"Player": "Zuzanna"
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 67,
+				"Round": 6,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 76,
+				"Letter": 65,
+				"Round": 6,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 84,
+				"Round": 6,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 69,
+				"Round": 6,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 68,
+				"Round": 4,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 69,
+				"Round": 3,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 76,
+				"Letter": 69,
+				"Round": 4,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 80,
+				"Round": 4,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 83,
+				"Round": 10,
+				"Player": "Olek"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 19,
+				"Player": "Zuzanna"
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 73,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 76,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 79,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 82,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 78,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 69,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 83,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 116,
+				"Round": 5,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 78,
+				"Round": 19,
+				"Player": "Zuzanna"
+			}
+		],
+		[
+			{
+				"Bonus": 108,
+				"Letter": 78,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 71,
+				"Round": 19,
+				"Player": "Zuzanna"
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 65,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 0,
+				"Letter": 76,
+				"Round": 11,
+				"Player": "Zuzanna"
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 76,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 119,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		],
+		[
+			{
+				"Bonus": 87,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 108,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 0,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			},
+			{
+				"Bonus": 87,
+				"Letter": 0,
+				"Round": 0,
+				"Player": ""
+			}
+		]
+	],
+	"Players": [
+		{
+			"Name": "Olek",
+			"Points": 0,
+			"Rack": [87, 79, 82, 68, 95, 95, 95]
+		},
+		{
+			"Name": "Zuzanna",
+			"Points": 0,
+			"Rack": [84, 69, 83, 84, 83, 80, 78]
+		}
+	],
+	"Bag": [
+		95,
+		95,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		69,
+		65,
+		65,
+		65,
+		65,
+		65,
+		65,
+		65,
+		65,
+		65,
+		73,
+		73,
+		73,
+		73,
+		73,
+		73,
+		73,
+		73,
+		73,
+		79,
+		79,
+		79,
+		79,
+		79,
+		79,
+		79,
+		79,
+		78,
+		78,
+		78,
+		78,
+		78,
+		78,
+		82,
+		82,
+		82,
+		82,
+		82,
+		82,
+		84,
+		84,
+		84,
+		84,
+		84,
+		84,
+		76,
+		76,
+		76,
+		76,
+		83,
+		83,
+		83,
+		83,
+		85,
+		85,
+		85,
+		85,
+		68,
+		68,
+		68,
+		68,
+		71,
+		71,
+		71,
+		66,
+		66,
+		67,
+		67,
+		77,
+		77,
+		80,
+		80,
+		70,
+		70,
+		72,
+		72,
+		86,
+		86,
+		87,
+		87,
+		89,
+		89,
+		75,
+		74,
+		88,
+		81,
+		90
+	],
+	"LettterPoints": {
+		"65": 1,
+		"66": 3,
+		"67": 3,
+		"68": 2,
+		"69": 1,
+		"70": 4,
+		"71": 2,
+		"72": 4,
+		"73": 1,
+		"74": 8,
+		"75": 5,
+		"76": 1,
+		"77": 3,
+		"78": 1,
+		"79": 1,
+		"80": 3,
+		"81": 10,
+		"82": 1,
+		"83": 1,
+		"84": 1,
+		"85": 1,
+		"86": 4,
+		"87": 4,
+		"88": 8,
+		"89": 4,
+		"90": 10,
+		"95": 0
+	},
+	"Dict": {
+		"IsWord": false,
+		"Children": {
+			"66": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"75": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									},
+									"83": {
+										"IsWord": false,
+										"Children": {
+											"83": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"68": {
+				"IsWord": false,
+				"Children": {
+					"82": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"87": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"69": {
+				"IsWord": false,
+				"Children": {
+					"76": {
+						"IsWord": false,
+						"Children": {
+							"72": {
+								"IsWord": false,
+								"Children": {
+									"84": {
+										"IsWord": false,
+										"Children": {
+											"82": {
+												"IsWord": false,
+												"Children": {
+													"79": {
+														"IsWord": false,
+														"Children": {
+															"87": {
+																"IsWord": false,
+																"Children": {
+																	"46": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"86": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"76": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"87": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"83": {
+										"IsWord": false,
+										"Children": {
+											"84": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"70": {
+				"IsWord": false,
+				"Children": {
+					"72": {
+						"IsWord": false,
+						"Children": {
+							"84": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"79": {
+												"IsWord": false,
+												"Children": {
+													"87": {
+														"IsWord": false,
+														"Children": {
+															"46": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"72": {
+				"IsWord": false,
+				"Children": {
+					"84": {
+						"IsWord": false,
+						"Children": {
+							"82": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"87": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"75": {
+				"IsWord": false,
+				"Children": {
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"66": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"82": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"87": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"76": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"86": {
+										"IsWord": false,
+										"Children": {
+											"69": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"72": {
+						"IsWord": false,
+						"Children": {
+							"84": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"79": {
+												"IsWord": false,
+												"Children": {
+													"87": {
+														"IsWord": false,
+														"Children": {
+															"46": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"85": {
+						"IsWord": false,
+						"Children": {
+							"70": {
+								"IsWord": false,
+								"Children": {
+									"72": {
+										"IsWord": false,
+										"Children": {
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": false,
+														"Children": {
+															"79": {
+																"IsWord": false,
+																"Children": {
+																	"87": {
+																		"IsWord": false,
+																		"Children": {
+																			"46": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"79": {
+				"IsWord": false,
+				"Children": {
+					"66": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"75": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									},
+									"83": {
+										"IsWord": false,
+										"Children": {
+											"83": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"76": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"86": {
+										"IsWord": false,
+										"Children": {
+											"69": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"66": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"75": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"83": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"83": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"87": {
+						"IsWord": false,
+						"Children": {
+							"46": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"68": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"75": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"72": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"82": {
+				"IsWord": false,
+				"Children": {
+					"69": {
+						"IsWord": false,
+						"Children": {
+							"86": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"76": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"87": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"68": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"75": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"72": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"83": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"83": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"68": {
+						"IsWord": false,
+						"Children": {
+							"82": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"87": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"69": {
+						"IsWord": false,
+						"Children": {
+							"76": {
+								"IsWord": false,
+								"Children": {
+									"72": {
+										"IsWord": false,
+										"Children": {
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": false,
+														"Children": {
+															"79": {
+																"IsWord": false,
+																"Children": {
+																	"87": {
+																		"IsWord": false,
+																		"Children": {
+																			"46": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"87": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"84": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"75": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"79": {
+										"IsWord": false,
+										"Children": {
+											"66": {
+												"IsWord": false,
+												"Children": {
+													"46": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"66": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"83": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							},
+							"83": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": true,
+										"Children": {}
+									}
+								}
+							}
+						}
+					},
+					"83": {
+						"IsWord": false,
+						"Children": {
+							"69": {
+								"IsWord": false,
+								"Children": {
+									"76": {
+										"IsWord": false,
+										"Children": {
+											"72": {
+												"IsWord": false,
+												"Children": {
+													"84": {
+														"IsWord": false,
+														"Children": {
+															"82": {
+																"IsWord": false,
+																"Children": {
+																	"79": {
+																		"IsWord": false,
+																		"Children": {
+																			"87": {
+																				"IsWord": false,
+																				"Children": {
+																					"46": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"66": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"84": {
+				"IsWord": false,
+				"Children": {
+					"82": {
+						"IsWord": false,
+						"Children": {
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"87": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": false,
+												"Children": {
+													"72": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"83": {
+						"IsWord": false,
+						"Children": {
+							"69": {
+								"IsWord": false,
+								"Children": {
+									"87": {
+										"IsWord": false,
+										"Children": {
+											"46": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"85": {
+				"IsWord": false,
+				"Children": {
+					"70": {
+						"IsWord": false,
+						"Children": {
+							"72": {
+								"IsWord": false,
+								"Children": {
+									"84": {
+										"IsWord": false,
+										"Children": {
+											"82": {
+												"IsWord": false,
+												"Children": {
+													"79": {
+														"IsWord": false,
+														"Children": {
+															"87": {
+																"IsWord": false,
+																"Children": {
+																	"46": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"86": {
+				"IsWord": false,
+				"Children": {
+					"79": {
+						"IsWord": false,
+						"Children": {
+							"76": {
+								"IsWord": false,
+								"Children": {
+									"46": {
+										"IsWord": false,
+										"Children": {
+											"69": {
+												"IsWord": false,
+												"Children": {
+													"82": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"87": {
+				"IsWord": false,
+				"Children": {
+					"46": {
+						"IsWord": false,
+						"Children": {
+							"69": {
+								"IsWord": false,
+								"Children": {
+									"83": {
+										"IsWord": false,
+										"Children": {
+											"84": {
+												"IsWord": true,
+												"Children": {}
+											}
+										}
+									}
+								}
+							},
+							"79": {
+								"IsWord": false,
+								"Children": {
+									"82": {
+										"IsWord": false,
+										"Children": {
+											"68": {
+												"IsWord": true,
+												"Children": {
+													"83": {
+														"IsWord": true,
+														"Children": {}
+													}
+												}
+											},
+											"75": {
+												"IsWord": true,
+												"Children": {}
+											},
+											"84": {
+												"IsWord": false,
+												"Children": {
+													"72": {
+														"IsWord": false,
+														"Children": {
+															"70": {
+																"IsWord": false,
+																"Children": {
+																	"85": {
+																		"IsWord": false,
+																		"Children": {
+																			"76": {
+																				"IsWord": true,
+																				"Children": {}
+																			}
+																		}
+																	}
+																}
+															},
+															"76": {
+																"IsWord": false,
+																"Children": {
+																	"69": {
+																		"IsWord": false,
+																		"Children": {
+																			"83": {
+																				"IsWord": false,
+																				"Children": {
+																					"83": {
+																						"IsWord": true,
+																						"Children": {}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"RackSize": 7,
+	"Stats": {
+		"CurrentRound": 0,
+		"Finished": false,
+		"Winner": {
+			"Name": "",
+			"Points": 0,
+			"Rack": null
+		}
+	}
+}

@@ -28,14 +28,12 @@ func Game(game *grabble.Grabble) {
 	for !game.Stats.Finished {
 		bestWord, err := game.PickBestWord()
 		if err != nil {
-			fmt.Println("Round passed", game.Stats.CurrentRound)
 			game.PassTurn()
 		}
 
 		err = game.PlaceWord(bestWord.Word, bestWord.Cords, bestWord.Horizontal)
 
 		if err != nil {
-			fmt.Println("Round passed", game.Stats.CurrentRound)
 			game.PassTurn()
 		}
 
@@ -46,6 +44,6 @@ func Game(game *grabble.Grabble) {
 
 	if *winnerScreenshot == true {
 		img_printer.PrintScreenBoard(*game, fmt.Sprintf("./img/finished-%v.png", time.Now().UnixNano()))
+		fmt.Printf("%v - Winner: %v\tPoints: %v\t Turns: %v\n", time.Now().Format("2006-01-02_15:04:05.000000"), game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 	}
-	fmt.Printf("%v - Winner: %v\tPoints: %v\t Turns: %v\n", time.Now().Format("2006-01-02_15:04:05.000000"), game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 }
