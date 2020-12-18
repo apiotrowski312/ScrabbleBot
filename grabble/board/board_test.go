@@ -1,15 +1,13 @@
 package board_test
 
 import (
-	"flag"
 	"testing"
 
+	"github.com/apiotrowski312/goldtest"
 	"github.com/apiotrowski312/scrabbleBot/grabble/board"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/stretchr/testify/assert"
 )
-
-var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_CreateBoard(t *testing.T) {
 	type testCase struct {
@@ -41,18 +39,13 @@ func Test_CreateBoard(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var expectedBoard board.Board
 			board := board.CreateBoard(c.template)
-
-			test_utils.GetGoldenFileJSON(t, board, &expectedBoard, c.name, *update)
-
-			assert.Equal(t, &expectedBoard, board)
+			goldtest.AssertJSON(t, board, "testdata/"+c.name)
 		})
 	}
 }
 
 func Test_TransposeBoard(t *testing.T) {
-	var expectedTransposedBoard board.Board
 	var board board.Board
 	test_utils.LoadJSONFixture(t, "../../fixtures/empty_board.fixture", &board)
 
@@ -63,9 +56,7 @@ func Test_TransposeBoard(t *testing.T) {
 	transposedBoard[5][7].Letter = 'A'
 	assert.Equal(t, transposedBoard[5][7], board[7][5])
 
-	test_utils.GetGoldenFileJSON(t, transposedBoard, &expectedTransposedBoard, "transposed_board", *update)
-	assert.Equal(t, &expectedTransposedBoard, transposedBoard)
-
+	goldtest.AssertJSON(t, transposedBoard, "testdata/transposed_board")
 }
 
 func Test_PlaceWord(t *testing.T) {
@@ -130,7 +121,6 @@ func Test_PlaceWord(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var expectedBoard board.Board
 			var board board.Board
 
 			test_utils.LoadJSONFixture(t, "../../fixtures/empty_board.fixture", &board)
@@ -138,9 +128,7 @@ func Test_PlaceWord(t *testing.T) {
 			for i, word := range c.words {
 				board.PlaceWord(word, c.startPos[i], "none", 0, c.horizontal)
 			}
-
-			test_utils.GetGoldenFileJSON(t, board, &expectedBoard, c.name, *update)
-			assert.Equal(t, expectedBoard, board)
+			goldtest.AssertJSON(t, board, "testdata/"+c.name)
 		})
 	}
 }

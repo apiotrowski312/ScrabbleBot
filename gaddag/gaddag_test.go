@@ -2,26 +2,19 @@ package gaddag_test
 
 import (
 	"errors"
-	"flag"
 	"fmt"
 	"sort"
 	"testing"
 
+	"github.com/apiotrowski312/goldtest"
 	"github.com/apiotrowski312/scrabbleBot/gaddag"
-	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/stretchr/testify/assert"
 )
 
-var update = flag.Bool("update", false, "update the golden files of this test")
-
 func Test_CreateGraph(t *testing.T) {
 	gaddagRoot, err := gaddag.CreateGraph("../fixtures/tiny_english.txt")
-
-	var expected gaddag.Node
-	test_utils.GetGoldenFileJSON(t, gaddagRoot, &expected, t.Name(), *update)
-
+	goldtest.AssertJSON(t, gaddagRoot, "testdata/"+t.Name())
 	assert.Equal(t, err, nil)
-	assert.Equal(t, &expected, gaddagRoot)
 }
 
 func Test_IsWordValid(t *testing.T) {
@@ -86,12 +79,9 @@ func Test_FindAllWords(t *testing.T) {
 
 		for _, c := range cases {
 			t.Run(c.name, func(t *testing.T) {
-				var expectedWords []string
 				words := gaddagRoot.FindAllWords(c.hookIndex, c.row, c.letters)
 				sort.Strings(words)
-				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Small_dictionary/"+c.name, *update)
-
-				assert.Equal(t, expectedWords, words)
+				goldtest.AssertJSON(t, words, "testdata/Small_dictionary/"+c.name)
 			})
 		}
 	})
@@ -118,12 +108,10 @@ func Test_FindAllWords(t *testing.T) {
 
 		for _, c := range cases {
 			t.Run(c.name, func(t *testing.T) {
-				var expectedWords []string
 				words := gaddagRoot.FindAllWords(c.hookIndex, c.row, c.letters)
 				sort.Strings(words)
-				test_utils.GetGoldenFileJSON(t, words, &expectedWords, "Full_dictionary/"+c.name, *update)
 
-				assert.Equal(t, expectedWords, words)
+				goldtest.AssertJSON(t, words, "testdata/Full_dictionary/"+c.name)
 			})
 		}
 	})

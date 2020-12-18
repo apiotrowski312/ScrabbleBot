@@ -14,16 +14,16 @@ var screenshot = flag.Bool("screenshot", false, "create screenshot after each ro
 var winnerScreenshot = flag.Bool("winshot", false, "create screenshot with finished game")
 
 func main() {
-	game := grabble.CreateDefaultGame([][2]string{{"Bot 1", "default"}, {"Bot 2", "default"}})
 	flag.Parse()
 	for x := 0; x < *loopNumber; x++ {
-		Game(&game)
+		Game()
 	}
 }
 
-func Game(game *grabble.Grabble) {
+func Game() {
+	game := grabble.CreateDefaultGame([][2]string{{"Bot 1", "default"}, {"Bot 2", "default"}})
 	if *screenshot == true {
-		img_printer.PrintScreenBoard(*game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
+		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 	}
 	for !game.Stats.Finished {
 		bestWord, err := game.PickBestWord()
@@ -38,12 +38,12 @@ func Game(game *grabble.Grabble) {
 		}
 
 		if *screenshot == true {
-			img_printer.PrintScreenBoard(*game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
+			img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/round_%v.png", game.Stats.CurrentRound))
 		}
 	}
 
 	if *winnerScreenshot == true {
-		img_printer.PrintScreenBoard(*game, fmt.Sprintf("./img/finished-%v.png", time.Now().UnixNano()))
+		img_printer.PrintScreenBoard(game, fmt.Sprintf("./img/finished-%v.png", time.Now().UnixNano()))
 		fmt.Printf("%v - Winner: %v\tPoints: %v\t Turns: %v\n", time.Now().Format("2006-01-02_15:04:05.000000"), game.Stats.Winner.Name, game.Stats.Winner.Points, game.Stats.CurrentRound)
 	}
 }

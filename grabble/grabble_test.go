@@ -1,16 +1,15 @@
 package grabble_test
 
 import (
-	"flag"
+	"encoding/json"
 	"fmt"
 	"testing"
 
+	"github.com/apiotrowski312/goldtest"
 	"github.com/apiotrowski312/scrabbleBot/grabble"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/stretchr/testify/assert"
 )
-
-var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_PlaceWord(t *testing.T) {
 	type round struct {
@@ -139,8 +138,13 @@ func Test_PlaceWord(t *testing.T) {
 				err := game.PlaceWord(r.word, r.startPos, r.horizontal)
 				assert.Equal(t, r.err, err != nil, fmt.Sprintf("Round: %v\nword: %v\nError: %v", i, r.word, err))
 			}
+			bytes, _ := json.MarshalIndent(game, "", "\t")
+			expectedBytes, err := goldtest.GetGoldenFile(bytes, "testdata/"+c.name)
+			if err != nil {
+				t.Fatal(err)
+			}
+			json.Unmarshal(expectedBytes, &expectedGame)
 
-			test_utils.GetGoldenFileJSON(t, game, &expectedGame, c.name, *update)
 			for i, p := range expectedGame.Players {
 				assert.Equal(t, p.Name, game.Players[i].Name)
 				assert.Equal(t, p.Points, game.Players[i].Points)

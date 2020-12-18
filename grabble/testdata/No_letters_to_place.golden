@@ -1393,7 +1393,8 @@
 				83,
 				72,
 				95
-			]
+			],
+			"Strategy": ""
 		},
 		{
 			"Name": "Zuzanna",
@@ -1406,7 +1407,8 @@
 				83,
 				80,
 				78
-			]
+			],
+			"Strategy": ""
 		}
 	],
 	"Bag": [
@@ -2705,7 +2707,8 @@
 		"Winner": {
 			"Name": "",
 			"Points": 0,
-			"Rack": null
+			"Rack": null,
+			"Strategy": ""
 		}
 	}
 }

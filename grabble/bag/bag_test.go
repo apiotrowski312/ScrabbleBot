@@ -1,15 +1,13 @@
 package bag_test
 
 import (
-	"flag"
 	"testing"
 
+	"github.com/apiotrowski312/goldtest"
 	"github.com/apiotrowski312/scrabbleBot/grabble/bag"
 	"github.com/apiotrowski312/scrabbleBot/utils/test_utils"
 	"github.com/stretchr/testify/assert"
 )
-
-var update = flag.Bool("update", false, "update the golden files of this test")
 
 func Test_CreateBag(t *testing.T) {
 	type testCase struct {
@@ -25,12 +23,8 @@ func Test_CreateBag(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var expectedBag bag.Bag
 			bag := bag.CreateBag(c.tiles)
-			test_utils.GetGoldenFileJSON(t, bag, &expectedBag, c.name, *update)
-
-			assert.Equal(t, expectedBag, bag)
-
+			goldtest.AssertJSON(t, bag, "testdata/"+c.name)
 		})
 	}
 }
@@ -74,12 +68,9 @@ func Test_CreateLettersPoint(t *testing.T) {
 
 	for _, c := range test {
 		t.Run(c.name, func(t *testing.T) {
-			var expectedLettersPoint bag.LettersPoint
 			lp := bag.CreateLettersPoint(c.lp)
-			test_utils.GetGoldenFileJSON(t, lp, &expectedLettersPoint, c.name, *update)
 
-			assert.Equal(t, expectedLettersPoint, lp)
-
+			goldtest.AssertJSON(t, lp, "testdata/"+c.name)
 		})
 	}
 }
